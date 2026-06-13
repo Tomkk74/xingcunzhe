@@ -1,7 +1,7 @@
 {
   "version": 1,
   "createdAt": "2026-06-13T14:08:29Z",
-  "updatedAt": "2026-06-13T16:25:05Z",
+  "updatedAt": "2026-06-13T16:55:58Z",
   "assets": [
     {
       "name": "player-paladin",
@@ -595,6 +595,26 @@
       },
       "traceId": "trace_mqckeseo_clugd7cv",
       "createdAt": "2026-06-13T16:25:05Z"
+    },
+    {
+      "name": "game-cover-boss-warriors",
+      "status": "success",
+      "path": "publish/assets/generated/game-cover-boss-warriors.9478a4d7.webp",
+      "contentHash": "9478a4d7",
+      "revisedPrompt": "Vertical fantasy arcade survivor game cover art in an established arcane-survivor chibi fantasy style. Composition: a massive dark demon boss dominates the upper half, with glowing horns, huge claws, fiery eyes, surrounded by purple smoke and red magic energy. In the lower half, three heroic chibi warriors attack upward together: a holy paladin with shield and cross-shaped light, a purple-robed archmage casting blue fire magic, and an agile ranger with spinning axes and a mechanical hawk. Dynamic upward composition, dramatic diagonal attack beams, bright readable silhouettes, clean dark outline, soft glow, high contrast, dark dungeon background. Palette centered on #111827 #7c3aed #38bdf8 #22c55e #f43f5e #facc15. No text, no logo, no watermark. Vertical composition.",
+      "model": "gpt-image-2",
+      "size": "1024x1536",
+      "wantsTransparent": false,
+      "outputFormat": "webp",
+      "compressionProfile": "lossy_q80_opaque",
+      "originalBytes": 2995520,
+      "finalBytes": 285484,
+      "usage": {
+        "inputTokens": 177,
+        "outputImageTokens": 1372
+      },
+      "traceId": "trace_mqclists_cnxso4cd",
+      "createdAt": "2026-06-13T16:55:58Z"
     }
   ]
 }
