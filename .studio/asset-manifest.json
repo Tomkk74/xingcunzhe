@@ -1,7 +1,7 @@
 {
   "version": 1,
   "createdAt": "2026-06-13T14:08:29Z",
-  "updatedAt": "2026-06-13T14:40:05Z",
+  "updatedAt": "2026-06-13T15:15:10Z",
   "assets": [
     {
       "name": "player-paladin",
@@ -392,6 +392,131 @@
       },
       "traceId": "trace_mqcgo2ny_scroux5t",
       "createdAt": "2026-06-13T14:40:05Z"
+    },
+    {
+      "name": "enemy-skeleton-sheet",
+      "status": "success",
+      "path": "publish/assets/generated/enemy-skeleton-sheet.3d36e807.webp",
+      "contentHash": "3d36e807",
+      "revisedPrompt": "Four-frame pixel art sprite sheet for a small white skeleton warrior enemy in a top-down arcade fantasy survivor game. Arrange exactly as a 2x2 grid, four equal square cells, one animation frame per cell. Same monster in every cell: skull head, tiny bone body, rusty short sword, shambling walking poses, readable silhouette, clean dark outline, consistent scale and centered in each cell. Pixel art style, no labels, no frame numbers, no text, no logo, no watermark. Strictly placed on a SOLID UNIFORM #00B140 chroma key flat color background. The background is a single uniform shade of #00B140 chroma key green that fills 100% of pixels not occupied by the character. No gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements. Pure flat color background, exactly like a green screen used for VFX compositing. No text, no logo, no watermark.",
+      "model": "gpt-image-2",
+      "size": "1024x1024",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#00B140",
+        "alphaZeroPct": 83.1,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossless_alpha",
+      "originalBytes": 1009376,
+      "finalBytes": 222356,
+      "usage": {
+        "inputTokens": 203,
+        "outputImageTokens": 1756
+      },
+      "traceId": "trace_mqchpl43_onch5mz3",
+      "createdAt": "2026-06-13T15:09:09Z"
+    },
+    {
+      "name": "enemy-slime-sheet",
+      "status": "success",
+      "path": "publish/assets/generated/enemy-slime-sheet.6f277ecc.webp",
+      "contentHash": "6f277ecc",
+      "revisedPrompt": "Four-frame pixel art sprite sheet for a chunky purple armored slime enemy in a top-down arcade fantasy survivor game. Arrange exactly as a 2x2 grid, four equal square cells, one animation frame per cell. Same monster in every cell: bulky purple slime, cracked stone shell pieces, slow tank enemy, squash and stretch heavy bounce poses, readable silhouette, clean dark outline, consistent scale and centered in each cell. Pixel art style, no labels, no frame numbers, no text, no logo, no watermark. Strictly placed on a SOLID UNIFORM #00B140 chroma key flat color background. The background is a single uniform shade of #00B140 chroma key green that fills 100% of pixels not occupied by the character. No gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements. Pure flat color background, exactly like a green screen used for VFX compositing. No text, no logo, no watermark.",
+      "model": "gpt-image-2",
+      "size": "1024x1024",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#00B140",
+        "alphaZeroPct": 67.4,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossless_alpha",
+      "originalBytes": 1139030,
+      "finalBytes": 471762,
+      "usage": {
+        "inputTokens": 207,
+        "outputImageTokens": 1756
+      },
+      "traceId": "trace_mqchr9f6_nd8m2ezh",
+      "createdAt": "2026-06-13T15:10:38Z"
+    },
+    {
+      "name": "enemy-eye-mage-sheet",
+      "status": "success",
+      "path": "publish/assets/generated/enemy-eye-mage-sheet.d06bb29e.webp",
+      "contentHash": "d06bb29e",
+      "revisedPrompt": "Four-frame pixel art sprite sheet for a floating evil eye ranged caster enemy in a top-down arcade fantasy survivor game. Arrange exactly as a 2x2 grid, four equal square cells, one animation frame per cell. Same monster in every cell: purple floating eyeball with small horns, glowing iris, dark magic aura, casting poses with eye glow, ranged enemy, readable silhouette, clean dark outline, consistent scale and centered in each cell. Pixel art style, no labels, no frame numbers, no text, no logo, no watermark. Strictly placed on a SOLID UNIFORM #00B140 chroma key flat color background. The background is a single uniform shade of #00B140 chroma key green that fills 100% of pixels not occupied by the character. No gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements. Pure flat color background, exactly like a green screen used for VFX compositing. No text, no logo, no watermark.",
+      "model": "gpt-image-2",
+      "size": "1024x1024",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#00B140",
+        "alphaZeroPct": 76.7,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossless_alpha",
+      "originalBytes": 1130270,
+      "finalBytes": 428204,
+      "usage": {
+        "inputTokens": 212,
+        "outputImageTokens": 3122
+      },
+      "traceId": "trace_mqcht5u5_fhiwwoap",
+      "createdAt": "2026-06-13T15:12:28Z"
+    },
+    {
+      "name": "fx-enemy-orb-sheet",
+      "status": "success",
+      "path": "publish/assets/generated/fx-enemy-orb-sheet.4ab57b8e.webp",
+      "contentHash": "4ab57b8e",
+      "revisedPrompt": "Four-frame pixel art sprite sheet for an enemy dark purple magic orb projectile in a top-down arcade fantasy survivor game. Arrange exactly as a 2x2 grid, four equal square cells, one animation frame per cell. Small violet energy bullet with black core and purple glow, hostile projectile, flickering frames, centered in each cell, consistent scale. Pixel art style, no labels, no frame numbers, no text, no logo, no watermark. Strictly placed on a SOLID UNIFORM #00B140 chroma key flat color background. The background is a single uniform shade of #00B140 chroma key green that fills 100% of pixels not occupied by the effect. No gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements. Pure flat color background, exactly like a green screen used for VFX compositing. No text, no logo, no watermark.",
+      "model": "gpt-image-2",
+      "size": "1024x1024",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#00B140",
+        "alphaZeroPct": 87.2,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossless_alpha",
+      "originalBytes": 952777,
+      "finalBytes": 204932,
+      "usage": {
+        "inputTokens": 193,
+        "outputImageTokens": 1756
+      },
+      "traceId": "trace_mqchvkai_y80x209j",
+      "createdAt": "2026-06-13T15:13:55Z"
+    },
+    {
+      "name": "bg-dungeon-floor",
+      "status": "success",
+      "path": "publish/assets/generated/bg-dungeon-floor.f171ad42.webp",
+      "contentHash": "f171ad42",
+      "revisedPrompt": "Seamless top-down pixel art dark fantasy dungeon floor background for an arcade survivor game, wide composition. Stone tiles with subtle variation, faint glowing blue-purple magical cracks, a few subtle bones and arcane runes placed mostly near the edges, strong negative space in the center for high readability for characters and projectiles, dark palette dominated by #111827 #1b1b3a with accents of #7c3aed and #38bdf8. Clean readable tiles, no characters, no UI, no text, no logo, no watermark. Seamless tiling texture, wide composition, atmospheric but minimal, game-ready background.",
+      "model": "gpt-image-2",
+      "size": "1536x1024",
+      "wantsTransparent": false,
+      "chromaKey": null,
+      "outputFormat": "webp",
+      "compressionProfile": "lossy_q80_opaque",
+      "originalBytes": 2474757,
+      "finalBytes": 123396,
+      "usage": {
+        "inputTokens": 135,
+        "outputImageTokens": 1372
+      },
+      "traceId": "trace_mqchxdsz_s9xhd4j8",
+      "createdAt": "2026-06-13T15:15:10Z"
     }
   ]
 }
