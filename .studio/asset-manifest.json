@@ -1,7 +1,7 @@
 {
   "version": 1,
   "createdAt": "2026-06-13T14:08:29Z",
-  "updatedAt": "2026-06-13T15:15:10Z",
+  "updatedAt": "2026-06-13T16:25:05Z",
   "assets": [
     {
       "name": "player-paladin",
@@ -517,6 +517,84 @@
       },
       "traceId": "trace_mqchxdsz_s9xhd4j8",
       "createdAt": "2026-06-13T15:15:10Z"
+    },
+    {
+      "name": "artifact-icons-sheet",
+      "status": "success",
+      "path": "publish/assets/generated/artifact-icons-sheet.bbdce02f.webp",
+      "contentHash": "bbdce02f",
+      "revisedPrompt": "A 5 by 2 grid sprite sheet of ten distinct fantasy survivor game artifact icons, each centered in its own invisible cell with generous spacing. Icons: 1 thunder crown, 2 crimson dragon heart, 3 frozen moon shard, 4 emerald venom dagger, 5 golden sun grail, 6 void hourglass, 7 starforge hammer, 8 blood raven feather, 9 arcane prism crystal, 10 storm pearl. Bright arcade fantasy, cute chibi readable top-down item sprites, clean dark outline, glowing magical highlights, high contrast, isolated item icons only. No text, no numbers, no logo, no watermark. Strictly placed on a SOLID UNIFORM #00B140 chroma key flat color background. The background is a single uniform shade of #00B140 chroma key green that fills 100% of pixels not occupied by the artifacts. No gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements. Pure flat color background, exactly like a green screen used for VFX compositing.",
+      "model": "gpt-image-2",
+      "size": "1024x1024",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#00B140",
+        "alphaZeroPct": 75.9,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossy_q85_alpha",
+      "originalBytes": 1364279,
+      "finalBytes": 159926,
+      "usage": {
+        "inputTokens": 226,
+        "outputImageTokens": 1756
+      },
+      "traceId": "trace_mqckb286_o8r8l91b",
+      "createdAt": "2026-06-13T16:21:58Z"
+    },
+    {
+      "name": "class-relics-sheet",
+      "status": "success",
+      "path": "publish/assets/generated/class-relics-sheet.1b352179.webp",
+      "contentHash": "1b352179",
+      "revisedPrompt": "A 3 by 1 sprite sheet with three class relic companion artifacts for a top-down fantasy survivor game, each centered in its own cell with spacing. Left cell: a holy golden cross relic for paladin, cute chibi fantasy arcade item sprite, clean dark outline, magical glow, readable silhouette. Middle cell: a floating ancient purple spellbook with blue runes for mage, cute chibi fantasy arcade item sprite, clean dark outline, magical glow, readable silhouette. Right cell: a bronze mechanical hawk drone with glowing eyes for ranger, cute chibi fantasy arcade item sprite, clean dark outline, magical glow, readable silhouette. All three on a STRICTLY SOLID UNIFORM #00B140 chroma key flat color background filling 100% of pixels not occupied by the relics, pure flat green screen with no gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements. No text, no logo, no watermark.",
+      "model": "gpt-image-2",
+      "size": "1024x1024",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#00B140",
+        "alphaZeroPct": 81.7,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossy_q85_alpha",
+      "originalBytes": 1129376,
+      "finalBytes": 86432,
+      "usage": {
+        "inputTokens": 203,
+        "outputImageTokens": 1756
+      },
+      "traceId": "trace_mqckd3lt_ubza6k1a",
+      "createdAt": "2026-06-13T16:23:25Z"
+    },
+    {
+      "name": "artifact-fx-sheet",
+      "status": "success",
+      "path": "publish/assets/generated/artifact-fx-sheet.ec8252a8.webp",
+      "contentHash": "ec8252a8",
+      "revisedPrompt": "A 5 by 2 grid sprite sheet of ten ornate magical attack visual effects for artifact powers, each centered in its own cell with generous spacing. Effects arranged in 5 columns x 2 rows, one effect per cell, clean separation, no overlap: 1) thunder crown lightning burst, 2) dragon heart crimson flame wave, 3) frozen moon icy crescent slash, 4) emerald venom dagger poison spiral, 5) golden sun grail holy beam, 6) void hourglass dark time rift, 7) starforge hammer meteor sparks, 8) blood raven feather red feather blades, 9) arcane prism rainbow laser shards, 10) storm pearl blue cyclone orb. Bright arcade fantasy survivor VFX, detailed and flashy, clean silhouette, glowing particles, no characters, no text, no logo, no watermark. Strictly placed on a SOLID UNIFORM #00B140 chroma key flat color background. The background is a single uniform shade of #00B140 chroma key green that fills 100% of pixels not occupied by the effects. No gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements. Pure flat color background, exactly like a green screen used for VFX compositing.",
+      "model": "gpt-image-2",
+      "size": "1024x1024",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#00B140",
+        "alphaZeroPct": 66.7,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossy_q85_alpha",
+      "originalBytes": 1629189,
+      "finalBytes": 256320,
+      "usage": {
+        "inputTokens": 270,
+        "outputImageTokens": 1756
+      },
+      "traceId": "trace_mqckeseo_clugd7cv",
+      "createdAt": "2026-06-13T16:25:05Z"
     }
   ]
 }
