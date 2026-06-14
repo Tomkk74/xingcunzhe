@@ -3,31 +3,31 @@ window.GameModules.progression = (() => {
   const KEY = 'arcane-meta-v2';
   const CLASSES = { paladin: '圣骑士', mage: '大魔法师', ranger: '游侠' };
   const BASE = [
-    ['hp', '生命根基', '本职业最大生命 +5%', 10, 30, 50, 20],
-    ['damage', '战斗本能', '本职业全技能伤害 +4%', 10, 50, 28, 42],
-    ['speed', '疾行训练', '本职业移动速度 +3%', 8, 45, 72, 42],
-    ['magnet', '灵魂牵引', '经验拾取范围 +6%', 8, 40, 18, 66],
-    ['startXp', '启程经验', '开局经验 +4', 5, 55, 50, 66],
-    ['gold', '掠金术', '本职业结算金币收益 +5%', 10, 45, 82, 66],
+    ['hp', '生命根基', '最大生命 +5%', 10, 30, 50, 16],
+    ['damage', '战斗本能', '全技能伤害 +4%', 10, 50, 28, 38],
+    ['speed', '疾行训练', '移动速度 +3%', 8, 45, 72, 38],
+    ['magnet', '灵魂牵引', '拾取范围 +6%', 8, 40, 18, 60],
+    ['startXp', '启程经验', '开局经验 +4', 5, 55, 50, 60],
+    ['gold', '掠金术', '金币收益 +5%', 10, 45, 82, 60],
   ];
   const SPEC = {
     paladin: [
-      ['aura', '蒜阵圣化', '大蒜光环伤害提升，范围成长更快', 5, 80, 26, 88, 'damage', ['garlic']],
-      ['lance', '圣枪裁决', '圣光长枪伤害提升', 5, 90, 50, 92, 'damage', ['holyLance']],
-      ['nova', '血誓新星', '血色新星伤害提升', 5, 90, 74, 88, 'damage', ['bloodNova']],
-      ['guard', '神圣壁垒', '开局获得护盾，生命回复提升', 4, 110, 50, 116, 'utility', []],
+      ['aura', '蒜阵圣化', '大蒜光环强化', 5, 80, 26, 82, 'damage', ['garlic']],
+      ['lance', '圣枪裁决', '圣光长枪强化', 5, 90, 50, 86, 'damage', ['holyLance']],
+      ['nova', '血誓新星', '血色新星强化', 5, 90, 74, 82, 'damage', ['bloodNova']],
+      ['guard', '神圣壁垒', '护盾与回复提升', 4, 110, 50, 108, 'utility', []],
     ],
     mage: [
-      ['missile', '飞弹增幅', '魔法飞弹伤害提升', 5, 80, 26, 88, 'damage', ['missile']],
-      ['fire', '赤焰学派', '火球和陨星伤害提升', 5, 90, 50, 92, 'damage', ['fireball', 'meteorShard']],
-      ['thunder', '雷弧回路', '闪电和连锁雷弧伤害提升', 5, 90, 74, 88, 'damage', ['lightning', 'thunderChain']],
-      ['beam', '棱镜奥术', '奥术射线伤害和等级效果提升', 4, 110, 50, 116, 'damage', ['arcaneBeam']],
+      ['missile', '飞弹增幅', '魔法飞弹强化', 5, 80, 26, 82, 'damage', ['missile']],
+      ['fire', '赤焰学派', '火球陨星强化', 5, 90, 50, 86, 'damage', ['fireball', 'meteorShard']],
+      ['thunder', '雷弧回路', '雷系技能强化', 5, 90, 74, 82, 'damage', ['lightning', 'thunderChain']],
+      ['beam', '棱镜奥术', '奥术射线强化', 4, 110, 50, 108, 'damage', ['arcaneBeam']],
     ],
     ranger: [
-      ['axe', '回旋飞斧', '飞斧伤害提升', 5, 80, 26, 88, 'damage', ['axe']],
-      ['wind', '风裂专精', '风裂刃伤害提升', 5, 90, 50, 92, 'damage', ['windCutter']],
-      ['dagger', '匕首阵列', '匕首雨伤害提升', 5, 90, 74, 88, 'damage', ['daggerRain']],
-      ['moon', '月牙猎影', '月牙斩伤害和等级效果提升', 4, 110, 50, 116, 'damage', ['moonSlash']],
+      ['axe', '回旋飞斧', '飞斧强化', 5, 80, 26, 82, 'damage', ['axe']],
+      ['wind', '风裂专精', '风裂刃强化', 5, 90, 50, 86, 'damage', ['windCutter']],
+      ['dagger', '匕首阵列', '匕首雨强化', 5, 90, 74, 82, 'damage', ['daggerRain']],
+      ['moon', '月牙猎影', '月牙斩强化', 4, 110, 50, 108, 'damage', ['moonSlash']],
     ],
   };
   const DEFAULT = { soulGold: 0, classes: Object.fromEntries(Object.keys(CLASSES).map(k => [k, { upgrades: {} }])) };
@@ -73,7 +73,7 @@ window.GameModules.progression = (() => {
   function renderTree(container, onChange, active = 'paladin') {
     if (!container) return; const list = nodes(active), up = clsData(active).upgrades;
     const lines = list.filter(n => n.pre).map(n => { const p = node(active, n.pre); return `<line x1="${p.x}%" y1="${p.y}%" x2="${n.x}%" y2="${n.y}%"/>`; }).join('');
-    const cards = list.map(n => { const lv = up[n.id] || 0, price = cost(active, n.id), lock = !unlocked(active, n), full = lv >= n.max, can = !lock && !full && meta.soulGold >= price; return `<button class="treeNode ${lock ? 'locked' : ''} ${full ? 'full' : ''}" style="left:${n.x}%;top:${n.y}%" data-prog-node="${n.id}" ${can ? '' : 'disabled'}><b>${n.name}</b><small>Lv.${lv}/${n.max}</small><span>${lock ? '需前置节点' : full ? '已满级' : `消耗 ${price}`}</span><em>${n.desc}</em></button>`; }).join('');
+    const cards = list.map(n => { const lv = up[n.id] || 0, price = cost(active, n.id), lock = !unlocked(active, n), full = lv >= n.max, can = !lock && !full && meta.soulGold >= price; return `<button class="treeNode ${lock ? 'locked' : ''} ${full ? 'full' : ''}" style="left:${n.x}%;top:${n.y}%" data-prog-node="${n.id}" ${can ? '' : 'disabled'}><b>${n.name}</b><small>Lv.${lv}/${n.max}</small><span>${lock ? '需前置节点' : full ? '已满级' : `消耗 ${price}`}</span><em title="${n.desc}">${n.desc}</em></button>`; }).join('');
     container.innerHTML = `<div class="progressHead"><b>灵魂金币：${meta.soulGold}</b><small>当前职业：${CLASSES[active]}</small></div><div class="classTabs">${Object.entries(CLASSES).map(([id, name]) => `<button class="${id === active ? 'selected' : ''}" data-prog-class="${id}">${name}</button>`).join('')}</div><div class="treeCanvas"><svg viewBox="0 0 100 130" preserveAspectRatio="none">${lines}</svg>${cards}</div>`;
     container.querySelectorAll('[data-prog-class]').forEach(b => b.onclick = () => renderTree(container, onChange, b.dataset.progClass));
     container.querySelectorAll('[data-prog-node]').forEach(b => b.onclick = async () => { await buy(active, b.dataset.progNode); renderTree(container, onChange, active); onChange?.(); });

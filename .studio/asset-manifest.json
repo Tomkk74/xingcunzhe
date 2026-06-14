@@ -1,7 +1,7 @@
 {
   "version": 1,
   "createdAt": "2026-06-13T14:08:29Z",
-  "updatedAt": "2026-06-14T02:31:54Z",
+  "updatedAt": "2026-06-14T04:30:35Z",
   "assets": [
     {
       "name": "player-paladin",
@@ -1101,6 +1101,32 @@
       "note": "alternate green hooded ranger action sheet",
       "createdAt": "2026-06-14T02:27:53Z",
       "correctedAt": "2026-06-14T02:31:54Z"
+    },
+    {
+      "name": "medieval-ui-panel",
+      "status": "success",
+      "path": "publish/assets/generated/medieval-ui-panel.322d1beb.webp",
+      "contentHash": "322d1beb",
+      "revisedPrompt": "Reusable medieval dark fantasy game UI panel material, centered composition: aged parchment center with subtle fiber grain, dark forged iron border, carved walnut wood trim, small brass rivets, gothic fantasy craft, high quality hand-painted texture, physically plausible materials, no plastic, no glossy modern gradients, no text, no logo, no watermark. The panel should be isolated on a SOLID UNIFORM #00B140 chroma key flat color background that fills 100% of the remaining canvas pixels. Absolutely no gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements outside the panel. Pure flat color background, exactly like a green screen used for VFX compositing.",
+      "model": "gpt-image-2",
+      "size": "1024x1024",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#00B140",
+        "alphaZeroPct": 31.2,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossy_q85_alpha",
+      "originalBytes": 1874779,
+      "finalBytes": 162286,
+      "usage": {
+        "inputTokens": 147,
+        "outputImageTokens": 1756
+      },
+      "traceId": "trace_mqdacbrz_wq99thse",
+      "createdAt": "2026-06-14T04:30:35Z"
     }
   ]
 }
