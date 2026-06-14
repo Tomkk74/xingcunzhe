@@ -1,7 +1,7 @@
 {
   "version": 1,
   "createdAt": "2026-06-13T14:08:29Z",
-  "updatedAt": "2026-06-14T14:39:47Z",
+  "updatedAt": "2026-06-14T15:12:10Z",
   "assets": [
     {
       "name": "player-paladin",
@@ -1291,6 +1291,92 @@
       },
       "traceId": "trace_mqdw3rsg_fie1xqh4",
       "createdAt": "2026-06-14T14:39:47Z"
+    },
+    {
+      "name": "terrain-atlas",
+      "status": "success",
+      "path": "publish/assets/generated/terrain-atlas.27cfcff3.webp",
+      "contentHash": "27cfcff3",
+      "revisedPrompt": "A single square 4x4 sprite atlas sheet for a top-down 3/4 arcade fantasy survivor game, containing 16 separate terrain props arranged in an exact 4 by 4 grid with generous padding between cells. Each cell contains one centered prop, no overlap between cells, consistent top-down 3/4 view, cute chibi-compatible proportions, bright arcade fantasy style, clean dark outline, soft glow, high contrast, dark dungeon palette. The 16 props, one per cell, are: chaos purple rift; chaos glowing rune circle; black obsidian obelisk; small void vortex; ancient cracked floor mark; ancient stone pillar; broken stone wall segment; broken altar; frost snow patch; blue ice crack; blue ice crystal cluster; frozen standing stone; small rubble pile; gold rune tile; dark thorny rock; moonlit ice field patch. No text, no logo, no watermark. Strictly on a SOLID UNIFORM #00B140 chroma key flat color background filling all pixels not occupied by the props. Pure flat color background, no gradient, no shadow, no texture, no scenery, no ground, no decoration outside the props.",
+      "model": "gpt-image-2",
+      "size": "1024x1024",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#00B140",
+        "alphaZeroPct": 70.6,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossy_q85_alpha",
+      "originalBytes": 1461848,
+      "finalBytes": 147740,
+      "usage": {
+        "inputTokens": 244,
+        "outputImageTokens": 1756
+      },
+      "traceId": "trace_mqdx3ndx_whw9rmwu",
+      "createdAt": "2026-06-14T15:07:57Z"
+    },
+    {
+      "name": "ground-chaos",
+      "status": "success",
+      "path": "publish/assets/generated/ground-chaos.52b8916c.webp",
+      "contentHash": "52b8916c",
+      "revisedPrompt": "Seamless tileable top-down ground texture for a dark chaos realm fantasy survivor game. Purple-black dungeon floor with subtle arcane cracks and faint violet energy veins, readable but not busy, suitable for repeating as a large map floor. Bright arcade fantasy style, high contrast but low detail density, no objects, no characters, no text, no logo, no watermark. Wide composition, texture-only, perfectly seamless tileable pattern, top-down view.",
+      "model": "gpt-image-2",
+      "size": "1024x1024",
+      "wantsTransparent": false,
+      "outputFormat": "webp",
+      "compressionProfile": "lossy_q80_opaque",
+      "originalBytes": 2098087,
+      "finalBytes": 150858,
+      "usage": {
+        "inputTokens": 96,
+        "outputImageTokens": 781
+      },
+      "traceId": "trace_mqdx5j3n_klzhul8e",
+      "createdAt": "2026-06-14T15:09:01Z"
+    },
+    {
+      "name": "ground-ruins",
+      "status": "success",
+      "path": "publish/assets/generated/ground-ruins.7d024d05.webp",
+      "contentHash": "7d024d05",
+      "revisedPrompt": "Seamless tileable top-down ground texture for an ancient ruins fantasy survival game. Warm brown stone slabs forming a worn temple floor, subtle cracks, weathered edges, faint gold rune dust lightly scattered, readable but not busy, suitable for repeating as a large map floor. Bright arcade fantasy style, high contrast but low detail density, no objects, no characters, no text, no logo, no watermark. Wide composition, tileable texture, evenly lit, top-down orthographic view, game asset texture.",
+      "model": "gpt-image-2",
+      "size": "1024x1024",
+      "wantsTransparent": false,
+      "outputFormat": "webp",
+      "compressionProfile": "lossy_q80_opaque",
+      "originalBytes": 2278346,
+      "finalBytes": 209646,
+      "usage": {
+        "inputTokens": 108,
+        "outputImageTokens": 1756
+      },
+      "traceId": "trace_mqdx6xh0_u27ottyo",
+      "createdAt": "2026-06-14T15:10:29Z"
+    },
+    {
+      "name": "ground-frost",
+      "status": "success",
+      "path": "publish/assets/generated/ground-frost.20946f69.webp",
+      "contentHash": "20946f69",
+      "revisedPrompt": "Seamless tileable top-down ground texture for a frost moon wasteland fantasy survivor game. Cold blue icy snow field with subtle cracked ice, moonlit frost patterns, pale cyan highlights. Readable but not busy, suitable for repeating as a large map floor. Bright arcade fantasy style, high contrast, low detail density, evenly distributed texture flow, no objects, no characters, no text, no logo, no watermark. Wide composition, tileable seamless pattern.",
+      "model": "gpt-image-2",
+      "size": "1024x1024",
+      "wantsTransparent": false,
+      "outputFormat": "webp",
+      "compressionProfile": "lossy_q80_opaque",
+      "originalBytes": 2411296,
+      "finalBytes": 252364,
+      "usage": {
+        "inputTokens": 99,
+        "outputImageTokens": 1756
+      },
+      "traceId": "trace_mqdx8shc_q2zp27qk",
+      "createdAt": "2026-06-14T15:12:10Z"
     }
   ]
 }
