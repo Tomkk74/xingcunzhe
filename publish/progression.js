@@ -30,6 +30,7 @@ window.GameModules.progression = (() => {
       ['moon', '月牙猎影', '月牙斩每级减速 +0.18、弧刃范围 +4、冷却 -5%，Lv.4 后 +1 道', 4, 110, 50, 108, 'damage', ['moonSlash']],
     ],
   };
+  const COST_GROWTH = 1.72;
   const DEFAULT = { soulGold: 0, classes: Object.fromEntries(Object.keys(CLASSES).map(k => [k, { upgrades: {} }])) };
   let meta = clone(DEFAULT), ready = false;
 
@@ -60,7 +61,7 @@ window.GameModules.progression = (() => {
   function level(c, id) { return clsData(c).upgrades[id] || 0; }
   function node(c, id) { return nodes(c).find(n => n.id === id); }
   function unlocked(c, n) { return !n.pre || level(c, n.pre) > 0; }
-  function cost(c, id) { const n = node(c, id), lv = level(c, id); return !n || lv >= n.max ? 0 : Math.round(n.base * Math.pow(1.55, lv)); }
+  function cost(c, id) { const n = node(c, id), lv = level(c, id); return !n || lv >= n.max ? 0 : Math.round(n.base * Math.pow(COST_GROWTH, lv)); }
   function esc(v) { return String(v).replace(/[&<>"']/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m])); }
   async function buy(c, id) {
     const n = node(c, id); if (!n || !unlocked(c, n)) return false;
