@@ -68,7 +68,7 @@ window.GameModules.progression = (() => {
   }
   function render(container) {
     if (!container) return;
-    container.innerHTML = `<button class="choice" data-open-progress><h2>永久强化</h2><p>灵魂金币：<b>${meta.soulGold}</b></p><p class="rewardHint">点击打开职业技能树，切换职业并强化分支。</p></button>`;
+    container.innerHTML = `<div class="progressEntry"><span>灵魂金币：<b>${meta.soulGold}</b></span><button class="progressBtn" data-open-progress>永久强化</button></div>`;
   }
   function renderTree(container, onChange, active = 'paladin') {
     if (!container) return; const list = nodes(active), up = clsData(active).upgrades;
