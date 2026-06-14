@@ -1,7 +1,7 @@
 {
   "version": 1,
   "createdAt": "2026-06-13T14:08:29Z",
-  "updatedAt": "2026-06-14T08:36:06Z",
+  "updatedAt": "2026-06-14T14:39:47Z",
   "assets": [
     {
       "name": "player-paladin",
@@ -1271,6 +1271,26 @@
       },
       "traceId": "trace_mqdj3tbw_qfnwcldp",
       "createdAt": "2026-06-14T08:36:06Z"
+    },
+    {
+      "name": "loading-screen",
+      "status": "success",
+      "path": "publish/assets/generated/loading-screen.70782bf5.webp",
+      "contentHash": "70782bf5",
+      "revisedPrompt": "Arcane survivor chibi fantasy loading screen background for a vertical mobile game. Dark magical dungeon atmosphere with glowing purple and cyan runes, polished game splash art, bright arcade fantasy survivor game vibe with cute chibi characters implied in the style, heroic silhouettes suggested in the distance, ornate medieval fantasy frame area, high contrast, soft glow, clean dark outlines, dark dungeon colors. Vertical composition, loading screen art, leave the central area visually clean and uncluttered for UI overlay. No readable text, no logo, no watermark. No prominent characters in the center; keep the center as a calm focal space with atmospheric lighting and rune accents around the edges.",
+      "model": "gpt-image-2",
+      "size": "1024x1536",
+      "wantsTransparent": false,
+      "outputFormat": "webp",
+      "compressionProfile": "lossy_q80_opaque",
+      "originalBytes": 2119778,
+      "finalBytes": 118512,
+      "usage": {
+        "inputTokens": 137,
+        "outputImageTokens": 1372
+      },
+      "traceId": "trace_mqdw3rsg_fie1xqh4",
+      "createdAt": "2026-06-14T14:39:47Z"
     }
   ]
 }
