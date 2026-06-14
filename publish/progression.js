@@ -12,22 +12,22 @@ window.GameModules.progression = (() => {
   ];
   const SPEC = {
     paladin: [
-      ['aura', '蒜阵圣化', '大蒜光环强化', 5, 80, 26, 82, 'damage', ['garlic']],
-      ['lance', '圣枪裁决', '圣光长枪强化', 5, 90, 50, 86, 'damage', ['holyLance']],
-      ['nova', '血誓新星', '血色新星强化', 5, 90, 74, 82, 'damage', ['bloodNova']],
-      ['guard', '神圣壁垒', '护盾与回复提升', 4, 110, 50, 108, 'utility', []],
+      ['aura', '蒜阵圣化', '大蒜光环伤害每级 +7%，Lv.4 后大蒜光环额外 +1 技能等级', 5, 80, 26, 82, 'damage', ['garlic']],
+      ['lance', '圣枪裁决', '圣光长枪伤害每级 +7%，Lv.4 后圣光长枪额外 +1 技能等级', 5, 90, 50, 86, 'damage', ['holyLance']],
+      ['nova', '血誓新星', '血色新星伤害每级 +7%，Lv.4 后血色新星额外 +1 技能等级', 5, 90, 74, 82, 'damage', ['bloodNova']],
+      ['guard', '神圣壁垒', '每级生命 +3%、开局护盾 +4% 基础生命、每秒回复 +0.25', 4, 110, 50, 108, 'utility', []],
     ],
     mage: [
-      ['missile', '飞弹增幅', '魔法飞弹强化', 5, 80, 26, 82, 'damage', ['missile']],
-      ['fire', '赤焰学派', '火球陨星强化', 5, 90, 50, 86, 'damage', ['fireball', 'meteorShard']],
-      ['thunder', '雷弧回路', '雷系技能强化', 5, 90, 74, 82, 'damage', ['lightning', 'thunderChain']],
-      ['beam', '棱镜奥术', '奥术射线强化', 4, 110, 50, 108, 'damage', ['arcaneBeam']],
+      ['missile', '飞弹增幅', '魔法飞弹伤害每级 +7%，Lv.4 后魔法飞弹额外 +1 技能等级', 5, 80, 26, 82, 'damage', ['missile']],
+      ['fire', '赤焰学派', '火球与陨星伤害每级 +7%，Lv.4 后两者额外 +1 技能等级', 5, 90, 50, 86, 'damage', ['fireball', 'meteorShard']],
+      ['thunder', '雷弧回路', '闪电与连锁雷弧伤害每级 +7%，Lv.4 后两者额外 +1 技能等级', 5, 90, 74, 82, 'damage', ['lightning', 'thunderChain']],
+      ['beam', '棱镜奥术', '奥术射线伤害每级 +7%，Lv.4 后奥术射线额外 +1 技能等级', 4, 110, 50, 108, 'damage', ['arcaneBeam']],
     ],
     ranger: [
-      ['axe', '回旋飞斧', '飞斧强化', 5, 80, 26, 82, 'damage', ['axe']],
-      ['wind', '风裂专精', '风裂刃强化', 5, 90, 50, 86, 'damage', ['windCutter']],
-      ['dagger', '匕首阵列', '匕首雨强化', 5, 90, 74, 82, 'damage', ['daggerRain']],
-      ['moon', '月牙猎影', '月牙斩强化', 4, 110, 50, 108, 'damage', ['moonSlash']],
+      ['axe', '回旋飞斧', '飞斧伤害每级 +7%，Lv.4 后飞斧额外 +1 技能等级', 5, 80, 26, 82, 'damage', ['axe']],
+      ['wind', '风裂专精', '风裂刃伤害每级 +7%，Lv.4 后风裂刃额外 +1 技能等级', 5, 90, 50, 86, 'damage', ['windCutter']],
+      ['dagger', '匕首阵列', '匕首雨伤害每级 +7%，Lv.4 后匕首雨额外 +1 技能等级', 5, 90, 74, 82, 'damage', ['daggerRain']],
+      ['moon', '月牙猎影', '月牙斩伤害每级 +7%，Lv.4 后月牙斩额外 +1 技能等级', 4, 110, 50, 108, 'damage', ['moonSlash']],
     ],
   };
   const DEFAULT = { soulGold: 0, classes: Object.fromEntries(Object.keys(CLASSES).map(k => [k, { upgrades: {} }])) };
