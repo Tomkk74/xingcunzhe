@@ -1,7 +1,7 @@
 {
   "version": 1,
   "createdAt": "2026-06-13T14:08:29Z",
-  "updatedAt": "2026-06-13T16:55:58Z",
+  "updatedAt": "2026-06-14T01:31:57Z",
   "assets": [
     {
       "name": "player-paladin",
@@ -615,6 +615,396 @@
       },
       "traceId": "trace_mqclists_cnxso4cd",
       "createdAt": "2026-06-13T16:55:58Z"
+    },
+    {
+      "name": "fx-shadow-blade-sheet",
+      "status": "success",
+      "path": "publish/assets/generated/fx-shadow-blade-sheet.eb538d8f.webp",
+      "contentHash": "eb538d8f",
+      "revisedPrompt": "Four-frame pixel art sprite sheet for a dark purple shadow blade slash projectile in a top-down arcade fantasy survivor game. Arrange exactly as a 2x2 grid, four equal square cells, one animation frame per cell. A crescent dagger-shaped slash flying left to right, black violet core, magenta rim light, smoky pixel trail, increasing impact spark across frames, clean readable game attack effect, centered in each cell, consistent scale, similar layout and scale to a fireball projectile sprite sheet. Pixel art style, no labels, no frame numbers, no text, no logo, no watermark. Strictly placed on a SOLID UNIFORM #00B140 chroma key flat color background. The background is a single uniform shade of #00B140 chroma key green that fills 100% of pixels not occupied by the effect. No gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements. Pure flat color background, exactly like a green screen used for VFX compositing. No text, no logo, no watermark.",
+      "model": "gpt-image-2",
+      "size": "1024x1024",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#00B140",
+        "alphaZeroPct": 82.3,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossless_alpha",
+      "originalBytes": 1011651,
+      "finalBytes": 301582,
+      "usage": {
+        "inputTokens": 223,
+        "outputImageTokens": 1756
+      },
+      "traceId": "trace_mqd3gryk_jgar193u",
+      "createdAt": "2026-06-14T01:18:05Z"
+    },
+    {
+      "name": "fx-holy-lance-sheet",
+      "status": "success",
+      "path": "publish/assets/generated/fx-holy-lance-sheet.ac3d2ace.webp",
+      "contentHash": "ac3d2ace",
+      "revisedPrompt": "Four-frame pixel art sprite sheet for a holy lance projectile in a top-down arcade fantasy survivor game. Arrange exactly as a 2x2 grid, four equal square cells, one animation frame per cell. A bright gold and white spear of light flying left to right, sharp long lance silhouette, sacred sparkles, small radiant trail, increasing impact flash across frames, clean readable attack effect, centered in each cell, consistent scale, similar layout and scale to a fireball projectile sprite sheet. Pixel art style, no labels, no frame numbers, no text, no logo, no watermark. Strictly placed on a SOLID UNIFORM #00B140 chroma key flat color background. The background is a single uniform shade of #00B140 chroma key color that fills 100% of pixels not occupied by the effect. No gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements. Pure flat color background, exactly like a green screen used for VFX compositing. No text, no logo, no watermark.",
+      "model": "gpt-image-2",
+      "size": "1024x1024",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#00B140",
+        "alphaZeroPct": 90.3,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossless_alpha",
+      "originalBytes": 961751,
+      "finalBytes": 166110,
+      "usage": {
+        "inputTokens": 221,
+        "outputImageTokens": 1756
+      },
+      "traceId": "trace_mqd3j9yn_jbyjxsur",
+      "createdAt": "2026-06-14T01:19:55Z"
+    },
+    {
+      "name": "fx-poison-cloud-sheet",
+      "status": "success",
+      "path": "publish/assets/generated/fx-poison-cloud-sheet.af220b9d.webp",
+      "contentHash": "af220b9d",
+      "revisedPrompt": "Four-frame pixel art sprite sheet for a toxic poison cloud burst in a top-down arcade fantasy survivor game. Arrange exactly as a 2x2 grid, four equal square cells, one animation frame per cell. Green acid mist puff expanding outward, bubbling venom droplets, dark olive core, sickly lime highlights, readable circular area damage effect, centered in each cell, consistent scale, similar game effect scale to magic projectile sheets. Pixel art style, no labels, no frame numbers, no text, no logo, no watermark. Strictly placed on a SOLID UNIFORM #FF00FF chroma key flat color background. The background is a single uniform shade of #FF00FF chroma key color that fills 100% of pixels not occupied by the effect. No gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements. Pure flat color background, exactly like a green screen used for VFX compositing. No text, no logo, no watermark.",
+      "model": "gpt-image-2",
+      "size": "1024x1024",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#FF00FF",
+        "alphaZeroPct": 69,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossless_alpha",
+      "originalBytes": 1202321,
+      "finalBytes": 560606,
+      "usage": {
+        "inputTokens": 208,
+        "outputImageTokens": 1756
+      },
+      "traceId": "trace_mqd3k9q8_iqrxra90",
+      "createdAt": "2026-06-14T01:20:49Z"
+    },
+    {
+      "name": "fx-meteor-shard-sheet",
+      "status": "success",
+      "path": "publish/assets/generated/fx-meteor-shard-sheet.2e54533b.webp",
+      "contentHash": "2e54533b",
+      "revisedPrompt": "Four-frame pixel art sprite sheet for a falling meteor shard attack in a top-down arcade fantasy survivor game. Arrange exactly as a 2x2 grid, four equal square cells, one animation frame per cell. Burning rock comet angled left to right, orange flame tail, dark red stone core, final frame with a small explosive pixel burst. Clean readable attack effect, centered in each cell, consistent scale, similar layout and scale to a fireball projectile sprite sheet. Pixel art style, no labels, no frame numbers, no text, no logo, no watermark. Strictly placed on a SOLID UNIFORM #00B140 chroma key flat color background. The background is a single uniform shade of #00B140 chroma key color that fills 100% of pixels not occupied by the effect. No gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements. Pure flat color background, exactly like a green screen used for VFX compositing. No text, no logo, no watermark.",
+      "model": "gpt-image-2",
+      "size": "1024x1024",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#00B140",
+        "alphaZeroPct": 85.8,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossless_alpha",
+      "originalBytes": 975983,
+      "finalBytes": 244138,
+      "usage": {
+        "inputTokens": 446,
+        "outputImageTokens": 2537
+      },
+      "traceId": "trace_mqd3lfbg_hrovhfoj",
+      "createdAt": "2026-06-14T01:22:16Z"
+    },
+    {
+      "name": "fx-blood-nova-sheet",
+      "status": "success",
+      "path": "publish/assets/generated/fx-blood-nova-sheet.3dca47a0.webp",
+      "contentHash": "3dca47a0",
+      "revisedPrompt": "Four-frame pixel art sprite sheet for a blood red nova ring explosion in a top-down arcade fantasy survivor game. Arrange exactly as a 2x2 grid, four equal square cells, one animation frame per cell. Crimson circular shockwave expanding from center, dark red core, ruby droplets, black red magical edge, readable radial area attack effect, centered in each cell, consistent scale. Pixel art style, no labels, no frame numbers, no text, no logo, no watermark. Strictly placed on a SOLID UNIFORM #00B140 chroma key flat color background. The background is a single uniform shade of #00B140 chroma key color that fills 100% of pixels not occupied by the effect. No gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements. Pure flat color background, exactly like a green screen used for VFX compositing. No text, no logo, no watermark.",
+      "model": "gpt-image-2",
+      "size": "1024x1024",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#00B140",
+        "alphaZeroPct": 69.7,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossless_alpha",
+      "originalBytes": 1241941,
+      "finalBytes": 649308,
+      "usage": {
+        "inputTokens": 200,
+        "outputImageTokens": 1756
+      },
+      "traceId": "trace_mqd3naf0_tmpy8ij2",
+      "createdAt": "2026-06-14T01:23:08Z"
+    },
+    {
+      "name": "fx-wind-cutter-sheet",
+      "status": "success",
+      "path": "publish/assets/generated/fx-wind-cutter-sheet.abd5be0d.webp",
+      "contentHash": "abd5be0d",
+      "revisedPrompt": "Four-frame pixel art sprite sheet for a teal wind cutter blade projectile in a top-down arcade fantasy survivor game. Arrange exactly as a 2x2 grid, four equal square cells, one animation frame per cell. Curved cyan air blade flying left to right, pale teal slash, white wind streaks, small spinning gust pixels, clean readable attack effect, centered in each cell, consistent scale, similar layout and scale to a projectile sprite sheet. Pixel art style, no labels, no frame numbers, no text, no logo, no watermark. Strictly placed on a SOLID UNIFORM #00B140 chroma key flat color background. The background is a single uniform shade of #00B140 chroma key color that fills 100% of pixels not occupied by the effect. No gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements. Pure flat color background, exactly like a green screen used for VFX compositing. No text, no logo, no watermark.",
+      "model": "gpt-image-2",
+      "size": "1024x1024",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#00B140",
+        "alphaZeroPct": 88,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossless_alpha",
+      "originalBytes": 968917,
+      "finalBytes": 200998,
+      "usage": {
+        "inputTokens": 213,
+        "outputImageTokens": 1756
+      },
+      "traceId": "trace_mqd3oe8s_3eii3vxg",
+      "createdAt": "2026-06-14T01:23:56Z"
+    },
+    {
+      "name": "fx-thunder-chain-sheet",
+      "status": "success",
+      "path": "publish/assets/generated/fx-thunder-chain-sheet.3015a92f.webp",
+      "contentHash": "3015a92f",
+      "revisedPrompt": "Four-frame pixel art sprite sheet for a chain lightning arc in a top-down arcade fantasy survivor game. Arrange exactly as a 2x2 grid with four equal square cells, one animation frame per cell. Each cell contains a centered, consistent-scale horizontal left-to-right energy arc: a jagged yellow electric bolt segment with branching blue-white sparks, pulsing energy variation across the four frames, readable lightning attack effect. Strict pixel art style, crisp pixels, no blur. Background must be a solid uniform chroma key flat color #00B140 filling all non-effect pixels exactly, with no gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements. No labels, no frame numbers, no text, no logo, no watermark.",
+      "model": "gpt-image-2",
+      "size": "1024x1024",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#00B140",
+        "alphaZeroPct": 87,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossless_alpha",
+      "originalBytes": 1041650,
+      "finalBytes": 264256,
+      "usage": {
+        "inputTokens": 161,
+        "outputImageTokens": 1756
+      },
+      "traceId": "trace_mqd3pfoq_4hoxq0z6",
+      "createdAt": "2026-06-14T01:24:45Z"
+    },
+    {
+      "name": "fx-crystal-spike-sheet",
+      "status": "success",
+      "path": "publish/assets/generated/fx-crystal-spike-sheet.1187f926.webp",
+      "contentHash": "1187f926",
+      "revisedPrompt": "Four-frame pixel art sprite sheet for a crystal spike eruption in a top-down arcade fantasy survivor game. Arrange exactly as a 2x2 grid, four equal square cells, one animation frame per cell. Blue-violet crystal shards bursting upward from a small ground crack, first frame small crack then taller spikes then shatter sparkle, readable area attack effect, centered in each cell, consistent scale. Pixel art style, no labels, no frame numbers, no text, no logo, no watermark. Strictly placed on a SOLID UNIFORM #00B140 chroma key flat color background. The background is a single uniform shade of #00B140 chroma key color that fills 100% of pixels not occupied by the effect. No gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements. Pure flat color background, exactly like a green screen used for VFX compositing. No text, no logo, no watermark.",
+      "model": "gpt-image-2",
+      "size": "1024x1024",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#00B140",
+        "alphaZeroPct": 85.3,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossless_alpha",
+      "originalBytes": 1105539,
+      "finalBytes": 356554,
+      "usage": {
+        "inputTokens": 202,
+        "outputImageTokens": 1756
+      },
+      "traceId": "trace_mqd3qh75_8dl6fbjr",
+      "createdAt": "2026-06-14T01:25:35Z"
+    },
+    {
+      "name": "fx-soul-orb-sheet",
+      "status": "success",
+      "path": "publish/assets/generated/fx-soul-orb-sheet.6e0f07c5.webp",
+      "contentHash": "6e0f07c5",
+      "revisedPrompt": "Four-frame pixel art sprite sheet for a ghostly soul orb projectile in a top-down arcade fantasy survivor game. Arrange exactly as a 2x2 grid, four equal square cells, one animation frame per cell. Blue-green will-o-wisp fireball, small spectral face-like glow but no text, cyan flame tail, ethereal particles, clean readable homing projectile effect, centered in each cell, consistent scale, similar layout and scale to a fireball projectile sprite sheet. Pixel art style, no labels, no frame numbers, no text, no logo, no watermark. Strictly placed on a SOLID UNIFORM #FF00FF chroma key flat color background. The background is a single uniform shade of #FF00FF chroma key color that fills 100% of pixels not occupied by the effect. No gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements. Pure flat color background, exactly like a green screen used for VFX compositing. No text, no logo, no watermark.",
+      "model": "gpt-image-2",
+      "size": "1024x1024",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#FF00FF",
+        "alphaZeroPct": 84.6,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossless_alpha",
+      "originalBytes": 942352,
+      "finalBytes": 238654,
+      "usage": {
+        "inputTokens": 219,
+        "outputImageTokens": 1756
+      },
+      "traceId": "trace_mqd3rjub_0e2omwji",
+      "createdAt": "2026-06-14T01:26:20Z"
+    },
+    {
+      "name": "fx-arcane-beam-sheet",
+      "status": "success",
+      "path": "publish/assets/generated/fx-arcane-beam-sheet.bec7d760.webp",
+      "contentHash": "bec7d760",
+      "revisedPrompt": "Four-frame pixel art sprite sheet for a purple arcane beam slash in a top-down arcade fantasy survivor game. Arrange exactly as a 2x2 grid, four equal square cells, one animation frame per cell. Horizontal violet magic laser segment with bright lavender core, runic spark pixels without letters, widening beam flash across frames, clean readable attack effect, centered in each cell, consistent scale. Pixel art style, no labels, no frame numbers, no text, no logo, no watermark. Strictly placed on a SOLID UNIFORM #00B140 chroma key flat color background. The background is a single uniform shade of #00B140 chroma key color that fills 100% of pixels not occupied by the effect. No gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements. Pure flat color background, exactly like a green screen used for VFX compositing. No text, no logo, no watermark.",
+      "model": "gpt-image-2",
+      "size": "1024x1024",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#00B140",
+        "alphaZeroPct": 84.2,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossless_alpha",
+      "originalBytes": 1022016,
+      "finalBytes": 283694,
+      "usage": {
+        "inputTokens": 202,
+        "outputImageTokens": 1756
+      },
+      "traceId": "trace_mqd3siyt_a49zdg07",
+      "createdAt": "2026-06-14T01:27:09Z"
+    },
+    {
+      "name": "fx-sand-vortex-sheet",
+      "status": "success",
+      "path": "publish/assets/generated/fx-sand-vortex-sheet.f7bd2d5d.webp",
+      "contentHash": "f7bd2d5d",
+      "revisedPrompt": "Four-frame pixel art sprite sheet for a golden sand vortex attack in a top-down arcade fantasy survivor game. Arrange exactly as a 2x2 grid with four equal square cells, one animation frame per cell. Each cell shows a centered spiral dust cyclone viewed from above, amber sand ring, brown shadow core, small debris pixels, expanding swirling area effect, consistent scale across frames. Pixel art style, crisp edges, no anti-aliasing, no text, no labels, no frame numbers, no logo, no watermark. Strictly placed on a SOLID UNIFORM #00B140 chroma key flat color background. The background must be a single uniform shade of #00B140 filling 100% of pixels not occupied by the effect, with no gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements. Pure flat color background, exactly like a green screen used for VFX compositing.",
+      "model": "gpt-image-2",
+      "size": "1024x1024",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#00B140",
+        "alphaZeroPct": 76.1,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossless_alpha",
+      "originalBytes": 1188203,
+      "finalBytes": 426774,
+      "usage": {
+        "inputTokens": 196,
+        "outputImageTokens": 1756
+      },
+      "traceId": "trace_mqd3tkdj_3cxargsu",
+      "createdAt": "2026-06-14T01:28:01Z"
+    },
+    {
+      "name": "fx-dagger-rain-sheet",
+      "status": "success",
+      "path": "publish/assets/generated/fx-dagger-rain-sheet.7c2d0a61.webp",
+      "contentHash": "7c2d0a61",
+      "revisedPrompt": "Four-frame pixel art sprite sheet for a silver dagger rain attack in a top-down arcade fantasy survivor game. Arrange exactly as a 2x2 grid, four equal square cells, one animation frame per cell. Each cell centered with the same attack effect scale. Frame 1: a few small silver daggers beginning to fall diagonally downward with subtle blue steel glints and short motion streaks. Frame 2: more daggers descending diagonally, denser streaks, brighter glints. Frame 3: daggers clustered in a stronger rain pattern, multiple motion streaks, crisp readable attack effect. Frame 4: daggers finishing the attack with tiny hit sparks at the lower end, still centered and clean. Pixel art style, sharp readable sprites, clean edges, consistent scale, no labels, no frame numbers, no text, no logo, no watermark. Strictly placed on a SOLID UNIFORM #00B140 chroma key flat color background. The background is a single uniform shade of #00B140 chroma key color that fills 100% of pixels not occupied by the effect. No gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements. Pure flat color background, exactly like a green screen used for VFX compositing.",
+      "model": "gpt-image-2",
+      "size": "1024x1024",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#00B140",
+        "alphaZeroPct": 93,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossless_alpha",
+      "originalBytes": 1130768,
+      "finalBytes": 230928,
+      "usage": {
+        "inputTokens": 270,
+        "outputImageTokens": 1756
+      },
+      "traceId": "trace_mqd3uolh_30bsmppk",
+      "createdAt": "2026-06-14T01:28:53Z"
+    },
+    {
+      "name": "fx-moon-slash-sheet",
+      "status": "success",
+      "path": "publish/assets/generated/fx-moon-slash-sheet.912ad6cd.webp",
+      "contentHash": "912ad6cd",
+      "revisedPrompt": "Four-frame pixel art sprite sheet for a crescent moon slash projectile in a top-down arcade fantasy survivor game. Exactly a 2x2 grid with four equal square cells, one animation frame per cell. Silver-blue crescent blade flying left to right, pale moon glow, icy stardust particles, elegant wide arc silhouette, clean readable attack effect, centered in each cell, consistent scale across frames. Pixel art style, crisp edges, no anti-aliasing, no labels, no frame numbers, no text, no logo, no watermark. Strictly on a SOLID UNIFORM #00B140 chroma key flat color background, filling 100% of all pixels not occupied by the effect. No gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements. Pure flat color background, like a green screen used for VFX compositing.",
+      "model": "gpt-image-2",
+      "size": "1024x1024",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#00B140",
+        "alphaZeroPct": 87.8,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossless_alpha",
+      "originalBytes": 1039669,
+      "finalBytes": 230200,
+      "usage": {
+        "inputTokens": 186,
+        "outputImageTokens": 1756
+      },
+      "traceId": "trace_mqd3vsgl_7a3935a6",
+      "createdAt": "2026-06-14T01:29:57Z"
+    },
+    {
+      "name": "fx-flame-wheel-sheet",
+      "status": "success",
+      "path": "publish/assets/generated/fx-flame-wheel-sheet.6726a1e0.webp",
+      "contentHash": "6726a1e0",
+      "revisedPrompt": "Four-frame pixel art sprite sheet for a spinning flame wheel attack in a top-down arcade fantasy survivor game. Arrange exactly as a 2x2 grid, four equal square cells, one animation frame per cell. Circular orange fire wheel rotating, bright yellow hot rim, red ember core, spinning sparks, readable orbiting projectile effect, centered in each cell, consistent scale. Pixel art style, crisp sprites, no labels, no frame numbers, no text, no logo, no watermark. Strictly placed on a SOLID UNIFORM #00B140 chroma key flat color background. The background is a single uniform shade of #00B140 chroma key color that fills 100% of pixels not occupied by the effect. No gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements. Pure flat color background, exactly like a green screen used for VFX compositing. No text, no logo, no watermark.",
+      "model": "gpt-image-2",
+      "size": "1024x1024",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#00B140",
+        "alphaZeroPct": 72.6,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossless_alpha",
+      "originalBytes": 1203705,
+      "finalBytes": 565778,
+      "usage": {
+        "inputTokens": 200,
+        "outputImageTokens": 1756
+      },
+      "traceId": "trace_mqd3x5u6_0p12rb8w",
+      "createdAt": "2026-06-14T01:30:47Z"
+    },
+    {
+      "name": "fx-void-rift-sheet",
+      "status": "success",
+      "path": "publish/assets/generated/fx-void-rift-sheet.b9b49173.webp",
+      "contentHash": "b9b49173",
+      "revisedPrompt": "Four-frame pixel art sprite sheet for a purple-black void rift explosion in a top-down arcade fantasy survivor game. Arrange exactly as a 2x2 grid, four equal square cells, one animation frame per cell. Each cell contains a centered, consistent-scale animation frame of a dark oval dimensional tear opening: black center, violet rim, magenta particles being pulled inward; final frame shows a collapse burst. Readable area attack effect, pixel art style, no labels, no frame numbers, no text, no logo, no watermark. Strictly placed on a SOLID UNIFORM #00B140 chroma key flat color background. The background is a single uniform shade of #00B140 chroma key color that fills 100% of pixels not occupied by the effect. No gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements. Pure flat color background, exactly like a green screen used for VFX compositing. No text, no logo, no watermark.",
+      "model": "gpt-image-2",
+      "size": "1024x1024",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#00B140",
+        "alphaZeroPct": 67.9,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossless_alpha",
+      "originalBytes": 1124824,
+      "finalBytes": 483980,
+      "usage": {
+        "inputTokens": 211,
+        "outputImageTokens": 1756
+      },
+      "traceId": "trace_mqd3y8s1_3tphr18c",
+      "createdAt": "2026-06-14T01:31:57Z"
     }
   ]
 }
