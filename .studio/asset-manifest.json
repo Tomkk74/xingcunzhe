@@ -1,7 +1,7 @@
 {
   "version": 1,
   "createdAt": "2026-06-13T14:08:29Z",
-  "updatedAt": "2026-06-15T03:44:19Z",
+  "updatedAt": "2026-06-15T12:07:02Z",
   "assets": [
     {
       "name": "player-paladin",
@@ -1549,6 +1549,162 @@
       },
       "traceId": "trace_mqeo4epq_v3zzybbe",
       "createdAt": "2026-06-15T03:44:19Z"
+    },
+    {
+      "name": "equipment-icons-gold-sheet",
+      "status": "success",
+      "path": "publish/assets/generated/equipment-icons-gold-sheet.119ccbff.webp",
+      "contentHash": "119ccbff",
+      "revisedPrompt": "Arcane Survivor equipment icon sheet, golden rare gear set for a dark fantasy survivor game. Clean 6 by 6 grid of small readable RPG equipment icons: swords, staves, bows, helms, chest armor, boots, rings, amulets, shields, gloves, belts, spell tomes, all gold rarity with warm gold trim, gemstone accents, basic stat gear, no text. Style: bright arcade fantasy, cute chibi proportions, top-down 3/4 readable game icons, clean dark outline, soft glow, high contrast, palette #111827 #7c3aed #38bdf8 #22c55e #f43f5e #facc15. Each icon isolated with clear empty spacing, consistent angle, suitable for cropping into square UI slots. No letters, numbers, runes that look like text. Strictly placed on a SOLID UNIFORM #00B140 chroma key flat color background. The background is a single uniform shade of #00B140 chroma key green that fills 100% of pixels not occupied by the icons. No gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements. Pure flat color background, exactly like a green screen used for VFX compositing. No text, no logo, no watermark.",
+      "model": "gpt-image-2",
+      "size": "1024x1024",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#00B140",
+        "alphaZeroPct": 63.8,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossy_q85_alpha",
+      "originalBytes": 1682364,
+      "finalBytes": 246138,
+      "usage": {
+        "inputTokens": 276,
+        "outputImageTokens": 1756
+      },
+      "traceId": "trace_mqf5nyei_105w57am",
+      "createdAt": "2026-06-15T11:55:40Z"
+    },
+    {
+      "name": "equipment-icons-unique-sheet",
+      "status": "success",
+      "path": "publish/assets/generated/equipment-icons-unique-sheet.0332595f.webp",
+      "contentHash": "0332595f",
+      "revisedPrompt": "Arcane Survivor dark-gold unique equipment icon sheet for a dark fantasy survivor game. Create a clean 6 by 6 grid of readable RPG icons, each icon isolated with even spacing for easy cropping into square inventory slots. Include 12 unique legendary-feeling icons arranged neatly in the grid with empty slots as needed to preserve the 6x6 layout: cursed black-gold blade, dragon heart amulet, frost moon crown, void lantern ring, blood pact armor, thunder bow, demon horn helm, ancient ritual tome, soul boots, shadow shield, arcane clockwork gloves, holy relic mace. Each icon should be dramatic with dark gold trim, purple arcane glow, crimson sparks, unique legendary feeling, no text. Style: bright arcade fantasy, cute chibi-readable UI icons, top-down 3/4 view, clean dark outline, soft glow, high contrast, palette colors #111827 #7c3aed #38bdf8 #22c55e #f43f5e #facc15. Icons should be crisp, readable, centered in their own cells, suitable for inventory UI. STRICTLY place everything on a SOLID UNIFORM #00B140 chroma key flat background filling all non-icon pixels. The background must be a single uniform shade of #00B140 with no gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements. Pure flat color background, exactly like a green screen used for VFX compositing. No text, no logo, no watermark.",
+      "model": "gpt-image-2",
+      "size": "1024x1024",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#00B140",
+        "alphaZeroPct": 76.3,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossy_q85_alpha",
+      "originalBytes": 1424663,
+      "finalBytes": 160052,
+      "usage": {
+        "inputTokens": 320,
+        "outputImageTokens": 1756
+      },
+      "traceId": "trace_mqf5q6av_mgm3b51b",
+      "createdAt": "2026-06-15T11:57:11Z"
+    },
+    {
+      "name": "equipment-icons-set-paladin-sheet",
+      "status": "success",
+      "path": "publish/assets/generated/equipment-icons-set-paladin-sheet.d6ae3f39.webp",
+      "contentHash": "d6ae3f39",
+      "revisedPrompt": "Arcane Survivor green set equipment icon sheet for Paladin class. Create a clean 6 by 6 grid of readable RPG gear icons for three exclusive paladin set families: radiant guardian holy aura set, thorn bulwark shield tank set, dawn judgment lance fire-holy set. Include a mix of maces, lances, heavy helms, plate armor, tower shields, boots, rings, amulets, prayer books. Green set rarity identity: emerald enamel, holy gold trim, white-blue light, shield motifs, sun motifs. No text. Style: bright arcade fantasy, cute chibi-readable top-down 3/4 UI icons, clean dark outline, soft glow, high contrast, palette #111827 #7c3aed #38bdf8 #22c55e #f43f5e #facc15. Each icon isolated with spacing, suitable for square inventory slots. Strictly on a SOLID UNIFORM #00B140 chroma key flat color background. Background must be a single uniform shade #00B140 filling 100% of pixels not occupied by icons. No gradient, no shadow outside icons, no texture, no scenery, no ground, no decoration, no environmental elements. Pure flat color background, exactly like a green screen used for VFX compositing. No text, no logo, no watermark.",
+      "model": "gpt-image-2",
+      "size": "1024x1024",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#00B140",
+        "alphaZeroPct": 57,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossy_q85_alpha",
+      "originalBytes": 1784989,
+      "finalBytes": 274724,
+      "usage": {
+        "inputTokens": 281,
+        "outputImageTokens": 1756
+      },
+      "traceId": "trace_mqf5s78n_9bgw08nm",
+      "createdAt": "2026-06-15T11:58:55Z"
+    },
+    {
+      "name": "equipment-icons-set-mage-sheet",
+      "status": "success",
+      "path": "publish/assets/generated/equipment-icons-set-mage-sheet.d2792467.webp",
+      "contentHash": "d2792467",
+      "revisedPrompt": "Arcane Survivor green set equipment icon sheet for Archmage class. Clean 6 by 6 grid of readable RPG gear icons for three exclusive mage set families: astral missile arcane barrage set, ember meteor fire set, storm sigil lightning chain set. Include crystal staves, wizard hats, robes, spellbooks, orbiting rings, amulets, boots, gloves, floating orbs. Green set rarity identity: emerald magical frame, violet arcane glow, cyan frost-blue highlights, orange fire accents. No text. Style: bright arcade fantasy, cute chibi-readable top-down 3/4 UI icons, clean dark outline, soft glow, high contrast, palette #111827 #7c3aed #38bdf8 #22c55e #f43f5e #facc15. Each icon isolated with spacing, suitable for square inventory slots. No letters, numbers, runes that look like text. Strictly placed on a SOLID UNIFORM #00B140 chroma key flat color background. The background is a single uniform shade of #00B140 chroma key green that fills 100% of pixels not occupied by the icons. No gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements. Pure flat color background, exactly like a green screen used for VFX compositing. No text, no logo, no watermark.",
+      "model": "gpt-image-2",
+      "size": "1024x1024",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#00B140",
+        "alphaZeroPct": 54.8,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossy_q85_alpha",
+      "originalBytes": 1966911,
+      "finalBytes": 311346,
+      "usage": {
+        "inputTokens": 293,
+        "outputImageTokens": 1756
+      },
+      "traceId": "trace_mqf5udaq_d34get05",
+      "createdAt": "2026-06-15T12:02:40Z"
+    },
+    {
+      "name": "equipment-icons-set-ranger-sheet",
+      "status": "success",
+      "path": "publish/assets/generated/equipment-icons-set-ranger-sheet.9fe29e3a.webp",
+      "contentHash": "9fe29e3a",
+      "revisedPrompt": "Arcane Survivor green set equipment icon sheet for Ranger class. Create a clean 6 by 6 grid of readable RPG gear icons for three exclusive ranger set families: cyclone axe boomerang set, moon hunter bow critical set, venom shadow dagger trap set. Include varied equipment across the sheet: recurved bows, twin axes, daggers, leather hoods, light armor, boots, quivers, rings, amulets, leaf-shaped charms. Each icon should be isolated with clear spacing, suitable for square inventory slots. Style: bright arcade fantasy, cute chibi-readable top-down 3/4 UI icons, clean dark outline, soft glow, high contrast. Green set rarity identity with emerald trim, moon silver, wind cyan, poison violet accents. Color palette emphasis: #111827 #7c3aed #38bdf8 #22c55e #f43f5e #facc15. No text, no letters, no numbers, no runes that look like text, no logo, no watermark. Strictly on a SOLID UNIFORM #FF00FF chroma key flat color background filling 100% of pixels not occupied by the icons. No gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements. Pure flat color background, exactly like a magenta screen used for VFX compositing.",
+      "model": "gpt-image-2",
+      "size": "1024x1024",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#FF00FF",
+        "alphaZeroPct": 65.5,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossy_q85_alpha",
+      "originalBytes": 1632390,
+      "finalBytes": 240120,
+      "usage": {
+        "inputTokens": 285,
+        "outputImageTokens": 1756
+      },
+      "traceId": "trace_mqf5z78u_sb2g6wdl",
+      "createdAt": "2026-06-15T12:04:31Z"
+    },
+    {
+      "name": "equipment-icons-set-saintess-sheet",
+      "status": "success",
+      "path": "publish/assets/generated/equipment-icons-set-saintess-sheet.908e5cd0.webp",
+      "contentHash": "908e5cd0",
+      "revisedPrompt": "Create a clean 6x6 grid equipment icon sheet for an RPG called Arcane Survivor, themed for the Rose Saintess fantasy healer-tank class. The sheet should contain 36 isolated, readable gear icons arranged evenly in a strict 6 by 6 layout, each icon centered in its own square inventory-slot-like cell with consistent spacing. The three exclusive saintess set families should be visually distinct across the sheet: crimson vessel counter-tank set, violet hymn aura set, and rose mirror splash set. Include a variety of ornate fantasy gear types across the grid such as censers, veils, sacred robes, chalices, prayer bells, heart-shaped amulets, rings, boots, ritual tomes, thorn crowns, and related saintess equipment. Style: bright arcade fantasy, cute chibi-readable top-down 3/4 UI icons, clean dark outline, soft glow, high contrast, polished game asset look. Emphasize emerald trim as the set rarity identity, with rose-magenta glow, holy gold accents, and dark purple shadows. Use the palette: #111827 #7c3aed #38bdf8 #22c55e #f43f5e #facc15. Make the icons visually distinct, readable at small size, and suitable for square inventory slots. Use soft pink-violet magic effects where appropriate. No text, no letters, no numbers, no runes that look like text, no logo, no watermark. Strictly place all icons on a SOLID UNIFORM #00B140 chroma key flat background that fills every pixel not occupied by the icons. The background must be a single flat shade #00B140 with no gradient, no shadow, no texture, no scenery, no ground, no decoration, and no environmental elements. Pure flat color background only. General-audience fantasy game art, clean and crisp.",
+      "model": "gpt-image-2",
+      "size": "1024x1024",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#00B140",
+        "alphaZeroPct": 54.2,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossy_q85_alpha",
+      "originalBytes": 1941669,
+      "finalBytes": 286574,
+      "usage": {
+        "inputTokens": 386,
+        "outputImageTokens": 1756
+      },
+      "traceId": "trace_mqf625i8_bmlvg40k",
+      "createdAt": "2026-06-15T12:07:02Z"
     }
   ]
 }
