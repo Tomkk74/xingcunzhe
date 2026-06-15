@@ -1,7 +1,7 @@
 {
   "version": 1,
   "createdAt": "2026-06-13T14:08:29Z",
-  "updatedAt": "2026-06-15T12:07:02Z",
+  "updatedAt": "2026-06-15T13:01:07.282Z",
   "assets": [
     {
       "name": "player-paladin",
@@ -1705,6 +1705,90 @@
       },
       "traceId": "trace_mqf625i8_bmlvg40k",
       "createdAt": "2026-06-15T12:07:02Z"
+    },
+    {
+      "name": "equipment-icons-gold-exact-sheet",
+      "status": "success",
+      "path": "publish/assets/generated/equipment-icons-gold-exact-sheet.svg",
+      "contentHash": "3300f68e",
+      "model": "programmatic-svg",
+      "size": "576x576",
+      "wantsTransparent": true,
+      "outputFormat": "svg",
+      "compressionProfile": "vector",
+      "finalBytes": 29869,
+      "createdAt": "2026-06-15T13:01:07.282Z",
+      "note": "Exact deterministic equipment sprite sheet. Each cell index matches equipment.js item order."
+    },
+    {
+      "name": "equipment-icons-unique-exact-sheet",
+      "status": "success",
+      "path": "publish/assets/generated/equipment-icons-unique-exact-sheet.svg",
+      "contentHash": "3eaa2879",
+      "model": "programmatic-svg",
+      "size": "576x576",
+      "wantsTransparent": true,
+      "outputFormat": "svg",
+      "compressionProfile": "vector",
+      "finalBytes": 28966,
+      "createdAt": "2026-06-15T13:01:07.282Z",
+      "note": "Exact deterministic equipment sprite sheet. Each cell index matches equipment.js item order."
+    },
+    {
+      "name": "equipment-icons-set-paladin-exact-sheet",
+      "status": "success",
+      "path": "publish/assets/generated/equipment-icons-paladin-exact-sheet.svg",
+      "contentHash": "115f8af1",
+      "model": "programmatic-svg",
+      "size": "576x576",
+      "wantsTransparent": true,
+      "outputFormat": "svg",
+      "compressionProfile": "vector",
+      "finalBytes": 14990,
+      "createdAt": "2026-06-15T13:01:07.282Z",
+      "note": "Exact deterministic equipment sprite sheet. Each cell index matches equipment.js item order."
+    },
+    {
+      "name": "equipment-icons-set-mage-exact-sheet",
+      "status": "success",
+      "path": "publish/assets/generated/equipment-icons-mage-exact-sheet.svg",
+      "contentHash": "a6bd0be3",
+      "model": "programmatic-svg",
+      "size": "576x576",
+      "wantsTransparent": true,
+      "outputFormat": "svg",
+      "compressionProfile": "vector",
+      "finalBytes": 15151,
+      "createdAt": "2026-06-15T13:01:07.282Z",
+      "note": "Exact deterministic equipment sprite sheet. Each cell index matches equipment.js item order."
+    },
+    {
+      "name": "equipment-icons-set-ranger-exact-sheet",
+      "status": "success",
+      "path": "publish/assets/generated/equipment-icons-ranger-exact-sheet.svg",
+      "contentHash": "51e35b69",
+      "model": "programmatic-svg",
+      "size": "576x576",
+      "wantsTransparent": true,
+      "outputFormat": "svg",
+      "compressionProfile": "vector",
+      "finalBytes": 15525,
+      "createdAt": "2026-06-15T13:01:07.282Z",
+      "note": "Exact deterministic equipment sprite sheet. Each cell index matches equipment.js item order."
+    },
+    {
+      "name": "equipment-icons-set-saintess-exact-sheet",
+      "status": "success",
+      "path": "publish/assets/generated/equipment-icons-saintess-exact-sheet.svg",
+      "contentHash": "07b83c31",
+      "model": "programmatic-svg",
+      "size": "576x576",
+      "wantsTransparent": true,
+      "outputFormat": "svg",
+      "compressionProfile": "vector",
+      "finalBytes": 14678,
+      "createdAt": "2026-06-15T13:01:07.282Z",
+      "note": "Exact deterministic equipment sprite sheet. Each cell index matches equipment.js item order."
     }
   ]
 }

@@ -1,7 +1,7 @@
 window.GameModules = window.GameModules || {};
 window.GameModules.equipment = (() => {
   const KEY = 'arcane-equipment-v1';
-  const ICON_SHEETS = { gold:'./assets/generated/equipment-icons-gold-sheet.119ccbff.webp', unique:'./assets/generated/equipment-icons-unique-sheet.0332595f.webp', setPaladin:'./assets/generated/equipment-icons-set-paladin-sheet.d6ae3f39.webp', setMage:'./assets/generated/equipment-icons-set-mage-sheet.d2792467.webp', setRanger:'./assets/generated/equipment-icons-set-ranger-sheet.9fe29e3a.webp', setSaintess:'./assets/generated/equipment-icons-set-saintess-sheet.908e5cd0.webp' };
+  const ICON_SHEETS = { gold:'./assets/generated/equipment-icons-gold-exact-sheet.svg', unique:'./assets/generated/equipment-icons-unique-exact-sheet.svg', setPaladin:'./assets/generated/equipment-icons-paladin-exact-sheet.svg', setMage:'./assets/generated/equipment-icons-mage-exact-sheet.svg', setRanger:'./assets/generated/equipment-icons-ranger-exact-sheet.svg', setSaintess:'./assets/generated/equipment-icons-saintess-exact-sheet.svg' };
   const SLOTS = ['weapon','helm','chest','amulet','ring','boots'];
   const SLOT_CN = { weapon:'武器', helm:'头盔', chest:'胸甲', amulet:'项链', ring:'戒指', boots:'靴子' };
   const CLS_CN = { paladin:'圣骑士', mage:'大魔法师', ranger:'游侠', lewdSaintess:'淫靡圣女' };
@@ -25,12 +25,9 @@ window.GameModules.equipment = (() => {
     ['lewdSaintess','crimson-vessel','绯红圣器','setSaintess',{hp:.1,lust:.07,regen:.04}],['lewdSaintess','violet-hymn','紫罗兰圣歌','setSaintess',{range:.06,holy:.05,lust:.05}],['lewdSaintess','rose-mirror','蔷薇镜像','setSaintess',{damage:.06,lust:.06,shadow:.04}],
   ];
   const pieceNames = { weapon:'武器', helm:'冠冕', chest:'衣甲', amulet:'坠饰', ring:'戒环', boots:'足具' };
-  const GOLD_ICONS = { weapon:[0,1,2,3,4,5], helm:[12,13,14,15,16,17], chest:[18,19,20,21,22,23], amulet:[28,29,30,31,32,33], ring:[24,25,26,27,34,35], boots:[27,28,29,24,25,26] };
-  const UNIQUE_ICONS = { 'unique-void-lantern':3, 'unique-dragon-heart':1, 'unique-moon-crown':2, 'unique-saint-nail':11, 'unique-thunder-bow':5, 'unique-blood-plate':4, 'unique-clock-gloves':10, 'unique-greed-boots':8, 'unique-rose-mirror':3, 'unique-abyss-mask':6, 'unique-golem-soul':9, 'unique-star-tome':7, 'unique-demon-horn':6, 'unique-pale-ring':3, 'unique-faith-boots':8, 'unique-hunt-quiver':5, 'unique-plague-bell':7, 'unique-sun-shield':9 };
-  const setIconIndex = (familyIndex, slot) => { const col = (familyIndex % 3) * 2 + (slot === 'amulet' || slot === 'boots' ? 1 : 0); const row = { weapon:0, helm:1, chest:2, ring:5, amulet:5, boots:4 }[slot] || 0; return row * 6 + col; };
   const toItem = (r, sheet, i) => ({ baseId:r[0], name:r[1], rarity:sheet, slot:r[2], stats:r[3], resists:r[4], effect:r[5]||'', icon:{sheet:ICON_SHEETS[sheet], index:i} });
-  const gold = GOLD.map((r,i)=>toItem(r,'gold',GOLD_ICONS[r[2]][i%6])), uniques = UNIQUES.map((r,i)=>toItem(r,'unique',UNIQUE_ICONS[r[0]] ?? i));
-  const sets = SET_FAMILIES.flatMap((f,fi)=>SLOTS.map((slot)=>({ baseId:`set-${f[1]}-${slot}`, name:`${f[2]}·${pieceNames[slot]}`, rarity:'set', class:f[0], setId:f[1], setName:f[2], slot, stats:{...Object.fromEntries(Object.entries(f[4]).filter(([k])=>!RES.includes(k))), [slot==='weapon'?'damage':slot==='boots'?'move':slot==='ring'?'atkSpeed':slot==='amulet'?'range':'hp']:.06}, resists:Object.fromEntries(Object.entries(f[4]).filter(([k])=>RES.includes(k))), icon:{sheet:ICON_SHEETS[f[3]], index:setIconIndex(fi, slot)} })));
+  const gold = GOLD.map((r,i)=>toItem(r,'gold',i)), uniques = UNIQUES.map((r,i)=>toItem(r,'unique',i));
+  const sets = SET_FAMILIES.flatMap((f,fi)=>SLOTS.map((slot,i)=>({ baseId:`set-${f[1]}-${slot}`, name:`${f[2]}·${pieceNames[slot]}`, rarity:'set', class:f[0], setId:f[1], setName:f[2], slot, stats:{...Object.fromEntries(Object.entries(f[4]).filter(([k])=>!RES.includes(k))), [slot==='weapon'?'damage':slot==='boots'?'move':slot==='ring'?'atkSpeed':slot==='amulet'?'range':'hp']:.06}, resists:Object.fromEntries(Object.entries(f[4]).filter(([k])=>RES.includes(k))), icon:{sheet:ICON_SHEETS[f[3]], index:(fi%3)*6+i} })));
   const all = [...gold,...uniques,...sets];
   let meta = { items:[], equipped:{}, dust:0 }, ready = false;
   const clone = v => JSON.parse(JSON.stringify(v));
