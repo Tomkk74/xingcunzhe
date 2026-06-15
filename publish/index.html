@@ -124,7 +124,7 @@ function takeArtifactReward(id){if(!S.bag.includes(id)&&!S.artifacts.includes(id
 function showNotice(text){S.noticeText=text;S.notice=2.8;$('notice').textContent=text;$('notice').classList.remove('hidden')}
 function updateFeedback(dt){let p=S.player;if(S.notice>0){S.notice-=dt;if(S.notice<=0)$('notice').classList.add('hidden')}else $('notice').classList.add('hidden');$('lowHp').classList.toggle('hidden',!(p&&p.hp/p.max<.28&&!S.paused&&!S.over))}
 function endlessBossGap(layer){return Math.max(260,Math.round(320+layer*85))}
-function bossKillNeed(n){let need=0,gap=160;for(let i=0;i<=n;i++){need+=gap;gap*=2}return need}
+function bossKillNeed(n){let need=0;for(let i=0;i<=n;i++)need+=i<2?160*(i+1):2400+(i-2)*120;return need}
 function nextBossNeed(){return S?.endless?(S.nextBossKills||S.kills+endlessBossGap(S.endlessLayer||1)):bossKillNeed(S.bossKills||0)}
 function updateBossWarn(){let need=S.nextBossKills??nextBossNeed(),left=need-S.kills,el=$('bossWarn');if(left>0&&left<=8&&!S.paused&&!S.over){el.textContent=S.endless?`无尽第 ${S.endlessLayer} 层魔王即将降临，还需击杀 ${left}`:`魔王即将降临，还需击杀 ${left}`;el.classList.remove('hidden')}else el.classList.add('hidden')}
 function checkGoals(){if(!S.goals.kills50&&S.kills>=50){S.goals.kills50=true;S.gold+=18;S.player.xp+=20;showNotice('小目标完成：击杀 50 个敌人，金币 +18，经验 +20')}if(!S.goals.level10&&S.player.lv>=10){S.goals.level10=true;S.gold+=28;showNotice('成长奖励：达到 等级10，金币 +28')}if(!S.goals.boss&&(S.bossKills||0)>=1){S.goals.boss=true;S.gold+=40;showNotice('阶段奖励：击败首个 魔王，金币 +40')}}
