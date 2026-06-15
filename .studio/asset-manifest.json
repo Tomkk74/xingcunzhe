@@ -1,7 +1,7 @@
 {
   "version": 1,
   "createdAt": "2026-06-13T14:08:29Z",
-  "updatedAt": "2026-06-14T15:12:10Z",
+  "updatedAt": "2026-06-15T03:14:42Z",
   "assets": [
     {
       "name": "player-paladin",
@@ -1377,6 +1377,32 @@
       },
       "traceId": "trace_mqdx8shc_q2zp27qk",
       "createdAt": "2026-06-14T15:12:10Z"
+    },
+    {
+      "name": "fallen-saintess",
+      "status": "success",
+      "path": "publish/assets/generated/fallen-saintess.c54dc6f7.webp",
+      "contentHash": "c54dc6f7",
+      "revisedPrompt": "Dark fantasy game character asset, female fallen saintess / gothic holy maiden, corrupted ceremonial battle dress in black and crimson lace, torn veil, ornate gold rosary, glowing pink-purple halo, crimson sacred aura, confident mischievous expression, dramatic elegant pose, high-slit layered skirt, thigh-high boots, velvet gloves, occult chalice motif. Arcade fantasy survivor game style, readable 3/4 top-down character portrait sprite, clean dark outline, soft glow, high contrast, palette of deep black, violet, crimson, gold, and hot pink. General-audience fantasy game art, stylish and alluring but fully covered by costume, no nudity, no explicit content. Strictly on a SOLID UNIFORM #00B140 chroma key flat color background filling all non-character pixels, no gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements. Pure flat color background, exactly like a green screen used for VFX compositing. No text, no logo, no watermark.",
+      "model": "gpt-image-2",
+      "size": "1024x1024",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#00B140",
+        "alphaZeroPct": 66.8,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossy_q85_alpha",
+      "originalBytes": 1465513,
+      "finalBytes": 139178,
+      "usage": {
+        "inputTokens": 214,
+        "outputImageTokens": 1756
+      },
+      "traceId": "trace_mqen237i_df9p1wfn",
+      "createdAt": "2026-06-15T03:14:42Z"
     }
   ]
 }
