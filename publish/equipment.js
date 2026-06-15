@@ -37,7 +37,7 @@ window.GameModules.equipment = (() => {
   async function init(){if(ready)return meta; meta=normalize(await kvGet(KEY)); ready=true; return meta;}
   async function save(){await kvPut(KEY,meta)}
   function baseById(id){return all.find(x=>x.baseId===id)}
-  function hydrate(it){let b=baseById(it.baseId); return b?{...clone(b),...it, stats:it.stats||scaleMap(b.stats,it.level), resists:it.resists||scaleMap(b.resists,it.level)}:it}
+  function hydrate(it){let b=baseById(it.baseId); return b?{...clone(b),...it, icon:clone(b.icon), rarity:b.rarity, class:b.class, setId:b.setId, setName:b.setName, slot:b.slot, name:b.name, stats:it.stats||scaleMap(b.stats,it.level), resists:it.resists||scaleMap(b.resists,it.level)}:it}
   function scaleMap(m,lv=1,mul=1){let s=(1+Math.max(0,lv-1)*.018)*mul,o={}; for(const [k,v] of Object.entries(m||{}))o[k]=Math.round(v*s*1000)/1000; return o}
   function addScaled(out,k,v,lv=1,mul=1){out[k]=Math.round(((out[k]||0)+v*(1+Math.max(0,lv-1)*.018)*mul)*1000)/1000}
   function goldRoll(){let q=Math.random(),tier=q>.92?'极品':q>.72?'精良':q>.38?'良品':'普通',mul=tier==='极品'?rand(.18,.32):tier==='精良'?rand(.08,.18):tier==='良品'?rand(-.02,.08):rand(-.12,-.02),extra=tier==='极品'?2:tier==='精良'?2:1;return{tier,mul:1+mul,extra}}
