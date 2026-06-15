@@ -1,7 +1,7 @@
 {
   "version": 1,
   "createdAt": "2026-06-13T14:08:29Z",
-  "updatedAt": "2026-06-15T03:14:42Z",
+  "updatedAt": "2026-06-15T03:25:38Z",
   "assets": [
     {
       "name": "player-paladin",
@@ -1379,30 +1379,46 @@
       "createdAt": "2026-06-14T15:12:10Z"
     },
     {
-      "name": "fallen-saintess",
+      "name": "player-lewd-saintess",
       "status": "success",
-      "path": "publish/assets/generated/fallen-saintess.c54dc6f7.webp",
-      "contentHash": "c54dc6f7",
-      "revisedPrompt": "Dark fantasy game character asset, female fallen saintess / gothic holy maiden, corrupted ceremonial battle dress in black and crimson lace, torn veil, ornate gold rosary, glowing pink-purple halo, crimson sacred aura, confident mischievous expression, dramatic elegant pose, high-slit layered skirt, thigh-high boots, velvet gloves, occult chalice motif. Arcade fantasy survivor game style, readable 3/4 top-down character portrait sprite, clean dark outline, soft glow, high contrast, palette of deep black, violet, crimson, gold, and hot pink. General-audience fantasy game art, stylish and alluring but fully covered by costume, no nudity, no explicit content. Strictly on a SOLID UNIFORM #00B140 chroma key flat color background filling all non-character pixels, no gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements. Pure flat color background, exactly like a green screen used for VFX compositing. No text, no logo, no watermark.",
+      "path": "publish/assets/generated/player-lewd-saintess.248be3f1.webp",
+      "contentHash": "248be3f1",
+      "revisedPrompt": "Create a square chibi fantasy game character card illustration in the visual style of a bright arcade survivor game: cute super-deformed proportions, very large head, small body, clean thick dark outline, cel-shaded cartoon rendering with a subtle pixel-game feel, readable 3/4 top-down action pose, high-contrast glow accents. Subject: an adult female fallen saintess with a mischievous alluring smile, wearing a black and crimson gothic nun-inspired battle dress that is stylish and flirtatious but fully covered for general-audience game art, no nudity, no explicit content. Include a short veil, gold rosary, a pink-purple corrupted halo, tiny heart-shaped holy magic effects, crimson-violet ribbons, and a compact staff or chalice weapon. Pose should feel like a playable class card: dynamic forward-running stance, centered full body, fits comfortably inside a square composition. Color palette should emphasize deep black, violet, crimson, gold, and hot pink. No text, no logo, no watermark. IMPORTANT: Strictly place the character on a SOLID UNIFORM #FF00FF chroma key flat background filling 100% of pixels not occupied by the character. The background must be a single flat shade of #FF00FF with no gradient, no shadow, no texture, no scenery, no ground, no decoration, and no environmental elements.",
       "model": "gpt-image-2",
       "size": "1024x1024",
       "wantsTransparent": true,
       "chromaKey": {
-        "color": "#00B140",
-        "alphaZeroPct": 66.8,
+        "color": "#FF00FF",
+        "alphaZeroPct": 54,
         "edgeGreenBiasPct": 0,
         "verdict": "PASS"
       },
       "outputFormat": "webp",
-      "compressionProfile": "lossy_q85_alpha",
-      "originalBytes": 1465513,
-      "finalBytes": 139178,
+      "compressionProfile": "lossless_alpha",
+      "originalBytes": 1478172,
+      "finalBytes": 819144,
       "usage": {
-        "inputTokens": 214,
+        "inputTokens": 282,
         "outputImageTokens": 1756
       },
-      "traceId": "trace_mqen237i_df9p1wfn",
-      "createdAt": "2026-06-15T03:14:42Z"
+      "traceId": "trace_mqencybi_8xte2jtt",
+      "createdAt": "2026-06-15T03:23:00Z"
+    },
+    {
+      "name": "player-lewd-saintess-action-sheet",
+      "status": "success",
+      "path": "publish/assets/generated/player-lewd-saintess-action-sheet.746390ed.webp",
+      "contentHash": "746390ed",
+      "model": "gpt-image-2",
+      "size": "1536x1024",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#FF00FF"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossless_alpha",
+      "finalBytes": 1320116,
+      "createdAt": "2026-06-15T03:24:57Z"
     }
   ]
 }
