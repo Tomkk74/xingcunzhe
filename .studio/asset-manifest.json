@@ -1,7 +1,7 @@
 {
   "version": 1,
   "createdAt": "2026-06-13T14:08:29Z",
-  "updatedAt": "2026-06-15T13:28:43.338Z",
+  "updatedAt": "2026-06-15T14:47:34Z",
   "assets": [
     {
       "name": "player-paladin",
@@ -1861,6 +1861,32 @@
       },
       "traceId": "trace_mqf8xoy5_b8hprypb",
       "createdAt": "2026-06-15T13:27:14Z"
+    },
+    {
+      "name": "ui-medieval-scrollbar",
+      "status": "success",
+      "path": "publish/assets/generated/ui-medieval-scrollbar.aa5a7d11.webp",
+      "contentHash": "aa5a7d11",
+      "revisedPrompt": "Create a medieval fantasy UI scrollbar texture asset sheet for a dark fantasy survivor game. Show one vertical ornate scrollbar rail and thumb design, carved dark bronze metal with aged parchment inlay and gold trim, tiny runic corner ornaments, high contrast, clean readable game UI style. Include isolated UI component pieces centered with transparent-looking clean edges, suitable for CSS scrollbar thumb and track decoration. Bright arcade fantasy colors matching #111827 #7c3aed #facc15. Strictly place everything on a SOLID UNIFORM #00B140 chroma key flat color background that fills 100% of all pixels not occupied by the UI asset. No gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements. Pure flat color background, exactly like a green screen used for VFX compositing. No text, no logo, no watermark.",
+      "model": "gpt-image-2",
+      "size": "1024x1024",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#00B140",
+        "alphaZeroPct": 86.2,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossy_q85_alpha",
+      "originalBytes": 1095456,
+      "finalBytes": 59338,
+      "usage": {
+        "inputTokens": 182,
+        "outputImageTokens": 1756
+      },
+      "traceId": "trace_mqfbth0r_x51iz0gd",
+      "createdAt": "2026-06-15T14:47:34Z"
     }
   ]
 }
