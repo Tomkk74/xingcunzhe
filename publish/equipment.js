@@ -53,7 +53,8 @@ window.GameModules.equipment = (() => {
   function pct(v){return `${v>=0?'+':''}${Math.round(v*100)}%`}
   function itemText(it){let s=[]; if(it.rollTier)s.push(`品相：${it.rollTier}`); for(const [k,v] of Object.entries(it.stats||{}))s.push(`${{hp:'生命',damage:'伤害',armor:'护甲',move:'移速',cooldown:'冷却',atkSpeed:'攻速',range:'范围',pickup:'拾取',gold:'金币',regen:'回复',crit:'暴击'}[k]||k} ${pct(v)}`); for(const [k,v] of Object.entries(it.resists||{}))s.push(`${RES_CN[k]||k}抗性 ${pct(v)}`); return s.join(' / ')}
   function sheetRows(){return 6}
-  function iconHtml(it){let i=it.icon?.index||0,x=i%6,rows=sheetRows(),y=Math.floor(i/6),yp=rows>1?y*100/(rows-1):0;return `<span class="eqIcon" style="background-image:url('${it.icon?.sheet||''}');background-size:600% ${rows*100}%;background-position:${x*20}% ${yp}%"></span>`}
+  function iconScale(it){return it?.rarity==='gold'?1:.84}
+  function iconHtml(it){let i=it.icon?.index||0,x=i%6,rows=sheetRows(),y=Math.floor(i/6),yp=rows>1?y*100/(rows-1):0,s=iconScale(it);return `<span class="eqIcon" style="background-image:url('${it.icon?.sheet||''}');background-size:600% ${rows*100}%;background-position:${x*20}% ${yp}%;transform:scale(${s})"></span>`}
   function data(){return meta}
   return { init, save, data, SLOTS, SLOT_CN, CLS_CN, RES_CN, all, rollDrop, addItem, equip, unequip, discard, equippedItems, stats, hydrate, itemText, iconHtml };
 })();
