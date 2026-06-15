@@ -5,6 +5,7 @@ window.GameModules.redeem = (() => {
     'Tomkk白衣胜雪': { id: 'tomkk-baiyi-20260615', gold: 6666, core: 100 },
   };
   let used = null;
+  let redeeming = false;
 
   async function kvGet(key) {
     try { return (await window.dzmm.kv.get(key))?.value ?? null; }
@@ -27,19 +28,30 @@ window.GameModules.redeem = (() => {
     el.classList.toggle('ok', ok);
   }
   async function submit(onSuccess) {
+    if (redeeming) return;
     const input = document.getElementById('redeemInput');
+    const submitBtn = document.getElementById('redeemSubmit');
     const code = (input?.value || '').trim();
     const reward = CODES[code];
     if (!reward) { message('兑换码无效'); return; }
-    const data = await loadUsed();
-    if (data[reward.id]) { message('该兑换码已使用过'); return; }
-    if (!window.Progression?.addCurrency) { message('成长系统未就绪，请稍后再试'); return; }
-    await window.Progression.addCurrency(reward.gold, reward.core);
-    data[reward.id] = true;
-    await kvPut(KEY, data);
-    message(`兑换成功：灵魂金币 +${reward.gold}，魔核 +${reward.core}`, true);
-    input.value = '';
-    onSuccess?.();
+    redeeming = true;
+    if (submitBtn) submitBtn.disabled = true;
+    try {
+      message('兑换中，请稍候…');
+      const data = await loadUsed();
+      if (data[reward.id]) { message('该兑换码已使用过'); return; }
+      if (!window.Progression?.addGrantCurrency) { message('成长系统未就绪，请稍后再试'); return; }
+      const result = await window.Progression.addGrantCurrency(reward.id, reward.gold, reward.core);
+      data[reward.id] = true;
+      await kvPut(KEY, data);
+      if (!result.applied) { message('该兑换码已使用过'); return; }
+      message(`兑换成功：灵魂金币 +${reward.gold}，魔核 +${reward.core}`, true);
+      input.value = '';
+      onSuccess?.();
+    } finally {
+      redeeming = false;
+      if (submitBtn) submitBtn.disabled = false;
+    }
   }
   function bind(onSuccess) {
     const modal = document.getElementById('redeemModal');
