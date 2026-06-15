@@ -49,7 +49,8 @@ window.GameModules.equipment = (() => {
   function stats(cls){let out={resists:{},sets:{},allRes:0,attrCapBonus:0,bossAttrCut:0,eliteAttrCut:0,shieldAttrBlock:0}; for(const it of equippedItems(cls)){for(const [k,v] of Object.entries(it.stats||{}))out[k]=(out[k]||0)+v; for(const [k,v] of Object.entries(it.resists||{}))out.resists[k]=(out.resists[k]||0)+v; if(it.setId)out.sets[it.setId]=(out.sets[it.setId]||0)+1} for(const n of Object.values(out.sets)){if(n>=2)out.allRes+=.06;if(n>=4){out.bossAttrCut+=.1;out.eliteAttrCut+=.08}if(n>=6){out.shieldAttrBlock+=.35;out.attrCapBonus+=.1}} if(equippedItems(cls).some(x=>x.rarity==='unique'))out.attrCapBonus+=.05; return out}
   function pct(v){return `${v>=0?'+':''}${Math.round(v*100)}%`}
   function itemText(it){let s=[]; for(const [k,v] of Object.entries(it.stats||{}))s.push(`${{hp:'生命',damage:'伤害',armor:'护甲',move:'移速',cooldown:'冷却',atkSpeed:'攻速',range:'范围',pickup:'拾取',gold:'金币',regen:'回复',crit:'暴击'}[k]||k} ${pct(v)}`); for(const [k,v] of Object.entries(it.resists||{}))s.push(`${RES_CN[k]||k}抗性 ${pct(v)}`); return s.join(' / ')}
-  function iconHtml(it){let i=it.icon?.index||0,x=i%6,y=Math.floor(i/6);return `<span class="eqIcon" style="background-image:url('${it.icon?.sheet||''}');background-position:${x*20}% ${y*20}%"></span>`}
+  function sheetRows(it){return it?.rarity==='set'?3:6}
+  function iconHtml(it){let i=it.icon?.index||0,x=i%6,rows=sheetRows(it),y=Math.floor(i/6),yp=rows>1?y*100/(rows-1):0;return `<span class="eqIcon" style="background-image:url('${it.icon?.sheet||''}');background-size:600% ${rows*100}%;background-position:${x*20}% ${yp}%"></span>`}
   function data(){return meta}
   return { init, save, data, SLOTS, SLOT_CN, CLS_CN, RES_CN, all, rollDrop, addItem, equip, unequip, discard, equippedItems, stats, hydrate, itemText, iconHtml };
 })();
