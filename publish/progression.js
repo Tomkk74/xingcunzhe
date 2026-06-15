@@ -1,7 +1,7 @@
 window.GameModules = window.GameModules || {};
 window.GameModules.progression = (() => {
   const KEY = 'arcane-meta-v2';
-  const CLASSES = { paladin: '圣骑士', mage: '大魔法师', ranger: '游侠' };
+  const CLASSES = { paladin: '圣骑士', mage: '大魔法师', ranger: '游侠', lewdSaintess: '淫靡圣女' };
   const BASE = [
     ['hp', '生命根基', '最大生命 +5%', 10, 30, 50, 16],
     ['damage', '战斗本能', '全技能伤害 +4%', 10, 50, 28, 38],
@@ -32,6 +32,13 @@ window.GameModules.progression = (() => {
       ['moon', '月牙猎影', '月牙斩每级减速 +0.18、弧刃范围 +4、冷却 -5%，Lv.4 后 +1 道', 4, 110, 50, 108, 'damage', ['moonSlash'], 24, 'wind'],
       ['mark', '猎王标记', '物理猎杀技能对 Boss 与护盾敌人更强，匕首雨目标数提升', 4, 135, 50, 126, 'damage', ['axe', 'windCutter', 'daggerRain'], 28, 'wind'],
     ],
+    lewdSaintess: [
+      ['splash', '欲液反涌', '受击反击范围 +6、伤害 +5%，Lv.4 后额外 +1 技能等级', 5, 90, 22, 82, 'damage', ['lustSplash'], 24],
+      ['kiss', '媚心飞吻', '飞吻每级冷却 -4%、爆炸范围 +4，Lv.2/Lv.4 各 +1 发', 5, 90, 50, 86, 'damage', ['lustKiss'], 24],
+      ['prayer', '献媚祈祷', '祈祷场每级范围 +5、冷却 -5%、淫荡值回复提升', 5, 95, 78, 82, 'utility', ['lustPrayer'], 24],
+      ['desire', '淫荡值容器', '每级生命 +4%、淫荡值上限 +12、受击转化更稳定', 4, 120, 50, 108, 'utility', [], 26, 'prayer'],
+      ['overflow', '欲潮溢流', '反伤、飞吻、祈祷场对 Boss 更强，淫荡值高时爆发更频繁', 4, 145, 50, 126, 'damage', ['lustSplash', 'lustKiss', 'lustOverflow'], 30, 'splash'],
+    ],
   };
   const COST_GROWTH = 1.72;
   const DEFAULT = { soulGold: 0, soulCore: 0, classes: Object.fromEntries(Object.keys(CLASSES).map(k => [k, { upgrades: {}, unlocks: {} }])) };
@@ -61,11 +68,14 @@ window.GameModules.progression = (() => {
       base.classes[c].upgrades[n.id] = lv;
       base.classes[c].unlocks[n.id] = !!data.classes?.[c]?.unlocks?.[n.id] || lv > 0 || !n.core;
     }
+    for (const c of Object.keys(CLASSES)) base.classes[c].unlocks.dlc = !!data.classes?.[c]?.unlocks?.dlc;
     if (data.upgrades) for (const c of Object.keys(CLASSES)) for (const n of BASE) base.classes[c].upgrades[n[0]] = Math.max(0, Math.floor(Number(data.upgrades[n[0]]) || 0));
     return base;
   }
   async function init() { if (ready) return meta; meta = normalize(await kvGet(KEY) || await kvGet('arcane-meta-v1')); ready = true; return meta; }
   async function save() { await kvPut(KEY, meta); }
+  function dlcOwned(c) { return c !== 'lewdSaintess' || !!clsData(c).unlocks.dlc; }
+  async function buyDlc(c) { if (c !== 'lewdSaintess' || dlcOwned(c)) return dlcOwned(c); if (meta.soulCore < 200) return false; meta.soulCore -= 200; clsData(c).unlocks.dlc = true; await save(); return true; }
   function level(c, id) { return clsData(c).upgrades[id] || 0; }
   function node(c, id) { return nodes(c).find(n => n.id === id); }
   function preOk(c, n) { return !n.pre || level(c, n.pre) > 0; }
@@ -108,6 +118,7 @@ window.GameModules.progression = (() => {
     const aura = u.aura || 0, lance = u.lance || 0, nova = u.nova || 0, guard = u.guard || 0, seal = u.seal || 0;
     const missile = u.missile || 0, fire = u.fire || 0, thunder = u.thunder || 0, beam = u.beam || 0, overload = u.overload || 0;
     const axe = u.axe || 0, wind = u.wind || 0, dagger = u.dagger || 0, moon = u.moon || 0, mark = u.mark || 0;
+    const splash = u.splash || 0, kiss = u.kiss || 0, prayer = u.prayer || 0, desire = u.desire || 0, overflow = u.overflow || 0;
     if (aura) { dmg('garlic', aura * 0.04); add('garlic', { radius: aura * 5 }); if (aura >= 4) skillLv.garlic = 1; }
     if (lance) add('holyLance', { cd: lance * 0.05, width: lance * 3, count: Math.floor(lance / 2) });
     if (nova) { dmg('bloodNova', nova * 0.04); add('bloodNova', { radius: nova * 7, cd: nova * 0.06 }); if (nova >= 4) skillLv.bloodNova = 1; }
@@ -122,8 +133,12 @@ window.GameModules.progression = (() => {
     if (dagger) add('daggerRain', { targets: dagger, radius: dagger * 4, cd: dagger * 0.05 });
     if (moon) add('moonSlash', { slow: moon * 0.18, radius: moon * 4, cd: moon * 0.05, count: moon >= 4 ? 1 : 0 });
     if (mark) { for (const s of ['axe', 'windCutter', 'daggerRain', 'moonSlash', 'shadowBlade']) add(s, { bossDmg: mark * 0.06, shieldBreak: mark * 0.08 }); add('daggerRain', { targets: mark }); }
-    hpMul *= 1 + guard * 0.03;
-    return { hp: Math.round(baseClass.hp * hpMul), spd: baseClass.spd * spdMul, dmg: baseClass.dmg * dmgMul, startXp: (u.startXp || 0) * 4, magnetBonus: (u.magnet || 0) * 0.06, goldBonus: (u.gold || 0) * 0.05, shieldStart: Math.round(baseClass.hp * guard * 0.04), regenBonus: guard * 0.25, skillDmg, skillLv, skillMods };
+    if (splash) { dmg('lustSplash', splash * 0.05); add('lustSplash', { radius: splash * 6 }); if (splash >= 4) skillLv.lustSplash = 1; }
+    if (kiss) add('lustKiss', { cd: kiss * 0.04, aoe: kiss * 4, count: Math.floor(kiss / 2) });
+    if (prayer) add('lustPrayer', { radius: prayer * 5, cd: prayer * 0.05, lustRegen: prayer * 0.35 });
+    if (overflow) for (const s of ['lustSplash', 'lustKiss', 'lustPrayer', 'lustOverflow']) add(s, { bossDmg: overflow * 0.06, cd: overflow * 0.025 });
+    hpMul *= 1 + guard * 0.03 + desire * 0.04;
+    return { hp: Math.round(baseClass.hp * hpMul), spd: baseClass.spd * spdMul, dmg: baseClass.dmg * dmgMul, startXp: (u.startXp || 0) * 4, magnetBonus: (u.magnet || 0) * 0.06, goldBonus: (u.gold || 0) * 0.05, shieldStart: Math.round(baseClass.hp * guard * 0.04), regenBonus: guard * 0.25, lustMaxBonus: desire * 12, lustGainBonus: desire * 0.08 + prayer * 0.04, skillDmg, skillLv, skillMods };
   }
   function estimateRunReward(run) {
     const c = run.classId || run.cls || 'paladin', goals = Math.max(0, Number(run.goals) || 0), base = Math.floor(Number(run.gold) || 0), time = Math.floor((Number(run.time) || 0) / 30) * 10, boss = Math.max(0, Number(run.bossKills) || 0) * 80, level = run.level >= 30 ? 100 : run.level >= 20 ? 60 : run.level >= 10 ? 30 : 0;
@@ -132,6 +147,6 @@ window.GameModules.progression = (() => {
   function estimateCoreReward(run) { return Math.max(0, Math.floor(Number(run.bossKills) || 0)) + (run.win ? 2 : 0); }
   async function addRunReward(run) { await init(); const gold = estimateRunReward(run), core = estimateCoreReward(run); meta.soulGold += gold; meta.soulCore += core; await save(); return { gold, core }; }
   function data() { return meta; }
-  return { init, render, renderTree, applyClass, estimateRunReward, estimateCoreReward, addRunReward, data };
+  return { init, render, renderTree, applyClass, estimateRunReward, estimateCoreReward, addRunReward, data, dlcOwned, buyDlc };
 })();
 window.Progression = window.GameModules.progression;
