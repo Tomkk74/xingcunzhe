@@ -1,7 +1,7 @@
 {
   "version": 1,
   "createdAt": "2026-06-13T14:08:29Z",
-  "updatedAt": "2026-06-16T17:02:07Z",
+  "updatedAt": "2026-06-16T17:46:16Z",
   "assets": [
     {
       "name": "player-paladin",
@@ -2325,56 +2325,56 @@
       "createdAt": "2026-06-16T11:59:02Z"
     },
     {
-      "name": "paladin-dawn-banner-sheet",
+      "name": "paladin-flail-spin-sheet",
       "status": "success",
-      "path": "publish/assets/generated/paladin-dawn-banner-sheet.968503b3.webp",
-      "contentHash": "968503b3",
-      "revisedPrompt": "Sixteen-frame pixel art sprite sheet for a Paladin rift-only active skill called Dawn Banner. Cute chibi fantasy arcade survivor game style, top-down 3/4 readable magic effect sprite. Arrange exactly as a 4x4 grid, sixteen equal square cells, one animation frame per cell. The animation shows: row 1 a golden holy banner spear falling and planting into the ground, row 2 the banner cloth unfurling with a white-gold cross emblem but no readable text, row 3 a circular dawn sanctuary rune expands outward, row 4 bright judgment pulse rings burst from the planted banner. Consistent centered scale in every cell, clean dark outline, high contrast golden light, suitable for canvas drawImage animation. Pixel art style, no labels, no frame numbers, no text, no logo, no watermark. Strictly placed on a SOLID UNIFORM #00B140 chroma key flat color background. The background is a single uniform shade of #00B140 chroma key green that fills 100% of pixels not occupied by the sprite. No gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements. Pure flat color background, exactly like a green screen used for VFX compositing. No text, no logo, no watermark.",
+      "path": "publish/assets/generated/paladin-flail-spin-sheet.daf795d5.webp",
+      "contentHash": "daf795d5",
+      "revisedPrompt": "16-frame pixel art sprite sheet for a holy paladin flail spinning skill effect in a top-down 3/4 arcade survivor game. Arrange exactly as a 4x4 grid, equal square cells, one animation frame per cell. A glowing golden chained flail swings in a circular orbit around an implied paladin center point, bright holy arcs, sparks, heavy mace head motion blur, readable silhouette, clean dark outline, consistent scale in every cell. Fits Arcane Survivors chibi fantasy style: bright arcade fantasy, dark dungeon contrast, soft glow, high readability. No character body, focus on weapon and holy circular spin effect. No labels, no frame numbers, no text, no logo, no watermark. Strictly placed on a SOLID UNIFORM #00B140 chroma key flat color background. The background is a single uniform shade of #00B140 chroma key green that fills 100% of pixels not occupied by the effect. No gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements. Pure flat color background, exactly like a green screen used for VFX compositing. No text, no logo, no watermark.",
       "model": "gpt-image-2",
       "size": "1254x1254",
       "wantsTransparent": true,
       "chromaKey": {
         "color": "#00B140",
-        "alphaZeroPct": 72.1,
+        "alphaZeroPct": 78.9,
         "edgeGreenBiasPct": 0,
         "verdict": "PASS"
       },
       "outputFormat": "webp",
       "compressionProfile": "lossless_alpha",
-      "originalBytes": 1751895,
-      "finalBytes": 806466,
+      "originalBytes": 1817273,
+      "finalBytes": 702852,
       "usage": {
-        "inputTokens": 272,
+        "inputTokens": 248,
         "outputImageTokens": 2058
       },
-      "traceId": "trace_mqgvzpyn_skt711kq",
-      "createdAt": "2026-06-16T17:00:23Z"
+      "traceId": "trace_mqgxh5t2_0r173ucz",
+      "createdAt": "2026-06-16T17:41:48Z"
     },
     {
-      "name": "paladin-aegis-charge-sheet",
+      "name": "paladin-shield-orbit-sheet",
       "status": "success",
-      "path": "publish/assets/generated/paladin-aegis-charge-sheet.26963289.webp",
-      "contentHash": "26963289",
-      "revisedPrompt": "Sixteen-frame pixel art sprite sheet for a Paladin rift-only active skill called Aegis Charge. Cute chibi fantasy arcade survivor game style, top-down 3/4 readable magic effect sprite. Arrange exactly as a 4x4 grid, sixteen equal square cells, one animation frame per cell. The animation shows: row 1 a thick golden holy shield charging up with white light, row 2 a fast forward shield rush with gold afterimages and speed streaks, row 3 a shield impact with cracks and sparks, row 4 a circular sacred shield explosion and shockwave. Consistent centered scale in every cell, clean dark outline, high contrast gold and white light, suitable for canvas drawImage animation. Pixel art style, no labels, no frame numbers, no text, no logo, no watermark. Strictly placed on a SOLID UNIFORM #00B140 chroma key flat color background. The background is a single uniform shade of #00B140 chroma key green that fills 100% of pixels not occupied by the sprite. No gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements. Pure flat color background, exactly like a green screen used for VFX compositing. No text, no logo, no watermark.",
+      "path": "publish/assets/generated/paladin-shield-orbit-sheet.f7928b97.webp",
+      "contentHash": "f7928b97",
+      "revisedPrompt": "16-frame pixel art sprite sheet for a thrown holy shield orbiting around a paladin in a top-down 3/4 arcade survivor game. Arrange exactly as a 4x4 grid, equal square cells, one animation frame per cell. A golden kite shield flies in a circular orbit around an implied center point, shield edge glowing, holy trail ring, bright sparks, spinning motion blur, readable silhouette, clean dark outline, consistent scale in every cell. Fits Arcane Survivors chibi fantasy style: bright arcade fantasy, dark dungeon contrast, soft glow, high readability. No full character body, focus on shield projectile and circular orbit effect. No labels, no frame numbers, no text, no logo, no watermark. Strictly placed on a SOLID UNIFORM #00B140 chroma key flat color background. The background is a single uniform shade of #00B140 chroma key green that fills 100% of pixels not occupied by the effect. No gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements. Pure flat color background, exactly like a green screen used for VFX compositing. No text, no logo, no watermark.",
       "model": "gpt-image-2",
       "size": "1254x1254",
       "wantsTransparent": true,
       "chromaKey": {
         "color": "#00B140",
-        "alphaZeroPct": 64.5,
+        "alphaZeroPct": 82.5,
         "edgeGreenBiasPct": 0,
         "verdict": "PASS"
       },
       "outputFormat": "webp",
       "compressionProfile": "lossless_alpha",
-      "originalBytes": 1952573,
-      "finalBytes": 1040610,
+      "originalBytes": 1647274,
+      "finalBytes": 600770,
       "usage": {
-        "inputTokens": 270,
+        "inputTokens": 249,
         "outputImageTokens": 2058
       },
-      "traceId": "trace_mqgw2116_j4lzh9fe",
-      "createdAt": "2026-06-16T17:02:07Z"
+      "traceId": "trace_mqgxj9k7_n6ih2ayb",
+      "createdAt": "2026-06-16T17:43:13Z"
     }
   ]
 }
