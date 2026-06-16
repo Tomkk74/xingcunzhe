@@ -1,7 +1,7 @@
 {
   "version": 1,
   "createdAt": "2026-06-13T14:08:29Z",
-  "updatedAt": "2026-06-16T11:59:02Z",
+  "updatedAt": "2026-06-16T17:02:07Z",
   "assets": [
     {
       "name": "player-paladin",
@@ -2323,6 +2323,58 @@
       },
       "traceId": "trace_mqgl8dox_h4w165vw",
       "createdAt": "2026-06-16T11:59:02Z"
+    },
+    {
+      "name": "paladin-dawn-banner-sheet",
+      "status": "success",
+      "path": "publish/assets/generated/paladin-dawn-banner-sheet.968503b3.webp",
+      "contentHash": "968503b3",
+      "revisedPrompt": "Sixteen-frame pixel art sprite sheet for a Paladin rift-only active skill called Dawn Banner. Cute chibi fantasy arcade survivor game style, top-down 3/4 readable magic effect sprite. Arrange exactly as a 4x4 grid, sixteen equal square cells, one animation frame per cell. The animation shows: row 1 a golden holy banner spear falling and planting into the ground, row 2 the banner cloth unfurling with a white-gold cross emblem but no readable text, row 3 a circular dawn sanctuary rune expands outward, row 4 bright judgment pulse rings burst from the planted banner. Consistent centered scale in every cell, clean dark outline, high contrast golden light, suitable for canvas drawImage animation. Pixel art style, no labels, no frame numbers, no text, no logo, no watermark. Strictly placed on a SOLID UNIFORM #00B140 chroma key flat color background. The background is a single uniform shade of #00B140 chroma key green that fills 100% of pixels not occupied by the sprite. No gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements. Pure flat color background, exactly like a green screen used for VFX compositing. No text, no logo, no watermark.",
+      "model": "gpt-image-2",
+      "size": "1254x1254",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#00B140",
+        "alphaZeroPct": 72.1,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossless_alpha",
+      "originalBytes": 1751895,
+      "finalBytes": 806466,
+      "usage": {
+        "inputTokens": 272,
+        "outputImageTokens": 2058
+      },
+      "traceId": "trace_mqgvzpyn_skt711kq",
+      "createdAt": "2026-06-16T17:00:23Z"
+    },
+    {
+      "name": "paladin-aegis-charge-sheet",
+      "status": "success",
+      "path": "publish/assets/generated/paladin-aegis-charge-sheet.26963289.webp",
+      "contentHash": "26963289",
+      "revisedPrompt": "Sixteen-frame pixel art sprite sheet for a Paladin rift-only active skill called Aegis Charge. Cute chibi fantasy arcade survivor game style, top-down 3/4 readable magic effect sprite. Arrange exactly as a 4x4 grid, sixteen equal square cells, one animation frame per cell. The animation shows: row 1 a thick golden holy shield charging up with white light, row 2 a fast forward shield rush with gold afterimages and speed streaks, row 3 a shield impact with cracks and sparks, row 4 a circular sacred shield explosion and shockwave. Consistent centered scale in every cell, clean dark outline, high contrast gold and white light, suitable for canvas drawImage animation. Pixel art style, no labels, no frame numbers, no text, no logo, no watermark. Strictly placed on a SOLID UNIFORM #00B140 chroma key flat color background. The background is a single uniform shade of #00B140 chroma key green that fills 100% of pixels not occupied by the sprite. No gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements. Pure flat color background, exactly like a green screen used for VFX compositing. No text, no logo, no watermark.",
+      "model": "gpt-image-2",
+      "size": "1254x1254",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#00B140",
+        "alphaZeroPct": 64.5,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossless_alpha",
+      "originalBytes": 1952573,
+      "finalBytes": 1040610,
+      "usage": {
+        "inputTokens": 270,
+        "outputImageTokens": 2058
+      },
+      "traceId": "trace_mqgw2116_j4lzh9fe",
+      "createdAt": "2026-06-16T17:02:07Z"
     }
   ]
 }
