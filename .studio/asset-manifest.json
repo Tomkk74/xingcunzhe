@@ -1,7 +1,7 @@
 {
   "version": 1,
   "createdAt": "2026-06-13T14:08:29Z",
-  "updatedAt": "2026-06-16T05:26:58Z",
+  "updatedAt": "2026-06-16T05:57:34Z",
   "assets": [
     {
       "name": "player-paladin",
@@ -1959,6 +1959,136 @@
       },
       "traceId": "trace_mqg78gfo_s7r26kyo",
       "createdAt": "2026-06-16T05:26:58Z"
+    },
+    {
+      "name": "scythe-arc-sheet",
+      "status": "success",
+      "path": "publish/assets/generated/scythe-maiden/scythe-arc-sheet.b86bedc7.webp",
+      "contentHash": "b86bedc7",
+      "revisedPrompt": "Create a 2x2 sprite sheet for an arcane survivor chibi fantasy game VFX effect: a crescent scythe slash attack, purple and cyan moon-blade energy, readable top-down 3/4 arcade effect, clean dark outline, glowing magic trails. No character, no UI, no text, no logo, no watermark. Four distinct animation frames arranged in a clean 2x2 grid, each frame centered with enough transparent padding, consistent scale. STRICTLY on a SOLID UNIFORM #00B140 chroma key flat color background filling 100% of pixels not occupied by the effect. No gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements. Pure flat color background, exactly like a green screen for VFX compositing.",
+      "model": "gpt-image-2",
+      "size": "1254x1254",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#00B140",
+        "alphaZeroPct": 81.2,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossy_q85_alpha",
+      "originalBytes": 1549388,
+      "finalBytes": 152342,
+      "usage": {
+        "inputTokens": 170,
+        "outputImageTokens": 2058
+      },
+      "traceId": "trace_mqg83kbk_mwcwdvrd",
+      "createdAt": "2026-06-16T05:51:14Z"
+    },
+    {
+      "name": "death-waltz-sheet",
+      "status": "success",
+      "path": "publish/assets/generated/scythe-maiden/death-waltz-sheet.38b0e055.webp",
+      "contentHash": "38b0e055",
+      "revisedPrompt": "Arcane survivor chibi fantasy game VFX sprite sheet, 2 by 2 frames, 360 degree death moon waltz scythe ring attack effect, circular purple crescent blades spinning around a player position, cyan moon sparks, readable top-down 3/4 arcade effect, clean dark outline, high contrast magical glow, no character, no UI, no text, no logo, no watermark. Four animation frames arranged in a clean 2x2 grid, centered circular effect with transparent padding, consistent scale. Strictly placed on a SOLID UNIFORM #00B140 chroma key flat color background. The background is a single uniform shade of #00B140 chroma key green that fills 100% of pixels not occupied by the effect. No gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements. Pure flat color background, exactly like a green screen used for VFX compositing. No text, no logo, no watermark.",
+      "model": "gpt-image-2",
+      "size": "1254x1254",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#00B140",
+        "alphaZeroPct": 80.5,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossy_q85_alpha",
+      "originalBytes": 1631018,
+      "finalBytes": 189230,
+      "usage": {
+        "inputTokens": 209,
+        "outputImageTokens": 2058
+      },
+      "traceId": "trace_mqg85fyp_3wf9aore",
+      "createdAt": "2026-06-16T05:52:41Z"
+    },
+    {
+      "name": "blood-scythe-sheet",
+      "status": "success",
+      "path": "publish/assets/generated/scythe-maiden/blood-scythe-sheet.aa75a155.webp",
+      "contentHash": "aa75a155",
+      "revisedPrompt": "Arcane survivor chibi fantasy game VFX sprite sheet, 2 by 2 frames, blood scythe sacrificial ring attack effect, crimson circular nova with red scythe shadows flying outward, dark fantasy but readable arcade style, clean dark outline, glowing red and magenta particles, no character, no UI, no text, no logo, no watermark. Four animation frames arranged in a clean 2x2 grid, each frame centered with transparent padding, consistent scale. Strictly placed on a SOLID UNIFORM #00B140 chroma key flat color background. The background is a single uniform shade of #00B140 chroma key green that fills 100% of pixels not occupied by the effect. No gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements. Pure flat color background, exactly like a green screen used for VFX compositing. No text, no logo, no watermark.",
+      "model": "gpt-image-2",
+      "size": "1254x1254",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#00B140",
+        "alphaZeroPct": 69.9,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossy_q85_alpha",
+      "originalBytes": 1823225,
+      "finalBytes": 227576,
+      "usage": {
+        "inputTokens": 200,
+        "outputImageTokens": 2058
+      },
+      "traceId": "trace_mqg878zp_307ix3xn",
+      "createdAt": "2026-06-16T05:54:11Z"
+    },
+    {
+      "name": "soul-reaper-sheet",
+      "status": "success",
+      "path": "publish/assets/generated/scythe-maiden/soul-reaper-sheet.1c322cb8.webp",
+      "contentHash": "1c322cb8",
+      "revisedPrompt": "Arcane survivor chibi fantasy game VFX sprite sheet, 2 by 2 frames, soul reaper shadow scythe execution effect. Dark purple phantom scythe blade with cyan ghost flame fragments, piercing dash slash burst, readable top-down 3/4 arcade effect. Clean dark outline, high contrast glow. No character, no UI, no text, no logo, no watermark. Four animation frames arranged in a clean 2x2 grid, each frame centered with transparent padding, consistent scale. Strictly placed on a SOLID UNIFORM #00B140 chroma key flat color background. The background is a single uniform shade of #00B140 chroma key green that fills 100% of pixels not occupied by the effect. No gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements. Pure flat color background, exactly like a green screen used for VFX compositing. No text, no logo, no watermark.",
+      "model": "gpt-image-2",
+      "size": "1254x1254",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#00B140",
+        "alphaZeroPct": 81.3,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossy_q85_alpha",
+      "originalBytes": 1576240,
+      "finalBytes": 145274,
+      "usage": {
+        "inputTokens": 206,
+        "outputImageTokens": 2058
+      },
+      "traceId": "trace_mqg894bw_y6u18y7p",
+      "createdAt": "2026-06-16T05:55:49Z"
+    },
+    {
+      "name": "equipment-icons-set-scythe-rpg-sheet",
+      "status": "success",
+      "path": "publish/assets/generated/scythe-maiden/equipment-icons-set-scythe-rpg-sheet.2b0f20cf.webp",
+      "contentHash": "2b0f20cf",
+      "revisedPrompt": "Fantasy RPG equipment icon sprite sheet for a scythe maiden class, arranged as a strict 6 columns by 3 rows grid with 18 separate icons. Include three matching set families: 1) moon reaper waltz gear with crescent scythes and violet armor, 2) blood reaping covenant gear with crimson scythe jewels, 3) soul shadow reaper gear with ghost flame ornaments. Slots across the set families include weapon scythe, helm, ring, chest armor, boots, amulet, one icon for each slot per family. Bright arcade fantasy survivor game art, clean dark outline, high contrast, readable small icons, crisp stylized item silhouettes, no text, no logo, no watermark. Icons evenly spaced in a strict 6x3 grid with transparent padding between icons. Strictly placed on a SOLID UNIFORM #00B140 chroma key flat color background filling 100% of all non-icon pixels. No gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements. Pure flat color background, exactly like a green screen used for VFX compositing. Ensure the background is a single uniform shade of #00B140 throughout.",
+      "model": "gpt-image-2",
+      "size": "1536x1024",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#00B140",
+        "alphaZeroPct": 69.5,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossy_q85_alpha",
+      "originalBytes": 2262559,
+      "finalBytes": 278392,
+      "usage": {
+        "inputTokens": 256,
+        "outputImageTokens": 1372
+      },
+      "traceId": "trace_mqg8bn9o_l79y3am2",
+      "createdAt": "2026-06-16T05:57:34Z"
     }
   ]
 }
