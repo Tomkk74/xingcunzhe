@@ -43,10 +43,21 @@ window.GameModules.equipment = (() => {
     const y = [13,210,408];
     return y.flatMap((yy, row) => cols.map(([x, baseY, w, h]) => ({ x, y: row ? yy : baseY, w, h })));
   })();
+  const MAGE_RECTS = (() => {
+    const row1 = [[21,10,157,195],[195,14,148,184],[363,12,163,189],[552,13,128,184],[706,39,144,144],[864,14,145,184]];
+    const row2 = [[12,216,160,212],[195,216,148,184],[363,216,163,189],[552,216,128,184],[706,241,144,144],[864,216,145,184]];
+    const row3 = [[10,437,145,209],[195,437,148,184],[363,437,163,189],[552,437,128,184],[706,462,144,144],[864,437,145,184]];
+    return [...row1, ...row2, ...row3].map(([x,y,w,h]) => ({ x, y, w, h }));
+  })();
+  function rectFor(sheet, index) {
+    if (sheet === 'setPaladin' || sheet === 'setSaintess') return PALADIN_RECTS[index];
+    if (sheet === 'setMage' || sheet === 'setRanger') return MAGE_RECTS[index];
+    return null;
+  }
   const pieceNames = { weapon:'武器', helm:'冠冕', chest:'衣甲', amulet:'坠饰', ring:'戒环', boots:'足具' };
   const toItem = (r, sheet, i) => ({ baseId:r[0], name:r[1], rarity:sheet, slot:r[2], stats:r[3], resists:r[4], effect:r[5]||'', icon:{sheet:ICON_SHEETS[sheet], index:i} });
   const gold = GOLD.map((r,i)=>toItem(r,'gold',i)), uniques = UNIQUES.map((r,i)=>toItem(r,'unique',i));
-  const sets = SET_FAMILIES.flatMap((f,fi)=>SLOTS.map((slot,i)=>({ baseId:`set-${f[1]}-${slot}`, name:`${f[2]}·${pieceNames[slot]}`, rarity:'set', class:f[0], setId:f[1], setName:f[2], slot, stats:{...Object.fromEntries(Object.entries(f[4]).filter(([k])=>!RES.includes(k))), [slot==='weapon'?'damage':slot==='boots'?'move':slot==='ring'?'atkSpeed':slot==='amulet'?'range':'hp']:.06}, resists:Object.fromEntries(Object.entries(f[4]).filter(([k])=>RES.includes(k))), icon:{sheet:ICON_SHEETS[f[3]], index:(fi%3)*6+i, rect:(f[3]==='setPaladin'||f[3]==='setSaintess')?PALADIN_RECTS[(fi%3)*6+i]:null} })));
+  const sets = SET_FAMILIES.flatMap((f,fi)=>SLOTS.map((slot,i)=>({ baseId:`set-${f[1]}-${slot}`, name:`${f[2]}·${pieceNames[slot]}`, rarity:'set', class:f[0], setId:f[1], setName:f[2], slot, stats:{...Object.fromEntries(Object.entries(f[4]).filter(([k])=>!RES.includes(k))), [slot==='weapon'?'damage':slot==='boots'?'move':slot==='ring'?'atkSpeed':slot==='amulet'?'range':'hp']:.06}, resists:Object.fromEntries(Object.entries(f[4]).filter(([k])=>RES.includes(k))), icon:{sheet:ICON_SHEETS[f[3]], index:(fi%3)*6+i, rect:rectFor(f[3], (fi%3)*6+i)} })));
   const all = [...gold,...uniques,...sets];
   let meta = { items:[], equipped:{}, dust:0 }, ready = false;
   const clone = v => JSON.parse(JSON.stringify(v));
