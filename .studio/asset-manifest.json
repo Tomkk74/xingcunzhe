@@ -1,7 +1,7 @@
 {
   "version": 1,
   "createdAt": "2026-06-13T14:08:29Z",
-  "updatedAt": "2026-06-16T04:06:48Z",
+  "updatedAt": "2026-06-16T05:26:58Z",
   "assets": [
     {
       "name": "player-paladin",
@@ -1907,6 +1907,58 @@
       },
       "traceId": "trace_mqg4d93m_utuy9wzm",
       "createdAt": "2026-06-16T04:06:48Z"
+    },
+    {
+      "name": "scythe-maiden-card",
+      "status": "success",
+      "path": "publish/assets/generated/scythe-maiden/scythe-maiden-card.c95643c9.webp",
+      "contentHash": "c95643c9",
+      "revisedPrompt": "Cute chibi fantasy scythe maiden hero for an arcade survivor game, top-down 3/4 readable character card portrait, full body centered. Silver-white long hair, black and purple short cloak, huge crescent scythe, moon-blue glow, tiny ghost fragments floating behind her, agile melee reaper girl. Clean dark outline, bright readable silhouette, high-contrast dark dungeon fantasy character design, polished game art, chibi proportions, dynamic but compact pose, no text, no logo, no watermark. Strictly isolated on a SOLID UNIFORM #00B140 chroma key flat color background. The background must be a single uniform shade of #00B140 that fills all pixels not occupied by the character, with absolutely no gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements. Pure flat color background, exactly like a green screen used for VFX compositing.",
+      "model": "gpt-image-2",
+      "size": "1254x1254",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#00B140",
+        "alphaZeroPct": 68.7,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossy_q85_alpha",
+      "originalBytes": 1730281,
+      "finalBytes": 151476,
+      "usage": {
+        "inputTokens": 194,
+        "outputImageTokens": 2058
+      },
+      "traceId": "trace_mqg76irm_eow71rop",
+      "createdAt": "2026-06-16T05:25:33Z"
+    },
+    {
+      "name": "scythe-maiden-action-sheet",
+      "status": "success",
+      "path": "publish/assets/generated/scythe-maiden/scythe-maiden-action-sheet.64de7bfa.webp",
+      "contentHash": "64de7bfa",
+      "revisedPrompt": "Create a 2D action animation sprite sheet for a cute chibi fantasy scythe maiden hero in a top-down 3/4 arcade survivor game. EXACT layout: 6 columns by 4 rows grid, 24 equal square cells, one frame per cell. Same character in every cell: silver-white long hair, black-purple short cloak, huge crescent scythe, moon-blue glow, clean dark outline, readable silhouette, consistent scale, centered in each cell. Full body fully inside each cell with transparent-safe margins. Row 1: idle breathing poses. Row 2: running / moving poses. Row 3: forward scythe attack casting poses with crescent slash motion. Row 4: hit / damage recoil poses. Keep all frames coherent and consistent. No labels, no frame numbers, no text, no logo, no watermark. Strictly on a SOLID UNIFORM #00B140 chroma key flat color background filling all empty pixels; pure flat green screen, no gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements. Ensure the green background is exactly #00B140 and uniform across the entire canvas outside the character art.",
+      "model": "gpt-image-2",
+      "size": "1536x1024",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#00B140",
+        "alphaZeroPct": 68.3,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossy_q85_alpha",
+      "originalBytes": 2332025,
+      "finalBytes": 304766,
+      "usage": {
+        "inputTokens": 252,
+        "outputImageTokens": 1372
+      },
+      "traceId": "trace_mqg78gfo_s7r26kyo",
+      "createdAt": "2026-06-16T05:26:58Z"
     }
   ]
 }
