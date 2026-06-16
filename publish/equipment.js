@@ -1,6 +1,6 @@
 window.GameModules = window.GameModules || {};
 window.GameModules.equipment = (() => {
-  const KEY = 'arcane-equipment-v1';
+  const KEY = 'arcane-equipment-v2';
   const ICON_SHEETS = { gold:'./assets/generated/equipment-icons-gold-rpg-sheet.8bac9168.webp', unique:'./assets/generated/equipment-icons-unique-rpg-sheet.b1783e31.webp', setPaladin:'./assets/generated/equipment-icons-set-paladin-rpg-sheet.96aa82dd.webp', setMage:'./assets/generated/equipment-icons-set-mage-rpg-sheet.a179ef44.webp', setRanger:'./assets/generated/equipment-icons-set-ranger-rpg-sheet.a6ce5da2.webp', setSaintess:'./assets/generated/equipment-icons-set-saintess-rpg-sheet.c2224def.webp', setScythe:'./assets/generated/scythe-maiden/equipment-icons-set-scythe-rpg-sheet.2b0f20cf.webp' };
   const SLOTS = ['weapon','helm','chest','amulet','ring','boots'];
   const SLOT_CN = { weapon:'武器', helm:'头盔', chest:'胸甲', amulet:'项链', ring:'戒指', boots:'靴子' };

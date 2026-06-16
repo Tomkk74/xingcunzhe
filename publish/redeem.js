@@ -1,6 +1,6 @@
 window.GameModules = window.GameModules || {};
 window.GameModules.redeem = (() => {
-  const KEY = 'arcane-redeem-v1';
+  const KEY = 'arcane-redeem-v2';
   const CODES = {
     'Tomkk白衣胜雪': { id: 'tomkk-baiyi-20260615', gold: 6666, core: 100 },
   };

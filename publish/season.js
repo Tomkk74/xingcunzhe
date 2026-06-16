@@ -1,7 +1,7 @@
 window.GameModules = window.GameModules || {};
 window.GameModules.season = (() => {
   const CURRENT = 1;
-  const KEY = 'arcane-season-state-v1';
+  const KEY = 'arcane-season-state-v2';
   const CONFIG = {
     1: {
       name: '第一赛季',

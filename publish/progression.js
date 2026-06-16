@@ -1,6 +1,6 @@
 window.GameModules = window.GameModules || {};
 window.GameModules.progression = (() => {
-  const KEY = 'arcane-meta-v2';
+  const KEY = 'arcane-meta-v3';
   const CLASSES = { paladin: '圣骑士', mage: '大魔法师', ranger: '游侠', lewdSaintess: '淫靡圣女', scytheMaiden: '琦琦' };
   const BASE = [
     ['hp', '生命根基', '最大生命 +5%', 10, 30, 50, 16],
