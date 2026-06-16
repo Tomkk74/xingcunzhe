@@ -3,6 +3,7 @@ window.GameModules.redeem = (() => {
   const KEY = 'arcane-redeem-v2';
   const CODES = {
     'Tomkk白衣胜雪': { id: 'tomkk-baiyi-20260615', gold: 6666, core: 100 },
+    'Tomkk666': { id: 'tomkk-rift-tickets-20260616', riftKeys: 50 },
   };
   let used = null;
   let redeeming = false;
@@ -40,12 +41,18 @@ window.GameModules.redeem = (() => {
       message('兑换中，请稍候…');
       const data = await loadUsed();
       if (data[reward.id]) { message('该兑换码已使用过'); return; }
-      if (!window.Progression?.addGrantCurrency) { message('成长系统未就绪，请稍后再试'); return; }
-      const result = await window.Progression.addGrantCurrency(reward.id, reward.gold, reward.core);
+      let result;
+      if (reward.riftKeys) {
+        if (!window.Rift?.addGrantKeys) { message('秘境系统未就绪，请稍后再试'); return; }
+        result = await window.Rift.addGrantKeys(reward.id, reward.riftKeys);
+      } else {
+        if (!window.Progression?.addGrantCurrency) { message('成长系统未就绪，请稍后再试'); return; }
+        result = await window.Progression.addGrantCurrency(reward.id, reward.gold, reward.core);
+      }
       data[reward.id] = true;
       await kvPut(KEY, data);
       if (!result.applied) { message('该兑换码已使用过'); return; }
-      message(`兑换成功：灵魂金币 +${reward.gold}，魔核 +${reward.core}`, true);
+      message(reward.riftKeys ? `兑换成功：大秘境门票 +${reward.riftKeys}` : `兑换成功：灵魂金币 +${reward.gold}，魔核 +${reward.core}`, true);
       input.value = '';
       onSuccess?.();
     } finally {
