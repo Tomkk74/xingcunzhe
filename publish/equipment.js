@@ -53,7 +53,8 @@ window.GameModules.equipment = (() => {
   function pct(v){return `${v>=0?'+':''}${Math.round(v*100)}%`}
   function itemText(it){let s=[]; if(it.rollTier)s.push(`品相：${it.rollTier}`); for(const [k,v] of Object.entries(it.stats||{}))s.push(`${{hp:'生命',damage:'伤害',armor:'护甲',move:'移速',cooldown:'冷却',atkSpeed:'攻速',range:'范围',pickup:'拾取',gold:'金币',regen:'回复',crit:'暴击'}[k]||k} ${pct(v)}`); for(const [k,v] of Object.entries(it.resists||{}))s.push(`${RES_CN[k]||k}抗性 ${pct(v)}`); return s.join(' / ')}
   function iconScale(it){if(it?.rarity==='unique')return .78;if(it?.rarity==='set')return .84;return 1}
-  function iconHtml(it){let i=it.icon?.index||0,x=i%6,y=Math.floor(i/6),s=iconScale(it);return `<span class="eqIcon" style="background-image:url('${it.icon?.sheet||''}');background-size:600% 300%;background-position:${x*20}% ${y*50}%;background-repeat:no-repeat;transform:scale(${s})"></span>`}
+  function iconYOffset(it){return it?.rarity==='unique'?28:it?.rarity==='set'?24:0}
+  function iconHtml(it){let i=it.icon?.index||0,x=i%6,y=Math.floor(i/6),s=iconScale(it),oy=iconYOffset(it);return `<span class="eqIcon" style="background-image:url('${it.icon?.sheet||''}');background-size:600% 300%;background-position:${x*20}% ${y*50+oy}%;background-repeat:no-repeat;transform:scale(${s})"></span>`}
   function data(){return meta}
   return { init, save, data, SLOTS, SLOT_CN, CLS_CN, RES_CN, all, rollDrop, addItem, equip, unequip, discard, equippedItems, stats, hydrate, itemText, iconHtml };
 })();
