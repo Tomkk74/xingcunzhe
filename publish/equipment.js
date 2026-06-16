@@ -66,6 +66,7 @@ window.GameModules.equipment = (() => {
   const all = [...gold,...uniques,...sets];
   let meta = { items:[], equipped:{}, dust:0 }, ready = false;
   const clone = v => JSON.parse(JSON.stringify(v));
+  const rand = (a, b) => a + Math.random() * (b - a);
   async function kvGet(k){try{return (await window.dzmm.kv.get(k))?.value??null}catch(_){try{let r=localStorage.getItem(k);return r?JSON.parse(r):null}catch(_){return null}}}
   async function kvPut(k,v){try{await window.dzmm.kv.put(k,v)}catch(_){try{localStorage.setItem(k,JSON.stringify(v))}catch(_){}}}
   function normalize(d){let base={items:[],equipped:{},dust:0}; if(!d||typeof d!=='object')return base; base.items=Array.isArray(d.items)?d.items.filter(x=>x&&x.uid&&x.baseId).slice(0,160):[]; base.equipped=d.equipped&&typeof d.equipped==='object'?d.equipped:{}; base.dust=Math.max(0,Math.floor(Number(d.dust)||0)); return base;}
