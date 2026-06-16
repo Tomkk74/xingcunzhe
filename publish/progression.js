@@ -41,10 +41,10 @@ window.GameModules.progression = (() => {
     ],
     scytheMaiden: [
       ['arc', '镰舞精通', '残月镰舞每级范围 +5、伤害 +5%，Lv.4 后额外 +1 技能等级', 5, 90, 22, 82, 'damage', ['scytheArc'], 24],
-      ['reaper', '收割本能', '影刃、月牙斩每级冷却 -4.5%，对残血敌人伤害提升', 5, 90, 50, 86, 'damage', ['shadowBlade', 'moonSlash'], 24],
-      ['soul', '吸魂回路', '魂火与虚空技能每级范围 +4，击杀精英回复少量生命', 5, 95, 78, 82, 'utility', ['soulOrb', 'voidRift'], 24],
+      ['reaper', '收割本能', '幽魂刃舞、追魂镰链每级冷却 -4.5%，对残血敌人伤害提升', 5, 90, 50, 86, 'damage', ['wraithBlade', 'reaperChain'], 24],
+      ['soul', '吸魂回路', '血镰回旋与墓月裂隙每级范围 +4，击杀精英回复少量生命', 5, 95, 78, 82, 'utility', ['bloodReap', 'graveRift'], 24],
       ['dance', '死舞步伐', '每级移动速度 +3%，移动时积累冥契更快', 4, 120, 50, 108, 'utility', [], 26, 'reaper'],
-      ['execute', '终末处决', '镰刀系技能对 Boss 与护盾敌人更强，残血敌人受到额外处决伤害', 4, 145, 50, 126, 'damage', ['scytheArc', 'shadowBlade', 'moonSlash', 'bloodNova'], 30, 'arc'],
+      ['execute', '终末处决', '镰刀系技能对 Boss 与护盾敌人更强，残血敌人受到额外处决伤害', 4, 145, 50, 126, 'damage', ['scytheArc', 'bloodReap', 'wraithBlade', 'reaperChain'], 30, 'arc'],
     ],
   };
   const COST_GROWTH = 1.72;
@@ -159,9 +159,9 @@ window.GameModules.progression = (() => {
     if (prayer) add('lustPrayer', { radius: prayer * 5, cd: prayer * 0.05, lustRegen: prayer * 0.35 });
     if (overflow) for (const s of ['lustSplash', 'lustKiss', 'lustPrayer', 'lustOverflow']) add(s, { bossDmg: overflow * 0.06, cd: overflow * 0.025 });
     if (arc) { dmg('scytheArc', arc * 0.05); add('scytheArc', { radius: arc * 5, arc: arc * 0.04 }); if (arc >= 4) skillLv.scytheArc = 1; }
-    if (reaper) for (const s of ['shadowBlade', 'moonSlash']) add(s, { cd: reaper * 0.045, execute: reaper * 0.04 });
-    if (soul) { add('soulOrb', { radius: soul * 4 }); add('voidRift', { radius: soul * 4 }); }
-    if (execute) for (const s of ['scytheArc', 'shadowBlade', 'moonSlash', 'bloodNova']) add(s, { bossDmg: execute * 0.05, shieldBreak: execute * 0.08, execute: execute * 0.05 });
+    if (reaper) for (const s of ['wraithBlade', 'reaperChain']) add(s, { cd: reaper * 0.045, execute: reaper * 0.04 });
+    if (soul) { add('bloodReap', { radius: soul * 4 }); add('graveRift', { radius: soul * 4 }); }
+    if (execute) for (const s of ['scytheArc', 'bloodReap', 'wraithBlade', 'reaperChain']) add(s, { bossDmg: execute * 0.05, shieldBreak: execute * 0.08, execute: execute * 0.05 });
     hpMul *= 1 + guard * 0.03 + desire * 0.04;
     spdMul *= 1 + dance * 0.03;
     return { hp: Math.round(baseClass.hp * hpMul), spd: baseClass.spd * spdMul, dmg: baseClass.dmg * dmgMul, startXp: (u.startXp || 0) * 4, magnetBonus: (u.magnet || 0) * 0.06, goldBonus: (u.gold || 0) * 0.05, shieldStart: Math.round(baseClass.hp * guard * 0.04), regenBonus: guard * 0.25, lustMaxBonus: desire * 12, lustGainBonus: desire * 0.08 + prayer * 0.04, skillDmg, skillLv, skillMods };

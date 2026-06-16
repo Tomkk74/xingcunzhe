@@ -39,8 +39,8 @@ window.GameModules.equipment = (() => {
     'violet-hymn':{n:'紫罗兰圣歌',s:'2件 范围+10%、神圣/欲望抗性+8%；4件 祈祷领域回复淫荡值；6件 献媚祈祷变堕欲圣咏。',b2:{range:.1,holy:.08,lust:.08},b4:{regen:.06},b6:{skill:'lustPrayer',skillDmg:.58,attrCapBonus:.06}},
     'rose-mirror':{n:'蔷薇镜像',s:'2件 伤害+8%、暗影/欲望抗性+10%；4件 受伤生成镜像反击；6件 飞吻/溢流触发万花镜裂。',b2:{damage:.08,shadow:.1,lust:.1},b4:{crit:.08},b6:{skill:'lustKiss',skillDmg:.55,range:.08}},
     'reaper-waltz':{n:'冥月圆舞',s:'2件 移速+10%、物理/暗影抗性+8%；4件 残月镰舞命中后强化下一刀；6件 残月镰舞变冥月圆舞，范围扩大并获得轻微减伤。',b2:{move:.1,physical:.08,shadow:.08},b4:{damage:.08},b6:{skill:'scytheArc',skillDmg:.6,move:.08,shieldAttrBlock:.18}},
-    'blood-reaping':{n:'血镰誓约',s:'2件 生命+12%、回复+6%；4件 低生命时血色新星冷却缩短；6件 血色新星变血镰祭环，命中 Boss 回复生命。',b2:{hp:.12,regen:.06},b4:{armor:.05},b6:{skill:'bloodNova',skillDmg:.55,bossAttrCut:.06}},
-    'soul-shadow':{n:'断魂影镰',s:'2件 暗影伤害+12%、暴击+6%；4件 击杀精英后释放追魂刃；6件 影刃和魂火对残血目标额外处决，击杀后弹射。',b2:{shadow:.12,crit:.06},b4:{atkSpeed:.08},b6:{skill:'shadowBlade',skillDmg:.58,eliteAttrCut:.08}},
+    'blood-reaping':{n:'血镰誓约',s:'2件 生命+12%、回复+6%；4件 低生命时血镰回旋冷却缩短；6件 血镰回旋变血镰祭环，命中 Boss 回复生命。',b2:{hp:.12,regen:.06},b4:{armor:.05},b6:{skill:'bloodReap',skillDmg:.55,bossAttrCut:.06}},
+    'soul-shadow':{n:'断魂影镰',s:'2件 暗影伤害+12%、暴击+6%；4件 击杀精英后释放追魂刃；6件 幽魂刃舞和追魂镰链对残血目标额外处决，击杀后弹射。',b2:{shadow:.12,crit:.06},b4:{atkSpeed:.08},b6:{skill:'wraithBlade',skillDmg:.58,eliteAttrCut:.08}},
 
   };
   const PALADIN_RECTS = (() => {
