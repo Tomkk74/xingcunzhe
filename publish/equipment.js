@@ -54,6 +54,11 @@ window.GameModules.equipment = (() => {
     const row3 = [[10,437,145,209],[195,437,148,184],[363,437,163,189],[552,437,128,184],[706,462,144,144],[864,437,145,184]];
     return [...row1, ...row2, ...row3].map(([x,y,w,h]) => ({ x, y, w, h }));
   })();
+  const SCYTHE_RECTS = [
+    [38,54,238,258],[315,61,191,228],[566,87,161,182],[787,56,220,248],[1046,77,183,218],[1304,74,194,237],
+    [36,367,218,265],[304,379,203,230],[561,395,172,212],[782,363,224,258],[1034,391,199,218],[1290,396,205,217],
+    [46,682,208,260],[310,690,192,220],[558,687,176,222],[784,672,228,258],[1030,688,214,230],[1296,696,198,216],
+  ].map(([x,y,w,h]) => ({ x, y, w, h, sw:1536, sh:1024 }));
   const UNIQUE_RECTS = [
     [37,8,107,214],[193,10,164,207],[386,10,137,206],[545,9,144,205],[711,7,127,203],[846,21,173,201],
     [13,275,153,161],[187,252,152,197],[376,244,121,216],[521,243,158,208],[689,271,137,159],[839,267,175,179],
@@ -62,6 +67,7 @@ window.GameModules.equipment = (() => {
   function rectFor(sheet, index) {
     if (sheet === 'setPaladin' || sheet === 'setSaintess') return PALADIN_RECTS[index];
     if (sheet === 'setMage' || sheet === 'setRanger') return MAGE_RECTS[index];
+    if (sheet === 'setScythe') return SCYTHE_RECTS[index];
     return null;
   }
   const pieceNames = { weapon:'武器', helm:'冠冕', chest:'衣甲', amulet:'坠饰', ring:'戒环', boots:'足具' };
@@ -100,7 +106,7 @@ window.GameModules.equipment = (() => {
   function iconScale(it){if(it?.rarity==='unique')return .78;if(it?.rarity==='set')return .84;return 1}
   function iconRows(it){return it?.rarity==='unique'||it?.rarity==='set'?3:6}
   function iconYOffset(it){return it?.rarity==='unique'?28:it?.rarity==='set'?24:0}
-  function iconHtml(it){let r=it.icon?.rect,s=iconScale(it); if(r){let fit=34/Math.max(r.w,r.h),bw=Math.round(1024*fit),bh=bw;return `<span class="eqIcon" style="background-image:url('${it.icon?.sheet||''}');background-size:${bw}px ${bh}px;background-position:${Math.round(-r.x*fit)}px ${Math.round(-r.y*fit)}px;background-repeat:no-repeat;transform:scale(${s})"></span>`} let i=it.icon?.index||0,x=i%6,y=Math.floor(i/6),rows=iconRows(it),step=100/(rows-1),oy=iconYOffset(it);return `<span class="eqIcon" style="background-image:url('${it.icon?.sheet||''}');background-size:600% ${rows*100}%;background-position:${x*20}% ${y*step+oy}%;background-repeat:no-repeat;transform:scale(${s})"></span>`}
+  function iconHtml(it){let r=it.icon?.rect,s=iconScale(it); if(r){let fit=34/Math.max(r.w,r.h),bw=Math.round((r.sw||1024)*fit),bh=Math.round((r.sh||1024)*fit);return `<span class="eqIcon" style="background-image:url('${it.icon?.sheet||''}');background-size:${bw}px ${bh}px;background-position:${Math.round(-r.x*fit)}px ${Math.round(-r.y*fit)}px;background-repeat:no-repeat;transform:scale(${s})"></span>`} let i=it.icon?.index||0,x=i%6,y=Math.floor(i/6),rows=iconRows(it),step=100/(rows-1),oy=iconYOffset(it);return `<span class="eqIcon" style="background-image:url('${it.icon?.sheet||''}');background-size:600% ${rows*100}%;background-position:${x*20}% ${y*step+oy}%;background-repeat:no-repeat;transform:scale(${s})"></span>`}
   function data(){return meta}
   function setBonus(id){return SET_BONUS[id]||null}
   return { init, save, data, SLOTS, SLOT_CN, CLS_CN, RES_CN, all, rollDrop, addItem, equip, unequip, discard, equippedItems, stats, hydrate, itemText, iconHtml, setBonus, requiredLevel, canEquip };
