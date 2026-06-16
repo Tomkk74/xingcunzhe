@@ -38,10 +38,15 @@ window.GameModules.equipment = (() => {
     'violet-hymn':{n:'紫罗兰圣歌',s:'2件 范围+10%、神圣/欲望抗性+8%；4件 祈祷领域回复淫荡值；6件 献媚祈祷变堕欲圣咏。',b2:{range:.1,holy:.08,lust:.08},b4:{regen:.06},b6:{skill:'lustPrayer',skillDmg:.58,attrCapBonus:.06}},
     'rose-mirror':{n:'蔷薇镜像',s:'2件 伤害+8%、暗影/欲望抗性+10%；4件 受伤生成镜像反击；6件 飞吻/溢流触发万花镜裂。',b2:{damage:.08,shadow:.1,lust:.1},b4:{crit:.08},b6:{skill:'lustKiss',skillDmg:.55,range:.08}},
   };
+  const PALADIN_RECTS = (() => {
+    const cols = [[16,13,170,175],[220,20,126,162],[378,24,163,164],[561,16,108,171],[700,32,141,129],[868,18,134,170]];
+    const y = [13,210,408];
+    return y.flatMap((yy, row) => cols.map(([x, baseY, w, h]) => ({ x, y: row ? yy : baseY, w, h })));
+  })();
   const pieceNames = { weapon:'武器', helm:'冠冕', chest:'衣甲', amulet:'坠饰', ring:'戒环', boots:'足具' };
   const toItem = (r, sheet, i) => ({ baseId:r[0], name:r[1], rarity:sheet, slot:r[2], stats:r[3], resists:r[4], effect:r[5]||'', icon:{sheet:ICON_SHEETS[sheet], index:i} });
   const gold = GOLD.map((r,i)=>toItem(r,'gold',i)), uniques = UNIQUES.map((r,i)=>toItem(r,'unique',i));
-  const sets = SET_FAMILIES.flatMap((f,fi)=>SLOTS.map((slot,i)=>({ baseId:`set-${f[1]}-${slot}`, name:`${f[2]}·${pieceNames[slot]}`, rarity:'set', class:f[0], setId:f[1], setName:f[2], slot, stats:{...Object.fromEntries(Object.entries(f[4]).filter(([k])=>!RES.includes(k))), [slot==='weapon'?'damage':slot==='boots'?'move':slot==='ring'?'atkSpeed':slot==='amulet'?'range':'hp']:.06}, resists:Object.fromEntries(Object.entries(f[4]).filter(([k])=>RES.includes(k))), icon:{sheet:ICON_SHEETS[f[3]], index:(fi%3)*6+i} })));
+  const sets = SET_FAMILIES.flatMap((f,fi)=>SLOTS.map((slot,i)=>({ baseId:`set-${f[1]}-${slot}`, name:`${f[2]}·${pieceNames[slot]}`, rarity:'set', class:f[0], setId:f[1], setName:f[2], slot, stats:{...Object.fromEntries(Object.entries(f[4]).filter(([k])=>!RES.includes(k))), [slot==='weapon'?'damage':slot==='boots'?'move':slot==='ring'?'atkSpeed':slot==='amulet'?'range':'hp']:.06}, resists:Object.fromEntries(Object.entries(f[4]).filter(([k])=>RES.includes(k))), icon:{sheet:ICON_SHEETS[f[3]], index:(fi%3)*6+i, rect:f[3]==='setPaladin'?PALADIN_RECTS[(fi%3)*6+i]:null} })));
   const all = [...gold,...uniques,...sets];
   let meta = { items:[], equipped:{}, dust:0 }, ready = false;
   const clone = v => JSON.parse(JSON.stringify(v));
@@ -70,7 +75,7 @@ window.GameModules.equipment = (() => {
   function iconScale(it){if(it?.rarity==='unique')return .78;if(it?.rarity==='set')return .84;return 1}
   function iconRows(it){return it?.rarity==='unique'||it?.rarity==='set'?3:6}
   function iconYOffset(it){return it?.rarity==='unique'?28:it?.rarity==='set'?24:0}
-  function iconHtml(it){let i=it.icon?.index||0,x=i%6,y=Math.floor(i/6),s=iconScale(it),rows=iconRows(it),step=100/(rows-1),oy=iconYOffset(it);return `<span class="eqIcon" style="background-image:url('${it.icon?.sheet||''}');background-size:600% ${rows*100}%;background-position:${x*20}% ${y*step+oy}%;background-repeat:no-repeat;transform:scale(${s})"></span>`}
+  function iconHtml(it){let r=it.icon?.rect,s=iconScale(it); if(r){let fit=34/Math.max(r.w,r.h),bw=Math.round(1024*fit),bh=bw;return `<span class="eqIcon" style="background-image:url('${it.icon?.sheet||''}');background-size:${bw}px ${bh}px;background-position:${Math.round(-r.x*fit)}px ${Math.round(-r.y*fit)}px;background-repeat:no-repeat;transform:scale(${s})"></span>`} let i=it.icon?.index||0,x=i%6,y=Math.floor(i/6),rows=iconRows(it),step=100/(rows-1),oy=iconYOffset(it);return `<span class="eqIcon" style="background-image:url('${it.icon?.sheet||''}');background-size:600% ${rows*100}%;background-position:${x*20}% ${y*step+oy}%;background-repeat:no-repeat;transform:scale(${s})"></span>`}
   function data(){return meta}
   return { init, save, data, SLOTS, SLOT_CN, CLS_CN, RES_CN, all, rollDrop, addItem, equip, unequip, discard, equippedItems, stats, hydrate, itemText, iconHtml };
 })();
