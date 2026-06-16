@@ -1,7 +1,7 @@
 {
   "version": 1,
   "createdAt": "2026-06-13T14:08:29Z",
-  "updatedAt": "2026-06-16T11:44:30Z",
+  "updatedAt": "2026-06-16T11:59:02Z",
   "assets": [
     {
       "name": "player-paladin",
@@ -2297,6 +2297,32 @@
       },
       "traceId": "trace_mqgkp9xv_jvebpo1c",
       "createdAt": "2026-06-16T11:44:30Z"
+    },
+    {
+      "name": "scythe-reaper-chain-whip-redraw",
+      "status": "success",
+      "path": "publish/assets/generated/scythe-maiden/scythe-reaper-chain-whip-redraw.cf6aa796.webp",
+      "contentHash": "cf6aa796",
+      "revisedPrompt": "Arcane survivor chibi fantasy game VFX sprite sheet, top-down 3/4 arcade readability, 2x2 grid with exactly 4 animation frames. Subject: Reaper Chain Whip skill effect for a scythe maiden. Each frame must show ONE SINGLE CONTINUOUS UNBROKEN spectral metal chain connected from the exact center anchor point to the outer orbit tip. The inner end is visibly fixed at the center/player position with a small dark violet anchor ring. The chain circles around the center like a whip being swung around the body. All individual chain links must touch/connect continuously from center to tip; no gaps, no detached segments, no broken pieces, no floating loose links. Four frames show increasing speed: frame 1 clear curved chain, frame 2 wider swept arc, frame 3 faster motion with cyan/purple afterimage along the same connected chain, frame 4 fastest circular whip sweep, but the physical chain remains continuous and unbroken. Use dark violet metal links with cyan and purple ghost glow, clean dark outline, high contrast readable top-down VFX. The chain should fill most of each quadrant but leave center anchor exactly centered in each frame. No character, no scenery, no ground, no text, no logo, no watermark. Absolutely no white outline, no white rim, no white glow, no pale/white edge highlights; avoid white entirely. Use only dark violet, purple, cyan, blue, black outline, subtle magenta highlights. Strictly placed on a SOLID UNIFORM #00B140 chroma key flat color background. The background is a single uniform shade of #00B140 chroma key green that fills 100% of pixels not occupied by the chain VFX. No gradient, no shadow on background, no texture, no scenery, no ground, no decoration, no environmental elements. Pure flat color background, exactly like a green screen used for VFX compositing.",
+      "model": "gpt-image-2",
+      "size": "1254x1254",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#00B140",
+        "alphaZeroPct": 72,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossy_q85_alpha",
+      "originalBytes": 1866932,
+      "finalBytes": 237016,
+      "usage": {
+        "inputTokens": 396,
+        "outputImageTokens": 2058
+      },
+      "traceId": "trace_mqgl8dox_h4w165vw",
+      "createdAt": "2026-06-16T11:59:02Z"
     }
   ]
 }
