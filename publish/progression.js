@@ -1,7 +1,7 @@
 window.GameModules = window.GameModules || {};
 window.GameModules.progression = (() => {
   const KEY = 'arcane-meta-v2';
-  const CLASSES = { paladin: '圣骑士', mage: '大魔法师', ranger: '游侠', lewdSaintess: '淫靡圣女', scytheMaiden: '镰刀娘' };
+  const CLASSES = { paladin: '圣骑士', mage: '大魔法师', ranger: '游侠', lewdSaintess: '淫靡圣女', scytheMaiden: '冥月镰姬' };
   const BASE = [
     ['hp', '生命根基', '最大生命 +5%', 10, 30, 50, 16],
     ['damage', '战斗本能', '全技能伤害 +4%', 10, 50, 28, 38],
@@ -42,7 +42,7 @@ window.GameModules.progression = (() => {
     scytheMaiden: [
       ['arc', '镰舞精通', '残月镰舞每级范围 +5、伤害 +5%，Lv.4 后额外 +1 技能等级', 5, 90, 22, 82, 'damage', ['scytheArc'], 24],
       ['reaper', '收割本能', '幽魂刃舞、追魂镰链每级冷却 -4.5%，对残血敌人伤害提升', 5, 90, 50, 86, 'damage', ['wraithBlade', 'reaperChain'], 24],
-      ['soul', '吸魂回路', '血镰回旋与墓月裂隙每级范围 +4，击杀精英回复少量生命', 5, 95, 78, 82, 'utility', ['bloodReap', 'graveRift'], 24],
+      ['soul', '吸魂回路', '血镰回旋与墓月裂隙每级范围 +4，血镰命中会强化下一次追魂镰链', 5, 95, 78, 82, 'utility', ['bloodReap', 'graveRift'], 24],
       ['dance', '死舞步伐', '每级移动速度 +3%，移动时积累冥契更快', 4, 120, 50, 108, 'utility', [], 26, 'reaper'],
       ['execute', '终末处决', '镰刀系技能对 Boss 与护盾敌人更强，残血敌人受到额外处决伤害', 4, 145, 50, 126, 'damage', ['scytheArc', 'bloodReap', 'wraithBlade', 'reaperChain'], 30, 'arc'],
     ],
