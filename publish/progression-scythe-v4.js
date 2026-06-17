@@ -3,48 +3,48 @@ window.GameModules.progression = (() => {
   const KEY = 'arcane-meta-v3';
   const CLASSES = { paladin: '圣骑士', mage: '大魔法师', ranger: '游侠', lewdSaintess: '淫靡圣女', scytheMaiden: '琦琦' };
   const BASE = [
-    ['hp', '生命根基', '最大生命 +5%', 10, 30, 50, 16],
-    ['damage', '战斗本能', '全技能伤害 +4%', 10, 50, 28, 38],
-    ['speed', '疾行训练', '移动速度 +3%', 8, 45, 72, 38],
-    ['magnet', '灵魂牵引', '拾取范围 +6%', 8, 40, 18, 60],
-    ['startXp', '启程经验', '开局经验 +4', 5, 55, 50, 60],
-    ['gold', '掠金术', '金币收益 +5%', 10, 45, 82, 60],
+    ['hp', '秘境体魄', '最大生命 +5%，提高高层秘境容错', 10, 30, 50, 16],
+    ['damage', '深渊战意', '全技能伤害 +4%，与套装核心技能增伤叠加', 10, 50, 28, 38],
+    ['speed', '裂隙步伐', '移动速度 +3%，更适合秘境拉怪与躲弹幕', 8, 45, 72, 38],
+    ['magnet', '魂晶牵引', '拾取范围 +6%，加快秘境升级和流派成型', 8, 40, 18, 60],
+    ['startXp', '秘境筹备', '普通局开局经验 +4；每 2 级额外 +1 重选，每 3 级额外 +1 排除', 5, 55, 50, 60],
+    ['gold', '净化掠金', '金币收益 +5%，结算灵魂金币同步提升', 10, 45, 82, 60],
   ];
   const SPEC = {
     paladin: [
-      ['aura', '蒜阵圣化', '大蒜光环每级范围 +5、伤害 +4%，Lv.4 后额外 +1 技能等级', 5, 80, 22, 82, 'damage', ['garlic'], 24],
-      ['lance', '圣枪裁决', '圣光长枪每级冷却 -5%、命中溅射范围 +3，Lv.2/Lv.4 各 +1 发', 5, 90, 50, 86, 'damage', ['holyLance'], 24],
-      ['nova', '血誓新星', '血色新星每级范围 +7、冷却 -6%、伤害 +4%，Lv.4 后额外 +1 技能等级', 5, 90, 78, 82, 'damage', ['bloodNova'], 24],
-      ['guard', '神圣壁垒', '每级生命 +3%、开局护盾 +4% 基础生命、每秒回复 +0.25', 4, 110, 50, 108, 'utility', [], 24, 'lance'],
-      ['seal', '圣印破盾', '近战圣光对 Boss 与护盾敌人更强，血色新星命中 Boss 回复生命', 4, 135, 50, 126, 'damage', ['garlic', 'bloodNova', 'flameWheel'], 28, 'aura'],
+      ['aura', '辉金圣域', '大蒜光环每级范围 +5、伤害 +5%，Lv.4 后 +1 技能等级，契合辉金守护套', 5, 80, 22, 82, 'damage', ['garlic'], 24],
+      ['lance', '黎明枪阵', '圣光长枪每级冷却 -5%、命中溅射范围 +3，Lv.2/Lv.4 各 +1 发，强化黎明审判套', 5, 90, 50, 86, 'damage', ['holyLance'], 24],
+      ['nova', '荆棘血誓', '血色新星每级范围 +7、冷却 -6%、伤害 +5%，Lv.4 后 +1 技能等级，契合荆棘壁垒套', 5, 90, 78, 82, 'damage', ['bloodNova'], 24],
+      ['guard', '秘境壁垒', '每级生命 +3%、开局护盾 +5% 基础生命、每秒回复 +0.3，高层秘境更稳', 4, 110, 50, 108, 'utility', [], 24, 'lance'],
+      ['seal', '守卫破誓', '大蒜、血环、圣枪对 Boss、精英与护盾敌人更强，血色新星命中 Boss 回复生命', 4, 135, 50, 126, 'damage', ['garlic', 'bloodNova', 'holyLance'], 28, 'aura'],
     ],
     mage: [
-      ['missile', '飞弹增幅', '魔法飞弹每级冷却 -4.5%、爆炸范围 +4，Lv.2/Lv.4 各 +1 发', 5, 80, 22, 82, 'damage', ['missile'], 24],
-      ['fire', '赤焰学派', '火球与陨星每级爆炸范围 +6、冷却 -4.5%，Lv.4 后额外 +1 发', 5, 90, 50, 86, 'damage', ['fireball', 'meteorShard'], 24],
-      ['thunder', '雷弧回路', '闪电每级额外落雷，连锁雷弧每级 +1 跳，冷却 -4.5%', 5, 90, 78, 82, 'damage', ['lightning', 'thunderChain'], 24],
-      ['beam', '棱镜奥术', '奥术射线每级宽度 +3、射程 +45、冷却 -6%，Lv.4 后 +1 道射线', 4, 110, 50, 108, 'damage', ['arcaneBeam'], 24, 'fire'],
-      ['overload', '奥能超载', '火焰、雷电、奥术技能对 Boss 与护盾敌人更强，并略微缩短冷却', 4, 135, 50, 126, 'damage', ['fireball', 'lightning', 'arcaneBeam'], 28, 'thunder'],
+      ['missile', '星界飞弹', '魔法飞弹每级冷却 -4.5%、爆炸范围 +4，Lv.2/Lv.4 各 +1 发，契合星界飞弹套', 5, 80, 22, 82, 'damage', ['missile'], 24],
+      ['fire', '余烬陨星', '陨星碎片每级爆炸范围 +6、冷却 -5%、伤害 +5%，Lv.4 后 +1 颗陨星，强化余烬陨星套', 5, 90, 50, 86, 'damage', ['meteorShard'], 24],
+      ['thunder', '风暴符印', '连锁雷弧每级 +1 跳、范围 +3、冷却 -5%，强化风暴符印套', 5, 90, 78, 82, 'damage', ['thunderChain'], 24],
+      ['beam', '奥术回响', '魔法飞弹与奥术射线每级射程/范围提升并缩短冷却，补强雷弧奥术流', 4, 110, 50, 108, 'damage', ['missile', 'arcaneBeam'], 24, 'fire'],
+      ['overload', '秘境超载', '飞弹、陨星、雷链对 Boss、精英与护盾敌人更强，并略微缩短冷却', 4, 135, 50, 126, 'damage', ['missile', 'meteorShard', 'thunderChain'], 28, 'thunder'],
     ],
     ranger: [
-      ['axe', '回旋飞斧', '飞斧每级持续 +0.18 秒、冷却 -4.5%，Lv.2/Lv.4 各 +1 把', 5, 80, 22, 82, 'damage', ['axe'], 24],
-      ['wind', '风裂专精', '风裂刃每级飞行速度 +20、冷却 -4.5%，Lv.2/Lv.4 各 +1 道', 5, 90, 50, 86, 'damage', ['windCutter'], 24],
-      ['dagger', '匕首阵列', '匕首雨每级目标 +1、落点范围 +4、冷却 -5%', 5, 90, 78, 82, 'damage', ['daggerRain'], 24],
-      ['moon', '月牙猎影', '月牙斩每级减速 +0.18、弧刃范围 +4、冷却 -5%，Lv.4 后 +1 道', 4, 110, 50, 108, 'damage', ['moonSlash'], 24, 'wind'],
-      ['mark', '猎王标记', '物理猎杀技能对 Boss 与护盾敌人更强，匕首雨目标数提升', 4, 135, 50, 126, 'damage', ['axe', 'windCutter', 'daggerRain'], 28, 'wind'],
+      ['axe', '旋风飞斧', '飞斧每级持续 +0.18 秒、冷却 -4.5%，Lv.2/Lv.4 各 +1 把，契合旋风飞斧套', 5, 80, 22, 82, 'damage', ['axe'], 24],
+      ['wind', '毒影伏击', '毒雾爆裂每级范围 +5、冷却 -5%、暗影伏击伤害提升，强化毒影伏击套', 5, 90, 50, 86, 'damage', ['poisonCloud'], 24],
+      ['dagger', '月影猎手', '月牙斩每级减速 +0.16、弧刃范围 +4、冷却 -5%，Lv.4 后 +1 道，契合月影猎手套', 5, 90, 78, 82, 'damage', ['moonSlash'], 24],
+      ['moon', '鹰眼机动', '每级移动速度 +2%、飞斧持续与月牙范围提升，秘境走位更稳', 4, 110, 50, 108, 'utility', ['axe', 'moonSlash'], 24, 'wind'],
+      ['mark', '猎王标记', '飞斧、月牙、毒雾对 Boss、精英与护盾敌人更强，毒雾标记伏击更凶', 4, 135, 50, 126, 'damage', ['axe', 'moonSlash', 'poisonCloud'], 28, 'wind'],
     ],
     lewdSaintess: [
-      ['splash', '欲液反涌', '受击反击范围 +6、伤害 +5%，Lv.4 后额外 +1 技能等级', 5, 90, 22, 82, 'damage', ['lustSplash'], 24],
-      ['kiss', '媚心飞吻', '飞吻每级冷却 -4%、爆炸范围 +4，Lv.2/Lv.4 各 +1 发', 5, 90, 50, 86, 'damage', ['lustKiss'], 24],
-      ['prayer', '献媚祈祷', '祈祷场每级范围 +5、冷却 -5%、淫荡值回复提升', 5, 95, 78, 82, 'utility', ['lustPrayer'], 24],
-      ['desire', '淫荡值容器', '每级生命 +4%、淫荡值上限 +12、受击转化更稳定', 4, 120, 50, 108, 'utility', [], 26, 'prayer'],
-      ['overflow', '欲潮溢流', '反伤、飞吻、祈祷场对 Boss 更强，淫荡值高时爆发更频繁', 4, 145, 50, 126, 'damage', ['lustSplash', 'lustKiss', 'lustOverflow'], 30, 'splash'],
+      ['splash', '绯红圣器', '欲液反涌每级范围 +6、伤害 +5%，Lv.4 后 +1 技能等级，契合绯红圣器套', 5, 90, 22, 82, 'damage', ['lustSplash'], 24],
+      ['kiss', '蔷薇镜像', '飞吻每级冷却 -4.5%、爆炸范围 +4，Lv.2/Lv.4 各 +1 发，契合蔷薇镜像套', 5, 90, 50, 86, 'damage', ['lustKiss'], 24],
+      ['prayer', '紫罗兰圣歌', '献媚祈祷每级范围 +5、冷却 -5%、淫荡值回复提升，契合紫罗兰圣歌套', 5, 95, 78, 82, 'utility', ['lustPrayer'], 24],
+      ['desire', '欲望容器', '每级生命 +4%、淫荡值上限 +14、受击转化更稳定，高层秘境更能抗', 4, 120, 50, 108, 'utility', [], 26, 'prayer'],
+      ['overflow', '欲潮审判', '反涌、飞吻、祈祷、溢流对 Boss 与精英更强，淫荡值高时爆发更频繁', 4, 145, 50, 126, 'damage', ['lustSplash', 'lustKiss', 'lustPrayer', 'lustOverflow'], 30, 'splash'],
     ],
     scytheMaiden: [
-      ['arc', '镰舞精通', '残月镰舞每级范围 +5、伤害 +5%，Lv.4 后额外 +1 技能等级', 5, 90, 22, 82, 'damage', ['scytheArc'], 24],
-      ['reaper', '收割本能', '幽魂刃舞、追魂镰链每级冷却 -4.5%，对残血敌人伤害提升', 5, 90, 50, 86, 'damage', ['wraithBlade', 'reaperChain'], 24],
-      ['soul', '吸魂回路', '血镰回旋与墓月裂隙每级范围 +4，血镰命中会强化下一次追魂镰链', 5, 95, 78, 82, 'utility', ['bloodReap', 'graveRift'], 24],
-      ['dance', '死舞步伐', '每级移动速度 +3%，移动时积累冥契更快', 4, 120, 50, 108, 'utility', [], 26, 'reaper'],
-      ['execute', '终末处决', '镰刀系技能对 Boss 与护盾敌人更强，残血敌人受到额外处决伤害', 4, 145, 50, 126, 'damage', ['scytheArc', 'bloodReap', 'wraithBlade', 'reaperChain'], 30, 'arc'],
+      ['arc', '冥月圆舞', '残月镰舞每级范围 +5、伤害 +5%，Lv.4 后 +1 技能等级，契合冥月圆舞套', 5, 90, 22, 82, 'damage', ['scytheArc'], 24],
+      ['reaper', '断魂影镰', '幽魂刃舞每级冷却 -4.5%、落地区域 +4，对残血敌人处决更强，契合断魂影镰套', 5, 90, 50, 86, 'damage', ['wraithBlade'], 24],
+      ['soul', '血镰誓约', '血镰回旋每级范围 +5、回复提升，命中会强化下一次追魂镰链，契合血镰誓约套', 5, 95, 78, 82, 'utility', ['bloodReap', 'reaperChain'], 24],
+      ['dance', '幽魂步伐', '每级移动速度 +3%，移动时积累冥契更快，并强化冥月圆舞机动收益', 4, 120, 50, 108, 'utility', [], 26, 'reaper'],
+      ['execute', '终末收割', '镰刀系技能对 Boss、精英与护盾敌人更强，残血敌人受到额外处决伤害', 4, 145, 50, 126, 'damage', ['scytheArc', 'bloodReap', 'wraithBlade', 'reaperChain'], 30, 'arc'],
     ],
   };
   const COST_GROWTH = 1.72;
@@ -141,31 +141,31 @@ window.GameModules.progression = (() => {
     const axe = u.axe || 0, wind = u.wind || 0, dagger = u.dagger || 0, moon = u.moon || 0, mark = u.mark || 0;
     const splash = u.splash || 0, kiss = u.kiss || 0, prayer = u.prayer || 0, desire = u.desire || 0, overflow = u.overflow || 0;
     const arc = u.arc || 0, reaper = u.reaper || 0, soul = u.soul || 0, dance = u.dance || 0, execute = u.execute || 0;
-    if (aura) { dmg('garlic', aura * 0.04); add('garlic', { radius: aura * 5 }); if (aura >= 4) skillLv.garlic = 1; }
+    if (aura) { dmg('garlic', aura * 0.05); add('garlic', { radius: aura * 5 }); if (aura >= 4) skillLv.garlic = 1; }
     if (lance) add('holyLance', { cd: lance * 0.05, width: lance * 3, count: Math.floor(lance / 2) });
-    if (nova) { dmg('bloodNova', nova * 0.04); add('bloodNova', { radius: nova * 7, cd: nova * 0.06 }); if (nova >= 4) skillLv.bloodNova = 1; }
-    if (seal) { for (const s of ['garlic', 'bloodNova', 'flameWheel', 'orbit']) add(s, { bossDmg: seal * 0.06, shieldBreak: seal * 0.12 }); add('bloodNova', { bossHeal: seal * 0.012, cd: seal * 0.03 }); }
+    if (nova) { dmg('bloodNova', nova * 0.05); add('bloodNova', { radius: nova * 7, cd: nova * 0.06 }); if (nova >= 4) skillLv.bloodNova = 1; }
+    if (seal) { for (const s of ['garlic', 'bloodNova', 'holyLance']) add(s, { bossDmg: seal * 0.06, shieldBreak: seal * 0.12 }); add('bloodNova', { bossHeal: seal * 0.012, cd: seal * 0.03 }); }
     if (missile) add('missile', { cd: missile * 0.045, aoe: missile * 4, count: Math.floor(missile / 2) });
-    if (fire) for (const s of ['fireball', 'meteorShard']) add(s, { radius: fire * 6, cd: fire * 0.045, count: fire >= 4 ? 1 : 0 });
-    if (thunder) { add('lightning', { count: thunder, radius: thunder * 3, cd: thunder * 0.045 }); add('thunderChain', { jumps: thunder, cd: thunder * 0.045 }); }
-    if (beam) add('arcaneBeam', { width: beam * 3, range: beam * 45, cd: beam * 0.06, count: beam >= 4 ? 1 : 0 });
-    if (overload) for (const s of ['fireball', 'meteorShard', 'lightning', 'thunderChain', 'arcaneBeam']) add(s, { bossDmg: overload * 0.05, shieldBreak: overload * 0.05, cd: overload * 0.025 });
+    if (fire) { dmg('meteorShard', fire * 0.05); add('meteorShard', { radius: fire * 6, cd: fire * 0.05, count: fire >= 4 ? 1 : 0 }); add('fireball', { radius: fire * 3, cd: fire * 0.025 }); }
+    if (thunder) add('thunderChain', { jumps: thunder, radius: thunder * 3, cd: thunder * 0.05 });
+    if (beam) { add('missile', { aoe: beam * 3, cd: beam * 0.025 }); add('arcaneBeam', { width: beam * 3, range: beam * 45, cd: beam * 0.06, count: beam >= 4 ? 1 : 0 }); }
+    if (overload) for (const s of ['missile', 'meteorShard', 'thunderChain', 'arcaneBeam']) add(s, { bossDmg: overload * 0.055, shieldBreak: overload * 0.06, cd: overload * 0.025 });
     if (axe) add('axe', { life: axe * 0.18, cd: axe * 0.045, count: Math.floor(axe / 2) });
-    if (wind) add('windCutter', { speed: wind * 20, cd: wind * 0.045, count: Math.floor(wind / 2) });
-    if (dagger) add('daggerRain', { targets: dagger, radius: dagger * 4, cd: dagger * 0.05 });
-    if (moon) add('moonSlash', { slow: moon * 0.18, radius: moon * 4, cd: moon * 0.05, count: moon >= 4 ? 1 : 0 });
-    if (mark) { for (const s of ['axe', 'windCutter', 'daggerRain', 'moonSlash', 'shadowBlade']) add(s, { bossDmg: mark * 0.06, shieldBreak: mark * 0.08 }); add('daggerRain', { targets: mark }); }
+    if (wind) { dmg('poisonCloud', wind * 0.04); add('poisonCloud', { radius: wind * 5, cd: wind * 0.05 }); add('shadowBlade', { cd: wind * 0.025, execute: wind * 0.025 }); }
+    if (dagger) add('moonSlash', { slow: dagger * 0.16, radius: dagger * 4, cd: dagger * 0.05, count: dagger >= 4 ? 1 : 0 });
+    if (moon) { add('axe', { life: moon * 0.1 }); add('moonSlash', { radius: moon * 3 }); spdMul *= 1 + moon * 0.02; }
+    if (mark) for (const s of ['axe', 'moonSlash', 'poisonCloud', 'shadowBlade']) add(s, { bossDmg: mark * 0.06, shieldBreak: mark * 0.08, execute: mark * 0.03 });
     if (splash) { dmg('lustSplash', splash * 0.05); add('lustSplash', { radius: splash * 6 }); if (splash >= 4) skillLv.lustSplash = 1; }
-    if (kiss) add('lustKiss', { cd: kiss * 0.04, aoe: kiss * 4, count: Math.floor(kiss / 2) });
+    if (kiss) add('lustKiss', { cd: kiss * 0.045, aoe: kiss * 4, count: Math.floor(kiss / 2) });
     if (prayer) add('lustPrayer', { radius: prayer * 5, cd: prayer * 0.05, lustRegen: prayer * 0.35 });
     if (overflow) for (const s of ['lustSplash', 'lustKiss', 'lustPrayer', 'lustOverflow']) add(s, { bossDmg: overflow * 0.06, cd: overflow * 0.025 });
     if (arc) { dmg('scytheArc', arc * 0.05); add('scytheArc', { radius: arc * 5, arc: arc * 0.04 }); if (arc >= 4) skillLv.scytheArc = 1; }
-    if (reaper) for (const s of ['wraithBlade', 'reaperChain']) add(s, { cd: reaper * 0.045, execute: reaper * 0.04 });
-    if (soul) { add('bloodReap', { radius: soul * 4 }); add('graveRift', { radius: soul * 4 }); }
-    if (execute) for (const s of ['scytheArc', 'bloodReap', 'wraithBlade', 'reaperChain']) add(s, { bossDmg: execute * 0.05, shieldBreak: execute * 0.08, execute: execute * 0.05 });
+    if (reaper) add('wraithBlade', { cd: reaper * 0.045, radius: reaper * 4, execute: reaper * 0.045 });
+    if (soul) { add('bloodReap', { radius: soul * 5 }); add('reaperChain', { radius: soul * 3, cd: soul * 0.025 }); }
+    if (execute) for (const s of ['scytheArc', 'bloodReap', 'wraithBlade', 'reaperChain', 'graveRift']) add(s, { bossDmg: execute * 0.05, shieldBreak: execute * 0.08, execute: execute * 0.05 });
     hpMul *= 1 + guard * 0.03 + desire * 0.04;
     spdMul *= 1 + dance * 0.03;
-    return { hp: Math.round(baseClass.hp * hpMul), spd: baseClass.spd * spdMul, dmg: baseClass.dmg * dmgMul, startXp: (u.startXp || 0) * 4, magnetBonus: (u.magnet || 0) * 0.06, goldBonus: (u.gold || 0) * 0.05, shieldStart: Math.round(baseClass.hp * guard * 0.04), regenBonus: guard * 0.25, lustMaxBonus: desire * 12, lustGainBonus: desire * 0.08 + prayer * 0.04, skillDmg, skillLv, skillMods };
+    return { hp: Math.round(baseClass.hp * hpMul), spd: baseClass.spd * spdMul, dmg: baseClass.dmg * dmgMul, startXp: (u.startXp || 0) * 4, magnetBonus: (u.magnet || 0) * 0.06, goldBonus: (u.gold || 0) * 0.05, shieldStart: Math.round(baseClass.hp * guard * 0.05), regenBonus: guard * 0.3, lustMaxBonus: desire * 14, lustGainBonus: desire * 0.08 + prayer * 0.04, rerollBonus: Math.floor((u.startXp || 0) / 2), banishBonus: Math.floor((u.startXp || 0) / 3), skillDmg, skillLv, skillMods };
   }
   function estimateRunReward(run) {
     const c = run.classId || run.cls || 'paladin', goals = Math.max(0, Number(run.goals) || 0), base = Math.floor(Number(run.gold) || 0), time = Math.floor((Number(run.time) || 0) / 30) * 10, boss = Math.max(0, Number(run.bossKills) || 0) * 80, level = run.level >= 30 ? 100 : run.level >= 20 ? 60 : run.level >= 10 ? 30 : 0;
