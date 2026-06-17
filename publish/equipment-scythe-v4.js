@@ -1,7 +1,7 @@
 window.GameModules = window.GameModules || {};
 window.GameModules.equipment = (() => {
   const KEY = 'arcane-equipment-v2';
-  const ICON_SHEETS = { gold:'./assets/generated/equipment-icons-gold-rpg-sheet.8bac9168.webp', unique:'./assets/generated/equipment-icons-unique-rpg-sheet.b1783e31.webp', setPaladin:'./assets/generated/paladin/equipment-paladin-sacrifice-redraw-sheet.4e1fbd63.webp', setMage:'./assets/generated/equipment-icons-set-mage-rpg-sheet.a179ef44.webp', setRanger:'./assets/generated/equipment-icons-set-ranger-rpg-sheet.a6ce5da2.webp', setSaintess:'./assets/generated/equipment-icons-set-saintess-rpg-sheet.c2224def.webp', setScythe:'./assets/generated/scythe-maiden/equipment-icons-set-scythe-rpg-sheet.2b0f20cf.webp' };
+  const ICON_SHEETS = { gold:'./assets/generated/equipment-icons-gold-rpg-sheet.8bac9168.webp', unique:'./assets/generated/equipment-icons-unique-rpg-sheet.b1783e31.webp', setPaladin:'./assets/generated/paladin/equipment-set-paladin-redraw-sheet.fc5d587d.webp', setMage:'./assets/generated/mage/equipment-set-mage-redraw-sheet.665e0d14.webp', setRanger:'./assets/generated/ranger/equipment-set-ranger-redraw-sheet.e9a42555.webp', setSaintess:'./assets/generated/saintess/equipment-set-saintess-redraw-sheet.717f3333.webp', setScythe:'./assets/generated/scythe-maiden/equipment-set-scythe-maiden-redraw-sheet.3704bd38.webp' };
   const SLOTS = ['weapon','helm','chest','amulet','ring','boots'];
   const SLOT_CN = { weapon:'武器', helm:'头盔', chest:'胸甲', amulet:'项链', ring:'戒指', boots:'靴子' };
   const CLS_CN = { paladin:'圣骑士', mage:'大魔法师', ranger:'游侠', lewdSaintess:'淫靡圣女', scytheMaiden:'琦琦' };
@@ -68,10 +68,7 @@ window.GameModules.equipment = (() => {
     return { x:(index % cols) * w, y:Math.floor(index / cols) * h, w, h, sw:size, sh:size };
   }
   function rectFor(sheet, index) {
-    if (sheet === 'setPaladin') return gridRect(index);
-    if (sheet === 'setSaintess') return PALADIN_RECTS[index];
-    if (sheet === 'setMage' || sheet === 'setRanger') return MAGE_RECTS[index];
-    if (sheet === 'setScythe') return SCYTHE_RECTS[index];
+    if (sheet === 'setPaladin' || sheet === 'setMage' || sheet === 'setRanger' || sheet === 'setSaintess' || sheet === 'setScythe') return gridRect(index);
     return null;
   }
   const pieceNames = { weapon:'武器', helm:'冠冕', chest:'衣甲', amulet:'坠饰', ring:'戒环', boots:'足具' };
