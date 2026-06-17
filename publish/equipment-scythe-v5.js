@@ -88,8 +88,11 @@ window.GameModules.equipment = (() => {
   let meta = { items:[], equipped:{}, dust:0 }, ready = false, activeKey = '';
   const clone = v => JSON.parse(JSON.stringify(v));
   const rand = (a, b) => a + Math.random() * (b - a);
-  async function kvGet(k){try{return (await window.dzmm.kv.get(k))?.value??null}catch(_){try{let r=localStorage.getItem(k);return r?JSON.parse(r):null}catch(_){return null}}}
-  async function kvPut(k,v){try{await window.dzmm.kv.put(k,v)}catch(_){try{localStorage.setItem(k,JSON.stringify(v))}catch(_){}}}
+  const timeout = (p, ms = 1200) => Promise.race([p, new Promise((_, reject) => setTimeout(() => reject(new Error('timeout')), ms))]);
+  function localGet(k){try{let r=localStorage.getItem(k);return r?JSON.parse(r):null}catch(_){return null}}
+  function localPut(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(_){}}
+  async function kvGet(k){let local=localGet(k);if(local)return local;try{return (await timeout(window.dzmm.kv.get(k)))?.value??null}catch(_){return null}}
+  async function kvPut(k,v){localPut(k,v);try{await timeout(window.dzmm.kv.put(k,v))}catch(_){}}
   function normalize(d){let base={items:[],equipped:{},dust:0}; if(!d||typeof d!=='object')return base; base.items=Array.isArray(d.items)?d.items.filter(x=>x&&x.uid&&x.baseId).slice(0,160):[]; base.equipped=d.equipped&&typeof d.equipped==='object'?d.equipped:{}; base.dust=Math.max(0,Math.floor(Number(d.dust)||0)); return base;}
   function storeKey(){return window.Season?.key?Season.key(KEY):KEY}
   async function init(){let k=storeKey();if(ready&&activeKey===k)return meta; activeKey=k; meta=normalize(await kvGet(k)); ready=true; return meta;}

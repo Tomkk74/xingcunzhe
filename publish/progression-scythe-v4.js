@@ -59,13 +59,19 @@ window.GameModules.progression = (() => {
     const spec = SPEC[c].map((v, i) => ({ id: v[0], name: v[1], desc: v[2], max: v[3], base: v[4], x: v[5], y: v[6], kind: v[7], skills: v[8], core: v[9] || 0, pre: v[10] || (i === 3 ? SPEC[c][1][0] : 'damage') }));
     return base.concat(spec);
   }
+  const timeout = (p, ms = 1200) => Promise.race([p, new Promise((_, reject) => setTimeout(() => reject(new Error('timeout')), ms))]);
+  function localGet(key) { try { const raw = localStorage.getItem(key); return raw ? JSON.parse(raw) : null; } catch (_) { return null; } }
+  function localPut(key, value) { try { localStorage.setItem(key, JSON.stringify(value)); } catch (_) {} }
   async function kvGet(key) {
-    try { return (await window.dzmm.kv.get(key))?.value ?? null; }
-    catch (_) { try { const raw = localStorage.getItem(key); return raw ? JSON.parse(raw) : null; } catch (_) { return null; } }
+    const local = localGet(key);
+    if (local) return local;
+    try { return (await timeout(window.dzmm.kv.get(key)))?.value ?? null; }
+    catch (_) { return null; }
   }
   async function kvPut(key, value) {
-    try { await window.dzmm.kv.put(key, value); }
-    catch (_) { try { localStorage.setItem(key, JSON.stringify(value)); } catch (_) {} }
+    localPut(key, value);
+    try { await timeout(window.dzmm.kv.put(key, value)); }
+    catch (_) {}
   }
   function normalize(data) {
     const base = clone(DEFAULT); if (!data || typeof data !== 'object') return base;
