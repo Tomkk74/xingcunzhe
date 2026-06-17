@@ -1,7 +1,7 @@
 {
   "version": 1,
   "createdAt": "2026-06-13T14:08:29Z",
-  "updatedAt": "2026-06-17T02:56:11Z",
+  "updatedAt": "2026-06-17T11:20:10Z",
   "assets": [
     {
       "name": "player-paladin",
@@ -1791,6 +1791,216 @@
       },
       "traceId": "trace_mqgxj9k7_n6ih2ayb",
       "createdAt": "2026-06-16T17:43:13Z"
+    },
+    {
+      "name": "ground-blood-chapel",
+      "status": "success",
+      "path": "publish/assets/generated/ground-blood-chapel.1c00df7b.webp",
+      "contentHash": "1c00df7b",
+      "revisedPrompt": "Seamless tileable top-down ground texture for an arcade fantasy survivor game: blood-flesh gothic chapel floor, cracked dark stone tiles, subtle crimson veins, dried blood stains, tiny candle wax marks, readable dark dungeon colors, bright arcade fantasy, clean painterly detail, soft glow and high contrast. No large objects, no characters, no perspective walls. Must tile seamlessly on all edges for repeated 512px canvas drawing. Wide composition, no text, no logo, no watermark.",
+      "model": "gpt-image-2",
+      "size": "1254x1254",
+      "wantsTransparent": false,
+      "outputFormat": "webp",
+      "compressionProfile": "lossy_q80_opaque",
+      "originalBytes": 2947701,
+      "finalBytes": 253272,
+      "usage": {
+        "inputTokens": 104,
+        "outputImageTokens": 2058
+      },
+      "traceId": "trace_mqhyoag9_jhthd3gd",
+      "createdAt": "2026-06-17T11:03:10Z"
+    },
+    {
+      "name": "ground-lava-mine",
+      "status": "success",
+      "path": "publish/assets/generated/ground-lava-mine.4a7e6735.webp",
+      "contentHash": "4a7e6735",
+      "revisedPrompt": "Seamless tileable top-down ground texture for an arcade fantasy survivor game: molten lava mine floor, dark obsidian rock plates, glowing orange magma cracks, scattered coal dust, subtle small metal rail scratches, high-contrast fantasy dungeon palette, clean readable texture optimized for fast movement, no large objects, no characters, no walls. Must tile seamlessly on all edges for repeated 512px canvas drawing. Wide composition, no text, no logo, no watermark.",
+      "model": "gpt-image-2",
+      "size": "1536x1024",
+      "wantsTransparent": false,
+      "outputFormat": "webp",
+      "compressionProfile": "lossy_q80_opaque",
+      "originalBytes": 3558236,
+      "finalBytes": 403988,
+      "usage": {
+        "inputTokens": 99,
+        "outputImageTokens": 1372
+      },
+      "traceId": "trace_mqhyq96e_l2aoga47",
+      "createdAt": "2026-06-17T11:04:27Z"
+    },
+    {
+      "name": "ground-poison-swamp",
+      "status": "success",
+      "path": "publish/assets/generated/ground-poison-swamp.037c9f72.webp",
+      "contentHash": "037c9f72",
+      "revisedPrompt": "Seamless tileable top-down ground texture for an arcade fantasy survivor game: poison mist swamp floor, dark mud, mossy stones, sickly green puddles, scattered roots, faint toxic glow, readable high contrast dungeon colors, clean arcade fantasy style, no large objects, no characters, no trees or walls. Must tile seamlessly on all edges for repeated 512px canvas drawing. Wide composition, no text, no logo, no watermark.",
+      "model": "gpt-image-2",
+      "size": "1536x1024",
+      "wantsTransparent": false,
+      "outputFormat": "webp",
+      "compressionProfile": "lossy_q80_opaque",
+      "originalBytes": 3169760,
+      "finalBytes": 296134,
+      "usage": {
+        "inputTokens": 96,
+        "outputImageTokens": 601
+      },
+      "traceId": "trace_mqhyrw0s_luni5zcw",
+      "createdAt": "2026-06-17T11:05:23Z"
+    },
+    {
+      "name": "ground-astral-ruins",
+      "status": "success",
+      "path": "publish/assets/generated/ground-astral-ruins.de1f3ee1.webp",
+      "contentHash": "de1f3ee1",
+      "revisedPrompt": "Seamless tileable top-down ground texture for an arcade fantasy survivor game: astral ruins floor, dark navy stone slabs, purple-blue cosmic cracks, faint star dust, broken rune lines, subtle glowing void fragments, clean readable arcade fantasy style, high contrast, no large objects, no characters, no walls. Must tile seamlessly on all edges for repeated 512px canvas drawing. Wide composition, no text, no logo, no watermark.",
+      "model": "gpt-image-2",
+      "size": "1254x1254",
+      "wantsTransparent": false,
+      "outputFormat": "webp",
+      "compressionProfile": "lossy_q80_opaque",
+      "originalBytes": 3111646,
+      "finalBytes": 273796,
+      "usage": {
+        "inputTokens": 95,
+        "outputImageTokens": 2058
+      },
+      "traceId": "trace_mqhyt36q_io0nt88h",
+      "createdAt": "2026-06-17T11:06:56Z"
+    },
+    {
+      "name": "terrain-atlas-rift2",
+      "status": "success",
+      "path": "publish/assets/generated/terrain-atlas-rift2.c4ed0be1.webp",
+      "contentHash": "c4ed0be1",
+      "revisedPrompt": "Top-down 3/4 arcade fantasy terrain obstacle atlas for a survivor game, exactly 16 separate tiles arranged in a clean 4 columns by 4 rows grid. Each tile is centered in its cell with empty space around it, consistent scale, no overlap. Tile order left to right, top to bottom: 1 blood pool decal, 2 bone wall barricade, 3 flesh pillar, 4 candle chapel altar, 5 lava crack decal, 6 mine cart obstacle, 7 obsidian pillar, 8 furnace altar, 9 poison puddle decal, 10 dead tree stump, 11 giant toxic mushroom, 12 tangled roots, 13 void rift decal, 14 astral monolith, 15 star crystal, 16 floating rune ring. Cute chibi fantasy style, readable top-down 3/4 arcade sprite look, clean dark outline, soft glow, high contrast, crisp shapes. No text, no logo, no watermark. Strictly on a solid uniform #FF00FF chroma key flat color background filling all non-object pixels. The background must be a single uniform magenta shade #FF00FF with no gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements.",
+      "model": "gpt-image-2",
+      "size": "1254x1254",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#FF00FF",
+        "alphaZeroPct": 67.8,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossy_q85_alpha",
+      "originalBytes": 1985836,
+      "finalBytes": 253896,
+      "usage": {
+        "inputTokens": 263,
+        "outputImageTokens": 2058
+      },
+      "traceId": "trace_mqhyyt3q_s6pk3may",
+      "createdAt": "2026-06-17T11:11:30Z"
+    },
+    {
+      "name": "enemy-blood-acolyte-sheet",
+      "status": "success",
+      "path": "publish/assets/generated/enemy-blood-acolyte-sheet.c76d60dc.webp",
+      "contentHash": "c76d60dc",
+      "revisedPrompt": "Cute chibi fantasy enemy sprite sheet for an arcade survivor game: a blood chapel acolyte monster, small hooded crimson cultist with a bone mask, glowing red hands, readable silhouette, top-down 3/4 arcade sprite style. Exactly 4 animation frames arranged in a clean 2 columns by 2 rows grid. Same character centered in each frame with slight walking/casting variations. Clean dark outline, soft glow, high contrast. No frame labels, no text, no logo, no watermark. Strictly on a SOLID UNIFORM #00B140 chroma key flat color background filling all non-character pixels, pure flat green screen, no gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements.",
+      "model": "gpt-image-2",
+      "size": "1254x1254",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#00B140",
+        "alphaZeroPct": 76.5,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossy_q85_alpha",
+      "originalBytes": 1467024,
+      "finalBytes": 103028,
+      "usage": {
+        "inputTokens": 160,
+        "outputImageTokens": 2058
+      },
+      "traceId": "trace_mqhz2bci_r0pkvo0e",
+      "createdAt": "2026-06-17T11:13:52Z"
+    },
+    {
+      "name": "enemy-lava-imp-sheet",
+      "status": "success",
+      "path": "publish/assets/generated/enemy-lava-imp-sheet.4c827807.webp",
+      "contentHash": "4c827807",
+      "revisedPrompt": "Cute chibi fantasy enemy sprite sheet for an arcade survivor game: a lava mine imp monster, small obsidian goblin with glowing orange magma cracks, tiny horns, ember claws, readable silhouette, top-down 3/4 arcade sprite style. Create exactly 4 animation frames arranged in a clean 2 columns by 2 rows grid, same character centered in each frame, with running/attacking variations. Clean dark outline, soft glow, high contrast. No text, no logo, no watermark, no frame labels. Strictly placed on a SOLID UNIFORM #00B140 chroma key flat color background. The background must be a single uniform shade of #00B140 green filling 100% of pixels not occupied by the character, with no gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements. Pure flat color background, exactly like a green screen used for VFX compositing.",
+      "model": "gpt-image-2",
+      "size": "1254x1254",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#00B140",
+        "alphaZeroPct": 74.6,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossy_q85_alpha",
+      "originalBytes": 1611841,
+      "finalBytes": 134502,
+      "usage": {
+        "inputTokens": 197,
+        "outputImageTokens": 2058
+      },
+      "traceId": "trace_mqhz5dks_9hhbd7y8",
+      "createdAt": "2026-06-17T11:16:16Z"
+    },
+    {
+      "name": "enemy-spore-slime-sheet",
+      "status": "success",
+      "path": "publish/assets/generated/enemy-spore-slime-sheet.bcb36cf3.webp",
+      "contentHash": "bcb36cf3",
+      "revisedPrompt": "Cute chibi fantasy enemy sprite sheet for an arcade survivor game: a poison swamp spore slime monster. Design a gelatinous toxic slime creature with mushroom cap growths, sickly green glow, purple spots, readable silhouette, top-down 3/4 arcade sprite style. Create EXACTLY 4 animation frames arranged in a clean 2 columns by 2 rows grid, same creature centered in each frame, with subtle bouncing/spitting variations across frames. Clean dark outline, soft glow, high contrast, no text, no logo, no watermark. IMPORTANT: place the sprite sheet on a SOLID UNIFORM #FF00FF chroma key flat color background. The background must be a single uniform shade of #FF00FF magenta filling 100% of pixels not occupied by the character. No gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements. Pure flat color background, exactly like a green screen used for VFX compositing.",
+      "model": "gpt-image-2",
+      "size": "1254x1254",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#FF00FF",
+        "alphaZeroPct": 68.6,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossy_q85_alpha",
+      "originalBytes": 1632688,
+      "finalBytes": 138540,
+      "usage": {
+        "inputTokens": 205,
+        "outputImageTokens": 2058
+      },
+      "traceId": "trace_mqhz8lp9_mh729ijo",
+      "createdAt": "2026-06-17T11:18:46Z"
+    },
+    {
+      "name": "enemy-void-walker-sheet",
+      "status": "success",
+      "path": "publish/assets/generated/enemy-void-walker-sheet.830f6593.webp",
+      "contentHash": "830f6593",
+      "revisedPrompt": "Cute chibi fantasy enemy sprite sheet for an arcade survivor game: astral void walker monster. A small shadowy humanoid with floating stone fragments orbiting its body, a glowing purple-blue star core in the chest, long spectral arms, readable silhouette, top-down 3/4 arcade sprite style. Exactly 4 animation frames arranged in a clean 2 columns by 2 rows grid. Same creature centered in each frame, showing drifting/attacking variations. Clean dark outline, soft glow, high contrast, no text, no logo, no watermark. Strictly placed on a SOLID UNIFORM #00B140 chroma key flat color background. The background must be a single uniform shade of #00B140 green filling 100% of pixels not occupied by the character. No gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements. Pure flat color background, exactly like a green screen used for VFX compositing.",
+      "model": "gpt-image-2",
+      "size": "1254x1254",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#00B140",
+        "alphaZeroPct": 80.9,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossy_q85_alpha",
+      "originalBytes": 1541130,
+      "finalBytes": 137102,
+      "usage": {
+        "inputTokens": 203,
+        "outputImageTokens": 2058
+      },
+      "traceId": "trace_mqhzad5t_9kh5vvic",
+      "createdAt": "2026-06-17T11:20:10Z"
     }
   ]
 }
