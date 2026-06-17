@@ -30,7 +30,7 @@ window.GameModules.uniqueFx = (() => {
     if (hasUnique('unique-abyss-mask') && e.hp > 0) {
       let hpR = e.hp / e.max;
       let thresh = e.boss ? .15 : e.elite ? .20 : .30;
-      if (hpR <= thresh) { d = e.hp + 1; e._abyssExecute = true; }
+      if (hpR <= thresh) { d = e.hp + 1; e._abyssExecute = true; S.parts.push({x:e.x,y:e.y,vx:0,vy:0,life:.6,max:.6,a:1,c:'#a78bfa',aspectRing:80}); }
     }
 
     // unique-elite-boots: 猎手增幅 — 秘境进度等额独立乘区
@@ -78,12 +78,14 @@ window.GameModules.uniqueFx = (() => {
       for (const k of Object.keys(S.cd || {})) {
         if (S.cd[k] > 0) S.cd[k] = Math.max(0, S.cd[k] - 1);
       }
+      S.parts.push({x:e.x,y:e.y,vx:0,vy:-20,life:.5,max:.5,a:1,c:'#93c5fd',txt:'CD-1s'});
     }
 
     // unique-moon-crown: 寒月护盾 — 冰法球暴击+4%生命护盾
     if (hasUnique('unique-moon-crown') && id === 'iceorb' && crit) {
       let shieldGain = p.max * .04;
       p.shield = Math.min(p.max, (p.shield || 0) + shieldGain);
+      S.parts.push({x:p.x,y:p.y,vx:0,vy:0,life:.55,max:.55,a:1,c:'#93c5fd',aspectRing:50});
     }
 
     // unique-rose-mirror: 欲念蓄池 — 攻击时释放蓄池伤害
@@ -92,17 +94,20 @@ window.GameModules.uniqueFx = (() => {
       S._roseStored = 0;
       let splashDmg = stored * 3.5;
       window.burstAt?.('lustSplash', p.x, p.y, splashDmg, 180, 0, '#f472b6', 220, .52);
+      S.parts.push({x:p.x,y:p.y,vx:0,vy:0,life:.65,max:.65,a:1,c:'#f472b6',aspectRing:120});
     }
 
     // set astral-missile 6件: 幸运内爆 — 魔法飞弹暴击25%触发内爆
     if (hasSet('astral-missile') && id === 'missile' && crit && Math.random() < .25) {
       window.burstAt?.('missile', e.x, e.y, d * 2.2, 72, 0, '#c084fc', 140, .35);
+      S.parts.push({x:e.x,y:e.y,vx:0,vy:0,life:.5,max:.5,a:1,c:'#c084fc',aspectRing:90});
     }
 
     // set moon-hunter 6件: 月牙斩暴击引发二级冰爆
     if (hasSet('moon-hunter') && id === 'moonSlash' && crit) {
       let critDmgBonus = 1 + eqStat('critDmg');
       window.burstAt?.('crystal', e.x, e.y, d * critDmgBonus * 1.5, 58, 1.2, '#93c5fd', 110, .42);
+      S.parts.push({x:e.x,y:e.y,vx:0,vy:0,life:.55,max:.55,a:1,c:'#93c5fd',aspectRing:75});
     }
 
     // set cyclone-axe 6件: 回旋飞斧飞回重置位移CD + 切割风暴
@@ -130,6 +135,7 @@ window.GameModules.uniqueFx = (() => {
       p.hp = 1;
       p.shield = Math.round(p.max * .25);
       window.burstAt?.('aura', p.x, p.y, 0, 200, 0, '#f0f0ff', 260, .65);
+      S.parts.push({x:p.x,y:p.y,vx:0,vy:0,life:.8,max:.8,a:1,c:'#f0f0ff',aspectRing:150});
       window.showNotice?.('苍白相位：2.5秒无敌隐形！');
       return { dmg: 0, prevent: true };
     }
@@ -168,6 +174,7 @@ window.GameModules.uniqueFx = (() => {
       if (e.elite || e.boss) {
         let martyrDmg = (48 + p.max * .12) * window.dmgBase?.('bloodNova') || 60;
         window.burstAt?.('blood', e.x, e.y, martyrDmg, 240, 0, '#fde68a', 320, .55);
+        S.parts.push({x:e.x,y:e.y,vx:0,vy:0,life:.7,max:.7,a:1,c:'#fde68a',aspectRing:180});
         // 杂兵殉爆额外推进
         if (S.endless) {
           for (const m of S.enemies) {
@@ -323,6 +330,7 @@ window.GameModules.uniqueFx = (() => {
         window.dealDamage?.(elite, dmg * .50, true, 'thunderChain');
         e._thunderVuln = 3; // 3秒易伤
         S.bolts.push({ x: elite.x, y: elite.y, x2: e.x, y2: e.y, life: .22, chain: true });
+        S.parts.push({x:e.x,y:e.y,vx:0,vy:0,life:.45,max:.45,a:1,c:'#fde047',aspectRing:60});
       }
     }
 
@@ -393,6 +401,7 @@ window.GameModules.uniqueFx = (() => {
       window.dealDamage?.(target, dmg * .45, true, 'bloodReap');
       // 暗影内爆[x]45%
       window.dealDamage?.(target, dmg * .45, true, 'bloodReap');
+      S.parts.push({x:target.x,y:target.y,vx:0,vy:0,life:.45,max:.45,a:1,c:'#a78bfa',aspectRing:55});
     }
   }
 
@@ -428,6 +437,7 @@ window.GameModules.uniqueFx = (() => {
       life: 1.2, max: 1.2, size: 80, rad: 56, dmg: axe.dmg * .28,
       spin: true
     });
+    S.parts.push({x:axe.x,y:axe.y,vx:0,vy:0,life:.5,max:.5,a:1,c:'#67e8f9',aspectRing:65});
   }
 
   // --- daggerRain/windCutter 分裂 (hunt-quiver) ---
