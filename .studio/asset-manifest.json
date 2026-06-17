@@ -1,7 +1,7 @@
 {
   "version": 1,
   "createdAt": "2026-06-13T14:08:29Z",
-  "updatedAt": "2026-06-17T01:42:15Z",
+  "updatedAt": "2026-06-17T01:57:14Z",
   "assets": [
     {
       "name": "player-paladin",
@@ -2401,6 +2401,58 @@
       },
       "traceId": "trace_mqhehn24_faw7kkot",
       "createdAt": "2026-06-17T01:42:15Z"
+    },
+    {
+      "name": "equipment-paladin-sacrifice-transparent-sheet",
+      "status": "success",
+      "path": "publish/assets/generated/paladin/equipment-paladin-sacrifice-transparent-sheet.f11e2f5d.webp",
+      "contentHash": "f11e2f5d",
+      "revisedPrompt": "Create a single fantasy RPG equipment icon sprite sheet on a 1024x1024 square canvas with an exact 6 columns by 6 rows invisible grid. Each icon must be centered within its cell with consistent padding, all icons fully contained, no cropping. Use a pure flat solid chroma key background color #00B140 filling every pixel not occupied by icons; no gradient, no texture, no scenery, no shadows cast onto the background, no visible panel, no borders, no grid lines, no watermark, no text. Style: ornate golden RPG equipment icon art, high detail, clean dark outline, high contrast, readable at small size, classic inventory item icon scale.\n\nArrangement: top 3 rows are paladin class set equipment icons arranged left to right by slot per row: weapon, helm, chest armor, amulet, ring, boots.\nRow 1 theme Aureate Guardian: sun sword, crown helm, heavy gold plate, radiant amulet, gold ring, armored greaves.\nRow 2 theme Thorn Bulwark: spiked mace, thorn helm, red-gold bulwark armor, thorn charm, ruby ring, heavy sabatons.\nRow 3 theme Dawn Judgment: holy lance, dawn crown, white-gold armor, dawn pendant, judgment ring, white armored boots.\nBottom 3 rows are sacrifice relic icons filling all 18 cells for alignment, left to right, top to bottom: glowing marrow vial, thorn blood crystal, dawn judgment core, star shell, ember dragon heart, storm bottle, beast bone, eclipse fang, venom egg, crimson chalice, violet incense, rose mirror core, moon petal, blood scythe bone, black soul feather, abyss heart core, fate clock disk, greedy offering cup.\n\nMaintain consistent icon scale and centered composition, ornate fantasy item silhouettes, detailed gem and metal highlights, crisp readable shapes, no characters.",
+      "model": "gpt-image-2",
+      "size": "1254x1254",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#00B140",
+        "alphaZeroPct": 53,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossy_q85_alpha",
+      "originalBytes": 2724170,
+      "finalBytes": 455288,
+      "usage": {
+        "inputTokens": 389,
+        "outputImageTokens": 2058
+      },
+      "traceId": "trace_mqhevnnf_ryzgjuij",
+      "createdAt": "2026-06-17T01:49:29Z"
+    },
+    {
+      "name": "equipment-paladin-sacrifice-alpha-sheet",
+      "status": "success",
+      "path": "publish/assets/generated/paladin/equipment-paladin-sacrifice-alpha-sheet.700ab04f.webp",
+      "contentHash": "700ab04f",
+      "revisedPrompt": "Create a single 1024x1024 fantasy RPG equipment icon sprite sheet with EXACTLY 6 columns and 6 rows, evenly spaced invisible grid, 36 separate isolated item icons, each centered in its cell with consistent padding, fully contained and not cropped. The ENTIRE background must be a perfectly flat, uniform solid chroma key green #00B140 with no variation, no gradients, no texture, no floor, no shadows on the background, no inventory panel, no checkerboard, no grid lines, no cell frames, no scenery, no decoration. Only the item icons may occupy pixels other than #00B140.\n\nStyle: ornate high-detail classic fantasy game icon style, clean dark outline, gold metal, gems, holy glow, readable small silhouettes, polished RPG equipment icon look.\n\nTop 3 rows are paladin class set equipment icons, left to right by slot: weapon, helm, chest armor, amulet, ring, boots.\nRow 1 Aureate Guardian: sun sword, winged gold helm, heavy holy gold plate, radiant sun amulet, gold ring, armored greaves.\nRow 2 Thorn Bulwark: spiked thorn mace, thorn helm, red-gold thorn armor, thorn ruby charm, ruby ring, heavy thorn sabatons.\nRow 3 Dawn Judgment: white-gold holy lance, dawn crown, white-gold judgment armor, dawn pendant, judgment ring, white armored boots.\n\nBottom 3 rows are 18 sacrifice relic icons filling all cells, left to right, row by row: glowing marrow vial, thorn blood crystal, dawn judgment core, star shell, ember dragon heart, storm bottle, beast bone, eclipse fang, venom egg, crimson chalice, violet incense burner, rose mirror core, moon petal, blood scythe bone, black soul feather, abyss heart core, fate clock disk, greedy offering cup.\n\nNo characters, no text, no logo, no watermark. Ensure the icon silhouettes are readable at small size, classic golden RPG equipment sprite sheet feel, all items distinct and centered.",
+      "model": "gpt-image-2",
+      "size": "1254x1254",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#00B140",
+        "alphaZeroPct": 59.2,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossy_q85_alpha",
+      "originalBytes": 2478231,
+      "finalBytes": 384538,
+      "usage": {
+        "inputTokens": 424,
+        "outputImageTokens": 2058
+      },
+      "traceId": "trace_mqhf0scr_eohlqpi7",
+      "createdAt": "2026-06-17T01:57:13Z"
     }
   ]
 }
