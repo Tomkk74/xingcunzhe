@@ -2,8 +2,14 @@
 'use strict';
 const KEY='arcane-cosmetics-v1',SHOP_GOLD=2000,COSTUME_CORE=200,TICKET_ICON='./assets/generated/shop/rift-ticket.png';
 const CLASS_CN={paladin:'圣骑士',mage:'大魔法师',ranger:'游侠',lewdSaintess:'淫靡圣女',scytheMaiden:'琦琦'};
-const SHOP_COSTUMES=[];
-const SPECIAL={lewdSaintess:[{id:'rift40',name:'秘境圣女',unlock:'通关秘境40层',frames:[]}]};
+function frames(d){return Array.from({length:24},(_,i)=>`./assets/shizhuang-clean/${d}/_${Math.floor(i/6)+1}_${i%6+1}.png`)}
+const SHOP_COSTUMES=[
+{cls:'ranger',id:'vengeanceDemon',name:'复仇炎魔',frames:frames('youxia')},
+{cls:'paladin',id:'lichKing',name:'巫妖王',frames:frames('shengqishi')},
+{cls:'mage',id:'royalMage',name:'皇家法师',frames:frames('fashi')},
+{cls:'scytheMaiden',id:'soulScythe',name:'夺魂之镰',frames:frames('qiqi')}
+];
+const SPECIAL={lewdSaintess:[{id:'rift40',name:'医护甜心',unlock:'通关秘境40层',frames:frames('shengnv')}]};
 let state={owned:{},selected:{}},ready=false,imgs={};
 const $=id=>document.getElementById(id),esc=v=>String(v).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
 const timeout=(p,ms=1200)=>Promise.race([p,new Promise((_,r)=>setTimeout(()=>r(new Error('timeout')),ms))]);
