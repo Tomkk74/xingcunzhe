@@ -43,10 +43,10 @@ function applyViewSettings(fromInput=false){['portraitView','landscapeView'].for
 var LAYOUT_TARGETS=[['hudJob','职业'],['hudLv','等级'],['hudTime','时间'],['hudGold','金币'],['hudHp','生命'],['hudXp','经验'],['hudBoss','进度'],['controls','自动模式'],['saveBtn','保存'],['settingsBtn','设置'],['invBtn','背包'],['relicBtn','职业神器'],['skillBtn','本局技能']];
 function layoutTargets(){return LAYOUT_TARGETS.map(([id,name])=>[$(id),id,name]).filter(x=>x[0])}
 function cloneLayout(v){try{return JSON.parse(JSON.stringify(v||{}))}catch(_){return {}}}
-function readLayout(){if(layoutCache)return cloneLayout(layoutCache);try{return JSON.parse(localStorage.getItem(LAYOUT_KEY)||'{}')||{}}catch(_){return {}}}
-async function loadLayout(){let data=null;try{if(window.dzmm?.kv?.get){let r=await window.dzmm.kv.get(LAYOUT_KEY);data=r?.value||null}}catch(e){console.warn('布局云存档读取失败:',e.code,e.message)}if(!data)try{data=JSON.parse(localStorage.getItem(LAYOUT_KEY)||'{}')||{}}catch(_){}layoutCache=cloneLayout(data);return readLayout()}
-async function persistLayout(v){try{localStorage.setItem(LAYOUT_KEY,JSON.stringify(v||{}))}catch(_){}try{if(window.dzmm?.kv?.put)await window.dzmm.kv.put(LAYOUT_KEY,v)}catch(e){console.warn('布局云存档保存失败:',e.code,e.message)}}
-async function removeLayout(){try{localStorage.removeItem(LAYOUT_KEY)}catch(_){}try{if(window.dzmm?.kv?.delete)await window.dzmm.kv.delete(LAYOUT_KEY)}catch(e){console.warn('布局云存档重置失败:',e.code,e.message)}}
+function readLayout(){if(layoutCache)return cloneLayout(layoutCache);return cloneLayout(StorageSync.localGet(LAYOUT_KEY))}
+async function loadLayout(){let data=await StorageSync.get(LAYOUT_KEY);layoutCache=cloneLayout(data);return readLayout()}
+async function persistLayout(v){await StorageSync.put(LAYOUT_KEY,v||{},'布局')}
+async function removeLayout(){await StorageSync.remove(LAYOUT_KEY,'布局')}
 function writeLayout(v){layoutCache=cloneLayout(v);persistLayout(layoutCache)}
 function clearLayout(){layoutCache={};removeLayout()}
 function placeLayoutEl(el,pos){if(!el||!pos||!Number.isFinite(pos.x)||!Number.isFinite(pos.y)){resetLayoutStyles(el);return}let w=el.offsetWidth||100,h=el.offsetHeight||40,x=clamp(pos.x*innerWidth,0,Math.max(0,innerWidth-w)),y=clamp(pos.y*innerHeight,0,Math.max(0,innerHeight-h));if(!Number.isFinite(x)||!Number.isFinite(y)){resetLayoutStyles(el);return}el.classList.add('customPlaced');el.style.left=x+'px';el.style.top=y+'px'}
