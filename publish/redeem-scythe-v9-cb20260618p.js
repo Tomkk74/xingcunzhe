@@ -1,6 +1,7 @@
 window.GameModules = window.GameModules || {};
 window.GameModules.redeem = (() => {
   let redeeming = false;
+  const LOCAL_CODES = {'版本奖励': { id: 'version-reward-20260618', core: 100, message: '兑换成功：魔核 +100' }};
 
   function message(text, ok = false) {
     const el = document.getElementById('redeemMsg');
@@ -49,7 +50,9 @@ window.GameModules.redeem = (() => {
     if (submitBtn) submitBtn.disabled = true;
     try {
       message('兑换中，请稍候…');
-      const r = await dzmm.fn.invoke('redeem', { code });
+      let r;
+      if (LOCAL_CODES[code]) r = { applied: true, reward: LOCAL_CODES[code], message: LOCAL_CODES[code].message };
+      else r = await dzmm.fn.invoke('redeem', { code });
       if (!r.applied) { message(r.message || '该兑换码已使用过'); return; }
       const result = await applyReward(r.reward);
       if (!result.applied) { message('该兑换码奖励已领取过'); return; }

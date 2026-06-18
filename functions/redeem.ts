@@ -3,7 +3,6 @@ const CODES: any = {
   'Tomkk666': { id: 'tomkk-rift-tickets-20260616', riftKeys: 50, message: '兑换成功：大秘境门票 +50' },
   '琦琦专属礼包': { id: 'scythe-gift-20260617', scytheGift: true, userId: '4701f6f4-6d69-4cd8-8dbe-0f20f2668162', message: '兑换成功：琦琦冥月套装 4 件、魔核 +400、金币 +20000、门票 +40、赛季等级直升 20' },
   '魔核特供': { id: 'core-grant-20260617', core: 400, userId: '835bd1b2-f27a-4490-aa59-f3d1dbde0d16', message: '兑换成功：魔核 +400' },
-  '版本奖励': { id: 'version-reward-20260618', core: 100, message: '兑换成功：魔核 +100' },
 };
 
 export default async function (request: any, ctx: any) {
