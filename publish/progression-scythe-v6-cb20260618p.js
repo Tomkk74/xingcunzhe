@@ -42,7 +42,7 @@ window.GameModules.progression = (() => {
     scytheMaiden: [
       ['arc', '冥月圆舞', '残月镰舞每级范围 +5、伤害 +5%，Lv.4 后 +1 技能等级，契合冥月圆舞套', 5, 90, 22, 82, 'damage', ['scytheArc'], 24],
       ['reaper', '断魂影镰', '幽魂刃舞每级冷却 -4.5%、落地区域 +4，对残血敌人处决更强，契合断魂影镰套', 5, 90, 50, 86, 'damage', ['wraithBlade'], 24],
-      ['soul', '血镰誓约', '血镰回旋每级范围 +5、回复提升，命中会强化下一次追魂镰链，契合血镰誓约套', 5, 95, 78, 82, 'utility', ['bloodReap', 'reaperChain'], 24],
+      ['soul', '血镰誓约', '血镰回旋每级范围 +5、回复提升并强化精英内爆，契合血镰誓约套', 5, 95, 78, 82, 'utility', ['bloodReap'], 24],
       ['dance', '幽魂步伐', '每级移动速度 +3%，移动时积累冥契更快，并强化冥月圆舞机动收益', 4, 120, 50, 108, 'utility', [], 26, 'reaper'],
       ['execute', '终末收割', '镰刀系技能对 Boss、精英与护盾敌人更强，残血敌人受到额外处决伤害', 4, 145, 50, 126, 'damage', ['scytheArc', 'bloodReap', 'wraithBlade', 'reaperChain'], 30, 'arc'],
     ],

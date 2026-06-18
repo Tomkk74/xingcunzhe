@@ -40,9 +40,9 @@ window.GameModules.equipData = (() => {
     ['lewdSaintess','crimson-vessel','绯红圣器','setSaintess',{hp:.28,lustMaxBonus:32,crit:.10,cooldown:.14,skillDmgAdd:{lustSplash:.24}}],
     ['lewdSaintess','violet-hymn','紫罗兰圣歌','setSaintess',{skillDmgAdd:{lustPrayer:.30},lustMaxBonus:22,regen:.22,healBonus:.18}],
     ['lewdSaintess','rose-mirror','蔷薇镜像','setSaintess',{armor:.18,hp:.25,crit:.10,skillDmgAdd:{lustKiss:.30}}],
-    ['scytheMaiden','reaper-waltz','冥月圆舞','setScythe',{dotDmg:.40,shadow:.22,critDmg:.32,move:.14}],
-    ['scytheMaiden','blood-reaping','血镰誓约','setScythe',{skillDmgAdd:{scytheArc:.25,bloodReap:.25},atkSpeed:.16,armor:.15,crit:.09}],
-    ['scytheMaiden','soul-shadow','断魂影镰','setScythe',{crit:.12,critDmg:.35,cooldown:.12,move:.16}],
+    ['scytheMaiden','reaper-waltz','冥月圆舞','setScythe',{dotDmg:.40,shadow:.22,critDmg:.32,move:.14,skillDmgAdd:{scytheArc:.28}}],
+    ['scytheMaiden','blood-reaping','血镰誓约','setScythe',{skillDmgAdd:{bloodReap:.30},atkSpeed:.16,armor:.15,crit:.09}],
+    ['scytheMaiden','soul-shadow','断魂影镰','setScythe',{crit:.12,critDmg:.35,cooldown:.12,move:.16,skillDmgAdd:{wraithBlade:.30}}],
   ];
   const SET_BONUS = {
     'aureate-guardian':{n:'辉金守护',s:'3件 暴击+10% 精英免伤+15%；6件 [x]大蒜光环获黑洞属性，全屏吸附，护甲1:2融入光环暴击。',b3:{crit:.10,eliteDmgReduce:.15},b6:{skill:'garlic',skillDmg:4.5,special:'blackhole'}},
