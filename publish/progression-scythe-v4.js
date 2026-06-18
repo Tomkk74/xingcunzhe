@@ -50,7 +50,7 @@ window.GameModules.progression = (() => {
   const COST_GROWTH = 1.72;
   const DEFAULT = { soulGold: 0, soulCore: 0, grants: {}, classes: Object.fromEntries(Object.keys(CLASSES).map(k => [k, { upgrades: {}, unlocks: {} }])) };
   const ADMIN_GRANTS = { '03b30ae3-a2da-440b-9333-58dd490507ea': { id: 'admin-core-20260615', soulCore: 200 } };
-  let meta = clone(DEFAULT), ready = false;
+  let meta = clone(DEFAULT), ready = false, cloudWarned = false;
 
   function clone(v) { return JSON.parse(JSON.stringify(v)); }
   function clsData(c) { return meta.classes[c] || (meta.classes[c] = { upgrades: {}, unlocks: {} }); }
@@ -71,7 +71,7 @@ window.GameModules.progression = (() => {
   async function kvPut(key, value) {
     localPut(key, value);
     try { await timeout(window.dzmm.kv.put(key, value)); }
-    catch (_) {}
+    catch (e) { if (!cloudWarned) { cloudWarned = true; window.dzmm?.toast?.warning?.('永久强化云端保存失败，已暂存本机'); console.warn('永久强化云端保存失败:', e.code, e.message); } }
   }
   function normalize(data) {
     const base = clone(DEFAULT); if (!data || typeof data !== 'object') return base;

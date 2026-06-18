@@ -10,7 +10,7 @@ const SHOP_COSTUMES=[
 {cls:'scytheMaiden',id:'soulScythe',name:'夺魂之镰',frames:frames('qiqi','c826b322-3d3b-496e-bca5-3613aaa27394')}
 ];
 const SPECIAL={lewdSaintess:[{id:'rift40',name:'医护甜心',unlock:'通关秘境40层',frames:frames('shengnv','008382c7-3a03-4bb2-a267-3c09cdeeee50')}]};
-let state={owned:{},selected:{}},ready=false,imgs={},lastDraw={};
+let state={owned:{},selected:{}},ready=false,cloudWarned=false,imgs={},lastDraw={};
 const $=id=>document.getElementById(id),esc=v=>String(v).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
 function feedback(id,t){let e=$(id);if(e)e.textContent=t||''}
 function busy(btn,t,on=true){if(!btn)return;btn.disabled=on;if(t)btn.textContent=t}
@@ -19,7 +19,7 @@ const timeout=(p,ms=1200)=>Promise.race([p,new Promise((_,r)=>setTimeout(()=>r(n
 function localGet(){try{let r=localStorage.getItem(KEY);return r?JSON.parse(r):null}catch(_){return null}}
 function localPut(v){try{localStorage.setItem(KEY,JSON.stringify(v))}catch(_){}}
 async function kvGet(){let l=localGet();if(l)return l;try{return (await timeout(window.dzmm.kv.get(KEY)))?.value||null}catch(_){return null}}
-async function kvPut(v){localPut(v);try{await timeout(window.dzmm.kv.put(KEY,v))}catch(_){}}
+async function kvPut(v){localPut(v);try{await timeout(window.dzmm.kv.put(KEY,v))}catch(e){if(!cloudWarned){cloudWarned=true;window.dzmm?.toast?.warning?.('外观云端保存失败，已暂存本机');console.warn('外观云端保存失败:',e.code,e.message)}}}
 function norm(v){let out={owned:{},selected:{}};for(const c of Object.keys(CLASS_CN)){out.owned[c]={default:true,...(v?.owned?.[c]||{})};out.selected[c]=out.owned[c][v?.selected?.[c]]?v.selected[c]:'default'}return out}
 async function init(){if(ready)return state;state=norm(await kvGet());ready=true;preloadSelected();return state}
 async function save(){await kvPut(state)}

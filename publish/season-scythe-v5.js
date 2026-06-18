@@ -24,12 +24,12 @@ window.GameModules.season = (() => {
       ]
     }
   };
-  let state = null, ready = false;
+  let state = null, ready = false, cloudWarned = false;
   const timeout = (p, ms = 1200) => Promise.race([p, new Promise((_, reject) => setTimeout(() => reject(new Error('timeout')), ms))]);
   function localGet(k){try{let r=localStorage.getItem(k);return r?JSON.parse(r):null}catch(_){return null}}
   function localPut(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(_){}}
   async function kvGet(k){let local=localGet(k);if(local)return local;try{return (await timeout(window.dzmm.kv.get(k)))?.value??null}catch(_){return null}}
-  async function kvPut(k,v){localPut(k,v);try{await timeout(window.dzmm.kv.put(k,v))}catch(_){}}
+  async function kvPut(k,v){localPut(k,v);try{await timeout(window.dzmm.kv.put(k,v))}catch(e){if(!cloudWarned){cloudWarned=true;window.dzmm?.toast?.warning?.('赛季云端保存失败，已暂存本机');console.warn('赛季云端保存失败:',e.code,e.message)}}}
   function normalize(v){let s=v&&typeof v==='object'?v:{};s.currentSeason=CURRENT;s.started=s.started&&typeof s.started==='object'?s.started:{};s.seasons=s.seasons&&typeof s.seasons==='object'?s.seasons:{};return s}
   async function init(){if(ready)return state;state=normalize(await kvGet(KEY));ready=true;return state}
   function cfg(){return CONFIG[CURRENT]}

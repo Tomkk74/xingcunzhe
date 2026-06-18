@@ -9,7 +9,7 @@ window.GameModules.saveTransfer = (() => {
   function localGet(k){try{const raw=localStorage.getItem(k);return raw?JSON.parse(raw):null}catch(_){return null}}
   function localPut(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(_){}}
   async function kvGet(k){const local=localGet(k);if(local!==null)return local;try{return (await timeout(window.dzmm.kv.get(k)))?.value??null}catch(_){return null}}
-  async function kvPut(k,v){localPut(k,v);try{await timeout(window.dzmm.kv.put(k,v))}catch(_){}}
+  async function kvPut(k,v){localPut(k,v);try{await timeout(window.dzmm.kv.put(k,v))}catch(e){window.dzmm?.toast?.warning?.('导入存档云端保存失败，已暂存本机');console.warn('导入存档云端保存失败:',e.code,e.message)}}
   function enc(obj){return btoa(unescape(encodeURIComponent(JSON.stringify(obj))))}
   function dec(text){return JSON.parse(decodeURIComponent(escape(atob(String(text).trim()))))}
   function msg(text, ok=false){const el=document.getElementById('saveTransferMsg');if(!el)return;el.textContent=text;el.classList.toggle('ok',ok)}
