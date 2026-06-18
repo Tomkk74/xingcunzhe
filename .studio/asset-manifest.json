@@ -1,7 +1,7 @@
 {
   "version": 1,
   "createdAt": "2026-06-13T14:08:29Z",
-  "updatedAt": "2026-06-18T14:12:09Z",
+  "updatedAt": "2026-06-18T14:40:52Z",
   "assets": [
     {
       "name": "player-paladin",
@@ -2269,6 +2269,32 @@
       },
       "traceId": "trace_mqjkvlnm_7dbvj4ax",
       "createdAt": "2026-06-18T14:12:09Z"
+    },
+    {
+      "name": "hard-drive-sacrifice",
+      "status": "success",
+      "path": "publish/assets/generated/hard-drive-sacrifice.77268ef6.webp",
+      "contentHash": "77268ef6",
+      "revisedPrompt": "Game item icon for a static web fantasy survivor game: a mysterious old mechanical hard drive relic named 'hard drive sacrifice', worn metal casing, arcane purple glow leaking from data seams, tiny magical data runes, subtle goblin merchant treasure vibe, centered object, high contrast, readable at small inventory icon size, polished fantasy game art, no text, no logo, no watermark, no adult content. Strictly placed on a SOLID UNIFORM #00B140 chroma key flat color background. The background is a single uniform shade of #00B140 chroma key green that fills 100% of pixels not occupied by the item. No gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements. Pure flat color background, exactly like a green screen used for VFX compositing. No text, no logo, no watermark.",
+      "model": "gpt-image-2",
+      "size": "1254x1254",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#00B140",
+        "alphaZeroPct": 62.1,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossy_q85_alpha",
+      "originalBytes": 2074487,
+      "finalBytes": 197850,
+      "usage": {
+        "inputTokens": 184,
+        "outputImageTokens": 2058
+      },
+      "traceId": "trace_mqjlw9wm_fuuvwp6y",
+      "createdAt": "2026-06-18T14:40:52Z"
     }
   ]
 }
