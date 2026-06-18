@@ -28,9 +28,9 @@ window.GameModules.equipData = (() => {
     ['unique-hunt-quiver','暗金·无尽箭匣','amulet',null,{atkSpeed:.20,crit:.10,skillDmgAdd:{daggerRain:.22,windCutter:.22},critDmg:.20},{physical:.20},'弹幕分裂：匕首雨/风裂刃按攻速乘算分裂，每10%额外攻速弹幕+20%'],
   ];
   const SET_FAMILIES = [
-    ['paladin','aureate-guardian','辉金守护','setPaladin',{armor:.16,hp:.18,allRes:.14,skillDmgAdd:{garlic:.22,holyLance:.22}}],
-    ['paladin','thorn-bulwark','荆棘壁垒','setPaladin',{armor:.20,physical:.22,thorns:1800,hp:.16}],
-    ['paladin','dawn-judgment','黎明审判','setPaladin',{skillDmgAdd:{garlic:.24,holyLance:.24},cooldown:.12,crit:.08,dodge:.10}],
+    ['paladin','aureate-guardian','辉金守护','setPaladin',{armor:.16,hp:.18,allRes:.14,skillDmgAdd:{garlic:.28}}],
+    ['paladin','thorn-bulwark','荆棘壁垒','setPaladin',{armor:.20,physical:.22,thorns:1800,hp:.16,skillDmgAdd:{bloodNova:.26}}],
+    ['paladin','dawn-judgment','黎明审判','setPaladin',{skillDmgAdd:{holyLance:.30},cooldown:.12,crit:.08,dodge:.10}],
     ['mage','astral-missile','星界飞弹','setMage',{atkSpeed:.15,arcane:.18,crit:.09,cooldown:.10,skillDmgAdd:{missile:.28}}],
     ['mage','ember-meteor','余烬陨星','setMage',{skillDmgAdd:{meteorShard:.30},fire:.24,critDmg:.32,hp:.15}],
     ['mage','storm-sigil','风暴符印','setMage',{atkSpeed:.18,arcane:.20,crit:.08,skillDmgAdd:{thunderChain:.28}}],
