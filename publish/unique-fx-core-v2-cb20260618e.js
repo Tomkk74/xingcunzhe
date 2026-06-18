@@ -80,8 +80,7 @@ window.GameModules.uniqueFxShared = (() => {
     if (hasUnique('unique-rose-mirror')) { S._roseStored = (S._roseStored || 0) + rawDmg; return { dmg: 0, prevent: false }; }
     if (hasUnique('unique-pale-ring') && p.hp - rawDmg <= 0 && !S._paleUsed) {
       S._paleUsed = true; S._paleTimer = 2.5; p.hp = 1; p.shield = Math.round(p.max * .25);
-      window.burstAt?.('aura', p.x, p.y, 0, 200, 0, '#f0f0ff', 260, .65);
-      S.parts.push({x:p.x,y:p.y,vx:0,vy:0,life:.8,max:.8,a:1,c:'#f0f0ff',aspectRing:150});
+      (window.lightBurstAt || window.burstAt)?.('aura', p.x, p.y, 0, 200, 0, '#f0f0ff', 210, .45);
       window.showNotice?.('苍白相位：2.5秒无敌隐形！');
       return { dmg: 0, prevent: true };
     }
@@ -103,8 +102,7 @@ window.GameModules.uniqueFxShared = (() => {
     if (hasUnique('unique-dragon-heart')) {
       if (e.elite || e.boss) {
         let martyrDmg = (48 + p.max * .12) * (window.dmgBase?.('bloodNova') || 1);
-        window.burstAt?.('blood', e.x, e.y, martyrDmg, 240, 0, '#fde68a', 320, .55);
-        S.parts.push({x:e.x,y:e.y,vx:0,vy:0,life:.7,max:.7,a:1,c:'#fde68a',aspectRing:180});
+        (window.lightBurstAt || window.burstAt)?.('blood', e.x, e.y, martyrDmg, 240, 0, '#fde68a', 220, .42);
         if (S.endless) for (const m of S.enemies) if (m !== e && !m.boss && !m.dead && Math.hypot(m.x - e.x, m.y - e.y) < 260) m.hp -= m.max * .18;
       }
       if (!e.boss && !e.elite && S.endless) S.kills += Math.max(1, Math.floor(window.endlessBossGap?.(S.endlessLayer || 1) * .01));
