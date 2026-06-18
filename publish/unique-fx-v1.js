@@ -14,6 +14,10 @@ window.GameModules.uniqueFx = (() => {
   function hasSet(id, n) { return window.hasSet?.(id, n) || (S?.equipStats?.setPowers?.[id] || 0) >= (n || 6); }
   function eqStat(k) { return S?.equipStats?.[k] || 0; }
   function dotFx(f) { return !!(f?.burn || f?.poison || f?.rift); }
+  function isEvolvedDamageSkill(id) {
+    if (typeof EVOLUTIONS === 'undefined' || !S?.evolutions) return false;
+    return Object.entries(EVOLUTIONS).some(([eid, e]) => S.evolutions[eid] && e.main === id);
+  }
   function riftProgress() {
     if (!S?.endless) return 0;
     let layer = S.endlessLayer || 0, gap = window.endlessBossGap?.(layer) || 320;
@@ -42,7 +46,7 @@ window.GameModules.uniqueFx = (() => {
     }
 
     // unique-blood-plate: 血契反击 — 生命每低10%进化技能[x]15%
-    if (hasUnique('unique-blood-plate')) {
+    if (hasUnique('unique-blood-plate') && isEvolvedDamageSkill(id)) {
       let loss = Math.floor((1 - p.hp / p.max) * 10);
       if (loss > 0) d *= 1 + loss * .15;
     }
@@ -55,7 +59,7 @@ window.GameModules.uniqueFx = (() => {
 
     // unique-golem-soul: 岩盾守护 — 荆棘150%加算到弹幕
     if (hasUnique('unique-golem-soul') && eqStat('thorns') > 0) {
-      if (['missile', 'holy', 'ice', 'fire', 'wind', 'moonSlash', 'lustKiss', 'soul'].includes(id)) {
+      if (['missile', 'holy', 'ice', 'fire', 'wind', 'moonSlash', 'lustKiss', 'soulOrb'].includes(id)) {
         d += eqStat('thorns') * 1.5 * 0.01;
       }
     }
@@ -216,7 +220,7 @@ window.GameModules.uniqueFx = (() => {
     // set soul-shadow 6件: 幽魂刃舞击杀全技能无CD 1秒
     if (hasSet('soul-shadow') && e._lastHitBy === 'wraithBlade') {
       S._soulShadowCd = 1.0;
-      S._soulShadowCrit += .15;
+      S._soulShadowCrit = Math.min(.75, (S._soulShadowCrit || 0) + .15);
       S.artFx.push({x:e.x,y:e.y,type:'setSoulShadowBurst',kind:'setSoulShadowBurst',color:'#a78bfa',life:.58,max:.58,size:170,rot:Math.random()*Math.PI});
     }
 
@@ -244,6 +248,7 @@ window.GameModules.uniqueFx = (() => {
       e._emberBurn = Math.max(0, (e._emberBurn || 0) - dt * .35);
     }
     S._faithTrailBonus = 0;
+    S._soulShadowCrit = Math.max(0, (S._soulShadowCrit || 0) - dt * .08);
 
     // unique-faith-boots: 黎明道路 — 踩圣痕获得移速+40%与施法频率[x]30%
     if (hasUnique('unique-faith-boots')) {
@@ -269,10 +274,8 @@ window.GameModules.uniqueFx = (() => {
     // unique-void-lantern: 增益已通过 _voidBonus 作用于 movePlayer
 
     // set reaper-waltz 6件: 死神状态 — DoT加速 + 溢出吸血
-    if (hasSet('reaper-waltz') && S._deathShieldFull) {
-      S._dotSpeed = 2.5;
-      // DoT伤害加速在 artFx burn/poison 中生效
-    }
+    S._deathShieldFull = hasSet('reaper-waltz') && (p.shield || 0) >= p.max;
+    S._dotSpeed = S._deathShieldFull ? 2.5 : 1;
 
     // set soul-shadow 6件: 无CD倒计时
     if (S._soulShadowCd > 0) {

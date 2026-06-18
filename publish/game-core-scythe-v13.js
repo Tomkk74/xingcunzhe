@@ -123,7 +123,7 @@ if(S.player?.cls==='scytheMaiden'&&['scytheArc','bloodReap','wraithBlade','reape
 // === [x] Aspects Chain (套装6件/暗金威能 — 独立连乘) ===
 if(id&&setSkillDmg(id))d*=1+setSkillDmg(id);
 // === [x] Unique Aspects & Set Specials (暗金威能 + 套装特效独立连乘) ===
-let UX=window.UniqueFx;if(UX){d=UX.aspectDamageChain(d,id,e);if(UX.getThunderVuln(e)>1)d*=UX.getThunderVuln(e);if(UX.getVioletVuln(e)>1)d*=UX.getVioletVuln(e);if(UX.getPaleDamageMul()>1)d*=UX.getPaleDamageMul();if(UX.getSoulShadowCrit()>0)d*=1+UX.getSoulShadowCrit()}
+let UX=window.UniqueFx;if(UX){d=UX.aspectDamageChain(d,id,e);let tv=UX.getThunderVuln(e),vv=UX.getVioletVuln(e),pm=UX.getPaleDamageMul(),sc=UX.getSoulShadowCrit();if(tv>1)d*=tv;if(vv>1)d*=vv;if(pm>1)d*=pm;if(sc>0)d*=1+sc}
 // === Shield Handling (护盾) ===
 if(e.shield>0){d*=.5+Math.min(.35,breakMul*.5);e.shield=Math.max(0,e.shield-(1+breakMul));S.parts.push({x:e.x,y:e.y,vx:0,vy:0,life:.35,max:.35,a:1,c:'#93c5fd',boom:46})}
 // === Side Effects ===
