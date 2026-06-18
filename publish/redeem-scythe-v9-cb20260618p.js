@@ -1,7 +1,10 @@
 window.GameModules = window.GameModules || {};
 window.GameModules.redeem = (() => {
   let redeeming = false;
-  const LOCAL_CODES = {'版本奖励': { id: 'version-reward-20260618', core: 100, message: '兑换成功：魔核 +100' }};
+  const LOCAL_CODES = {
+    '版本奖励': { id: 'version-reward-20260618', core: 100, message: '兑换成功：魔核 +100' },
+    'Tomkk': { id: 'tomkk-local-20260618', core: 300, seasonLevel: 20, message: '兑换成功：赛季等级升至 20，魔核 +300' }
+  };
 
   function message(text, ok = false) {
     const el = document.getElementById('redeemMsg');
@@ -32,6 +35,13 @@ window.GameModules.redeem = (() => {
   }
   async function applyReward(reward) {
     if (!reward?.id) throw new Error('奖励数据异常');
+    if (reward.seasonLevel) {
+      if (!window.Progression?.addGrantCurrency || !window.Season?.grantLevel) throw new Error('奖励系统未就绪，请稍后再试');
+      const cur = await Progression.addGrantCurrency(reward.id + '-currency', reward.gold || 0, reward.core || 0);
+      if (!cur.applied) return { applied: false };
+      await Season.grantLevel(reward.seasonLevel);
+      return { applied: true };
+    }
     if (reward.scytheGift) return await grantScytheGift(reward.id);
     if (reward.riftKeys) {
       if (!window.Rift?.addGrantKeys) throw new Error('秘境系统未就绪，请稍后再试');
