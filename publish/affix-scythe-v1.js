@@ -33,13 +33,21 @@ window.GameModules.affix = (() => {
   function pickRandom(pool) { return pool[Math.floor(Math.random()*pool.length)]; }
   function affixKey(a) { return a.id || a.stat; }
   function available(pool, used) { return pool.filter(a => !used.has(affixKey(a)) && !used.has(a.stat)); }
-  function scaleValue(range, level, mul) {
+  function powerScale(itemPower=1) {
+    let ip = Math.max(1, Math.min(120, Number(itemPower)||1)), x = ip / 120;
+    return .6 + Math.pow(x, 2.15) * 24;
+  }
+  function powerTier(itemPower=1) {
+    let ip = Math.max(1, Math.min(120, Number(itemPower)||1));
+    return ip>=110?'神铸':ip>=90?'远古':ip>=70?'卓越':ip>=50?'精良':ip>=30?'普通':'残破';
+  }
+  function scaleValue(range, level, mul, itemPower=level) {
     let base = range[0] + Math.random()*(range[1]-range[0]);
-    return Math.round(base * (1 + Math.max(0,level-1)*.024) * mul * 1000) / 1000;
+    return Math.round(base * powerScale(itemPower) * mul * 1000) / 1000;
   }
   function addFlat(stats, resists, tags, used, a, level, mul) {
     if (!a) return false;
-    let key = affixKey(a), val = scaleValue(a.range, level, mul);
+    let key = affixKey(a), val = scaleValue(a.range, level, mul, level);
     used.add(key); used.add(a.stat);
     if (a.attr && a.stat.startsWith('resist_')) resists[a.attr] = Math.round(((resists[a.attr]||0)+val)*1000)/1000;
     else stats[a.stat] = Math.round(((stats[a.stat]||0)+val)*1000)/1000;
@@ -101,6 +109,6 @@ window.GameModules.affix = (() => {
   return {
     SURVIVAL_AFFIXES, ADDITIVE_AFFIXES, MULTIPLICATIVE_AFFIXES, RESIST_AFFIXES,
     UNIQUE_ASPECTS, RES, RES_CN,
-    rollGoldAffixes, tagLabel, uniqueAspectDesc, scaleValue, pickRandom
+    rollGoldAffixes, tagLabel, uniqueAspectDesc, scaleValue, powerScale, powerTier, pickRandom
   };
 })();
