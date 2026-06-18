@@ -54,10 +54,10 @@ window.GameModules.uniqueFxShared = (() => {
       S.parts.push({x:p.x,y:p.y,vx:0,vy:0,life:.55,max:.55,a:1,c:'#93c5fd',aspectRing:50});
     }
     if (hasUnique('unique-rose-mirror') && (S._roseStored || 0) > 0) {
-      let stored = S._roseStored;
+      let stored = S._roseStored, dmg = stored * 3.5, rad = 180;
       S._roseStored = 0;
-      window.burstAt?.('lustSplash', p.x, p.y, stored * 3.5, 180, 0, '#f472b6', 220, .52);
-      S.parts.push({x:p.x,y:p.y,vx:0,vy:0,life:.65,max:.65,a:1,c:'#f472b6',aspectRing:120});
+      for (const m of S.enemies) if (!m.dead && dist(p, m) < rad + m.r) dealDamage(m, dmg, true, 'lustSplash');
+      S.artFx.push({x:p.x,y:p.y,type:'lustOverflow',kind:'lustOverflow',color:'#f472b6',life:.52,max:.52,size:220});
     }
     if (hasSet('astral-missile') && id === 'missile' && crit && Math.random() < .25) {
       window.burstAt?.('missile', e.x, e.y, d * 2.2, 72, 0, '#c084fc', 140, .35);
