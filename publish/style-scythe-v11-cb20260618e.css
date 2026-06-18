@@ -48,3 +48,11 @@ button,.ghostBtn,.startBtn,.modeBtn,.equipTabs button,.choiceActions button,.lev
 .loadingBox:before{content:"";position:absolute;inset:-1px;border-radius:inherit;background:linear-gradient(120deg,transparent,rgba(124,58,237,.18),transparent);pointer-events:none;animation:riftPanelGlow 2.8s linear infinite}
 @keyframes runnerBob{from{transform:translateY(-60%) rotate(-4deg)}to{transform:translateY(-74%) rotate(5deg)}}
 @keyframes riftPanelGlow{0%{opacity:.25}50%{opacity:.72}100%{opacity:.25}}
+
+
+#classSelect{background:url('./assets/generated/bg-hero-select-ruined-wall.fc862ea9.webp') center/cover no-repeat #050611}
+#classSelect:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 30%,rgba(124,58,237,.18),transparent 42%),linear-gradient(180deg,rgba(2,6,23,.22),rgba(3,2,8,.78));pointer-events:none}
+#classSelect .classPanel{position:relative;background:linear-gradient(180deg,rgba(7,10,26,.82),rgba(4,2,12,.94));border-color:rgba(250,204,21,.62);box-shadow:0 24px 90px rgba(0,0,0,.72),0 0 34px rgba(124,58,237,.28),inset 0 0 32px rgba(250,204,21,.07);backdrop-filter:blur(2px)}
+#classSelect .classPanel:before{content:"";position:absolute;inset:12px;border:1px solid rgba(250,204,21,.28);border-radius:inherit;pointer-events:none;box-shadow:inset 0 0 24px rgba(0,0,0,.5)}
+#classSelect .card,#classSelect .classCard{background:linear-gradient(180deg,rgba(15,23,42,.84),rgba(12,8,24,.94));border-color:rgba(250,204,21,.42);box-shadow:0 12px 34px rgba(0,0,0,.45),inset 0 0 18px rgba(124,58,237,.12)}
+#classSelect .title{text-shadow:0 0 18px rgba(250,204,21,.52),0 3px 8px #000}

@@ -1,7 +1,7 @@
 {
   "version": 1,
   "createdAt": "2026-06-13T14:08:29Z",
-  "updatedAt": "2026-06-18T08:45:07Z",
+  "updatedAt": "2026-06-18T08:51:47Z",
   "assets": [
     {
       "name": "player-paladin",
@@ -2223,6 +2223,26 @@
       },
       "traceId": "trace_mqj96snq_sexerwn6",
       "createdAt": "2026-06-18T08:45:07Z"
+    },
+    {
+      "name": "bg-hero-select-ruined-wall",
+      "status": "success",
+      "path": "publish/assets/generated/bg-hero-select-ruined-wall.fc862ea9.webp",
+      "contentHash": "fc862ea9",
+      "revisedPrompt": "Dark fantasy ruined city wall background for a mobile game hero selection screen, matching Arcane Survivors ornate style. Ancient broken castle walls, cracked stone battlements, collapsed archways, violet abyss glow leaking from distant rift cracks, blue ghost flames, hanging chains, old banners, moonlit smoky sky, subtle gold trim on ruins, enough dark readable center area for hero cards and UI overlay, high contrast navy purple gold palette, polished 2D illustration, wide composition. No characters in foreground, no text, no logo, no watermark.",
+      "model": "gpt-image-2",
+      "size": "1823x863",
+      "wantsTransparent": false,
+      "outputFormat": "webp",
+      "compressionProfile": "lossy_q80_opaque",
+      "originalBytes": 2182271,
+      "finalBytes": 112212,
+      "usage": {
+        "inputTokens": 115,
+        "outputImageTokens": 987
+      },
+      "traceId": "trace_mqj9fef4_o86b7phu",
+      "createdAt": "2026-06-18T08:51:47Z"
     }
   ]
 }
