@@ -37,9 +37,9 @@ window.GameModules.equipData = (() => {
     ['ranger','cyclone-axe','旋风飞斧','setRanger',{move:.16,physical:.18,atkSpeed:.14,crit:.09}],
     ['ranger','moon-hunter','月影猎手','setRanger',{crit:.10,critDmg:.35,frost:.24,skillDmgAdd:{axe:.22,moonSlash:.22}}],
     ['ranger','venom-shadow','毒影伏击','setRanger',{dotDmg:.35,shadow:.22,hp:.20,armor:.14}],
-    ['lewdSaintess','crimson-vessel','绯红圣器','setSaintess',{hp:.24,lust:.22,crit:.08,cooldown:.12}],
-    ['lewdSaintess','violet-hymn','紫罗兰圣歌','setSaintess',{skillDmgAdd:{lustPrayer:.22,lustSplash:.22},lust:.16,regen:.18,hp:.18}],
-    ['lewdSaintess','rose-mirror','蔷薇镜像','setSaintess',{armor:.16,hp:.22,crit:.08,skillDmgAdd:{lustKiss:.20,lustSplash:.20}}],
+    ['lewdSaintess','crimson-vessel','绯红圣器','setSaintess',{hp:.28,lustMaxBonus:32,crit:.10,cooldown:.14}],
+    ['lewdSaintess','violet-hymn','紫罗兰圣歌','setSaintess',{skillDmgAdd:{lustPrayer:.28,lustSplash:.22},lustMaxBonus:22,regen:.22,healBonus:.18}],
+    ['lewdSaintess','rose-mirror','蔷薇镜像','setSaintess',{armor:.18,hp:.25,crit:.10,skillDmgAdd:{lustKiss:.26,lustSplash:.18}}],
     ['scytheMaiden','reaper-waltz','冥月圆舞','setScythe',{dotDmg:.40,shadow:.22,critDmg:.32,move:.14}],
     ['scytheMaiden','blood-reaping','血镰誓约','setScythe',{skillDmgAdd:{scytheArc:.25,bloodReap:.25},atkSpeed:.16,armor:.15,crit:.09}],
     ['scytheMaiden','soul-shadow','断魂影镰','setScythe',{crit:.12,critDmg:.35,cooldown:.12,move:.16}],
@@ -54,13 +54,13 @@ window.GameModules.equipData = (() => {
     'cyclone-axe':{n:'旋风飞斧',s:'3件 暴击伤害+28% 闪避+10%；6件 [x]回旋飞斧飞回100%重置位移CD，位移路径留切割风暴。',b3:{critDmg:.28,dodge:.10},b6:{skill:'axe',skillDmg:4.5,special:'resetDash'}},
     'moon-hunter':{n:'月影猎手',s:'3件 冷却+12% 移速+10%；6件 [x]月牙斩暴击引发二级冰爆，破片获额外暴伤200%系数放大。',b3:{cooldown:.12,move:.10},b6:{skill:'moonSlash',skillDmg:4.0,special:'iceBurst'}},
     'venom-shadow':{n:'毒影伏击',s:'3件 精英免伤+15% 攻速+12%；6件 [x]毒雾扩至全屏，雾中怪物物理暗影抗性归零，游侠获20%全减伤。',b3:{eliteDmgReduce:.15,atkSpeed:.12},b6:{skill:'poisonCloud',skillDmg:4.0,special:'zeroPoisonResist'}},
-    'crimson-vessel':{n:'绯红圣器',s:'3件 暴击伤害+30% 全抗+12%；6件 [x]欲液反涌+媚心飞吻控制小怪狂暴自爆冲向精英。',b3:{critDmg:.30,allRes:.12},b6:{skill:'lustSplash',skillDmg:4.5,special:'kamikaze'}},
-    'violet-hymn':{n:'紫罗兰圣歌',s:'3件 抗性上限+6% 冷却+10%；6件 [x]献媚祈祷溢出治疗1:3转化惩戒脉冲，命中精英15%易伤[x]40%。',b3:{attrCapBonus:.06,cooldown:.10},b6:{skill:'lustPrayer',skillDmg:4.0,special:'healPulse'}},
-    'rose-mirror':{n:'蔷薇镜像',s:'3件 精英免伤+12% 暴击伤害+25%；6件 [x]镜像100%复制承伤，以[x]500%独立反弹经媚心飞吻化为反冲光束。',b3:{eliteDmgReduce:.12,critDmg:.25},b6:{skill:'lustKiss',skillDmg:5.0,special:'mirrorReflect'}},
+    'crimson-vessel':{n:'绯红圣器',s:'3件 暴击伤害+32% 全抗+14% 淫荡获取+15%；6件 [x]欲液反涌伤害+480%，反涌/飞吻击杀使附近小怪狂暴自爆冲向精英；每次自爆返还淫荡值并溅射二段欲液。',b3:{critDmg:.32,allRes:.14,lustGainBonus:.15},b6:{skill:'lustSplash',skillDmg:4.8,special:'kamikaze'}},
+    'violet-hymn':{n:'紫罗兰圣歌',s:'3件 抗性上限+8% 冷却+12% 治疗效果+20%；6件 [x]献媚祈祷伤害+450%，满血治疗1:3.6转化惩戒脉冲，精英/Boss被持续祈祷后易伤最高[x]50%，周期追加紫罗兰圣裁。',b3:{attrCapBonus:.08,cooldown:.12,healBonus:.20},b6:{skill:'lustPrayer',skillDmg:4.5,special:'healPulse'}},
+    'rose-mirror':{n:'蔷薇镜像',s:'3件 精英免伤+14% 暴击伤害+30% 闪避+8%；6件 [x]媚心飞吻伤害+520%，承伤40%写入镜池并减免本次伤害，飞吻命中精英/Boss释放反冲光束，护盾越高反击越强。',b3:{eliteDmgReduce:.14,critDmg:.30,dodge:.08},b6:{skill:'lustKiss',skillDmg:5.2,special:'mirrorReflect'}},
     'reaper-waltz':{n:'冥月圆舞',s:'3件 暴击+10% 护甲+14% 暗影抗性+12%；6件 [x]残月镰舞伤害+450%，每命中1名敌人获得1%最大生命护盾，命中精英/Boss额外获得2%/3%护盾(上限100%)；每10%护盾使残月镰舞最终伤害+3%(最高+30%)；护盾满时进入5秒死神状态：受伤降低20%，残月镰舞范围+20%、最终伤害额外+25%、命中回血，命中精英/Boss延长0.3秒(最高8秒)。',b3:{crit:.10,armor:.14,shadow:.12},b6:{skill:'scytheArc',skillDmg:4.5,special:'deathShield'}},
     'blood-reaping':{n:'血镰誓约',s:'3件 暴击伤害+26% Boss免伤+10% 恐惧上限+100；6件 [x]血镰收割伤害+450%，血镰命中使敌人陷入恐惧并回复恐惧值，命中精英/Boss回复更多；受到生命伤害时优先消耗恐惧承担，单次消耗上限为最大生命，周围恐惧敌人使恐惧消耗降低(最高70%)；周围恐惧敌人使血镰收割最终伤害提高(最高+40%)，恐惧高于50%时额外+15%，低于35%时血镰回恐惧提升；击杀恐惧敌人回复大量恐惧。',b3:{critDmg:.26,bossDmgReduce:.10,fearMax:100},b6:{skill:'bloodReap',skillDmg:4.5,special:'splitImplode'}},
     'soul-shadow':{n:'断魂影镰',s:'3件 精英伤害+20% 攻速+12% 暗影抗性+18%；6件 [x]幽魂刃舞伤害+450%，击杀提供1秒全技能无CD并叠+15%最终伤害(最高+75%)；命中精英/Boss生成2.5%/3.5%最大生命影盾(上限45%)；魂甲每层4%减伤(最高8层32%)，低血时魂甲化盾并减免本次伤害45%；有护盾时最终伤害额外+12%。',b3:{eliteDmg:.20,atkSpeed:.12,shadow:.18},b6:{skill:'wraithBlade',skillDmg:4.5,special:'shadowGuard'}},
   };
-  const STAT_CN = {hp:'生命',damage:'伤害',armor:'护甲',move:'移速',cooldown:'冷却',atkSpeed:'攻速',range:'范围',pickup:'拾取',gold:'金币',regen:'回复',crit:'暴击',critDmg:'暴击伤害',eliteDmg:'对精英伤害',bossDmg:'对Boss伤害',dotDmg:'持续伤害',dodge:'闪避',eliteDmgReduce:'精英减伤',bossDmgReduce:'Boss减伤',skillFreq:'施法频率',projectileSpeed:'技能飞行速度',extraProjectile:'额外弹幕',splitChance:'弹幕分裂率',riftBossDmg:'大秘境Boss伤害',riftEliteDmg:'大秘境精英伤害',shieldBreak:'破盾系数',executeDmg:'处决伤害',dotTickRate:'DoT跳字频率',progressBonus:'秘境进度',slowResist:'减速抗性',healBonus:'治疗效果',fearMax:'恐惧上限',setReqReduce:'套装需求减少',thorns:'荆棘',allRes:'全抗性',attrCapBonus:'抗性上限',rangeDmg:'远距伤害',healthyDmg:'对健康伤害'};
+  const STAT_CN = {hp:'生命',damage:'伤害',armor:'护甲',move:'移速',cooldown:'冷却',atkSpeed:'攻速',range:'范围',pickup:'拾取',gold:'金币',regen:'回复',crit:'暴击',critDmg:'暴击伤害',eliteDmg:'对精英伤害',bossDmg:'对Boss伤害',dotDmg:'持续伤害',dodge:'闪避',eliteDmgReduce:'精英减伤',bossDmgReduce:'Boss减伤',skillFreq:'施法频率',projectileSpeed:'技能飞行速度',extraProjectile:'额外弹幕',splitChance:'弹幕分裂率',riftBossDmg:'大秘境Boss伤害',riftEliteDmg:'大秘境精英伤害',shieldBreak:'破盾系数',executeDmg:'处决伤害',dotTickRate:'DoT跳字频率',progressBonus:'秘境进度',slowResist:'减速抗性',healBonus:'治疗效果',fearMax:'恐惧上限',lustMaxBonus:'淫荡上限',lustGainBonus:'淫荡获取',setReqReduce:'套装需求减少',thorns:'荆棘',allRes:'全抗性',attrCapBonus:'抗性上限',rangeDmg:'远距伤害',healthyDmg:'对健康伤害'};
   return { SACRIFICES, UNIQUES, SET_FAMILIES, SET_BONUS, STAT_CN };
 })();

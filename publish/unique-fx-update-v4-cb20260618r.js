@@ -49,6 +49,7 @@ window.GameModules.uniqueFxUpdate = (() => {
       S._soulArmorTimer -= dt;
       if (S._soulArmorTimer <= 0) { S._soulArmorTimer = 0; S._soulArmor = 0; }
     }
+    for (const e of S.enemies || []) e._violetVuln = Math.max(0, (e._violetVuln || 0) - dt * .45);
     updateKamikaze(dt);
     updateAureateGuardian(dt, p);
   }
@@ -62,7 +63,8 @@ window.GameModules.uniqueFxUpdate = (() => {
       e.y += Math.sin(a) * e.spd * 2.5 * dt;
       if (Math.hypot(e.x - k.target.x, e.y - k.target.y) < e.r + k.target.r + 8 || k.timer <= 0) {
         window.burstAt?.('lustSplash', e.x, e.y, k.dmg * (window.dmgBase?.('lustSplash') || 1), 64, 0, '#fb7185', 110, .32);
-        window.dealDamage?.(k.target, k.dmg * 2, true, 'lustSplash');
+        window.dealDamage?.(k.target, k.dmg * 2.4, true, 'lustSplash');
+        if (S.player?.cls === 'lewdSaintess') window.gainLust?.(6);
         e.hp = 0;
         delete e._kamikaze;
       }
@@ -98,8 +100,8 @@ window.GameModules.uniqueFxUpdate = (() => {
       if (p && p.hp >= p.max) {
         let e = window.nearest?.(S.enemies, p);
         if (e) {
-          window.dealDamage?.(e, f.dmg * 3 * dt, true, 'lustPrayer');
-          if (e.elite || e.boss) e._violetVuln = (e._violetVuln || 0) + dt;
+            window.dealDamage?.(e, f.dmg * 3.6 * dt, true, 'lustPrayer');
+          if (e.elite || e.boss) e._violetVuln = Math.min(3.6,(e._violetVuln || 0) + dt*1.35);
         }
       }
     }

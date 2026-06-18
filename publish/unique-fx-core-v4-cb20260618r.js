@@ -192,9 +192,8 @@ window.GameModules.uniqueFxShared = (() => {
       S.parts.push({x:e.x,y:e.y,vx:0,vy:0,life:.48,max:.48,a:1,c:'#fb7185',txt:'恐惧吸收'});
     }
     if (hasSet('crimson-vessel') && (e._lastHitBy === 'lustSplash' || e._lastHitBy === 'lustKiss')) {
-      let elite = window.nearest?.(S.enemies.filter(m => !m.dead && (m.elite || m.boss)), e);
-      if (elite) for (const m of S.enemies.filter(m => !m.dead && !m.boss && !m.elite && Math.hypot(m.x - e.x, m.y - e.y) < 200).slice(0, 3)) m._kamikaze = { target: elite, timer: 1.8, dmg: m.max * .35 };
+      let elite = window.nearest?.(S.enemies.filter(m => !m.dead && (m.elite || m.boss)), e); if (elite) for (const m of S.enemies.filter(m => !m.dead && !m.boss && !m.elite && Math.hypot(m.x - e.x, m.y - e.y) < 220).slice(0, 4)) m._kamikaze = { target: elite, timer: 2.1, dmg: m.max * .42 };
+      if (S.player?.cls === 'lewdSaintess') window.gainLust?.(e.boss ? 18 : e.elite ? 10 : 4);
     }
-  }
-  return { hasUnique, hasSet, eqStat, dotFx, isEvolvedDamageSkill, riftProgress, fearCap, aspectDamageChain, aspectAfterDamage, aspectDefend, aspectSkillMods, aspectOnKill };
+  } return { hasUnique, hasSet, eqStat, dotFx, isEvolvedDamageSkill, riftProgress, fearCap, aspectDamageChain, aspectAfterDamage, aspectDefend, aspectSkillMods, aspectOnKill };
 })();
