@@ -110,6 +110,21 @@ window.GameModules.uniqueFx = (() => {
       S.parts.push({x:e.x,y:e.y,vx:0,vy:0,life:.55,max:.55,a:1,c:'#93c5fd',aspectRing:75});
     }
 
+    // set dawn-judgment 6件: 圣光裁决专属精灵图
+    if (hasSet('dawn-judgment') && id === 'holyLance') {
+      S.artFx.push({x:e.x,y:e.y,type:'setDawnJudgment',kind:'setDawnJudgment',color:'#fde68a',life:.42,max:.42,size:150,rot:Math.random()*Math.PI});
+    }
+
+    // set storm-sigil 6件: 雷弧爆链专属精灵图
+    if (hasSet('storm-sigil') && id === 'thunderChain' && crit) {
+      S.artFx.push({x:e.x,y:e.y,type:'setStormChain',kind:'setStormChain',color:'#fde047',life:.45,max:.45,size:145,rot:Math.random()*Math.PI});
+    }
+
+    // set venom-shadow 6件: 毒影破抗专属精灵图
+    if (hasSet('venom-shadow') && (id === 'poisonCloud' || id === 'shadowBlade')) {
+      S.artFx.push({x:e.x,y:e.y,type:'setVenomBreak',kind:'setVenomBreak',color:'#86efac',life:.46,max:.46,size:132});
+    }
+
     // set cyclone-axe 6件: 回旋飞斧飞回重置位移CD + 切割风暴
     // (handled in updateObjs for axe return)
 
@@ -194,6 +209,7 @@ window.GameModules.uniqueFx = (() => {
     if (hasSet('soul-shadow') && e._lastHitBy === 'wraithBlade') {
       S._soulShadowCd = 1.0;
       S._soulShadowCrit += .15;
+      S.artFx.push({x:e.x,y:e.y,type:'setSoulShadowBurst',kind:'setSoulShadowBurst',color:'#a78bfa',life:.58,max:.58,size:170,rot:Math.random()*Math.PI});
     }
 
     // set crimson-vessel 6件: 欲液反涌 — 控制小怪狂暴自爆冲向精英
@@ -262,6 +278,10 @@ window.GameModules.uniqueFx = (() => {
     if (hasSet('aureate-guardian') && S.skills.garlic) {
       let lv = window.skillLv?.('garlic') || 1;
       let rad = 50 + lv * 10 + 34;
+      if (S.time > (S._aureateFxAt || 0)) {
+        S._aureateFxAt = S.time + .7;
+        S.artFx.push({x:p.x,y:p.y,type:'setAureateBlackhole',kind:'setAureateBlackhole',color:'#fde68a',life:.62,max:.62,size:rad*3.1,rot:S.time});
+      }
       for (const e of S.enemies) {
         let d = Math.hypot(e.x - p.x, e.y - p.y);
         if (d < rad * 1.5 && d > 8) {

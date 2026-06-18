@@ -1,7 +1,7 @@
 {
   "version": 1,
   "createdAt": "2026-06-13T14:08:29Z",
-  "updatedAt": "2026-06-17T20:12:54Z",
+  "updatedAt": "2026-06-18T02:11:05Z",
   "assets": [
     {
       "name": "player-paladin",
@@ -2001,6 +2001,162 @@
       },
       "traceId": "trace_mqhzad5t_9kh5vvic",
       "createdAt": "2026-06-17T11:20:10Z"
+    },
+    {
+      "name": "set-aureate-blackhole-sheet",
+      "status": "success",
+      "path": "publish/assets/generated/set-fx/set-aureate-blackhole-sheet.da5be773.webp",
+      "contentHash": "da5be773",
+      "revisedPrompt": "Four-frame sprite sheet for a golden holy black hole aura effect in a top-down 3/4 arcade fantasy survivor game. EXACT layout: 2x2 grid, four equal square cells, one animation frame per cell. Each cell contains the same effect at different animation stages. Visual style: radiant golden vortex, circular gravity well, black center, holy runes orbiting, suction spiral, bright readable silhouette, clean dark outline, soft glow, high contrast, pixel art / painted game VFX hybrid matching chibi fantasy effects. No characters. No text, no logo, no watermark. Strictly on a SOLID UNIFORM #00B140 chroma key flat color background filling every pixel not occupied by the effect. No gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements. Pure flat color background, exactly like a green screen used for VFX compositing.",
+      "model": "gpt-image-2",
+      "size": "1254x1254",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#00B140",
+        "alphaZeroPct": 65.3,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossy_q85_alpha",
+      "originalBytes": 1867882,
+      "finalBytes": 229358,
+      "usage": {
+        "inputTokens": 191,
+        "outputImageTokens": 2058
+      },
+      "traceId": "trace_mqiuubre_ezx9qdgp",
+      "createdAt": "2026-06-18T02:03:43Z"
+    },
+    {
+      "name": "set-dawn-judgment-sheet",
+      "status": "success",
+      "path": "publish/assets/generated/set-fx/set-dawn-judgment-sheet.3f6c9a27.webp",
+      "contentHash": "3f6c9a27",
+      "revisedPrompt": "Four-frame sprite sheet for a zigzag holy judgment beam effect in a top-down 3/4 arcade fantasy survivor game. Arrange exactly as a 2x2 grid, four equal square cells, one animation frame per cell. Visual: angular golden-white lightning path, sacred spear marks, diagonal refracting holy beams, bright cross-shaped impact bursts, readable silhouette, clean dark outline, soft glow and high contrast, no characters. Pixel art / painted game VFX hybrid matching existing chibi fantasy effects. No text, no logo, no watermark. Strictly placed on a SOLID UNIFORM #00B140 chroma key flat color background. The background is a single uniform shade of #00B140 chroma key green that fills 100% of pixels not occupied by the effect. No gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements. Pure flat color background, exactly like a green screen used for VFX compositing. No text, no logo, no watermark.",
+      "model": "gpt-image-2",
+      "size": "1254x1254",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#00B140",
+        "alphaZeroPct": 76.2,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossy_q85_alpha",
+      "originalBytes": 1526573,
+      "finalBytes": 180806,
+      "usage": {
+        "inputTokens": 213,
+        "outputImageTokens": 2058
+      },
+      "traceId": "trace_mqiuwf77_m9ml3h5k",
+      "createdAt": "2026-06-18T02:05:14Z"
+    },
+    {
+      "name": "set-storm-chain-sheet",
+      "status": "success",
+      "path": "publish/assets/generated/set-fx/set-storm-chain-sheet.5948c195.webp",
+      "contentHash": "5948c195",
+      "revisedPrompt": "Four-frame sprite sheet for an infinite storm lightning chain explosion effect in a top-down 3/4 arcade fantasy survivor game. Arrange exactly as a 2x2 grid with four equal square cells, one animation frame per cell. Each frame shows a bright readable VFX silhouette of branching yellow-blue thunder arcs, a circular storm sigil, electric chain jumps, explosive crackle nodes, clean dark outline, soft glow, high contrast. Pixel art / painted game VFX hybrid matching existing chibi fantasy effects. No characters, no text, no logo, no watermark. Strictly on a SOLID UNIFORM #00B140 chroma key flat color background filling all non-effect pixels. No gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements. Pure flat color background, exact chroma key green screen style.",
+      "model": "gpt-image-2",
+      "size": "1254x1254",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#00B140",
+        "alphaZeroPct": 69.5,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossy_q85_alpha",
+      "originalBytes": 1901571,
+      "finalBytes": 300478,
+      "usage": {
+        "inputTokens": 179,
+        "outputImageTokens": 2058
+      },
+      "traceId": "trace_mqiuyeq8_j1xji4hk",
+      "createdAt": "2026-06-18T02:06:39Z"
+    },
+    {
+      "name": "set-venom-break-sheet",
+      "status": "success",
+      "path": "publish/assets/generated/set-fx/set-venom-break-sheet.9c7f426f.webp",
+      "contentHash": "9c7f426f",
+      "revisedPrompt": "Four-frame sprite sheet for a venom shadow resistance break effect in a top-down 3/4 arcade fantasy survivor game. Arrange exactly as a 2x2 grid, four equal square cells, one animation frame per cell. Each cell contains one frame of the same VFX progression: frame 1 toxic green and dark purple mist ring forming; frame 2 cracked armor debuff sigil with shadowy venom pressure; frame 3 dissolving poison cloud burst; frame 4 shadow acid sparks and dissipating residue. Readable silhouette, clean dark outline, soft glow, high contrast, no characters. Pixel art / painted game VFX hybrid matching existing chibi fantasy effects. No text, no logo, no watermark. Strictly placed on a SOLID UNIFORM #FF00FF chroma key flat color background. The background is a single uniform shade of #FF00FF chroma key magenta that fills 100% of pixels not occupied by the effect. No gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements. Pure flat color background, exactly like a green screen used for VFX compositing.",
+      "model": "gpt-image-2",
+      "size": "1254x1254",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#FF00FF",
+        "alphaZeroPct": 70.3,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossy_q85_alpha",
+      "originalBytes": 1717108,
+      "finalBytes": 206608,
+      "usage": {
+        "inputTokens": 240,
+        "outputImageTokens": 2058
+      },
+      "traceId": "trace_mqiv089b_68000ok8",
+      "createdAt": "2026-06-18T02:08:06Z"
+    },
+    {
+      "name": "set-rose-reflect-beam-sheet",
+      "status": "success",
+      "path": "publish/assets/generated/set-fx/set-rose-reflect-beam-sheet.791cad7e.webp",
+      "contentHash": "791cad7e",
+      "revisedPrompt": "Four-frame sprite sheet for a rose mirror reflected counter beam effect in a top-down 3/4 arcade fantasy survivor game. Arrange exactly as a 2x2 grid, four equal square cells, one animation frame per cell. Visual: pink-purple crystalline mirror flare, rose petals, heart-shaped energy beam, reflected backlash ray, glossy magical shards, bright readable silhouette, clean dark outline, soft glow and high contrast, no characters. Pixel art / painted game VFX hybrid matching existing chibi fantasy effects. No text, no logo, no watermark. Strictly placed on a SOLID UNIFORM #00B140 chroma key flat color background. The background is a single uniform shade of #00B140 chroma key green that fills 100% of pixels not occupied by the effect. No gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements. Pure flat color background, exactly like a green screen used for VFX compositing. No text, no logo, no watermark.",
+      "model": "gpt-image-2",
+      "size": "1254x1254",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#00B140",
+        "alphaZeroPct": 76.8,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossy_q85_alpha",
+      "originalBytes": 1691299,
+      "finalBytes": 176372,
+      "usage": {
+        "inputTokens": 214,
+        "outputImageTokens": 2058
+      },
+      "traceId": "trace_mqiv27q4_xhqzuof8",
+      "createdAt": "2026-06-18T02:09:35Z"
+    },
+    {
+      "name": "set-soul-shadow-burst-sheet",
+      "status": "success",
+      "path": "publish/assets/generated/set-fx/set-soul-shadow-burst-sheet.35a8f328.webp",
+      "contentHash": "35a8f328",
+      "revisedPrompt": "Four-frame sprite sheet for a soul shadow no-cooldown scythe burst effect in a top-down 3/4 arcade fantasy survivor game. Arrange exactly as a 2x2 grid, four equal square cells, one animation frame per cell. Visual: violet ghostly scythe arcs, broken soul chains, dark purple explosion ring, afterimage slashes, spectral particles, bright readable silhouette, clean dark outline, soft glow and high contrast, no characters. Pixel art / painted game VFX hybrid matching existing scythe maiden effects. No text, no logo, no watermark. Strictly placed on a SOLID UNIFORM #00B140 chroma key flat color background. The background is a single uniform shade of #00B140 chroma key green that fills 100% of pixels not occupied by the effect. No gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements. Pure flat color background, exactly like a green screen used for VFX compositing. No text, no logo, no watermark.",
+      "model": "gpt-image-2",
+      "size": "1254x1254",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#00B140",
+        "alphaZeroPct": 71.4,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossy_q85_alpha",
+      "originalBytes": 1844791,
+      "finalBytes": 236772,
+      "usage": {
+        "inputTokens": 223,
+        "outputImageTokens": 2058
+      },
+      "traceId": "trace_mqiv410j_exliqmbe",
+      "createdAt": "2026-06-18T02:11:05Z"
     }
   ]
 }
