@@ -57,6 +57,6 @@ window.GameModules.equipData = (() => {
     'blood-reaping':{n:'血镰誓约',s:'3件 暴击伤害+26% Boss免伤+10%；6件 [x]血镰回旋飞行分裂飞镰，碰撞精英暗影内爆[x]45%。',b3:{critDmg:.26,bossDmgReduce:.10},b6:{skill:'bloodReap',skillDmg:4.0,special:'splitImplode'}},
     'soul-shadow':{n:'断魂影镰',s:'3件 精英伤害+20% 攻速+12%；6件 [x]幽魂刃舞击杀提供1秒全技能无CD，连续斩杀暴击率额外+15%。',b3:{eliteDmg:.20,atkSpeed:.12},b6:{skill:'wraithBlade',skillDmg:4.5,special:'noCdBurst'}},
   };
-  const STAT_CN = {hp:'生命',damage:'伤害',armor:'护甲',move:'移速',cooldown:'冷却',atkSpeed:'攻速',range:'范围',pickup:'拾取',gold:'金币',regen:'回复',crit:'暴击',critDmg:'暴击伤害',eliteDmg:'对精英伤害',bossDmg:'对Boss伤害',dotDmg:'持续伤害',dodge:'闪避',eliteDmgReduce:'精英减伤',bossDmgReduce:'Boss减伤',skillFreq:'施法频率',slowResist:'减速抗性',healBonus:'治疗效果',thorns:'荆棘',allRes:'全抗性',attrCapBonus:'抗性上限',rangeDmg:'远距伤害',healthyDmg:'对健康伤害'};
+  const STAT_CN = {hp:'生命',damage:'伤害',armor:'护甲',move:'移速',cooldown:'冷却',atkSpeed:'攻速',range:'范围',pickup:'拾取',gold:'金币',regen:'回复',crit:'暴击',critDmg:'暴击伤害',eliteDmg:'对精英伤害',bossDmg:'对Boss伤害',dotDmg:'持续伤害',dodge:'闪避',eliteDmgReduce:'精英减伤',bossDmgReduce:'Boss减伤',skillFreq:'施法频率',projectileSpeed:'技能飞行速度',extraProjectile:'额外弹幕',splitChance:'弹幕分裂率',riftBossDmg:'大秘境Boss伤害',riftEliteDmg:'大秘境精英伤害',shieldBreak:'破盾系数',executeDmg:'处决伤害',dotTickRate:'DoT跳字频率',progressBonus:'秘境进度',slowResist:'减速抗性',healBonus:'治疗效果',thorns:'荆棘',allRes:'全抗性',attrCapBonus:'抗性上限',rangeDmg:'远距伤害',healthyDmg:'对健康伤害'};
   return { UNIQUES, SET_FAMILIES, SET_BONUS, STAT_CN };
 })();
