@@ -18,7 +18,7 @@ window.GameModules.equipment = (() => {
     ['gold-signet-fury','狂怒金戒','ring',{damage:.1,atkSpeed:.05},{fire:.06}],['gold-signet-focus','专注金戒','ring',{cooldown:.08,range:.04},{arcane:.08}],['gold-signet-guard','坚守金戒','ring',{hp:.1,armor:.04},{physical:.08,holy:.04}],['gold-signet-moon','月影金戒','ring',{move:.06,crit:.04},{frost:.08,shadow:.04}],['gold-signet-greed','拾荒金戒','ring',{pickup:.18,gold:.12},{shadow:.06}],['gold-signet-rose','玫瑰金戒','ring',{regen:.06,hp:.08},{lust:.1}],
     ['gold-sun-greaves','日铸胫甲','boots',{move:.08,hp:.06},{holy:.06,fire:.04}],['gold-wind-boots','疾风金靴','boots',{move:.14,atkSpeed:.04},{physical:.06}],['gold-frost-steps','霜踏长靴','boots',{move:.08,cooldown:.04},{frost:.1}],['gold-void-steps','虚空行靴','boots',{move:.1,range:.05},{shadow:.08,arcane:.04}],['gold-stone-sabaton','岩金战靴','boots',{hp:.12,armor:.04},{physical:.1}],['gold-rose-slippers','蔷薇软靴','boots',{move:.06,regen:.06},{lust:.1}],
   ];
-  const iconPath = (prefix, i) => `${prefix}${Math.floor(i/6)+1}_${i%6+1}.png`;
+  const iconPath = (prefix, i) => `${prefix}${Math.floor(i/6)+1}_${i%6+1}-cb20260618a.png`;
   const toGold = (r,i) => ({baseId:r[0],name:r[1],rarity:'gold',slot:r[2],stats:r[3],resists:r[4],icon:{src:iconPath(GOLD_ICON_PREFIX,i),index:i}});
   const toUnique = (r,i) => ({baseId:r[0],name:r[1],rarity:'unique',slot:r[2],class:r[3],stats:r[4],resists:r[5]||{},aspect:r[6]||'',icon:{src:iconPath(UNIQUE_ICON_PREFIX,i),index:i}});
   const gold = GOLD.map(toGold), uniques = D.UNIQUES.map(toUnique);
@@ -26,7 +26,7 @@ window.GameModules.equipment = (() => {
   const sets = D.SET_FAMILIES.flatMap((f,fi)=>SLOTS.map((slot,i)=>{
     let s={}; for(const[k,v]of Object.entries(f[4])){if(RES.includes(k))continue;if(k==='skillDmgAdd'){s.skillDmgAdd=v;continue;}s[k]=v;}
     let r={}; for(const[k,v]of Object.entries(f[4])){if(!RES.includes(k))continue;r[k]=v;}
-    return{baseId:`set-${f[1]}-${slot}`,name:`${f[2]}·${pieceNames[slot]}`,rarity:'set',class:f[0],setId:f[1],setName:f[2],slot,stats:s,resists:r,icon:{src:`${SET_ICON_PREFIX[f[3]]}${fi%3+1}_${i+1}.png`,index:(fi%3)*6+i}};
+    return{baseId:`set-${f[1]}-${slot}`,name:`${f[2]}·${pieceNames[slot]}`,rarity:'set',class:f[0],setId:f[1],setName:f[2],slot,stats:s,resists:r,icon:{src:`${SET_ICON_PREFIX[f[3]]}${fi%3+1}_${i+1}-cb20260618a.png`,index:(fi%3)*6+i}};
   }));
   const all = [...gold,...uniques,...sets];
   const DEF_KEYS = ['hp','armor','move','pickup','gold','regen'];
