@@ -19,7 +19,7 @@ window.GameModules.uniqueFxShared = (() => {
     let kills = (S.kills || 0) - (S.endlessBossStartKills || 0);
     return Math.min(1, kills / gap);
   }
-  function fearCap() { return hasSet('blood-reaping', 3) ? 300 + eqStat('fearMax') : 0; }
+  function fearCap() { return hasUnique('sacrifice-laoyang-5090') ? eqStat('fearMax') : 0; }
   function fearNearbyCount(p, rad=260) { return (S?.enemies || []).filter(e => !e.dead && (e._fear || 0) > 0 && Math.hypot(e.x - p.x, e.y - p.y) < rad + e.r).length; }
   function gainFear(v) { if (v <= 0) return; S._fear = Math.min(fearCap(), (S._fear || 0) + v); }
   function markFear(e, t=4) { if (e) e._fear = Math.max(e._fear || 0, t); }

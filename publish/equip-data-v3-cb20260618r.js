@@ -3,6 +3,9 @@ window.GameModules = window.GameModules || {};
 window.GameModules.equipData = (() => {
   // === 装备数据定义 v1 (暗黑4乘区体系) ===
   // 暗金：5固定属性 + 1[x]威能 | 套装：4固定属性/件 + 3/6件套效果
+  const SACRIFICES = [
+    ['sacrifice-laoyang-5090','老杨的5090','sacrifice',null,{fearMax:300,critDmg:.50,bossDmgReduce:.12},{shadow:.30},'恐惧转嫁：受到生命伤害时改为消耗恐惧承担，单次消耗上限为最大生命；命中与击杀敌人回复恐惧，被命中敌人陷入恐惧，周围恐惧敌人使恐惧消耗降低。','不知从何处流传到幸存者大陆，被发现的地点只有一张不知发往何处的快递单跟一些塑料玻璃制品，而这个是从一块板子上拔下来的','./assets/generated/laoyang-5090.e37e4947.webp'],
+  ];
   const UNIQUES = [
     ['unique-saint-nail','暗金·圣钉战槌','weapon','paladin',{critDmg:.45,armor:.18,attrDmg:{holy:.35},eliteDmg:.28,skillFreq:.15},{},'天谴重击：大蒜光环转为天谴重击，每秒引爆[总护甲×爆伤%]神圣伤害，秘境进度每10%连乘[x]12%'],
     ['unique-thunder-bow','暗金·雷鸣长弓','weapon','ranger',{atkSpeed:.25,crit:.12,attrDmg:{physical:.32},rangeDmg:.20,critDmg:.30},{},'雷链分裂：回旋飞斧命中20%概率分裂雷链锁定精英，施加3秒易伤独立连乘[x]50%'],
@@ -58,5 +61,5 @@ window.GameModules.equipData = (() => {
     'soul-shadow':{n:'断魂影镰',s:'3件 精英伤害+20% 攻速+12% 暗影抗性+18%；6件 [x]幽魂刃舞伤害+450%，击杀提供1秒全技能无CD并叠+15%最终伤害(最高+75%)；命中精英/Boss生成2.5%/3.5%最大生命影盾(上限45%)；魂甲每层4%减伤(最高8层32%)，低血时魂甲化盾并减免本次伤害45%；有护盾时最终伤害额外+12%。',b3:{eliteDmg:.20,atkSpeed:.12,shadow:.18},b6:{skill:'wraithBlade',skillDmg:4.5,special:'shadowGuard'}},
   };
   const STAT_CN = {hp:'生命',damage:'伤害',armor:'护甲',move:'移速',cooldown:'冷却',atkSpeed:'攻速',range:'范围',pickup:'拾取',gold:'金币',regen:'回复',crit:'暴击',critDmg:'暴击伤害',eliteDmg:'对精英伤害',bossDmg:'对Boss伤害',dotDmg:'持续伤害',dodge:'闪避',eliteDmgReduce:'精英减伤',bossDmgReduce:'Boss减伤',skillFreq:'施法频率',projectileSpeed:'技能飞行速度',extraProjectile:'额外弹幕',splitChance:'弹幕分裂率',riftBossDmg:'大秘境Boss伤害',riftEliteDmg:'大秘境精英伤害',shieldBreak:'破盾系数',executeDmg:'处决伤害',dotTickRate:'DoT跳字频率',progressBonus:'秘境进度',slowResist:'减速抗性',healBonus:'治疗效果',fearMax:'恐惧上限',thorns:'荆棘',allRes:'全抗性',attrCapBonus:'抗性上限',rangeDmg:'远距伤害',healthyDmg:'对健康伤害'};
-  return { UNIQUES, SET_FAMILIES, SET_BONUS, STAT_CN };
+  return { SACRIFICES, UNIQUES, SET_FAMILIES, SET_BONUS, STAT_CN };
 })();

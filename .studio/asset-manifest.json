@@ -1,7 +1,7 @@
 {
   "version": 1,
   "createdAt": "2026-06-13T14:08:29Z",
-  "updatedAt": "2026-06-18T08:51:47Z",
+  "updatedAt": "2026-06-18T14:12:09Z",
   "assets": [
     {
       "name": "player-paladin",
@@ -2243,6 +2243,32 @@
       },
       "traceId": "trace_mqj9fef4_o86b7phu",
       "createdAt": "2026-06-18T08:51:47Z"
+    },
+    {
+      "name": "laoyang-5090",
+      "status": "success",
+      "path": "publish/assets/generated/laoyang-5090.e37e4947.webp",
+      "contentHash": "e37e4947",
+      "revisedPrompt": "A fantasy game item icon: an enormous mysterious futuristic graphics card artifact, black and brushed metal body, glowing violet arcane circuits, triple fan cooler, heavy damaged board edge as if pulled from an unknown machine, small hints of courier label scraps and translucent plastic/glass shards around it, dark fantasy survivor roguelike item art, highly detailed, dramatic rim light, centered object, isometric three-quarter view, collectible legendary relic icon, no readable brand, no text, no logo, no watermark. Strictly placed on a SOLID UNIFORM #00B140 chroma key flat color background. The background is a single uniform shade of #00B140 chroma key green that fills 100% of pixels not occupied by the character. No gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements. Pure flat color background, exactly like a green screen used for VFX compositing. No text, no logo, no watermark.",
+      "model": "gpt-image-2",
+      "size": "1536x1024",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#00B140",
+        "alphaZeroPct": 55.7,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossy_q85_alpha",
+      "originalBytes": 2417448,
+      "finalBytes": 252346,
+      "usage": {
+        "inputTokens": 203,
+        "outputImageTokens": 1372
+      },
+      "traceId": "trace_mqjkvlnm_7dbvj4ax",
+      "createdAt": "2026-06-18T14:12:09Z"
     }
   ]
 }
