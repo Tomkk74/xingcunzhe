@@ -41,6 +41,11 @@ window.GameModules.uniqueFxShared = (() => {
       let stacks = Math.floor(riftProgress() * 10);
       if (stacks > 0) d *= Math.pow(1.12, stacks);
     }
+    if (hasSet('reaper-waltz', 6) && id === 'scytheArc') {
+      let shieldRate = Math.min(1, (p.shield || 0) / Math.max(1, p.max));
+      d *= 1 + Math.min(.30, Math.floor(shieldRate * 10) * .03);
+      if ((S._deathWaltzTimer || 0) > 0) d *= 1.25;
+    }
     return d;
   }
   function aspectAfterDamage(d, id, e, crit) {
@@ -87,6 +92,18 @@ window.GameModules.uniqueFxShared = (() => {
         S._soulArmorTimer = 4;
       }
     }
+    if (hasSet('reaper-waltz', 6) && id === 'scytheArc') {
+      let now = S.time || 0;
+      if (e.elite || e.boss) p.shield = Math.min(p.max, (p.shield || 0) + p.max * (e.boss ? .03 : .02));
+      if ((S._deathWaltzTimer || 0) > 0) {
+        let heal = p.max * (e.boss ? .012 : e.elite ? .008 : .003);
+        p.hp = Math.min(p.max, p.hp + heal);
+        if ((e.elite || e.boss) && now > (S._deathWaltzExtendAt || 0)) {
+          S._deathWaltzExtendAt = now + .16;
+          S._deathWaltzTimer = Math.min(8, (S._deathWaltzTimer || 0) + .3);
+        }
+      }
+    }
   }
   function aspectDefend(rawDmg, source) {
     let p = S?.player;
@@ -99,6 +116,7 @@ window.GameModules.uniqueFxShared = (() => {
       return { dmg: 0, prevent: true };
     }
     if (hasUnique('unique-golem-soul') && !p.moving && (p.cast || 0) > 0) rawDmg *= Math.max(.40, 1 - Math.min(5, Math.floor(S.time * 2)) * .12);
+    if (hasSet('reaper-waltz', 6) && (S._deathWaltzTimer || 0) > 0) rawDmg *= .80;
     if (hasSet('soul-shadow', 6)) {
       let stacks = S._soulArmor || 0;
       if (stacks > 0) rawDmg *= 1 - Math.min(.32, stacks * .04);

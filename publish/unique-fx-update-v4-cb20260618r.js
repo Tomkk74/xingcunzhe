@@ -29,7 +29,15 @@ window.GameModules.uniqueFxUpdate = (() => {
       S._paleTimer -= dt;
       if (S._paleTimer <= 0) S._paleTimer = 0;
     }
-    S._deathShieldFull = H.hasSet('reaper-waltz') && (p.shield || 0) >= p.max;
+    if (H.hasSet('reaper-waltz', 6) && (p.shield || 0) >= p.max && (S._deathWaltzTimer || 0) <= 0) {
+      S._deathWaltzTimer = 5;
+      if (S.time > (S._deathWaltzNoticeAt || 0)) {
+        S._deathWaltzNoticeAt = S.time + 3;
+        window.showNotice?.('死神状态：冥月圆舞！');
+      }
+    }
+    if ((S._deathWaltzTimer || 0) > 0) S._deathWaltzTimer = Math.max(0, S._deathWaltzTimer - dt);
+    S._deathShieldFull = H.hasSet('reaper-waltz') && (S._deathWaltzTimer || 0) > 0;
     S._dotSpeed = S._deathShieldFull ? 2.5 : 1;
     if (S._soulShadowCd > 0) {
       S._soulShadowCd -= dt;

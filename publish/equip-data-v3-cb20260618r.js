@@ -53,7 +53,7 @@ window.GameModules.equipData = (() => {
     'crimson-vessel':{n:'绯红圣器',s:'3件 暴击伤害+30% 全抗+12%；6件 [x]欲液反涌+媚心飞吻控制小怪狂暴自爆冲向精英。',b3:{critDmg:.30,allRes:.12},b6:{skill:'lustSplash',skillDmg:4.5,special:'kamikaze'}},
     'violet-hymn':{n:'紫罗兰圣歌',s:'3件 抗性上限+6% 冷却+10%；6件 [x]献媚祈祷溢出治疗1:3转化惩戒脉冲，命中精英15%易伤[x]40%。',b3:{attrCapBonus:.06,cooldown:.10},b6:{skill:'lustPrayer',skillDmg:4.0,special:'healPulse'}},
     'rose-mirror':{n:'蔷薇镜像',s:'3件 精英免伤+12% 暴击伤害+25%；6件 [x]镜像100%复制承伤，以[x]500%独立反弹经媚心飞吻化为反冲光束。',b3:{eliteDmgReduce:.12,critDmg:.25},b6:{skill:'lustKiss',skillDmg:5.0,special:'mirrorReflect'}},
-    'reaper-waltz':{n:'冥月圆舞',s:'3件 暴击+10% 护甲+14%；6件 [x]残月镰舞每发1%护盾，叠满100%死神状态，DoT跳字加速250%溢出吸血。',b3:{crit:.10,armor:.14},b6:{skill:'scytheArc',skillDmg:4.5,special:'deathShield'}},
+    'reaper-waltz':{n:'冥月圆舞',s:'3件 暴击+10% 护甲+14% 暗影抗性+12%；6件 [x]残月镰舞伤害+450%，每命中1名敌人获得1%最大生命护盾，命中精英/Boss额外获得2%/3%护盾(上限100%)；每10%护盾使残月镰舞最终伤害+3%(最高+30%)；护盾满时进入5秒死神状态：受伤降低20%，残月镰舞范围+20%、最终伤害额外+25%、命中回血，命中精英/Boss延长0.3秒(最高8秒)。',b3:{crit:.10,armor:.14,shadow:.12},b6:{skill:'scytheArc',skillDmg:4.5,special:'deathShield'}},
     'blood-reaping':{n:'血镰誓约',s:'3件 暴击伤害+26% Boss免伤+10%；6件 [x]血镰回旋飞行分裂飞镰，碰撞精英暗影内爆[x]45%。',b3:{critDmg:.26,bossDmgReduce:.10},b6:{skill:'bloodReap',skillDmg:4.0,special:'splitImplode'}},
     'soul-shadow':{n:'断魂影镰',s:'3件 精英伤害+20% 攻速+12% 暗影抗性+18%；6件 [x]幽魂刃舞伤害+450%，击杀提供1秒全技能无CD并叠+15%最终伤害(最高+75%)；命中精英/Boss生成2.5%/3.5%最大生命影盾(上限45%)；魂甲每层4%减伤(最高8层32%)，低血时魂甲化盾并减免本次伤害45%；有护盾时最终伤害额外+12%。',b3:{eliteDmg:.20,atkSpeed:.12,shadow:.18},b6:{skill:'wraithBlade',skillDmg:4.5,special:'shadowGuard'}},
   };

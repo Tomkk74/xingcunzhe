@@ -4,11 +4,11 @@ window.GameModules.uniqueFx = (() => {
   const H = window.GameModules.uniqueFxShared;
   const U = window.GameModules.uniqueFxUpdate;
   function scytheShieldOnHit(hits) {
-    if (H.hasSet('reaper-waltz') && hits > 0) {
+    if (H.hasSet('reaper-waltz', 6) && hits > 0) {
       let p = S?.player;
       if (p) {
         p.shield = Math.min(p.max, (p.shield || 0) + p.max * .01 * hits);
-        if (p.shield >= p.max) S._deathShieldFull = true;
+        if (p.shield >= p.max && (S._deathWaltzTimer || 0) <= 0) S._deathWaltzTimer = 5;
       }
     }
   }
@@ -57,6 +57,7 @@ window.GameModules.uniqueFx = (() => {
     S._paleTimer = 0;
     S._voidBonus = 0;
     S._deathShieldFull = false;
+    S._deathWaltzTimer = 0;
     S._dotSpeed = 1;
     S._soulShadowCd = 0;
     S._soulShadowCrit = 0;
