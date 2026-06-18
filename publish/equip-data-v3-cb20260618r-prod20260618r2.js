@@ -19,7 +19,7 @@ window.GameModules.equipData = (() => {
     ['unique-moon-crown','暗金·霜月王冠','helm',null,{cooldown:.12,critDmg:.22,hp:.18,skillDmgAdd:{iceorb:.15,crystalSpike:.15}},{frost:.28},'寒月护盾：冰霜法球暴击提供4%生命护盾(叠满100%)，护盾期免疫控制+飞行速度+50%'],
     ['unique-blood-plate','暗金·血契重甲','chest',null,{hp:.32,armor:.16,atkSpeed:.10,crit:.06},{physical:.24},'血契反击：生命每降低10%进化技能全伤害[x]15%，低于35%时全屏弹幕附带100%真吸血'],
     ['unique-clock-gloves','暗金·逆时针环','ring',null,{cooldown:.16,atkSpeed:.14,crit:.08,critDmg:.18},{arcane:.20},'逆时冷却：弹幕暴击时10%概率使冷却中技能CD减1秒'],
-    ['unique-rose-mirror','暗金·蔷薇镜','amulet',null,{hp:.22,crit:.08,healBonus:.20,cooldown:.08},{lust:.26},'欲念蓄池：承伤不扣血而100%储存，释放攻击时以[x]350%系数全屏喷溅'],
+    ['unique-rose-mirror','暗金·蔷薇镜','amulet',null,{hp:.22,crit:.08,healBonus:.20,cooldown:.08},{lust:.26},'欲念蓄池：吸收85%承伤存入欲念池(上限5倍生命)，下次攻击以[x]350%喷溅；蔷薇镜像6件联动吸收92%、上限7倍生命、喷溅[x]460%'],
     ['unique-abyss-mask','暗金·深渊假面','helm',null,{critDmg:.30,crit:.10,skillDmgAdd:{scytheArc:.20,wraithBlade:.20},move:.08},{shadow:.26},'深渊斩杀：普通怪<30%/精英<20%/Boss<15%血量必定致命暴击斩杀'],
     ['unique-golem-soul','暗金·巨像魂核','ring',null,{armor:.15,hp:.24,thorns:2500,allRes:.10},{physical:.22},'岩盾守护：站立释放进化技能时每秒12%全减伤(最高60%)，总荆棘以150%加算到弹幕'],
     ['unique-demon-horn','暗金·魔王断角','helm',null,{critDmg:.28,bossDmg:.25,eliteDmgReduce:.12,atkSpeed:.08},{fire:.20},'魔王降临：Boss激活瞬间弹幕翻倍，对Boss独立连乘[x]60%'],

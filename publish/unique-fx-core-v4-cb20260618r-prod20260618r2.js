@@ -125,7 +125,8 @@ window.GameModules.uniqueFxShared = (() => {
     let p = S?.player;
     if (!p) return { dmg: rawDmg, prevent: false };
     if (hasUnique('unique-rose-mirror')) {
-      S._roseStored = (S._roseStored || 0) + rawDmg; if (hasSet('rose-mirror', 6)) S._mirrorPool = Math.min(p.max * 3, (S._mirrorPool || 0) + rawDmg * .4); return { dmg: 0, prevent: false };
+      let linked=hasSet('rose-mirror',6),absorb=linked ? .92 : .85,stored=rawDmg*absorb;
+      S._roseStored = Math.min(p.max*(linked?7:5), (S._roseStored || 0) + stored); if (linked) S._mirrorPool = Math.min(p.max * 3, (S._mirrorPool || 0) + stored * .4); return { dmg: rawDmg * (1 - absorb), prevent: false };
     }
     if (hasUnique('unique-pale-ring') && p.hp - rawDmg <= 0 && !S._paleUsed) {
       S._paleUsed = true; S._paleTimer = 2.5; p.hp = 1; p.shield = Math.round(p.max * .25);

@@ -125,7 +125,7 @@ window.GameModules.affix = (() => {
     'unique-moon-crown': {id:'aspect_moon_crown',name:'寒月护盾',desc:'冰霜法球暴击转化生命护盾，护盾存在时免疫控制并提升飞行速度。',tag:'UNIQUE_ASPECT'},
     'unique-blood-plate': {id:'aspect_blood_plate',name:'血契反击',desc:'生命每降低10%进化技能全伤害[x]15%，低血触发真实吸血。',tag:'UNIQUE_ASPECT'},
     'unique-clock-gloves': {id:'aspect_clock_gloves',name:'逆时冷却',desc:'满屏弹幕暴击有10%概率使冷却中核心大招CD减少1秒。',tag:'UNIQUE_ASPECT'},
-    'unique-rose-mirror': {id:'aspect_rose_mirror',name:'欲念蓄池',desc:'承伤储存在欲念池，下一次攻击以[x]350%全屏喷溅。',tag:'UNIQUE_ASPECT'},
+    'unique-rose-mirror': {id:'aspect_rose_mirror',name:'欲念蓄池',desc:'吸收85%承伤存入欲念池，下次攻击以[x]350%喷溅；蔷薇6件联动吸收92%并提升为[x]460%。',tag:'UNIQUE_ASPECT'},
     'unique-abyss-mask': {id:'aspect_abyss_mask',name:'深渊斩杀',desc:'普通怪<30%、精英<20%、Boss<15%时触发致命暴击斩杀。',tag:'UNIQUE_ASPECT'},
     'unique-golem-soul': {id:'aspect_golem_soul',name:'岩盾守护',desc:'站立释放技能获得独立全减伤，并将荆棘按150%加入弹幕。',tag:'UNIQUE_ASPECT'},
     'unique-demon-horn': {id:'aspect_demon_horn',name:'魔王降临',desc:'最终Boss激活时弹幕数量与核心伤害翻倍，对Boss[x]60%。',tag:'UNIQUE_ASPECT'},
