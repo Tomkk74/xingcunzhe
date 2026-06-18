@@ -48,7 +48,7 @@ window.GameModules.saveTransfer = (() => {
   }
   async function doImport(){
     const box=document.getElementById('saveTransferText'),text=box?.value||'';
-    try{await importText(text);msg('导入成功，正在刷新存档...',true);setTimeout(()=>location.reload(),700)}
+    try{await importText(text);msg('导入成功，请关闭窗口后点击“读取存档”。',true)}
     catch(e){console.error('导入存档失败:',e.code,e.message,e.stack);msg(e.message||'导入失败，存档文本无效')}
   }
   function open(){document.getElementById('saveTransferModal')?.classList.remove('hidden');msg('')}
