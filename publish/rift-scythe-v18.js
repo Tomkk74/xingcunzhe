@@ -7,8 +7,8 @@ function pickRiftMap(){return RIFT_MAP_POOL[Math.floor(Math.random()*RIFT_MAP_PO
 function riftMap(id=S?.rift?.mapTheme){return RIFT_MAP_POOL.find(x=>x.id===id)||RIFT_MAP_POOL[0]}
 function riftMapName(){return riftMap().name}
 window.riftMapVisual=()=>riftMap();
-async function storeGet(){try{return (await dzmm.kv.get(KEY))?.value||null}catch(e){try{let r=localStorage.getItem(KEY);return r?JSON.parse(r):null}catch(_){return null}}}
-async function storePut(v){try{localStorage.setItem(KEY,JSON.stringify(v))}catch(_){}try{await dzmm.kv.put(KEY,v)}catch(e){console.warn('秘境数据保存失败:',e.code,e.message)}}
+async function storeGet(){return await StorageSync.get(KEY)}
+async function storePut(v){await StorageSync.put(KEY,v,'秘境数据')}
 function skillPointTotal(skills){return Object.values(skills||{}).reduce((a,n)=>a+Math.max(0,Math.floor(Number(n)||0)),0)}
 function capSkillPoints(skills,max=30){let out={},left=max;for(const [k,n] of Object.entries(skills||{})){let lv=Math.min(5,Math.max(0,Math.floor(Number(n)||0)),left);if(lv>0){out[k]=lv;left-=lv}}return out}
 function normalizeBuilds(v){let removed=new Set(window.RIFT_REMOVED_SKILLS||[]),out={};for(const cls of Object.keys(CLASSES||{})){let arr=Array.isArray(v?.[cls])?v[cls]:[];out[cls]=arr.slice(0,8).map((b,i)=>{let used=new Set(),combos=(b.combos||[]).slice(0,2).map(c=>{let parts=[];for(const k of c.parts||[])if(ATTACK_SKILLS.includes(k)&&!removed.has(k)&&!used.has(k)){used.add(k);parts.push(k)}return{name:String(c.name||'自创合成').slice(0,18),parts:parts.slice(0,4),lv:5}}).filter(c=>c.parts.length>=2);return{id:String(b.id||('custom-'+Date.now()+'-'+i)),name:String(b.name||'自创秘境流派').slice(0,18),skills:capSkillPoints(Object.fromEntries(Object.entries(b.skills||{}).filter(([k,n])=>INFO[k]&&Number(n)>0&&!removed.has(k)).map(([k,n])=>[k,Math.min(5,Math.max(1,Math.floor(Number(n)||1)))]))),combos,evos:(b.evos||[]).filter(id=>EVOLUTIONS[id]&&!removed.has(EVOLUTIONS[id].main)&&!removed.has(EVOLUTIONS[id].support)).slice(0,2)}}).filter(b=>Object.keys(b.skills).length||b.combos.length||b.evos.length)}return out}
