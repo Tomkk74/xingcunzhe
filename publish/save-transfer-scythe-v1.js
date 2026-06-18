@@ -13,6 +13,15 @@ window.GameModules.saveTransfer = (() => {
   function enc(obj){return btoa(unescape(encodeURIComponent(JSON.stringify(obj))))}
   function dec(text){return JSON.parse(decodeURIComponent(escape(atob(String(text).trim()))))}
   function msg(text, ok=false){const el=document.getElementById('saveTransferMsg');if(!el)return;el.textContent=text;el.classList.toggle('ok',ok)}
+  function plainObject(v){return !!v && typeof v === 'object' && !Array.isArray(v)}
+  function validImportValue(k,v){
+    if (!plainObject(v)) return false;
+    if (k.includes('arcane-save-v2')) return v.ended === true || (plainObject(v.player) && typeof v.player.cls === 'string');
+    if (k.includes('arcane-equipment-v2')) return plainObject(v.items) || Array.isArray(v.items) || plainObject(v.equipped);
+    if (k === 'arcane-cosmetics-v1') return plainObject(v.owned) || plainObject(v.selected);
+    if (k === 'arcane-redeem-v2' || k === 'arcane-layout-v2') return true;
+    return true;
+  }
 
   async function exportText(){
     const data = {};
@@ -21,8 +30,16 @@ window.GameModules.saveTransfer = (() => {
   }
   async function importText(text){
     const pack = dec(text);
-    if (pack?.game !== 'arcane-survivors' || !pack.data || typeof pack.data !== 'object') throw new Error('存档文本格式不正确');
-    for (const [k,v] of Object.entries(pack.data)) if (keys().includes(k) && v !== null) await kvPut(k,v);
+    if (pack?.game !== 'arcane-survivors' || !plainObject(pack.data)) throw new Error('存档文本格式不正确');
+    const allowed = keys();
+    let count = 0;
+    for (const [k,v] of Object.entries(pack.data)) {
+      if (!allowed.includes(k) || v === null) continue;
+      if (!validImportValue(k, v)) throw new Error(`存档字段 ${k} 结构异常`);
+      await kvPut(k,v);
+      count++;
+    }
+    if (!count) throw new Error('存档文本没有可导入的数据');
     return true;
   }
   async function doExport(){

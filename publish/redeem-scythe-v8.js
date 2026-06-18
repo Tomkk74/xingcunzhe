@@ -81,9 +81,9 @@ window.GameModules.redeem = (() => {
         if (!window.Progression?.addGrantCurrency) { message('成长系统未就绪，请稍后再试'); return; }
         result = await window.Progression.addGrantCurrency(reward.id, reward.gold, reward.core);
       }
+      if (!result.applied) { message('该兑换码已使用过'); return; }
       data[reward.id] = true;
       await kvPut(KEY, data);
-      if (!result.applied) { message('该兑换码已使用过'); return; }
       message(reward.scytheGift ? '兑换成功：琦琦冥月套装 4 件、魔核 +400、金币 +20000、门票 +40、赛季等级直升 20' : reward.coreGift ? '兑换成功：魔核 +400' : reward.riftKeys ? `兑换成功：大秘境门票 +${reward.riftKeys}` : `兑换成功：灵魂金币 +${reward.gold}，魔核 +${reward.core}`, true);
       input.value = '';
       onSuccess?.();

@@ -434,6 +434,11 @@ window.GameModules.uniqueFx = (() => {
   function getSoulShadowCrit() {
     return S?._soulShadowCrit || 0;
   }
+  function bloodPlateStealMul(id) {
+    let p = S?.player;
+    if (!p || !hasUnique('unique-blood-plate') || p.hp / p.max >= .35) return 0;
+    return isEvolvedDamageSkill(id) ? 1 : 0;
+  }
   function getThunderVuln(e) {
     if (e._thunderVuln > 0) {
       e._thunderVuln -= 1/60;
@@ -518,7 +523,7 @@ window.GameModules.uniqueFx = (() => {
     scytheShieldOnHit, bloodReapSplit, holyLanceTrail,
     axeReturnReset, huntQuiverCount,
     getMoveBonus, getAtkBonus, getPaleDamageMul,
-    getSoulShadowCrit, getThunderVuln, getVioletVuln
+    getSoulShadowCrit, bloodPlateStealMul, getThunderVuln, getVioletVuln
   };
 })();
 window.UniqueFx = window.GameModules.uniqueFx;
