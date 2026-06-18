@@ -6,6 +6,7 @@ function setCd(id,v){S._evoTuneCd=S._evoTuneCd||{};S._evoTuneCd[id]=v}
 function t(){return targetEnemy(S.player)}
 function eliteTarget(){return S.enemies.find(e=>e.boss)||S.enemies.find(e=>e.elite)||t()}
 function ep(id){return typeof evoPower==='function'?evoPower(id):1}
+const EVO_GUIDE_EXTRA={holyWard:'适配：辉金守护 / 圣钉战槌；秘境联动圣盾环掷。',judgmentLance:'适配：黎明审判 / 朝圣者遗步；秘境联动审判烙印。',bloodOath:'适配：荆棘壁垒 / 血契重甲；秘境联动荆棘誓约。',dragonMeteor:'适配：余烬陨星 / 爆燃核心；拥有陨星碎片时追加火海陨星。',thunderRing:'适配：风暴符印 / 逆时针环；暴击堆叠雷弧连乘。',prismFinale:'适配：星界飞弹 / 星陨秘典；拥有魔法飞弹时复制星界弹幕。',astralImplosion:'适配：星界飞弹 / 星陨秘典；飞弹穿透撕开星界黑洞。',frostCore:'适配：霜月王冠；冰球、晶刺、护盾形成冰系完整流派。',stormAxe:'适配：旋风飞斧 / 雷鸣长弓；移速、回旋、分裂成长。',skyTempest:'适配：无尽箭匣；攻速越高风刃弹幕越密。',hunterBarrage:'适配：无尽箭匣；优先精英与 Boss，击杀追加箭幕。',lunarHunt:'适配：月影猎手；月刃暴击触发二级冰爆。',venomPhantom:'适配：毒影伏击；毒雾破抗并召影刃引爆毒层。',demonSpring:'适配：绯红圣器 / 蔷薇镜；承伤越高反击越强。',fallenSanctum:'适配：紫罗兰圣歌；满血溢出治疗转惩戒脉冲。',ecstasyOffering:'适配：血契重甲 / 苍白轮戒；资源满值爆发偏 Boss 斩杀。',deathWaltz:'适配：冥月圆舞 / 深渊假面；移动收割、护盾和 DoT 加速。',bloodScythe:'适配：血镰誓约；精英内爆、吸血和血盾续航。',soulReaper:'适配：断魂影镰 / 瘟疫铃 / 深渊假面；残血处决与连锁收割。'};
 function bootEvos(){
   if(!window.EVOLUTIONS)return;
   addEvo('astralImplosion',{name:'星界内爆',job:'mage',main:'missile',support:'focus',desc:'魔法飞弹进化形态。飞弹穿透后撕开星界内爆，暴击与星界飞弹套装会放大黑洞牵引和奥术连爆，适配星陨秘典。'});
@@ -28,7 +29,9 @@ function extraPaladin(){if(S.player.cls!=='paladin'||!S.rift?.active)return;let 
   if(S.evolutions.bloodOath&&S.skills.thornVow&&S.riftPaladin?.oathBoost&&cd('bloodThornOath',{dt:0})){let boost=S.riftPaladin.oathBoost;S.riftPaladin.oathBoost=0;let lv=skillLv('bloodNova'),d=(58+lv*13)*dmgBase('bloodNova')*(1+boost)*ep('bloodOath');burstAt('blood',S.player.x,S.player.y,d,138+lv*8,0,'#fb7185',220,.62);healPlayer(d*.035);setCd('bloodThornOath',2.4)}}
 function extraSaintess(){if(S.evolutions.fallenSanctum&&hasSet('violet-hymn')&&cd('fallenPulse',{dt:0})){let e=eliteTarget();if(e){let lv=skillLv('lustPrayer'),d=(38+lv*10)*dmgBase('lustPrayer')*ep('fallenSanctum');burstAt('lustPrayer',e.x,e.y,d,86+lv*5,1.4,'#c084fc',150,.45)}setCd('fallenPulse',2.6)}}
 function extraScythe(){if(S.evolutions.bloodScythe&&hasSet('blood-reaping')&&cd('bloodScytheImplode',{dt:0})){let e=eliteTarget();if(e){let lv=skillLv('bloodReap'),d=(42+lv*12)*dmgBase('bloodReap')*ep('bloodScythe');burstAt('bloodReap',e.x,e.y,d,70+lv*4,0,'#fb7185',140,.42);healPlayer(Math.min(20,d*.018))}setCd('bloodScytheImplode',2.2)}}
+function installGuide(){if(typeof window.renderEvoGuide!=='function')return;window.renderEvoGuide=function(){let rows=Object.entries(EVOLUTIONS).map(([id,e])=>{let cur=S?evoProgress(id):{main:0,sup:0,ready:false,owned:false},cls=[S?.player?.cls===e.job?'ready':'',targetEvo===id?'marked':''].filter(Boolean).join(' '),extra=EVO_GUIDE_EXTRA[id]||'';return `<div class="evoItem ${cls}" data-mark-evo="${id}"><b>${esc(e.name)}</b><small><span class="jobTag ${e.job}">${CLASSES[e.job].cn}推荐</span> / ${INFO[e.main][0]} 等级5 + ${INFO[e.support][0]} 等级3</small><small>${esc(e.desc)}</small>${extra?`<small class="rewardHint">${esc(extra)}</small>`:''}${targetEvo===id?'<span class="evoBadge">已标记追踪</span>':cur.owned?'<span class="evoBadge">本局已进化</span>':cur.ready?'<span class="evoBadge">可在 魔王 宝箱进化</span>':''}</div>`}).join('');$('evoGuideList').innerHTML=rows}}
 bootEvos();
+installGuide();
 let base=window.evolutionSkills;
 window.evolutionSkills=function(dt){base?.(dt);if(!S?.player||S.paused||S.over)return;S._evoTuneCd=S._evoTuneCd||{};for(const k of Object.keys(S._evoTuneCd))S._evoTuneCd[k]-=dt;extraMage();extraRanger();extraPaladin();extraSaintess();extraScythe()};
 })();
