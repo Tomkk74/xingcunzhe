@@ -23,10 +23,18 @@ def versioned_name(path: Path) -> str:
     cleaned = re.sub(r'-prodrefresh\d+|-[0-9a-f]{8}-force\d+|-[0-9]{14}', '', stem)
     return f'{cleaned}-{digest(path)}-force{STAMP}{ext}'
 
+def canonical_path(path: Path) -> Path:
+    cleaned = re.sub(r'-prodrefresh\d+|-[0-9a-f]{8}-force\d+|-[0-9]{14}', '', path.stem)
+    canonical = path.with_name(f'{cleaned}{path.suffix}')
+    return canonical if canonical.exists() else path
+
 def copy_versioned(rel: str) -> str:
-    src = (PUBLISH / rel.removeprefix('./')).resolve()
-    if not src.exists() or PUBLISH.resolve() not in src.parents:
+    current = (PUBLISH / rel.removeprefix('./')).resolve()
+    if not current.exists() or PUBLISH.resolve() not in current.parents:
         return f'{rel}?v={TOKEN}'
+    src = canonical_path(current).resolve()
+    if not src.exists() or PUBLISH.resolve() not in src.parents:
+        src = current
     dst = src.with_name(versioned_name(src))
     if dst != src:
         shutil.copy2(src, dst)
