@@ -69,8 +69,8 @@ window.GameModules.uniqueFxShared = (() => {
       S.parts.push({x:p.x,y:p.y,vx:0,vy:0,life:.55,max:.55,a:1,c:'#93c5fd',aspectRing:50});
     }
     if (hasUnique('unique-rose-mirror') && (S._roseStored || 0) > 0) {
-      let linked = hasSet('rose-mirror', 6), stored = S._roseStored, dmg = stored * (linked ? 4.6 : 3.5), rad = linked ? 240 : 180; S._roseStored = 0;
-      for (const m of S.enemies) if (!m.dead && dist(p, m) < rad + m.r) dealDamage(m, dmg, true, 'lustSplash'); S.artFx.push({x:p.x,y:p.y,type:'lustOverflow',kind:'lustOverflow',color:'#f472b6',life:.52,max:.52,size:linked?280:220});
+      let linked = hasSet('rose-mirror', 6), stored = S._roseStored, dmg = stored * (linked ? 4.6 : 3.5), rad = linked ? 240 : 180, pool = window.nearbyEnemies ? window.nearbyEnemies(p.x, p.y, rad + 80) : S.enemies; S._roseStored = 0;
+      for (const m of pool) if (!m.dead && dist(p, m) < rad + m.r) dealDamage(m, dmg, true, 'lustSplash'); S.artFx.push({x:p.x,y:p.y,type:'lustOverflow',kind:'lustOverflow',color:'#f472b6',life:.52,max:.52,size:linked?280:220});
     }
     if (hasSet('astral-missile') && id === 'missile' && crit && Math.random() < .25) {
       window.burstAt?.('missile', e.x, e.y, d * 2.2, 72, 0, '#c084fc', 140, .35);

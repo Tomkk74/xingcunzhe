@@ -11,6 +11,7 @@ window.GameModules.uniqueFxUpdate = (() => {
       e._fear = Math.max(0, (e._fear || 0) - dt);
       e._blazeBurn = Math.max(0, (e._blazeBurn || 0) - dt * .35);
       e._emberBurn = Math.max(0, (e._emberBurn || 0) - dt * .35);
+      e._violetVuln = Math.max(0, (e._violetVuln || 0) - dt * .45);
     }
     S._fear = Math.min(H.fearCap?.() || 0, S._fear || 0);
     S._faithTrailBonus = 0;
@@ -49,7 +50,6 @@ window.GameModules.uniqueFxUpdate = (() => {
       S._soulArmorTimer -= dt;
       if (S._soulArmorTimer <= 0) { S._soulArmorTimer = 0; S._soulArmor = 0; }
     }
-    for (const e of S.enemies || []) e._violetVuln = Math.max(0, (e._violetVuln || 0) - dt * .45);
     updateKamikaze(dt);
     updateAureateGuardian(dt, p);
   }
@@ -77,7 +77,8 @@ window.GameModules.uniqueFxUpdate = (() => {
       S._aureateFxAt = S.time + .7;
       S.artFx.push({x:p.x,y:p.y,type:'setAureateBlackhole',kind:'setAureateBlackhole',color:'#fde68a',life:.62,max:.62,size:rad*3.1,rot:S.time,setPlayer:true});
     }
-    for (const e of S.enemies) {
+    let pool = window.nearbyEnemies ? window.nearbyEnemies(p.x, p.y, rad * 1.5 + 70) : S.enemies;
+    for (const e of pool) {
       let d = Math.hypot(e.x - p.x, e.y - p.y);
       if (d < rad * 1.5 && d > 8) {
         let force = (1 - d / (rad * 1.5)) * 60 * dt, a = Math.atan2(p.y - e.y, p.x - e.x);
@@ -87,18 +88,19 @@ window.GameModules.uniqueFxUpdate = (() => {
     }
   }
   function aspectArtFxTick(f, dt) {
-    if (H.hasUnique('unique-plague-bell') && H.dotFx(f)) for (const e of S.enemies) if (Math.hypot(e.x - f.x, e.y - f.y) < f.rad + e.r) e._dotMarked = .35;
+    let rad = f.rad || f.size || 80, pool = window.nearbyEnemies ? window.nearbyEnemies(f.x, f.y, rad + 80) : S.enemies;
+    if (H.hasUnique('unique-plague-bell') && H.dotFx(f)) for (const e of pool) if (Math.hypot(e.x - f.x, e.y - f.y) < rad + e.r) e._dotMarked = .35;
     if (H.hasUnique('unique-blaze-core') && f.burn) {
-      for (const e of S.enemies) if (e.boss && Math.hypot(e.x - f.x, e.y - f.y) < f.rad + e.r) { e._blazeBurn = (e._blazeBurn || 0) + dt; f.blazeMul = 1 + Math.min(2, e._blazeBurn * .20); }
+      for (const e of pool) if (e.boss && Math.hypot(e.x - f.x, e.y - f.y) < rad + e.r) { e._blazeBurn = (e._blazeBurn || 0) + dt; f.blazeMul = 1 + Math.min(2, e._blazeBurn * .20); }
     }
     if (H.hasSet('ember-meteor') && f.burn) {
-      for (const e of S.enemies) if (e.boss && Math.hypot(e.x - f.x, e.y - f.y) < f.rad + e.r) { e._emberBurn = (e._emberBurn || 0) + dt; f.emberMul = 1 + Math.min(1.5, e._emberBurn * .20); }
+      for (const e of pool) if (e.boss && Math.hypot(e.x - f.x, e.y - f.y) < rad + e.r) { e._emberBurn = (e._emberBurn || 0) + dt; f.emberMul = 1 + Math.min(1.5, e._emberBurn * .20); }
     }
     if (H.dotFx(f)) f.tickMul = (S._plagueDotRush > 0 ? 2.5 : 1) * (H.hasSet('reaper-waltz') && S._deathShieldFull ? (S._dotSpeed || 1) : 1) * (f.emberMul || 1) * (f.blazeMul || 1);
     if (H.hasSet('violet-hymn') && f.prayer) {
       let p = S?.player;
       if (p && p.hp >= p.max) {
-        let e = window.nearest?.(S.enemies, p);
+        let e = window.nearest?.(window.nearbyEnemies ? window.nearbyEnemies(p.x, p.y, 620) : S.enemies, p);
         if (e) {
             window.dealDamage?.(e, f.dmg * 3.6 * dt, true, 'lustPrayer');
           if (e.elite || e.boss) e._violetVuln = Math.min(3.6,(e._violetVuln || 0) + dt*1.35);
