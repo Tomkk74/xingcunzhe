@@ -5,7 +5,7 @@ window.GameModules.equipData = (() => {
   // 暗金：5固定属性 + 1[x]威能 | 套装：4固定属性/件 + 3/6件套效果
   const SACRIFICES = [
     ['sacrifice-laoyang-5090','老杨的5090','sacrifice',null,{fearMax:300,critDmg:.50,bossDmgReduce:.12},{shadow:.30},'恐惧转嫁：受到生命伤害时改为消耗恐惧承担，单次消耗上限为最大生命；命中与击杀敌人回复恐惧，被命中敌人陷入恐惧，周围恐惧敌人使恐惧消耗降低。','不知从何处流传到幸存者大陆，被发现的地点只有一张不知发往何处的快递单跟一些塑料玻璃制品，而这个是从一块板子上拔下来的','./assets/generated/laoyang-5090.e37e4947.webp'],
-    ['sacrifice-hard-drive','一个硬盘','sacrifice',null,{setReqReduce:3},{arcane:.30},'套装残响：装备后所有已穿戴套装的构成需求减少3件；穿1件即可触发3件效果，穿3件即可触发6件效果。','里面装着一个永远不能升级的版本的comfyui，还存储大量成人绘画，被哥布林修特捡到，视若珍宝，但因其最近缺钱，转卖给奥术商店老板Tomkk','./assets/generated/hard-drive-sacrifice.77268ef6.webp'],
+    ['sacrifice-hard-drive','一个硬盘','sacrifice',null,{setReqReduce:3},{arcane:.30},'套装残响：装备后所有已穿戴套装的6件套构成需求减少3件；3件套仍必须真实穿戴3件，穿3件即可触发6件效果。','里面装着一个永远不能升级的版本的comfyui，还存储大量成人绘画，被哥布林修特捡到，视若珍宝，但因其最近缺钱，转卖给奥术商店老板Tomkk','./assets/generated/hard-drive-sacrifice.77268ef6.webp'],
   ];
   const UNIQUES = [
     ['unique-saint-nail','暗金·圣钉战槌','weapon','paladin',{critDmg:.45,armor:.18,attrDmg:{holy:.35},eliteDmg:.28,skillFreq:.15},{},'天谴重击：大蒜光环转为天谴重击，每秒引爆[总护甲×爆伤%]神圣伤害，秘境进度每10%连乘[x]12%'],
