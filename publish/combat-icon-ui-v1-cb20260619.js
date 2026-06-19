@@ -22,22 +22,24 @@ function iconButton(btn,icon,label){
 }
 function iconize(){
   for(const [id,[icon,label]] of Object.entries(labels))iconButton(document.getElementById(id),icon,label);
-  const mode=document.getElementById('modeBtn');
-  if(mode){
-    const raw=(mode.textContent||'').trim();
-    if(raw&&!mode.querySelector('.swordsIcon'))mode.dataset.modeLabel=raw;
-    mode.dataset.iconUi='1';
-    mode.classList.add('combatIconButton');
-    mode.setAttribute('aria-label','自动战斗模式');
-    mode.title='自动战斗';
-    if(!mode.querySelector('.swordsIcon'))mode.innerHTML='<span class="swordsIcon" aria-hidden="true"></span><span class="srOnly">自动战斗</span>';
-    if(!mode.dataset.modeTipBound){
-      mode.dataset.modeTipBound='1';
-      mode.addEventListener('click',()=>setTimeout(showModeTip,40),true);
-    }
-  }
+  iconizeMode();
   ensureToggle();
   applyHudState();
+}
+function iconizeMode(){
+  const mode=document.getElementById('modeBtn');
+  if(!mode)return;
+  const raw=(mode.textContent||'').trim();
+  if(raw&&!mode.querySelector('.swordsIcon'))mode.dataset.modeLabel=raw;
+  mode.dataset.iconUi='1';
+  mode.classList.add('combatIconButton');
+  mode.setAttribute('aria-label','自动战斗模式');
+  mode.title='自动战斗';
+  mode.innerHTML='<span class="swordsIcon" aria-hidden="true"></span><span class="srOnly">自动战斗</span>';
+  if(!mode.dataset.modeTipBound){
+    mode.dataset.modeTipBound='1';
+    mode.addEventListener('click',()=>setTimeout(showModeTip,40),true);
+  }
 }
 function ensureToggle(){
   const game=document.querySelector('.game');
@@ -81,7 +83,15 @@ function showModeTip(){
   clearTimeout(tipTimer);
   tipTimer=setTimeout(()=>box.classList.remove('show'),1400);
 }
-new MutationObserver(iconize).observe(document.body,{childList:true,subtree:true,attributes:true,attributeFilter:['class']});
-document.addEventListener('DOMContentLoaded',iconize);
+function patchModeLabel(){
+  if(window.updateModeLabel?.__iconPatched)return;
+  const base=window.updateModeLabel;
+  if(typeof base==='function'){
+    window.updateModeLabel=function(){base();iconizeMode();};
+    window.updateModeLabel.__iconPatched=true;
+  }
+}
+document.addEventListener('DOMContentLoaded',()=>{iconize();patchModeLabel();});
 iconize();
+patchModeLabel();
 })();
