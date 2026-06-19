@@ -4,7 +4,7 @@ const iconBase='./assets/generated/ui/';
 const labels={
   saveBtn:['ui-icon-save.f5e79e61-sm.webp','存档'],
   settingsBtn:['ui-icon-settings.1fc5ebcc-sm.webp','设置'],
-  relicBtn:['ui-icon-relic.efa3b5f9-sm.webp','职业神器'],
+  relicBtn:['ui-icon-relic.efa3b5f9-sm.webp','神器'],
   skillBtn:['ui-icon-skill.e2db75b9-sm.webp','技能'],
   invBtn:['ui-icon-bag.03c04b3e-sm.webp','背包']
 };
@@ -17,7 +17,7 @@ function iconButton(btn,file,label){
   btn.setAttribute('aria-label',label);
   btn.title=label;
   if(!btn.querySelector('.combatIcon')){
-    btn.innerHTML=`<img class="combatIcon" src="${iconBase}${file}" alt=""><span class="srOnly">${label}</span>`;
+    btn.innerHTML=`<img class="combatIcon" src="${iconBase}${file}" alt=""><span class="combatIconText">${label}</span>`;
   }
 }
 function iconize(){
