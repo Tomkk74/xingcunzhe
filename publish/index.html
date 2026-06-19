@@ -28,20 +28,18 @@
 <script>
 window.__ARCANE_BUILD='global-refresh-20260619-clean-cache-r1';
 window.RIFT_REMOVED_SKILLS=['dawnBanner','aegisCharge'];
-window.__ARCANE_BUILD_CLEANUP='cache-clean-20260619-r1';
+window.__ARCANE_BUILD_CLEANUP='cache-clean-20260619-r2';
 (async()=>{
   try {
-    if ('serviceWorker' in navigator) {
-      const regs = await navigator.serviceWorker.getRegistrations();
-      regs.forEach(reg => reg.unregister());
-    }
-    if (window.caches && caches.keys) {
-      const keys = await caches.keys();
-      keys.forEach(key => caches.delete(key));
-    }
-  } catch (err) {
-    console.warn('缓存清理失败:', err && err.message ? err.message : String(err));
-  }
+    const sw = navigator && navigator.serviceWorker;
+    const regs = sw && sw.getRegistrations ? await sw.getRegistrations() : [];
+    regs.forEach(reg => reg.unregister());
+  } catch (_) {}
+  try {
+    const cacheApi = window.caches;
+    const keys = cacheApi && cacheApi.keys ? await cacheApi.keys() : [];
+    keys.forEach(key => cacheApi.delete(key));
+  } catch (_) {}
 })();
 console.info('Arcane Survivors build:', window.__ARCANE_BUILD);
 window.__inlineMenuAudio=(()=>{let ctx=null,master=null,fx=null,music=null,on=false,timer=null,step=0,last=0;function vol(){let v=Number(document.getElementById('bgmVolume')?.value??42);return Math.max(0,Math.min(1,v/100))}function init(){if(ctx)return;let C=window.AudioContext||window.webkitAudioContext;if(!C)return;ctx=new C();master=ctx.createGain();fx=ctx.createGain();music=ctx.createGain();master.gain.value=.62;fx.gain.value=.48;music.gain.value=.48;fx.connect(master);music.connect(master);master.connect(ctx.destination)}function tone(f,d,type='sine',v=.1,dest=fx,delay=0){if(!ctx)return;let o=ctx.createOscillator(),g=ctx.createGain(),t=ctx.currentTime+delay;o.type=type;o.frequency.setValueAtTime(f,t);g.gain.setValueAtTime(.001,t);g.gain.linearRampToValueAtTime(v,t+.02);g.gain.exponentialRampToValueAtTime(.001,t+d);o.connect(g);g.connect(dest);o.start(t);o.stop(t+d+.04)}function click(){init();ctx?.resume?.();let n=ctx?.currentTime||0;if(n-last<.06)return;last=n;tone(420,.07,'triangle',.08,fx);tone(980,.09,'sine',.05,fx,.025)}function menuScene(){return ['seasonIntro','start','classSelect','mapSelect'].some(id=>{let e=document.getElementById(id);return e&&!e.classList.contains('hidden')})}function beat(){if(!on)return;let b=[55,65.4,73.4,49][step%4],l=[220,261.6,293.7,392,329.6,293.7,261.6,220][step%8],v=vol();tone(b,1.25,'sine',.08*v,music);tone(b*2,1.05,'triangle',.06*v,music,.03);tone(l,.24,'triangle',.07*v,music,.08);if(step%2===0)tone(l*2,.22,'sine',.05*v,music,.22);step++}function start(){init();ctx?.resume?.();if(on)return;on=true;step=0;beat();timer=setInterval(beat,620)}function stop(){on=false;if(timer){clearInterval(timer);timer=null}}function sync(){if(!ctx)return;if(window.S&&S.run&&!S.paused){stop();return}if(menuScene())start();else stop()}document.addEventListener('pointerdown',e=>{init();ctx?.resume?.();if(e.target.closest('button'))click();setTimeout(sync,50)});setInterval(sync,800);return{sync,start,stop,click}})();
