@@ -2,9 +2,9 @@ window.GameModules = window.GameModules || {};
 window.GameModules.equipment = (() => {
   const D = window.GameModules.equipData;
   const KEY = 'arcane-equipment-v2';
-  const ASSET_Q = '?v=20260619-webp-icons-r1';
+  const ASSET_Q = '?v=20260619-unique-icons-r1';
   const GOLD_ICON_PREFIX = './assets/generated/huangjin/t_d98add39-dbc9-4803-ad99-c075894fe454_';
-  const UNIQUE_ICON_PREFIX = './assets/generated/anjin/t_9f0f72b8-ae78-49b3-93d5-0415d37c6b00_';
+  const UNIQUE_ICON_SHEET = './assets/generated/unique-equipment-icons-sheet.1abf4dd3.webp?v=20260619-unique-icons-r1';
   const SET_ICON_PREFIX = { setPaladin:'./assets/generated/paladin/t_cccb496c-393b-4a20-9ed8-245883afa2b3_', setMage:'./assets/generated/mage/t_7cfaf443-aece-4533-b56a-d6e8c72a9734_', setRanger:'./assets/generated/ranger/t_695e9072-a6b9-41c7-b65a-423267d0669a_', setSaintess:'./assets/generated/saintess/t_f9571423-469d-490d-868a-2a33dcaa326c_', setScythe:'./assets/generated/scythe-maiden/t_afb7751d-ed19-476d-ab4e-c4a492c79c92_' };
   const SLOTS = ['weapon','helm','chest','amulet','ring','boots'];
   const ARMOR_SLOT_WEIGHT = { helm:.72, chest:1.18, boots:.5 };
@@ -26,9 +26,9 @@ window.GameModules.equipment = (() => {
     ['gold-sun-greaves','日铸胫甲','boots',{move:.08,hp:.06},{holy:.06,fire:.04}],['gold-wind-boots','疾风金靴','boots',{move:.14,atkSpeed:.04},{physical:.06}],['gold-frost-steps','霜踏长靴','boots',{move:.08,cooldown:.04},{frost:.1}],['gold-void-steps','虚空行靴','boots',{move:.1,range:.05},{shadow:.08,arcane:.04}],['gold-stone-sabaton','岩金战靴','boots',{hp:.12,armor:.04},{physical:.1}],['gold-rose-slippers','蔷薇软靴','boots',{move:.06,regen:.06},{lust:.1}],
   ];
   const iconPath = (prefix, i) => `${prefix}${Math.floor(i/6)+1}_${i%6+1}-cb20260618a.webp${ASSET_Q}`;
-  const UNIQUE_ICON_OVERRIDE = {'unique-demon-horn':`${UNIQUE_ICON_PREFIX}3_1-cb20260618a.webp${ASSET_Q}`};
+  const uniqueIconRect = i => ({x:(i%6)*256,y:Math.floor(i/6)*341,w:256,h:341,sw:1536,sh:1024});
   const toGold = (r,i) => ({baseId:r[0],name:r[1],rarity:'gold',slot:r[2],stats:r[3],resists:r[4],icon:{src:iconPath(GOLD_ICON_PREFIX,i),index:i}});
-  const toUnique = (r,i) => ({baseId:r[0],name:r[1],rarity:'unique',slot:r[2],class:r[3],stats:r[4],resists:r[5]||{},aspect:r[6]||'',icon:{src:UNIQUE_ICON_OVERRIDE[r[0]]||iconPath(UNIQUE_ICON_PREFIX,i),index:i}});
+  const toUnique = (r,i) => ({baseId:r[0],name:r[1],rarity:'unique',slot:r[2],class:r[3],stats:r[4],resists:r[5]||{},aspect:r[6]||'',icon:{sheet:UNIQUE_ICON_SHEET,rect:uniqueIconRect(i),index:i}});
   const toSacrifice = (r,i) => ({baseId:r[0],name:r[1],rarity:'sacrifice',slot:r[2],class:r[3],stats:r[4],resists:r[5]||{},aspect:r[6]||'',lore:r[7]||'',icon:{src:r[8],index:i}});
   const gold = GOLD.map(toGold), uniques = D.UNIQUES.map(toUnique), sacrifices = (D.SACRIFICES || []).map(toSacrifice);
   const pieceNames = { weapon:'武器', helm:'冠冕', chest:'衣甲', amulet:'坠饰', ring:'戒环', boots:'足具' };

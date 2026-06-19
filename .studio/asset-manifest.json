@@ -1,7 +1,7 @@
 {
   "version": 1,
   "createdAt": "2026-06-13T14:08:29Z",
-  "updatedAt": "2026-06-19T08:39:52Z",
+  "updatedAt": "2026-06-19T16:01:36Z",
   "assets": [
     {
       "name": "player-paladin",
@@ -2451,6 +2451,32 @@
       },
       "traceId": "trace_mqknwdyg_moi6ygp9",
       "createdAt": "2026-06-19T08:24:57Z"
+    },
+    {
+      "name": "unique-equipment-icons-sheet",
+      "status": "success",
+      "path": "publish/assets/generated/unique-equipment-icons-sheet.1abf4dd3.webp",
+      "contentHash": "1abf4dd3",
+      "revisedPrompt": "Create a single sprite sheet image: 6 columns by 3 rows, 18 equal square cells, each cell containing one centered fantasy RPG equipment icon, no text, no labels, no numbers. Use a consistent bright arcade fantasy survivor game style with cute chibi item icons, clean dark outline, high contrast, soft glow, dark dungeon palette, and gold unique-rarity framing around each icon. Top-down / 3-4 readable game icon perspective. Keep every icon visually distinct, same scale, centered in each cell, with no background scenery. Place exactly these item concepts in order left to right, top row then next row:\n1) holy nail warhammer: silver hammer with glowing saint nail spikes and gold trim\n2) thunder longbow: blue lightning bow with electric string\n3) starfall arcane tome: purple spellbook with falling star and tiny black hole\n4) plague bell: dark brass hand bell with green toxic mist and shadow aura\n5) blazing core: fiery orange reactor orb with molten cracks\n6) void lantern: black purple lantern with blue void flame\n7) dragon ember heart: red dragon heart ember jewel\n8) elite hunter boots: leather boots with gold wing motif and hunter marks\n9) frost moon crown: icy silver crown with crescent moon\n10) blood pact heavy plate: crimson heavy chest armor with blood rune\n11) counterclockwise ring: bronze ring shaped like reversed clock hands\n12) rose mirror: pink rose handheld mirror with lust aura\n13) abyss mask: dark execution mask with violet eye slit\n14) golem soul core: stone ring/core with rocky shield aura\n15) demon broken horn: red black severed demon horn with flame\n16) pale wheel ring: bone-white ring with ghostly phase aura\n17) pilgrim dawn boots: holy white boots leaving golden road light\n18) endless quiver: ornate quiver overflowing with spectral arrows\n\nImportant composition rules: each cell contains only the single requested item icon, no extra props beyond small thematic effects; maintain strong separation between cells; consistent padding; readable silhouettes; polished game asset look.\n\nBackground must be a solid uniform chroma key green: exactly #00B140, filling 100% of all pixels not occupied by icons. No gradient, no texture, no shadows on the background, no scenery, no ground, no decoration, no environmental elements. Pure flat color background. No text, no logo, no watermark.",
+      "model": "gpt-image-2",
+      "size": "1774x887",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#00B140",
+        "alphaZeroPct": 41.5,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossy_q85_alpha",
+      "originalBytes": 2626269,
+      "finalBytes": 503420,
+      "usage": {
+        "inputTokens": 506,
+        "outputImageTokens": 1030
+      },
+      "traceId": "trace_mql47vry_mim6zzae",
+      "createdAt": "2026-06-19T16:01:36Z"
     }
   ]
 }
