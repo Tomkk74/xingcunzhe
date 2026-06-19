@@ -2,7 +2,7 @@ window.GameModules = window.GameModules || {};
 window.GameModules.equipment = (() => {
   const D = window.GameModules.equipData;
   const KEY = 'arcane-equipment-v2';
-  const ASSET_Q = '?v=20260618-demon-horn-icon-r1';
+  const ASSET_Q = '?v=20260619-webp-icons-r1';
   const GOLD_ICON_PREFIX = './assets/generated/huangjin/t_d98add39-dbc9-4803-ad99-c075894fe454_';
   const UNIQUE_ICON_PREFIX = './assets/generated/anjin/t_9f0f72b8-ae78-49b3-93d5-0415d37c6b00_';
   const SET_ICON_PREFIX = { setPaladin:'./assets/generated/paladin/t_cccb496c-393b-4a20-9ed8-245883afa2b3_', setMage:'./assets/generated/mage/t_7cfaf443-aece-4533-b56a-d6e8c72a9734_', setRanger:'./assets/generated/ranger/t_695e9072-a6b9-41c7-b65a-423267d0669a_', setSaintess:'./assets/generated/saintess/t_f9571423-469d-490d-868a-2a33dcaa326c_', setScythe:'./assets/generated/scythe-maiden/t_afb7751d-ed19-476d-ab4e-c4a492c79c92_' };
@@ -20,8 +20,8 @@ window.GameModules.equipment = (() => {
     ['gold-signet-fury','狂怒金戒','ring',{damage:.1,atkSpeed:.05},{fire:.06}],['gold-signet-focus','专注金戒','ring',{cooldown:.08,range:.04},{arcane:.08}],['gold-signet-guard','坚守金戒','ring',{hp:.1,armor:.04},{physical:.08,holy:.04}],['gold-signet-moon','月影金戒','ring',{move:.06,crit:.04},{frost:.08,shadow:.04}],['gold-signet-greed','拾荒金戒','ring',{pickup:.18,gold:.12},{shadow:.06}],['gold-signet-rose','玫瑰金戒','ring',{regen:.06,hp:.08},{lust:.1}],
     ['gold-sun-greaves','日铸胫甲','boots',{move:.08,hp:.06},{holy:.06,fire:.04}],['gold-wind-boots','疾风金靴','boots',{move:.14,atkSpeed:.04},{physical:.06}],['gold-frost-steps','霜踏长靴','boots',{move:.08,cooldown:.04},{frost:.1}],['gold-void-steps','虚空行靴','boots',{move:.1,range:.05},{shadow:.08,arcane:.04}],['gold-stone-sabaton','岩金战靴','boots',{hp:.12,armor:.04},{physical:.1}],['gold-rose-slippers','蔷薇软靴','boots',{move:.06,regen:.06},{lust:.1}],
   ];
-  const iconPath = (prefix, i) => `${prefix}${Math.floor(i/6)+1}_${i%6+1}-cb20260618a.png${ASSET_Q}`;
-  const UNIQUE_ICON_OVERRIDE = {'unique-demon-horn':`${UNIQUE_ICON_PREFIX}3_1-cb20260618a.png${ASSET_Q}`};
+  const iconPath = (prefix, i) => `${prefix}${Math.floor(i/6)+1}_${i%6+1}-cb20260618a.webp${ASSET_Q}`;
+  const UNIQUE_ICON_OVERRIDE = {'unique-demon-horn':`${UNIQUE_ICON_PREFIX}3_1-cb20260618a.webp${ASSET_Q}`};
   const toGold = (r,i) => ({baseId:r[0],name:r[1],rarity:'gold',slot:r[2],stats:r[3],resists:r[4],icon:{src:iconPath(GOLD_ICON_PREFIX,i),index:i}});
   const toUnique = (r,i) => ({baseId:r[0],name:r[1],rarity:'unique',slot:r[2],class:r[3],stats:r[4],resists:r[5]||{},aspect:r[6]||'',icon:{src:UNIQUE_ICON_OVERRIDE[r[0]]||iconPath(UNIQUE_ICON_PREFIX,i),index:i}});
   const toSacrifice = (r,i) => ({baseId:r[0],name:r[1],rarity:'sacrifice',slot:r[2],class:r[3],stats:r[4],resists:r[5]||{},aspect:r[6]||'',lore:r[7]||'',icon:{src:r[8],index:i}});
@@ -30,7 +30,7 @@ window.GameModules.equipment = (() => {
   const sets = D.SET_FAMILIES.flatMap((f,fi)=>SLOTS.map((slot,i)=>{
     let s={}; for(const[k,v]of Object.entries(f[4])){if(RES.includes(k))continue;if(k==='skillDmgAdd'){s.skillDmgAdd=v;continue;}s[k]=v;}
     let r={}; for(const[k,v]of Object.entries(f[4])){if(!RES.includes(k))continue;r[k]=v;}
-    return{baseId:`set-${f[1]}-${slot}`,name:`${f[2]}·${pieceNames[slot]}`,rarity:'set',class:f[0],setId:f[1],setName:f[2],slot,stats:s,resists:r,icon:{src:`${SET_ICON_PREFIX[f[3]]}${fi%3+1}_${i+1}-cb20260618a.png${ASSET_Q}`,index:(fi%3)*6+i}};
+    return{baseId:`set-${f[1]}-${slot}`,name:`${f[2]}·${pieceNames[slot]}`,rarity:'set',class:f[0],setId:f[1],setName:f[2],slot,stats:s,resists:r,icon:{src:`${SET_ICON_PREFIX[f[3]]}${fi%3+1}_${i+1}-cb20260618a.webp${ASSET_Q}`,index:(fi%3)*6+i}};
   }));
   const all = [...gold,...uniques,...sets,...sacrifices];
   const DEF_KEYS = ['hp','armor','move','pickup','gold','regen'];
