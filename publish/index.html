@@ -7,7 +7,7 @@
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
 <title>奥术幸存者</title>
-<link rel="stylesheet" href="./style-scythe-v15-cb20260618q-prod20260618r2.css?v=20260619-equip-scroll-clean-r1">
+<link rel="stylesheet" href="./style-scythe-v15-cb20260618q-prod20260618r2.css?v=20260619-parchment-board-r1">
 <style>
 .coverMenu{padding:150px 28px 26px!important;background:linear-gradient(180deg,transparent,rgba(3,2,8,.28) 45%,rgba(3,2,8,.52))!important}.mainActions{align-items:center;gap:10px!important}.mainActions button{width:auto!important;min-width:148px!important;max-width:220px!important;min-height:0!important;justify-self:center;padding:8px 18px!important;border:1px solid rgba(250,204,21,.8)!important;border-radius:5px 14px 5px 14px!important;background:rgba(3,2,8,.24)!important;color:#ffe8a3!important;text-shadow:0 2px 3px #000,0 0 10px rgba(250,204,21,.45)!important;box-shadow:0 0 0 1px rgba(0,0,0,.45),0 0 14px rgba(250,204,21,.16),inset 0 0 12px rgba(250,204,21,.08)!important;backdrop-filter:blur(1px);font-size:14px!important;letter-spacing:.04em}.mainActions button:before{inset:3px!important;border-color:rgba(250,204,21,.18)!important}.mainActions button:hover{background:rgba(40,20,8,.38)!important;box-shadow:0 0 18px rgba(250,204,21,.35),inset 0 0 14px rgba(250,204,21,.14)!important}@media (orientation:portrait){.coverMenu{padding:116px 18px 22px!important}.mainActions{gap:9px!important}.mainActions button{min-width:142px!important;max-width:205px!important;padding:7px 16px!important;font-size:13px!important}}
 
@@ -20,6 +20,7 @@
 *{scrollbar-width:none!important;-ms-overflow-style:none!important}*::-webkit-scrollbar{display:none!important;width:0!important;height:0!important}
 #start #redeemBtn{left:calc(12px + env(safe-area-inset-left))!important;top:calc(12px + env(safe-area-inset-top))!important;right:auto!important}#start #shopBtn{position:absolute!important;left:calc(66px + env(safe-area-inset-left))!important;top:calc(12px + env(safe-area-inset-top))!important;right:auto!important;bottom:auto!important;margin:0!important}
 #equipmentPanel #equipGrid{overflow-y:auto!important;overflow-x:hidden!important;scrollbar-width:none!important;-ms-overflow-style:none!important;border:0!important;outline:0!important;box-shadow:none!important;background:linear-gradient(180deg,rgba(91,45,13,.72),rgba(46,20,7,.88))!important;background-clip:padding-box!important}#equipmentPanel #equipGrid::-webkit-scrollbar,#equipmentPanel #equipGrid::-webkit-scrollbar-thumb,#equipmentPanel #equipGrid::-webkit-scrollbar-track,#equipmentPanel #equipGrid::-webkit-scrollbar-track-piece,#equipmentPanel #equipGrid::-webkit-scrollbar-button,#equipmentPanel #equipGrid::-webkit-scrollbar-corner,#equipmentPanel #equipGrid::-webkit-resizer{display:none!important;width:0!important;height:0!important;background:transparent!important}.equipDetailBody{scrollbar-width:none!important;-ms-overflow-style:none!important}.equipDetailBody::-webkit-scrollbar,.equipDetailBody::-webkit-scrollbar-thumb,.equipDetailBody::-webkit-scrollbar-track,.equipDetailBody::-webkit-scrollbar-corner,.equipDetailBody::-webkit-resizer{display:none!important;width:0!important;height:0!important;background:transparent!important}
+#leaderboard .panel{animation:none!important;transform:none!important;width:min(86vw,680px)!important;max-height:min(86dvh,720px)!important;padding:34px 42px 32px!important;border:2px solid rgba(73,45,20,.72)!important;border-radius:18px!important;color:#2f2114!important;overflow:hidden!important;background:radial-gradient(circle at 16% 18%,rgba(255,255,245,.7),transparent 26%),radial-gradient(circle at 82% 76%,rgba(107,84,50,.18),transparent 32%),repeating-linear-gradient(9deg,rgba(83,61,35,.045) 0 2px,transparent 2px 12px),linear-gradient(180deg,#e9dcc2 0%,#d8c39a 52%,#c5a679 100%)!important;box-shadow:0 18px 36px rgba(18,10,4,.5),inset 0 0 0 1px rgba(255,247,220,.38),inset 0 0 42px rgba(79,47,19,.24)!important}#leaderboard .panel:before,#leaderboard .panel:after{display:none!important;content:none!important;background:none!important;box-shadow:none!important}#leaderboard .panel .title{margin-top:0!important;color:#2f2114!important;text-shadow:0 1px 0 rgba(255,250,230,.65),0 2px 4px rgba(76,50,26,.28)!important}#leaderboard #boardSub{color:#5b4328!important;text-shadow:0 1px 0 rgba(255,250,230,.55)!important}#leaderboard #boardList{max-height:min(56dvh,470px)!important;padding:8px 2px 2px!important}#leaderboard .riftBoardRow{border:1px solid rgba(78,51,25,.42)!important;background:linear-gradient(90deg,rgba(83,57,31,.12),rgba(255,248,224,.28) 50%,rgba(83,57,31,.12))!important;box-shadow:inset 0 1px 0 rgba(255,250,230,.45),0 2px 7px rgba(65,42,20,.14)!important;color:#2f2114!important}#leaderboard .boardName{color:#2f2114!important;text-shadow:0 1px 0 rgba(255,250,230,.6)!important}#leaderboard .riftBoardRow .boardLv{color:#4b341d!important;text-shadow:0 1px 0 rgba(255,250,230,.6)!important}#leaderboard #boardClose{background:linear-gradient(#8b6b43,#4f3218)!important;color:#f8ecd2!important;border-color:#3a2513!important;box-shadow:0 4px 0 #2a1a0c,0 8px 14px rgba(36,22,10,.32)!important}@media (orientation:portrait){#leaderboard .panel{width:min(94vw,430px)!important;padding:28px 24px 26px!important}}
 </style>
 </head>
 <body>
@@ -30,29 +31,29 @@ window.RIFT_REMOVED_SKILLS=['dawnBanner','aegisCharge'];
 console.info('Arcane Survivors build:', window.__ARCANE_BUILD);
 window.__inlineMenuAudio=(()=>{let ctx=null,master=null,fx=null,music=null,on=false,timer=null,step=0,last=0;function vol(){let v=Number(document.getElementById('bgmVolume')?.value??42);return Math.max(0,Math.min(1,v/100))}function init(){if(ctx)return;let C=window.AudioContext||window.webkitAudioContext;if(!C)return;ctx=new C();master=ctx.createGain();fx=ctx.createGain();music=ctx.createGain();master.gain.value=.62;fx.gain.value=.48;music.gain.value=.48;fx.connect(master);music.connect(master);master.connect(ctx.destination)}function tone(f,d,type='sine',v=.1,dest=fx,delay=0){if(!ctx)return;let o=ctx.createOscillator(),g=ctx.createGain(),t=ctx.currentTime+delay;o.type=type;o.frequency.setValueAtTime(f,t);g.gain.setValueAtTime(.001,t);g.gain.linearRampToValueAtTime(v,t+.02);g.gain.exponentialRampToValueAtTime(.001,t+d);o.connect(g);g.connect(dest);o.start(t);o.stop(t+d+.04)}function click(){init();ctx?.resume?.();let n=ctx?.currentTime||0;if(n-last<.06)return;last=n;tone(420,.07,'triangle',.08,fx);tone(980,.09,'sine',.05,fx,.025)}function menuScene(){return ['seasonIntro','start','classSelect','mapSelect'].some(id=>{let e=document.getElementById(id);return e&&!e.classList.contains('hidden')})}function beat(){if(!on)return;let b=[55,65.4,73.4,49][step%4],l=[220,261.6,293.7,392,329.6,293.7,261.6,220][step%8],v=vol();tone(b,1.25,'sine',.08*v,music);tone(b*2,1.05,'triangle',.06*v,music,.03);tone(l,.24,'triangle',.07*v,music,.08);if(step%2===0)tone(l*2,.22,'sine',.05*v,music,.22);step++}function start(){init();ctx?.resume?.();if(on)return;on=true;step=0;beat();timer=setInterval(beat,620)}function stop(){on=false;if(timer){clearInterval(timer);timer=null}}function sync(){if(!ctx)return;if(window.S&&S.run&&!S.paused){stop();return}if(menuScene())start();else stop()}document.addEventListener('pointerdown',e=>{init();ctx?.resume?.();if(e.target.closest('button'))click();setTimeout(sync,50)});setInterval(sync,800);return{sync,start,stop,click}})();
 </script>
-<script src="./storage-sync-v2-cb20260618p-prod20260618r2.js?v=20260619-equip-scroll-clean-r1"></script>
-<script src="./affix-scythe-v3-cb20260618p-prod20260618r2.js?v=20260619-equip-scroll-clean-r1"></script>
-<script src="./equip-data-v3-cb20260618r-prod20260618r2.js?v=20260619-equip-scroll-clean-r1"></script>
-<script src="./season-scythe-v7-cb20260618p-prod20260618r2.js?v=20260619-equip-scroll-clean-r1"></script>
-<script src="./progression-scythe-v6-cb20260618p-prod20260618r2.js?v=20260619-equip-scroll-clean-r1"></script>
-<script src="./redeem-scythe-v9-cb20260618p-prod20260618r2.js?v=20260619-equip-scroll-clean-r1"></script>
-<script src="./save-transfer-scythe-v5-cb20260618p-prod20260618r2.js?v=20260619-equip-scroll-clean-r1"></script>
-<script src="./equipment-scythe-v13-cb20260618r-prod20260618r2.js?v=20260619-equip-scroll-clean-r1"></script>
-<script src="./unique-fx-core-v4-cb20260618r-prod20260618r2.js?v=20260619-equip-scroll-clean-r1"></script>
-<script src="./unique-fx-update-v4-cb20260618r-prod20260618r2.js?v=20260619-equip-scroll-clean-r1"></script>
-<script src="./unique-fx-v4-cb20260618r-prod20260618r2.js?v=20260619-equip-scroll-clean-r1"></script>
-<script src="./game-core-scythe-v15-cb20260618s-prod20260618r3.js?v=20260619-equip-scroll-clean-r1"></script>
-<script src="./game-combat-scythe-v7-cb20260618p-prod20260618r2.js?v=20260619-equip-scroll-clean-r1"></script>
-<script src="./evolution-tuning-v2-cb20260618p-prod20260618r2.js?v=20260619-equip-scroll-clean-r1"></script>
-<script src="./game-render-scythe-v18-cb20260618p-prod20260618r3.js?v=20260619-equip-scroll-clean-r1"></script>
-<script src="./game-ui-scythe-v11-cb20260618p-prod20260618r2.js?v=20260619-equip-scroll-clean-r1"></script>
-<script src="./rift-scythe-v19-cb20260618p-prod20260618r3.js?v=20260619-equip-scroll-clean-r1"></script>
-<script src="./cosmetics-shop-scythe-v3-cb20260618p-prod20260618r2.js?v=20260619-equip-scroll-clean-r1"></script>
-<script src="./rift-paladin-skills-v4-cb20260618p-prod20260618r2.js?v=20260619-equip-scroll-clean-r1"></script>
-<script src="./perf-spawn-scythe-v1-cb20260619.js?v=20260619-equip-scroll-clean-r1"></script>
-<script src="./boss-pacing-scythe-v1-cb20260619.js?v=20260619-equip-scroll-clean-r1"></script>
-<script src="./rift-leaderboard-scythe-v1-cb20260619.js?v=20260619-equip-scroll-clean-r1"></script>
-<script src="./ranger-blade-fx-scythe-v1-cb20260619.js?v=20260619-equip-scroll-clean-r1"></script>
-<script src="./combat-icon-ui-v1-cb20260619.js?v=20260619-equip-scroll-clean-r1"></script>
+<script src="./storage-sync-v2-cb20260618p-prod20260618r2.js?v=20260619-parchment-board-r1"></script>
+<script src="./affix-scythe-v3-cb20260618p-prod20260618r2.js?v=20260619-parchment-board-r1"></script>
+<script src="./equip-data-v3-cb20260618r-prod20260618r2.js?v=20260619-parchment-board-r1"></script>
+<script src="./season-scythe-v7-cb20260618p-prod20260618r2.js?v=20260619-parchment-board-r1"></script>
+<script src="./progression-scythe-v6-cb20260618p-prod20260618r2.js?v=20260619-parchment-board-r1"></script>
+<script src="./redeem-scythe-v9-cb20260618p-prod20260618r2.js?v=20260619-parchment-board-r1"></script>
+<script src="./save-transfer-scythe-v5-cb20260618p-prod20260618r2.js?v=20260619-parchment-board-r1"></script>
+<script src="./equipment-scythe-v13-cb20260618r-prod20260618r2.js?v=20260619-parchment-board-r1"></script>
+<script src="./unique-fx-core-v4-cb20260618r-prod20260618r2.js?v=20260619-parchment-board-r1"></script>
+<script src="./unique-fx-update-v4-cb20260618r-prod20260618r2.js?v=20260619-parchment-board-r1"></script>
+<script src="./unique-fx-v4-cb20260618r-prod20260618r2.js?v=20260619-parchment-board-r1"></script>
+<script src="./game-core-scythe-v15-cb20260618s-prod20260618r3.js?v=20260619-parchment-board-r1"></script>
+<script src="./game-combat-scythe-v7-cb20260618p-prod20260618r2.js?v=20260619-parchment-board-r1"></script>
+<script src="./evolution-tuning-v2-cb20260618p-prod20260618r2.js?v=20260619-parchment-board-r1"></script>
+<script src="./game-render-scythe-v18-cb20260618p-prod20260618r3.js?v=20260619-parchment-board-r1"></script>
+<script src="./game-ui-scythe-v11-cb20260618p-prod20260618r2.js?v=20260619-parchment-board-r1"></script>
+<script src="./rift-scythe-v19-cb20260618p-prod20260618r3.js?v=20260619-parchment-board-r1"></script>
+<script src="./cosmetics-shop-scythe-v3-cb20260618p-prod20260618r2.js?v=20260619-parchment-board-r1"></script>
+<script src="./rift-paladin-skills-v4-cb20260618p-prod20260618r2.js?v=20260619-parchment-board-r1"></script>
+<script src="./perf-spawn-scythe-v1-cb20260619.js?v=20260619-parchment-board-r1"></script>
+<script src="./boss-pacing-scythe-v1-cb20260619.js?v=20260619-parchment-board-r1"></script>
+<script src="./rift-leaderboard-scythe-v1-cb20260619.js?v=20260619-parchment-board-r1"></script>
+<script src="./ranger-blade-fx-scythe-v1-cb20260619.js?v=20260619-parchment-board-r1"></script>
+<script src="./combat-icon-ui-v1-cb20260619.js?v=20260619-parchment-board-r1"></script>
 </body>
 </html>
