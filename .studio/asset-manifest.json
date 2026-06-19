@@ -1,7 +1,7 @@
 {
   "version": 1,
   "createdAt": "2026-06-13T14:08:29Z",
-  "updatedAt": "2026-06-19T08:25:34Z",
+  "updatedAt": "2026-06-19T08:39:52Z",
   "assets": [
     {
       "name": "player-paladin",
@@ -2451,27 +2451,6 @@
       },
       "traceId": "trace_mqknwdyg_moi6ygp9",
       "createdAt": "2026-06-19T08:24:57Z"
-    },
-    {
-      "name": "ui-hud-panel",
-      "status": "success",
-      "path": "publish/assets/generated/ui/ui-hud-panel.2d7f384b.webp",
-      "contentHash": "2d7f384b",
-      "revisedPrompt": "Wide horizontal dark fantasy translucent HUD status bar frame for an arcade survivor game, ornate but clean design, obsidian glass material, faint violet edge glow, subtle gold corner accents, empty transparent center area reserved for health and resource bars, elegant symmetrical UI frame, high readability, polished game interface asset, no text, no logo, no watermark, wide composition",
-      "model": "gpt-image-2",
-      "size": "1983x793",
-      "wantsTransparent": false,
-      "chromaKey": null,
-      "outputFormat": "webp",
-      "compressionProfile": "lossy_q80_opaque",
-      "originalBytes": 1251174,
-      "finalBytes": 71110,
-      "usage": {
-        "inputTokens": 76,
-        "outputImageTokens": 815
-      },
-      "traceId": "trace_mqkny4l4_i32g4tlw",
-      "createdAt": "2026-06-19T08:25:34Z"
     }
   ]
 }
