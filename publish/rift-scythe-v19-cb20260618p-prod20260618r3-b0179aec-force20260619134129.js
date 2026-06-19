@@ -18,9 +18,9 @@ function data(){return cache}
 function needsKey(layer){return Math.floor(layer||1)>=10}
 async function addGrantKeys(id,amount){await init();cache.grants=cache.grants||{};if(cache.grants[id])return{keys:cache.keys,applied:false};cache.keys+=Math.max(0,Math.floor(Number(amount)||0));cache.grants[id]=true;await storePut(cache);return{keys:cache.keys,applied:true}}
 async function addKeys(amount){await init();cache.keys+=Math.max(0,Math.floor(Number(amount)||0));await storePut(cache);return{keys:cache.keys}}
-function hpMul(l){l=Math.min(99,Math.max(1,Math.floor(l||1)));let pts=[[1,1],[20,18],[45,680],[75,6200],[99,28000]];for(let i=1;i<pts.length;i++){let a=pts[i-1],b=pts[i];if(l<=b[0]){let t=(l-a[0])/(b[0]-a[0]);return a[1]*Math.pow(b[1]/a[1],t)}}return pts[pts.length-1][1]}
+function hpMul(l){return Math.pow(1.17,Math.max(0,(Math.floor(l||1)-1)))}
 function dmgMul(l){l=Math.max(1,Math.floor(l||1));let m=1;for(let i=2;i<=l;i++)m*=i<=25?1.132:i<=70?1.072:1.0234;return m}
-function scale(l){l=Math.min(99,Math.max(1,Math.floor(l||1)));let hp=hpMul(l),bossExtra=2.2+Math.pow(l/99,1.6)*4.8;return{hp,dmg:dmgMul(l)*.78,spawn:Math.min(2.4,1+l*.018),count:Math.min(2.1,1+l*.014),elite:Math.min(.34,.08+l*.0026),bossHp:hp*bossExtra,bossDmg:dmgMul(l)*.92}}
+function scale(l){l=Math.min(99,Math.max(1,Math.floor(l||1)));return{hp:hpMul(l),dmg:dmgMul(l)*.78,spawn:Math.min(2.4,1+l*.018),count:Math.min(2.1,1+l*.014),elite:Math.min(.34,.08+l*.0026),bossHp:hpMul(l)*3.2,bossDmg:dmgMul(l)*.92}}
 async function canStart(layer){await init();layer=Math.floor(layer||1);return (!needsKey(layer)||cache.keys>0)&&layer>=1&&layer<=cache.maxLayer&&layer<=99}
 async function spendKey(layer){if(!await canStart(layer))return false;if(needsKey(layer)){cache.keys--;await storePut(cache)}return true}
 async function finishRun(r){await init();let layer=Math.min(99,Math.max(1,Math.floor(r.layer||1))),time=Math.max(0,r.time||0),win=!!r.win,gainDust=win?Math.round(8+layer*1.65):Math.floor(layer/4),ticketDrop=win&&layer>=10&&Math.random()<.3;cache.dust+=gainDust;if(win){cache.maxLayer=Math.max(cache.maxLayer,Math.min(99,layer+10));if(ticketDrop)cache.keys+=1;let b=cache.best[layer];if(!b||time<b.time)cache.best[layer]={time,classId:r.classId||'',at:Date.now()}}await storePut(cache);return{keys:cache.keys,maxLayer:cache.maxLayer,dust:cache.dust,gainDust,ticketDrop}}
