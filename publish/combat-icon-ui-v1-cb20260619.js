@@ -1,15 +1,16 @@
 (function(){
 'use strict';
+const iconBase='./assets/generated/ui/';
 const labels={
-  saveBtn:['存','存档'],
-  settingsBtn:['设','设置'],
-  relicBtn:['器','神器'],
-  skillBtn:['技','技能'],
-  invBtn:['包','背包']
+  saveBtn:['ui-icon-save.f5e79e61-prodrefresh20260619.webp','存档'],
+  settingsBtn:['ui-icon-settings.1fc5ebcc-prodrefresh20260619.webp','设置'],
+  relicBtn:['ui-icon-relic.efa3b5f9-prodrefresh20260619.webp','神器'],
+  skillBtn:['ui-icon-skill.e2db75b9-prodrefresh20260619.webp','技能'],
+  invBtn:['ui-icon-bag.03c04b3e-prodrefresh20260619.webp','背包']
 };
 const combatIds=['modeBtn','skillBtn','relicBtn','invBtn','saveBtn','settingsBtn','controls'];
 let collapsed=false,tipTimer=0,overlayWatcher=null;
-function iconButton(btn,glyph,label){
+function iconButton(btn,file,label){
   if(!btn)return;
   btn.dataset.iconUi='1';
   btn.dataset.label=label;
@@ -17,7 +18,7 @@ function iconButton(btn,glyph,label){
   btn.setAttribute('aria-label',label);
   btn.title=label;
   if(!btn.querySelector('.combatIcon')){
-    btn.innerHTML=`<span class="combatIcon combatGlyph">${glyph}</span><span class="combatIconText">${label}</span>`;
+    btn.innerHTML=`<img class="combatIcon" src="${iconBase}${file}" alt=""><span class="combatIconText">${label}</span>`;
   }
 }
 function iconize(){
@@ -57,7 +58,7 @@ function iconizeMode(){
   mode.classList.add('combatIconButton');
   mode.setAttribute('aria-label','自动战斗模式');
   mode.title='自动战斗';
-  mode.innerHTML=`<span class="combatIcon combatGlyph">自</span><span class="combatIconText">${modeLabel()}</span>`;
+  mode.innerHTML=`<img class="combatIcon" src="${iconBase}ui-icon-auto.9419fb98-prodrefresh20260619.webp" alt=""><span class="combatIconText">${modeLabel()}</span>`;
   if(!mode.dataset.modeTipBound){
     mode.dataset.modeTipBound='1';
     mode.addEventListener('click',()=>setTimeout(()=>{iconizeMode();showModeTip();},40),true);
