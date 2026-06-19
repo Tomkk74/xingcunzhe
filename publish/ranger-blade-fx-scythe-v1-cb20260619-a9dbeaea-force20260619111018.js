@@ -112,7 +112,7 @@ function updatePrismFinale(dt){
   if(S?._prismBeamCd>0&&!S._prismBeamActive)S._prismBeamCd-=dt;
   if(!S?._prismBeamActive||!S._prismBeam)return;
   let p=S.player,b=S._prismBeam;S._prismBeamActive-=dt;b.angle+=dt*2.8;b.hitTick-=dt;
-  if(b.hitTick<=0){b.hitTick=.12;for(let j=0;j<2;j++){let a=b.angle+j*Math.PI,dx=Math.cos(a),dy=Math.sin(a);for(const e of S.enemies){let px=e.x-p.x,py=e.y-p.y,along=px*dx+py*dy,side=Math.abs(px*dy-py*dx);if(along>0&&along<b.range&&side<b.width+e.r){dealDamage(e,b.dmg*.12,true,'arcaneBeam');e.hit=.08}}}}
+  if(b.hitTick<=0){b.hitTick=.14;for(let j=0;j<2;j++){let a=b.angle+j*Math.PI,dx=Math.cos(a),dy=Math.sin(a),cx=p.x+dx*b.range*.5,cy=p.y+dy*b.range*.5,pool=window.nearbyEnemies?nearbyEnemies(cx,cy,b.range*.55+b.width+60):S.enemies;for(const e of pool){let px=e.x-p.x,py=e.y-p.y,along=px*dx+py*dy,side=Math.abs(px*dy-py*dx);if(along>0&&along<b.range&&side<b.width+e.r){dealDamage(e,b.dmg*.14,true,'arcaneBeam');e.hit=.08}}}}
   for(let j=0;j<2;j++){let a=b.angle+j*Math.PI;S.artFx.push({x:p.x+Math.cos(a)*b.range,y:p.y+Math.sin(a)*b.range,fromX:p.x,fromY:p.y,kind:'beam',type:'prismFinaleBeam',color:'#e9d5ff',life:.08,max:.08,size:b.width*7,rot:a,beam:true})}
   if(S._prismBeamActive<=0){S._prismBeam=null;S._prismBeamActive=0}
 }
