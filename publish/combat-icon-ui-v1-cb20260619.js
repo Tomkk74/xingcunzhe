@@ -2,11 +2,11 @@
 'use strict';
 const iconBase='./assets/generated/ui/';
 const labels={
-  saveBtn:['ui-icon-save.f5e79e61.webp','存档'],
-  settingsBtn:['ui-icon-settings.1fc5ebcc.webp','设置'],
-  relicBtn:['ui-icon-relic.efa3b5f9.webp','职业神器'],
-  skillBtn:['ui-icon-skill.e2db75b9.webp','技能'],
-  invBtn:['ui-icon-bag.03c04b3e.webp','背包']
+  saveBtn:['ui-icon-save.f5e79e61-sm.webp','存档'],
+  settingsBtn:['ui-icon-settings.1fc5ebcc-sm.webp','设置'],
+  relicBtn:['ui-icon-relic.efa3b5f9-sm.webp','职业神器'],
+  skillBtn:['ui-icon-skill.e2db75b9-sm.webp','技能'],
+  invBtn:['ui-icon-bag.03c04b3e-sm.webp','背包']
 };
 let collapsed=false,tipTimer=0;
 function iconButton(btn,file,label){
@@ -37,7 +37,7 @@ function iconizeMode(){
   mode.classList.add('combatIconButton');
   mode.setAttribute('aria-label','自动战斗模式');
   mode.title='自动战斗';
-  mode.innerHTML=`<img class="combatIcon" src="${iconBase}ui-icon-auto.9419fb98.webp" alt=""><span class="srOnly">自动战斗</span>`;
+  mode.innerHTML=`<img class="combatIcon" src="${iconBase}ui-icon-auto.9419fb98-sm.webp" alt=""><span class="srOnly">自动战斗</span>`;
   if(!mode.dataset.modeTipBound){
     mode.dataset.modeTipBound='1';
     mode.addEventListener('click',()=>setTimeout(showModeTip,40),true);
