@@ -54,13 +54,6 @@ window.GameModules.affix = (() => {
 
   function pickRandom(pool) { return pool[Math.floor(Math.random()*pool.length)]; }
   function affixKey(a) { return a.id || a.stat; }
-  const WEAPON_ALLOWED = new Set(['damage','atkSpeed','range','crit','critDmg','dotDmg','rangeDmg','healthyDmg','extraProjectile','splitChance','bossDmg','eliteDmg','riftBossDmg','riftEliteDmg','shieldBreak','executeDmg','dotTickRate','progressBonus']);
-  const DEFENSE_ALLOWED = new Set(['hp','armor','regen','move','pickup','gold','cooldown','dodge','eliteDmgReduce','bossDmgReduce','slowResist','healBonus']);
-  function defensiveSlot(slot) { return slot === 'helm' || slot === 'chest' || slot === 'boots'; }
-  function survivalPool(slot) { return slot === 'weapon' ? [] : defensiveSlot(slot) ? SURVIVAL_AFFIXES : SURVIVAL_AFFIXES.filter(a => a.stat !== 'armor'); }
-  function weaponAffix(a) { return WEAPON_ALLOWED.has(a.stat) || a.stat.startsWith('attrDmg_'); }
-  function defenseAffix(a) { return DEFENSE_ALLOWED.has(a.stat); }
-  function slotPool(slot, pool) { return pool.filter(a => slot === 'weapon' ? weaponAffix(a) : defensiveSlot(slot) ? defenseAffix(a) : a.stat !== 'armor'); }
   function available(pool, used) { return pool.filter(a => !used.has(affixKey(a)) && !used.has(a.stat)); }
   function powerScale(itemPower=1) {
     let ip = Math.max(1, Math.min(120, Number(itemPower)||1));
@@ -104,20 +97,19 @@ window.GameModules.affix = (() => {
   }
 
   function rollGoldAffixes(level, mul, slot, cls) {
-    let stats = {}, resists = {}, tags = {}, used = new Set(), lucky = false, hasExtra = false, surv = slotPool(slot, survivalPool(slot));
-    let add = slotPool(slot, ADDITIVE_AFFIXES), multi = slotPool(slot, MULTIPLICATIVE_AFFIXES), res = slotPool(slot, RESIST_AFFIXES);
-    let offensePool = slot==='weapon'||slot==='amulet'||slot==='ring' ? add : add.concat(surv);
-    lucky = rollFrom(surv, used, stats, resists, tags, level, mul) || lucky;
+    let stats = {}, resists = {}, tags = {}, used = new Set(), lucky = false, hasExtra = false;
+    let offensePool = slot==='weapon'||slot==='amulet'||slot==='ring' ? ADDITIVE_AFFIXES : ADDITIVE_AFFIXES.concat(SURVIVAL_AFFIXES);
+    lucky = rollFrom(SURVIVAL_AFFIXES, used, stats, resists, tags, level, mul) || lucky;
     lucky = rollFrom(offensePool, used, stats, resists, tags, level, mul) || lucky;
-    lucky = rollFrom(add.concat(surv), used, stats, resists, tags, level, mul) || lucky;
-    let fourthPool = Math.random() < .2 ? multi : add.concat(surv);
+    lucky = rollFrom(ADDITIVE_AFFIXES.concat(SURVIVAL_AFFIXES), used, stats, resists, tags, level, mul) || lucky;
+    let fourthPool = Math.random() < .2 ? MULTIPLICATIVE_AFFIXES : ADDITIVE_AFFIXES.concat(SURVIVAL_AFFIXES);
     lucky = rollFrom(fourthPool, used, stats, resists, tags, level, mul) || lucky;
     if (Math.random() < .2) {
       hasExtra = true;
-      let fifthPool = Math.random() < .25 ? multi : add.concat(surv, multi);
+      let fifthPool = Math.random() < .25 ? MULTIPLICATIVE_AFFIXES : ADDITIVE_AFFIXES.concat(SURVIVAL_AFFIXES, MULTIPLICATIVE_AFFIXES);
       lucky = rollFrom(fifthPool, used, stats, resists, tags, level, mul) || lucky;
     }
-    if (slot !== 'weapon' && Math.random() < .45) rollFrom(res, used, stats, resists, tags, level, mul);
+    if (slot !== 'weapon' && Math.random() < .45) rollFrom(RESIST_AFFIXES, used, stats, resists, tags, level, mul);
     return { stats, resists, tags, isLucky:lucky, hasExtra };
   }
 
