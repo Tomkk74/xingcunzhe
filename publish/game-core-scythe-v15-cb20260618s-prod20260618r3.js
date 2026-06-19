@@ -8,6 +8,48 @@ var MAPS=[{id:'chaos',name:'混沌地域',state:'标准',element:'暗蚀',desc:'
 var MAP_RULES={chaos:{diff:1,spawn:1,count:1,gold:1,xp:1,boss:'demon'},ruins:{diff:1.12,spawn:1.12,count:.9,gold:1.28,xp:.92,boss:'golem',elite:.16},frost:{diff:1.18,spawn:.96,count:1.05,gold:1.05,xp:1.08,boss:'queen',enemySpd:.86,iceBoost:.16}};
 var INFO={missile:['魔法飞弹','稳定单体输出。升级：伤害 +12，CD -0.11 秒。'],garlic:['大蒜光环','近身持续伤害。升级：范围 +10，DPS +7。'],axe:['回旋飞斧','穿透飞行武器。升级：伤害 +12，CD -0.13 秒。'],lightning:['闪电轰顶','随机落雷小范围爆炸。升级：伤害 +18，CD -0.25 秒。'],fireball:['烈焰火球','命中后范围爆炸。升级：直击/爆炸伤害提升，CD 降低。'],iceorb:['冰霜法球','穿透并减速怪物。升级：伤害提升，减速更久。'],orbit:['星辰护体','金色星刃环绕主角切割敌人。升级：星刃数量和伤害提升。'],shadowBlade:['影刃突袭','暗影刀光穿透敌群。升级：伤害提升，CD 降低。'],holyLance:['圣光长枪','圣枪直线贯穿并造成高额伤害。升级：伤害提升，CD 降低。'],poisonCloud:['毒雾爆裂','在敌群中释放毒雾并减速。升级：范围和伤害提升。'],meteorShard:['陨星碎片','召唤燃烧陨石砸向敌人。升级：爆炸范围和伤害提升。'],bloodNova:['血色新星','以自身为中心释放吸血血环。升级：范围和伤害提升。'],windCutter:['风裂刃','青色风刃快速切穿怪物。升级：数量和伤害提升。'],thunderChain:['连锁雷弧','闪电在多个敌人之间弹射。升级：弹射数和伤害提升。'],crystalSpike:['晶刺地裂','在敌人脚下刺出晶柱。升级：范围和伤害提升。'],soulOrb:['魂火追踪','鬼火自动追踪最近敌人。升级：数量和伤害提升。'],arcaneBeam:['奥术射线','短促奥术光束扫射敌人。升级：伤害和范围提升。'],sandVortex:['黄沙漩涡','沙暴漩涡减速并撕裂怪群。升级：范围和伤害提升。'],daggerRain:['匕首雨','从天而降的银色匕首群。升级：数量和伤害提升。'],moonSlash:['月牙斩','宽大的银蓝月牙斩穿透敌人。升级：伤害提升，CD 降低。'],flameWheel:['炎轮回旋','火焰轮环绕玩家灼烧敌人。升级：数量和伤害提升。'],voidRift:['虚空裂隙','虚空裂缝吸附并爆破怪群。升级：范围和伤害提升。'],scytheArc:['残月镰舞','向目标方向挥出月弧镰斩，对扇形区域敌人造成伤害；高等级追加偏移副斩。升级：伤害、范围和挥斩角度提升，残血处决更强。'],bloodReap:['血镰回旋','释放环绕自身的血色镰影，斩击周围敌人并吸取生命；命中越多续航越稳。升级：伤害、范围和回复能力提升。'],wraithBlade:['幽魂刃舞','投出幽紫魂刃，飞行途中斩伤敌人，抵达目标后钉入地面持续释放魂刃伤害。升级：伤害、落地区域和冷却提升。'],reaperChain:['追魂镰链','甩出连接自身的追魂锁链，绕身如鞭旋扫敌群，持续造成伤害并减速。升级：锁链范围、伤害和残血收割能力提升。'],graveRift:['墓月裂隙','在敌群脚下撕开墓月裂隙，释放时爆发伤害，并持续吸附、减速和撕裂范围内敌人。升级：范围和持续伤害提升。'],lustSplash:['欲液反涌','受击后喷出粉紫欲望能量反伤。升级：反伤范围和伤害提升。'],lustKiss:['媚心飞吻','发射魅惑心弹，命中后小范围爆开。升级：数量、伤害和范围提升。'],lustPrayer:['献媚祈祷','脚下展开献祭领域，持续伤害并回复淫荡值。升级：范围、回复和伤害提升。'],lustOverflow:['欲潮溢流','淫荡值高涨时爆发大范围粉紫冲击。升级：爆发频率和伤害提升。'],foot:['空虚之足','每级移动速度 +12%，提升走位和捡经验效率。'],armor:['重装铠甲','每级最大生命 +18%，回复 25 HP，并使受到伤害 -4%。'],focus:['奥术专注','每级全技能伤害 +12%。'],magnet:['贪婪磁石','每级经验吸附范围 +22%。'],regen:['生命祝福','每级每秒回复 0.7 HP。']};
 var TAGS={missile:'远程 / 稳定 / 魔王',garlic:'近战 / 清怪 / 吸血',axe:'中距 / 穿透 / 清怪',lightning:'远程 / 爆发 / 雷系',fireball:'远程 / 爆炸 / 火系',iceorb:'远程 / 控场 / 冰系',orbit:'近战 / 护身 / 持续',shadowBlade:'中距 / 穿透 / 物理',holyLance:'远程 / 贯穿 / 圣光',poisonCloud:'中距 / 减速 / 区域',meteorShard:'超远 / 爆发 / 火系',bloodNova:'近战 / 吸血 / 爆发',windCutter:'中远 / 穿透 / 物理',thunderChain:'远程 / 弹射 / 雷系',crystalSpike:'远程 / 定点 / 控场',soulOrb:'远程 / 追踪 / 奥术',arcaneBeam:'远程 / 射线 / 奥术',sandVortex:'中远 / 聚怪 / 区域',daggerRain:'远程 / 多目标 / 物理',moonSlash:'中距 / 减速 / 物理',flameWheel:'近战 / 护身 / 火焰',voidRift:'远程 / 聚怪 / 奥术',scytheArc:'近战 / 扇形 / 收割',bloodReap:'近战 / 血镰 / 吸魂',wraithBlade:'中近 / 魂刃 / 处决',reaperChain:'中近 / 抛镰 / 镰链',graveRift:'中近 / 裂隙 / 聚怪',lustSplash:'近战 / 受击 / 反伤',lustKiss:'中远 / 弹射 / 魅惑',lustPrayer:'近战 / 领域 / 回复',lustOverflow:'近战 / 爆发 / 淫荡值',foot:'通用 / 走位 / 距离',armor:'通用 / 防御 / 容错',focus:'通用 / 伤害 / 成长',magnet:'通用 / 经验 / 节奏',regen:'通用 / 续航 / 容错'};
+
+var SKILL_DETAILS={
+missile:{role:'远程基础弹幕，适合稳定磨 Boss',cd:'约 1.2s，最低 0.55s',grow:'升级提高伤害，少量缩短冷却；组合刻印增加数量、范围和伤害',gear:'吃冷却、攻速少量折算、施法频率少量折算、奥术伤害'},
+garlic:{role:'贴身持续光环，负责近身清怪',cd:'持续结算，无主动冷却',grow:'升级提高范围和每秒伤害',gear:'吃施法频率、范围、神圣伤害、持续伤害'},
+axe:{role:'中距穿透飞斧，兼顾清怪和首领',cd:'约 2.2s，最低 1.05s',grow:'升级提高伤害；组合刻印提高数量、持续时间和范围',gear:'吃冷却、攻速少量折算、物理伤害、投射物速度'},
+lightning:{role:'远程爆发落雷，适合点杀精英',cd:'约 4.2s，最低 2.0s',grow:'升级提高伤害和范围，后期偏爆发',gear:'吃冷却、奥术/雷系加成、暴击和精英伤害'},
+fireball:{role:'远程范围爆炸，清群稳定',cd:'约 2.4s，最低 1.1s',grow:'升级提高直击和爆炸伤害；进化后偏陨星火海',gear:'吃冷却、火焰伤害、范围、持续伤害'},
+iceorb:{role:'远程穿透减速，负责控场',cd:'约 2.0s，最低 0.95s',grow:'升级提高伤害和减速强度',gear:'吃冷却、霜寒伤害、投射物速度和控场词条'},
+orbit:{role:'近身护体旋转刃，适合贴怪路线',cd:'持续旋转，无主动冷却',grow:'升级提高数量、半径和伤害',gear:'吃攻速/旋转速度、物理伤害、范围'},
+shadowBlade:{role:'中距暗影斩击，适合处决和穿透',cd:'约 1.7s，最低 0.85s',grow:'升级提高伤害和斩击覆盖',gear:'吃冷却、暗影伤害、处决伤害、攻速少量折算'},
+holyLance:{role:'远程贯穿圣枪，主打 Boss 和护盾敌人',cd:'约 2.2s，最低 1.0s',grow:'升级提高伤害、宽度和穿透压制',gear:'吃冷却、神圣伤害、Boss伤害、投射物速度'},
+poisonCloud:{role:'中距毒雾领域，持续减速和消耗',cd:'约 4.2s，最低 2.4s',grow:'升级提高范围和持续伤害，不鼓励无脑高频堆叠',gear:'吃冷却、施法频率、毒素伤害、持续伤害'},
+meteorShard:{role:'超远陨星爆发，适合砸精英和 Boss',cd:'约 5.0s，最低 2.5s',grow:'升级提高爆炸范围、伤害和灼烧',gear:'吃冷却、火焰伤害、范围、Boss伤害'},
+bloodNova:{role:'近战血环爆发兼续航',cd:'约 3.8s，最低 1.9s',grow:'升级提高范围、伤害和吸血收益',gear:'吃冷却、物理伤害、生命/回复和近战生存'},
+windCutter:{role:'中远快速风刃，清线手感好',cd:'约 1.5s，最低 0.75s',grow:'升级提高数量、伤害和穿透覆盖',gear:'吃攻速、冷却少量、物理伤害和投射物速度'},
+thunderChain:{role:'远程连锁雷弧，多目标弹射',cd:'约 3.6s，最低 1.8s',grow:'升级提高弹跳、伤害和连锁覆盖',gear:'吃冷却、奥术伤害、暴击、精英伤害'},
+crystalSpike:{role:'远程定点晶刺，兼具控制和爆发',cd:'约 3.0s，最低 1.5s',grow:'升级提高范围、伤害和减速',gear:'吃冷却、霜寒伤害、范围和控场词条'},
+soulOrb:{role:'远程追踪魂火，自动补刀',cd:'约 2.2s，最低 1.1s',grow:'升级提高数量和追踪伤害',gear:'吃冷却、奥术伤害、投射物速度和施法频率少量'},
+arcaneBeam:{role:'远程短促射线，穿线压制',cd:'约 2.8s，最低 1.35s',grow:'升级提高射线宽度、射程和伤害',gear:'吃冷却、奥术伤害、范围和暴击'},
+sandVortex:{role:'中远沙暴漩涡，减速聚怪',cd:'约 4.5s，最低 2.4s',grow:'升级提高范围、减速和持续伤害',gear:'吃冷却、施法频率、物理伤害和范围'},
+daggerRain:{role:'远程多目标匕首雨，优先清精英和远程怪',cd:'约 2.8s，最低 1.35s',grow:'升级提高目标数、伤害和落点范围',gear:'吃冷却、攻速少量、物理伤害和精英伤害'},
+moonSlash:{role:'中距月牙斩，穿透并减速',cd:'约 2.4s，最低 1.15s',grow:'升级提高伤害、数量和减速覆盖',gear:'吃冷却、霜寒/物理联动、投射物速度'},
+flameWheel:{role:'近战火轮护身，持续灼烧',cd:'持续旋转，无主动冷却',grow:'升级提高火轮数量、半径和伤害',gear:'吃攻速、火焰伤害、范围和持续伤害'},
+voidRift:{role:'远程虚空聚怪领域，大范围控制',cd:'约 6.5s，最低 3.4s',grow:'升级提高范围、牵引和爆发',gear:'吃冷却、暗影/奥术伤害、范围、控制收益'},
+scytheArc:{role:'琦琦近战扇形镰斩，主清怪和收割',cd:'约 1.6s，最低 0.85s',grow:'升级提高范围、角度和残血收割',gear:'吃冷却、攻速少量、暗影伤害和处决伤害'},
+bloodReap:{role:'自身血镰环斩，爆发兼吸血',cd:'约 3.2s，最低 1.6s',grow:'升级提高范围、伤害和命中回复',gear:'吃冷却、暗影伤害、回复、近战生存'},
+wraithBlade:{role:'投出魂刃后落地持续切割，偏 Boss/精英处决',cd:'约 3.6s，最低 2.2s',grow:'升级提高伤害、落地区域和处决收益；数量受性能上限保护',gear:'吃冷却、暗影伤害、处决伤害、Boss伤害'},
+reaperChain:{role:'中近追魂镰链，持续扫荡并减速',cd:'约 2.6s，最低 1.25s',grow:'升级提高链长、范围和吸血联动',gear:'吃冷却、暗影伤害、范围和持续伤害'},
+graveRift:{role:'墓月裂隙领域，聚怪、减速、持续撕裂',cd:'约 6.2s，最低 3.2s',grow:'升级提高范围、吸附和持续伤害',gear:'吃冷却、施法频率、暗影伤害、范围'},
+lustSplash:{role:'受击反涌，承伤反击核心',cd:'受击触发，有内置节流',grow:'升级提高反击范围和伤害',gear:'吃生命、防御、欲望伤害、受击回复'},
+lustKiss:{role:'中远飞吻弹，魅惑爆开',cd:'约 2.0s，最低 0.95s',grow:'升级提高数量、范围和伤害',gear:'吃冷却、欲望伤害、投射物速度'},
+lustPrayer:{role:'近战祈祷领域，持续伤害并回复淫荡值',cd:'约 7.2s，最低 4.0s',grow:'升级提高范围、回复和领域伤害；重复释放刷新领域',gear:'吃冷却、施法频率、欲望伤害、回复'},
+lustOverflow:{role:'消耗淫荡值的大范围爆发',cd:'约 5.2s，最低 2.6s，淫荡值越高越快',grow:'升级提高爆发范围和伤害',gear:'吃冷却、欲望伤害、最大淫荡值和爆发伤害'},
+foot:{role:'移动与走位强化',cd:'被动，无冷却',grow:'每级提高移动速度，改善拉扯、捡经验和冲层节奏',gear:'和移速、自动走位、生存容错联动'},
+armor:{role:'生命和减伤基础防御',cd:'被动，无冷却',grow:'每级提高最大生命，升级时回复生命并降低受伤压力',gear:'和生命、护甲、减伤、受击反击流联动'},
+focus:{role:'法系通用增伤',cd:'被动，无冷却',grow:'每级提高全技能伤害，适合法师爆发路线',gear:'和暴击、属性伤害、Boss伤害联动'},
+magnet:{role:'经验吸附和节奏强化',cd:'被动，无冷却',grow:'每级提高拾取范围，帮助更快升级和成型',gear:'和移动、经验节奏、进化辅助联动'},
+regen:{role:'稳定续航被动',cd:'被动，无冷却',grow:'每级提高每秒回复，适合近战和领域流',gear:'和治疗效果、生命、护盾联动'}
+};
+function skillDetailData(id){return SKILL_DETAILS[id]||{role:'通用技能',cd:'随技能体系结算',grow:INFO[id]?.[1]||'随等级提高效果',gear:'受相关技能词条影响'}}
+function skillDetailText(id){let d=skillDetailData(id);return `定位：${d.role}；冷却：${d.cd}；成长：${d.grow}；词条：${d.gear}`}
+function skillDetailHtml(id){let d=skillDetailData(id);return `<small class="skillDetailLine">定位：${esc(d.role)}</small><small class="skillDetailLine">冷却：${esc(d.cd)}</small><small class="skillDetailLine">成长：${esc(d.grow)}</small><small class="skillDetailLine">词条：${esc(d.gear)}</small>`}
 var ATTACK_SKILLS=['missile','garlic','axe','lightning','fireball','iceorb','orbit','shadowBlade','holyLance','poisonCloud','meteorShard','bloodNova','windCutter','thunderChain','crystalSpike','soulOrb','arcaneBeam','sandVortex','daggerRain','moonSlash','flameWheel','voidRift','lustSplash','lustKiss','lustPrayer','lustOverflow','scytheArc','bloodReap','wraithBlade','reaperChain','graveRift'];
 var LUST_ATTACKS=new Set(['lustSplash','lustKiss','lustPrayer','lustOverflow']);
 var SKILL_ATTR={missile:'arcane',garlic:'holy',axe:'physical',lightning:'arcane',fireball:'fire',iceorb:'frost',orbit:'physical',shadowBlade:'shadow',holyLance:'holy',poisonCloud:'poison',meteorShard:'fire',bloodNova:'physical',windCutter:'physical',thunderChain:'arcane',crystalSpike:'frost',soulOrb:'arcane',arcaneBeam:'arcane',sandVortex:'physical',daggerRain:'physical',moonSlash:'frost',flameWheel:'fire',voidRift:'shadow',lustSplash:'lust',lustKiss:'lust',lustPrayer:'lust',lustOverflow:'lust',scytheArc:'shadow',bloodReap:'shadow',wraithBlade:'shadow',reaperChain:'shadow',graveRift:'shadow'};
