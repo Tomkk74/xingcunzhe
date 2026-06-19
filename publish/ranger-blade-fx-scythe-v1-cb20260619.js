@@ -3,6 +3,7 @@
 const CFG={wind:{size:132,hit:42},moonSlash:{size:158,hit:52}};
 const baseCast=window.castProjectile;
 const baseVolley=window.volley;
+const baseDrawSheet=window.drawSheet;
 if(window.imgs?.wind&&!imgs.windFlipped)imgs.windFlipped=imgs.wind;
 function isBlade(k){return k==='wind'||k==='moonSlash'}
 function ensureWindFlip(){
@@ -18,6 +19,10 @@ function drawMirroredSheet(img,x,y,size,frame,rot=0,sx=1,sy=1,a=1){
   ctx.save();ctx.globalAlpha=a;ctx.translate(x,y);ctx.rotate(rot);ctx.scale(-sx,sy);
   ctx.drawImage(img,frame%2*fw,Math.floor(frame/2)*fh,fw,fh,-size/2,-size/2,size,size);ctx.restore();
 }
+window.drawSheet=function(img,x,y,size,frame,rot=0,sx=1,sy=1,a=1){
+  if(img===imgs?.windFlipped)return drawMirroredSheet(imgs.wind,x,y,size,frame,rot,Math.abs(sx),sy,a);
+  return baseDrawSheet?baseDrawSheet(img,x,y,size,frame,rot,sx,sy,a):undefined;
+};
 function bladeProjectile(kind,target,speed,dmg,life,aoe=0,slow=0,off=0,pierce=false){
   let p=S?.player;if(!p||!target)return;ensureWindFlip();
   let c=CFG[kind],a=Math.atan2(target.y-p.y,target.x-p.x)+off,sm=typeof projectileSpeedMul==='function'?projectileSpeedMul():1;
