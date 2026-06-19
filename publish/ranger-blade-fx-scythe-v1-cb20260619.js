@@ -26,7 +26,7 @@ window.drawBladeWave=function(m,kind){
   let img=imgs?.[kind];
   if(!img?.complete)return;
   let sz=m.size||(CFG[kind]||CFG.wind).size,fr=m.frame??frameOf(S.time,12),alpha=kind==='moonSlash'?.98:.92;
-  drawSheet(img,m.x,m.y,sz,fr,m.rot||0,kind==='moonSlash'?1.18:1.35,kind==='moonSlash'?.82:.72,alpha);
+  drawSheet(img,m.x,m.y,sz,fr,m.rot||0,kind==='wind'?-1.35:1.18,kind==='moonSlash'?.82:.72,alpha);
 };
 console.info('游侠风刃/月牙斩使用素材放大渲染补丁已启用');
 })();
