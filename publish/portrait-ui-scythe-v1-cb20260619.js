@@ -12,7 +12,7 @@ function combos(){
   }catch(_){return []}
 }
 function evos(){try{return Object.keys(S?.evolutions||{}).map(id=>({name:EVOLUTIONS?.[id]?.name||id,desc:EVOLUTIONS?.[id]?.desc||'已完成进化，技能形态已改变。'}))}catch(_){return []}}
-function node(kind,name,lv,desc,empty){return `<div class="skillNode ${kind||''} ${empty?'empty':''}">${lv?`<span class="lv">Lv.${e(lv)}</span>`:''}<h2>${e(name)}</h2><p>${desc||''}</p></div>`}
+function node(kind,name,lv,desc,empty){return `<div class="skillNode ${kind||''} ${empty?'empty':''}">${lv?`<span class="lv">${e(lv)}/5</span>`:''}<h2>${e(name)}</h2><p>${desc||''}</p></div>`}
 function renderPortraitSkills(){
   let body=document.getElementById('skillPanelBody');if(!body)return;
   let ls=learned(),cs=combos(),es=evos();
@@ -20,7 +20,9 @@ function renderPortraitSkills(){
   let learnedHtml=ls.map(([id,lv])=>{let range=SKILL_RANGE?.[id],ev=knownEvos(id),extra=(range?`<br>距离：${e(range.kind||'技能')} / ${e(range.ideal||range.range)}`:'')+(ev?`<br>可进化：${e(ev)}`:'');return node(skillChoiceClass?.({id})||'',skillName(id),lv,`${shortText(id)}${extra}`)}).join('')||node('', '未学习技能','', '进入战斗升级后会在这里形成技能树。', true);
   let comboHtml=cs.map(c=>node('combo',`合成 · ${c.name}`,c.lv,e(c.desc))).join('')||node('combo','待合成','', '每 5 级有机会把相关刻印合成为流派节点。', true);
   let evoHtml=es.map(v=>node('evo',`进化 · ${v.name}`,'',e(v.desc))).join('')||node('evo','待进化','', '主技能 Lv.5 + 对应辅助 Lv.3，击败魔王后完成进化。', true);
-  body.innerHTML=`<div class="portraitSkillTree"><section class="portraitSkillGroup"><h3>已学习技能</h3>${learnedHtml}</section><section class="portraitSkillGroup"><h3>合成技能</h3>${comboHtml}</section><section class="portraitSkillGroup"><h3>已完成进化</h3>${evoHtml}</section></div>`;
+  let slots=ls.slice(0,5).map(([id,lv])=>`<div class="portraitSkillSlot filled"><b>${e(skillName(id).slice(0,2))}</b><span>${e(lv)}/5</span></div>`).join('');
+  slots+=Array.from({length:Math.max(0,5-ls.length)},()=>'<div class="portraitSkillSlot"></div>').join('');
+  body.innerHTML=`<div class="portraitSkillTree"><section class="portraitSkillGroup"><h3>基础技能</h3>${learnedHtml}</section><section class="portraitSkillGroup"><h3>邪术技能</h3>${comboHtml}${evoHtml}</section><div class="portraitSkillFooter">${slots}</div></div>`;
 }
 function openPortraitSkills(){if(window.layoutEdit)return;if(!window.S?.run){window.showNotice?.('进入战斗后才能查看本局技能');return}renderPortraitSkills();document.getElementById('skillPanel')?.classList.remove('hidden');S.paused=true}
 function markEquip(){let p=document.querySelector('#equipmentPanel .panel');if(!p)return;p.classList.add('portraitEquipPanel');document.getElementById('equipSlots')?.classList.add('portraitEquipSlots');document.getElementById('equipGrid')?.classList.add('portraitEquipGrid')}
