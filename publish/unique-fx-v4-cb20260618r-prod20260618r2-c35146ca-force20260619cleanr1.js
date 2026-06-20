@@ -14,7 +14,7 @@ window.GameModules.uniqueFx = (() => {
   }
   function getMoveBonus() { return (S?._voidBonus || 0) + (S?._faithTrailBonus ? .40 : 0); }
   function getAtkBonus() { return (S?._voidBonus || 0) + (S?._faithTrailBonus || 0); }
-  function getPaleDamageMul() { return H.hasUnique('unique-pale-ring') && S._paleTimer > 0 ? 1.20 : 1; }
+  function getPaleDamageMul() { return H.hasUnique('unique-pale-ring') && S._paleTimer > 0 ? 1.60 : 1; }
   function getSoulShadowCrit() {
     let bonus = S?._soulShadowCrit || 0;
     if (H.hasSet('soul-shadow', 6) && (S?.player?.shield || 0) > 0) bonus += .12;
@@ -28,7 +28,7 @@ window.GameModules.uniqueFx = (() => {
   function getThunderVuln(e) {
     if (e._thunderVuln > 0) {
       e._thunderVuln -= 1/60;
-      return 1.50;
+      return 1.35;
     }
     return 1;
   }
@@ -71,6 +71,7 @@ window.GameModules.uniqueFx = (() => {
     S._fearGuardFxAt = 0;
     S._plagueDotRush = 0;
     S._faithTrailBonus = 0;
+    S._clockCdAt = 0;
   }
   function axeReturnReset(axe) {
     if (!H.hasSet('cyclone-axe')) return;
@@ -80,7 +81,7 @@ window.GameModules.uniqueFx = (() => {
   }
   function huntQuiverCount(baseCount, skillId) {
     if (!H.hasUnique('unique-hunt-quiver') || (skillId !== 'daggerRain' && skillId !== 'windCutter')) return baseCount;
-    let extraAtk = H.eqStat('atkSpeed') + (S._voidBonus || 0), extraCount = Math.min(.80, Math.floor(extraAtk * 10) * .20);
+    let extraAtk = H.eqStat('atkSpeed') + (S._voidBonus || 0), extraCount = Math.min(.60, Math.floor(extraAtk * 10) * .20);
     return baseCount + Math.floor(extraCount * baseCount);
   }
   return {
