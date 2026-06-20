@@ -8,6 +8,7 @@ window.GameModules.affix = (() => {
   const SURVIVAL_AFFIXES = [
     {id:'hp',stat:'hp',name:'最大生命提高',range:[.12,.18],tag:'ADDITIVE_POOL'},
     {id:'armor',stat:'armor',name:'总护甲提高',range:[.08,.12],tag:'ADDITIVE_POOL'},
+    {id:'allRes',stat:'allRes',name:'所有属性抗性',range:[.06,.09],tag:'ADDITIVE_POOL'},
     {id:'regen',stat:'regen',name:'生命回复提高',range:[.08,.12],tag:'ADDITIVE_POOL'},
     {id:'move',stat:'move',name:'移动速度提高',range:[.10,.14],tag:'ADDITIVE_POOL'},
   ];
@@ -38,15 +39,15 @@ window.GameModules.affix = (() => {
     range:[.16,.24],
     tag:'SUB_BUCKET_TYPE'
   }));
-  const RESIST_AFFIXES = RES.map(r => ({id:'res_'+r,stat:'resist_'+r,attr:r,name:RES_CN[r]+'抗性提高',range:[.15,.20],tag:'ADDITIVE_POOL'}));
+  const RESIST_AFFIXES = RES.map(r => ({id:'res_'+r,stat:'resist_'+r,attr:r,name:RES_CN[r]+'抗性提高',range:[.08,.12],tag:'ADDITIVE_POOL'}));
   const TEMPLATE_AFFIXES = [
     {id:'critDmg',stat:'critDmg',name:'暴击伤害提高',range:[.18,.28],tag:'ADDITIVE_POOL'},
     {id:'dotDmg',stat:'dotDmg',name:'持续伤害提高',range:[.18,.28],tag:'ADDITIVE_POOL'},
     {id:'rangeDmg',stat:'rangeDmg',name:'远距离伤害提高',range:[.14,.22],tag:'ADDITIVE_POOL'},
     {id:'healthyDmg',stat:'healthyDmg',name:'对高血量敌人伤害提高',range:[.14,.22],tag:'ADDITIVE_POOL'},
     {id:'dodge',stat:'dodge',name:'闪避率',range:[.08,.12],tag:'ADDITIVE_POOL'},
-    {id:'eliteDmgReduce',stat:'eliteDmgReduce',name:'受到精英伤害降低',range:[.11,.16],tag:'ADDITIVE_POOL'},
-    {id:'bossDmgReduce',stat:'bossDmgReduce',name:'受到Boss伤害降低',range:[.11,.16],tag:'ADDITIVE_POOL'},
+    {id:'eliteDmgReduce',stat:'eliteDmgReduce',name:'受到精英伤害降低',range:[.04,.06],tag:'ADDITIVE_POOL'},
+    {id:'bossDmgReduce',stat:'bossDmgReduce',name:'受到Boss伤害降低',range:[.04,.06],tag:'ADDITIVE_POOL'},
     {id:'slowResist',stat:'slowResist',name:'受到减速效果降低',range:[.10,.14],tag:'ADDITIVE_POOL'},
     {id:'healBonus',stat:'healBonus',name:'治疗效果提高',range:[.08,.12],tag:'ADDITIVE_POOL'},
   ];
@@ -55,7 +56,7 @@ window.GameModules.affix = (() => {
   function pickRandom(pool) { return pool[Math.floor(Math.random()*pool.length)]; }
   function affixKey(a) { return a.id || a.stat; }
   const WEAPON_ALLOWED = new Set(['damage','atkSpeed','range','crit','critDmg','dotDmg','rangeDmg','healthyDmg','extraProjectile','splitChance','bossDmg','eliteDmg','riftBossDmg','riftEliteDmg','shieldBreak','executeDmg','dotTickRate','progressBonus']);
-  const DEFENSE_ALLOWED = new Set(['hp','armor','regen','move','pickup','gold','cooldown','dodge','eliteDmgReduce','bossDmgReduce','slowResist','healBonus']);
+  const DEFENSE_ALLOWED = new Set(['hp','armor','allRes','regen','move','pickup','gold','cooldown','dodge','eliteDmgReduce','bossDmgReduce','slowResist','healBonus']);
   const JEWELRY_BLOCKED = new Set(['armor','dodge','eliteDmgReduce','bossDmgReduce','healBonus']);
   function defensiveSlot(slot) { return slot === 'helm' || slot === 'chest' || slot === 'boots'; }
   function jewelrySlot(slot) { return slot === 'amulet' || slot === 'ring'; }
@@ -148,7 +149,7 @@ window.GameModules.affix = (() => {
     'unique-clock-gloves': {id:'aspect_clock_gloves',name:'逆时冷却',desc:'满屏弹幕暴击有10%概率使冷却中核心大招CD减少1秒。',tag:'UNIQUE_ASPECT'},
     'unique-rose-mirror': {id:'aspect_rose_mirror',name:'欲念蓄池',desc:'吸收60%承伤存入欲念池，下次攻击以[x]220%喷溅；蔷薇6件联动吸收72%并提升为[x]300%。',tag:'UNIQUE_ASPECT'},
     'unique-abyss-mask': {id:'aspect_abyss_mask',name:'深渊斩杀',desc:'普通怪<25%、精英<15%、Boss<10%时触发致命暴击斩杀。',tag:'UNIQUE_ASPECT'},
-    'unique-golem-soul': {id:'aspect_golem_soul',name:'岩盾守护',desc:'站立释放技能获得独立全减伤，并将荆棘按150%加入弹幕。',tag:'UNIQUE_ASPECT'},
+    'unique-golem-soul': {id:'aspect_golem_soul',name:'岩盾守护',desc:'站立释放技能获得独立全减伤，最高35%，并将荆棘按150%加入弹幕。',tag:'UNIQUE_ASPECT'},
     'unique-demon-horn': {id:'aspect_demon_horn',name:'魔王降临',desc:'最终Boss激活时弹幕数量与核心伤害翻倍，对Boss[x]60%。',tag:'UNIQUE_ASPECT'},
     'unique-pale-ring': {id:'aspect_pale_ring',name:'苍白相位',desc:'致命伤免死进入2.5秒相位，期间技能独立伤害[x]120%。',tag:'UNIQUE_ASPECT'},
     'unique-faith-boots': {id:'aspect_faith_boots',name:'黎明道路',desc:'圣光长枪留下圣痕道路，踩上后施法频率独立连乘[x]30%。',tag:'UNIQUE_ASPECT'},

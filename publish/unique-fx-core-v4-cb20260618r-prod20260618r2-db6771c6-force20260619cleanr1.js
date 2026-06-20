@@ -128,13 +128,7 @@ window.GameModules.uniqueFxShared = (() => {
       let linked=hasSet('rose-mirror',6),absorb=linked ? .72 : .60,stored=rawDmg*absorb;
       S._roseStored = Math.min(p.max*(linked?4.5:3), (S._roseStored || 0) + stored); if (linked) S._mirrorPool = Math.min(p.max * 2, (S._mirrorPool || 0) + stored * .3); return { dmg: rawDmg * (1 - absorb), prevent: false };
     }
-    if (hasUnique('unique-pale-ring') && p.hp - rawDmg <= 0 && !S._paleUsed) {
-      S._paleUsed = true; S._paleTimer = 2.5; p.hp = 1; p.shield = Math.round(p.max * .25);
-      (window.lightBurstAt || window.burstAt)?.('aura', p.x, p.y, 0, 200, 0, '#f0f0ff', 210, .45);
-      window.showNotice?.('苍白相位：2.5秒无敌隐形！');
-      return { dmg: 0, prevent: true };
-    }
-    if (hasUnique('unique-golem-soul') && !p.moving && (p.cast || 0) > 0) rawDmg *= Math.max(.40, 1 - Math.min(5, Math.floor(S.time * 2)) * .12);
+    if (hasUnique('unique-golem-soul') && !p.moving && (p.cast || 0) > 0) rawDmg *= Math.max(.65, 1 - Math.min(5, Math.floor(S.time * 2)) * .07);
     if ((S._fear || 0) > 0) {
       let fearCut = 1 - Math.min(.70, fearNearbyCount(p) * .08), capped = Math.min(rawDmg, p.max), fearLoss = capped * fearCut;
       let paid = Math.min(S._fear || 0, fearLoss);
