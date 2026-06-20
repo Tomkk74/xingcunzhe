@@ -155,7 +155,7 @@ window.GameModules.affix = (() => {
 
   return {
     SURVIVAL_AFFIXES, ADDITIVE_AFFIXES, MULTIPLICATIVE_AFFIXES, RESIST_AFFIXES,
-    UNIQUE_ASPECTS, RES, RES_CN,
+    UNIQUE_ASPECTS, RES, RES_CN, TEMPLATE_AFFIXES,
     rollGoldAffixes, rollFixedAffixes, tagLabel, uniqueAspectDesc, scaleValue, powerScale, powerTier, pickRandom
   };
 })();
