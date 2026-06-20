@@ -6,49 +6,49 @@ window.GameModules.affix = (() => {
   const RES_CN = { physical:'物理', fire:'火焰', frost:'霜寒', arcane:'奥术', holy:'神圣', shadow:'暗影', poison:'毒素', lust:'欲望' };
 
   const SURVIVAL_AFFIXES = [
-    {id:'hp',stat:'hp',name:'生命',range:[.06,.18],tag:'ADDITIVE_POOL'},
-    {id:'armor',stat:'armor',name:'护甲',range:[.04,.12],tag:'ADDITIVE_POOL'},
-    {id:'regen',stat:'regen',name:'回复',range:[.04,.12],tag:'ADDITIVE_POOL'},
-    {id:'move',stat:'move',name:'移速',range:[.04,.14],tag:'ADDITIVE_POOL'},
+    {id:'hp',stat:'hp',name:'生命',range:[.12,.18],tag:'ADDITIVE_POOL'},
+    {id:'armor',stat:'armor',name:'护甲',range:[.08,.12],tag:'ADDITIVE_POOL'},
+    {id:'regen',stat:'regen',name:'回复',range:[.08,.12],tag:'ADDITIVE_POOL'},
+    {id:'move',stat:'move',name:'移速',range:[.10,.14],tag:'ADDITIVE_POOL'},
   ];
   const ADDITIVE_AFFIXES = [
-    {id:'damage',stat:'damage',name:'伤害',range:[.06,.18],tag:'ADDITIVE_POOL'},
-    {id:'cooldown',stat:'cooldown',name:'冷却',range:[.025,.055],tag:'ADDITIVE_POOL'},
-    {id:'atkSpeed',stat:'atkSpeed',name:'攻速',range:[.035,.09],tag:'ADDITIVE_POOL'},
-    {id:'skillFreq',stat:'skillFreq',name:'施法频率',range:[.03,.075],tag:'ADDITIVE_POOL'},
-    {id:'range',stat:'range',name:'范围',range:[.04,.14],tag:'ADDITIVE_POOL'},
-    {id:'crit',stat:'crit',name:'暴击',range:[.04,.14],tag:'ADDITIVE_POOL'},
-    {id:'projectileSpeed',stat:'projectileSpeed',name:'技能飞行速度',range:[.06,.18],tag:'ADDITIVE_POOL'},
-    {id:'extraProjectile',stat:'extraProjectile',name:'额外弹幕',range:[.04,.10],tag:'ADDITIVE_POOL'},
-    {id:'splitChance',stat:'splitChance',name:'弹幕分裂率',range:[.04,.12],tag:'ADDITIVE_POOL'},
-    {id:'bossDmg',stat:'bossDmg',name:'Boss伤害',range:[.08,.20],tag:'ADDITIVE_POOL'},
-    {id:'eliteDmg',stat:'eliteDmg',name:'精英伤害',range:[.08,.20],tag:'ADDITIVE_POOL'},
-    {id:'riftBossDmg',stat:'riftBossDmg',name:'大秘境Boss伤害',range:[.10,.24],tag:'ADDITIVE_POOL'},
-    {id:'riftEliteDmg',stat:'riftEliteDmg',name:'大秘境精英伤害',range:[.08,.22],tag:'ADDITIVE_POOL'},
-    {id:'shieldBreak',stat:'shieldBreak',name:'破盾系数',range:[.08,.22],tag:'ADDITIVE_POOL'},
-    {id:'executeDmg',stat:'executeDmg',name:'处决伤害',range:[.08,.24],tag:'ADDITIVE_POOL'},
-    {id:'dotTickRate',stat:'dotTickRate',name:'DoT跳字频率',range:[.06,.18],tag:'ADDITIVE_POOL'},
-    {id:'progressBonus',stat:'progressBonus',name:'秘境进度',range:[.04,.12],tag:'ADDITIVE_POOL'},
+    {id:'damage',stat:'damage',name:'伤害',range:[.12,.18],tag:'ADDITIVE_POOL'},
+    {id:'cooldown',stat:'cooldown',name:'冷却',range:[.04,.055],tag:'ADDITIVE_POOL'},
+    {id:'atkSpeed',stat:'atkSpeed',name:'攻速',range:[.06,.09],tag:'ADDITIVE_POOL'},
+    {id:'skillFreq',stat:'skillFreq',name:'施法频率',range:[.06,.09],tag:'ADDITIVE_POOL'},
+    {id:'range',stat:'range',name:'范围',range:[.09,.14],tag:'ADDITIVE_POOL'},
+    {id:'crit',stat:'crit',name:'暴击',range:[.09,.14],tag:'ADDITIVE_POOL'},
+    {id:'projectileSpeed',stat:'projectileSpeed',name:'技能飞行速度',range:[.09,.14],tag:'ADDITIVE_POOL'},
+    {id:'extraProjectile',stat:'extraProjectile',name:'额外弹幕',range:[.07,.10],tag:'ADDITIVE_POOL'},
+    {id:'splitChance',stat:'splitChance',name:'弹幕分裂率',range:[.07,.10],tag:'ADDITIVE_POOL'},
+    {id:'bossDmg',stat:'bossDmg',name:'Boss伤害',range:[.14,.22],tag:'ADDITIVE_POOL'},
+    {id:'eliteDmg',stat:'eliteDmg',name:'精英伤害',range:[.14,.22],tag:'ADDITIVE_POOL'},
+    {id:'riftBossDmg',stat:'riftBossDmg',name:'大秘境Boss伤害',range:[.16,.24],tag:'ADDITIVE_POOL'},
+    {id:'riftEliteDmg',stat:'riftEliteDmg',name:'大秘境精英伤害',range:[.14,.22],tag:'ADDITIVE_POOL'},
+    {id:'shieldBreak',stat:'shieldBreak',name:'破盾系数',range:[.09,.14],tag:'ADDITIVE_POOL'},
+    {id:'executeDmg',stat:'executeDmg',name:'处决伤害',range:[.14,.22],tag:'ADDITIVE_POOL'},
+    {id:'dotTickRate',stat:'dotTickRate',name:'DoT跳字频率',range:[.06,.09],tag:'ADDITIVE_POOL'},
+    {id:'progressBonus',stat:'progressBonus',name:'秘境进度',range:[.03,.05],tag:'ADDITIVE_POOL'},
   ];
   const MULTIPLICATIVE_AFFIXES = RES.map(r => ({
     id:'attrDmg_'+r,
     stat:'attrDmg_'+r,
     attr:r,
     name:RES_CN[r]+'属性伤害',
-    range:[.12,.24],
+    range:[.16,.24],
     tag:'SUB_BUCKET_TYPE'
   }));
-  const RESIST_AFFIXES = RES.map(r => ({id:'res_'+r,stat:'resist_'+r,attr:r,name:RES_CN[r]+'抗性',range:[.06,.14],tag:'ADDITIVE_POOL'}));
+  const RESIST_AFFIXES = RES.map(r => ({id:'res_'+r,stat:'resist_'+r,attr:r,name:RES_CN[r]+'抗性',range:[.15,.20],tag:'ADDITIVE_POOL'}));
   const TEMPLATE_AFFIXES = [
-    {id:'critDmg',stat:'critDmg',name:'暴击伤害',range:[.10,.28],tag:'ADDITIVE_POOL'},
-    {id:'dotDmg',stat:'dotDmg',name:'持续伤害',range:[.10,.28],tag:'ADDITIVE_POOL'},
-    {id:'rangeDmg',stat:'rangeDmg',name:'远距伤害',range:[.08,.22],tag:'ADDITIVE_POOL'},
-    {id:'healthyDmg',stat:'healthyDmg',name:'对健康伤害',range:[.08,.22],tag:'ADDITIVE_POOL'},
-    {id:'dodge',stat:'dodge',name:'闪避',range:[.04,.12],tag:'ADDITIVE_POOL'},
-    {id:'eliteDmgReduce',stat:'eliteDmgReduce',name:'精英减伤',range:[.06,.16],tag:'ADDITIVE_POOL'},
-    {id:'bossDmgReduce',stat:'bossDmgReduce',name:'Boss减伤',range:[.06,.16],tag:'ADDITIVE_POOL'},
-    {id:'slowResist',stat:'slowResist',name:'减速抗性',range:[.06,.18],tag:'ADDITIVE_POOL'},
-    {id:'healBonus',stat:'healBonus',name:'治疗效果',range:[.06,.18],tag:'ADDITIVE_POOL'},
+    {id:'critDmg',stat:'critDmg',name:'暴击伤害',range:[.18,.28],tag:'ADDITIVE_POOL'},
+    {id:'dotDmg',stat:'dotDmg',name:'持续伤害',range:[.18,.28],tag:'ADDITIVE_POOL'},
+    {id:'rangeDmg',stat:'rangeDmg',name:'远距伤害',range:[.14,.22],tag:'ADDITIVE_POOL'},
+    {id:'healthyDmg',stat:'healthyDmg',name:'对健康伤害',range:[.14,.22],tag:'ADDITIVE_POOL'},
+    {id:'dodge',stat:'dodge',name:'闪避',range:[.08,.12],tag:'ADDITIVE_POOL'},
+    {id:'eliteDmgReduce',stat:'eliteDmgReduce',name:'精英减伤',range:[.11,.16],tag:'ADDITIVE_POOL'},
+    {id:'bossDmgReduce',stat:'bossDmgReduce',name:'Boss减伤',range:[.11,.16],tag:'ADDITIVE_POOL'},
+    {id:'slowResist',stat:'slowResist',name:'减速抗性',range:[.10,.14],tag:'ADDITIVE_POOL'},
+    {id:'healBonus',stat:'healBonus',name:'治疗效果',range:[.08,.12],tag:'ADDITIVE_POOL'},
   ];
   const AFFIX_BY_STAT = [...SURVIVAL_AFFIXES, ...ADDITIVE_AFFIXES, ...MULTIPLICATIVE_AFFIXES, ...RESIST_AFFIXES, ...TEMPLATE_AFFIXES].reduce((o,a)=>(o[a.stat]=a,o),{});
 
@@ -67,21 +67,31 @@ window.GameModules.affix = (() => {
   function available(pool, used) { return pool.filter(a => !used.has(affixKey(a)) && !used.has(a.stat)); }
   function powerScale(itemPower=1) {
     let ip = Math.max(1, Math.min(120, Number(itemPower)||1));
-    return 1 + Math.max(0, ip - 1) * .024;
+    return ip / 120;
   }
   function powerTier(itemPower=1) {
     let ip = Math.max(1, Math.min(120, Number(itemPower)||1));
-    return ip>=110?'神铸':ip>=90?'远古':ip>=70?'卓越':ip>=50?'精良':ip>=30?'普通':'残破';
+    return ip>=105?'满级':ip>=80?'高阶':ip>=50?'进阶':ip>=25?'成长':'新手';
   }
-  function scaleValue(range, level, mul, itemPower=level) {
-    let base = range[0] + Math.random()*(range[1]-range[0]);
-    return Math.round(base * powerScale(itemPower) * mul * 1000) / 1000;
+  function rollQuality(itemPower=1) {
+    let ip = Math.max(1, Math.min(120, Number(itemPower)||1)), r = Math.random() * 100;
+    if (ip >= 105 && r > 99) return 'primal';
+    if (r > 85) return 'ancient';
+    return 'normal';
   }
-  function addFlat(stats, resists, tags, used, a, level, mul, rf=null) {
+  function isSurvivalStat(stat) { return stat === 'hp' || stat === 'armor'; }
+  function qualityName(q) { return q === 'primal' ? '太古' : q === 'ancient' ? '远古' : '普通'; }
+  function scaleValue(range, level, mul=1, itemPower=level, quality='normal', stat='') {
+    let l = powerScale(itemPower), min = range[0] * l, max = range[1] * l;
+    if (isSurvivalStat(stat) && (quality === 'ancient' || quality === 'primal')) max *= 1.3;
+    let val = quality === 'primal' ? max : min + Math.random() * Math.max(0, max - min);
+    return Math.round(val * mul * 1000) / 1000;
+  }
+  function addFlat(stats, resists, tags, used, a, level, mul, rf=null, quality='normal') {
     if (!a) return false;
     let old = Math.random, key = affixKey(a);
     if (rf !== null) Math.random = () => rf;
-    let val = scaleValue(a.range, level, mul, level);
+    let val = scaleValue(a.range, level, mul, level, quality, a.stat);
     if (rf !== null) Math.random = old;
     used.add(key); used.add(a.stat);
     if (a.attr && a.stat.startsWith('resist_')) resists[a.attr] = Math.round(((resists[a.attr]||0)+val)*1000)/1000;
@@ -89,39 +99,39 @@ window.GameModules.affix = (() => {
     tags[key] = a.tag;
     return a.tag && a.tag.startsWith('SUB_BUCKET');
   }
-  function rollFrom(pool, used, stats, resists, tags, level, mul) {
+  function rollFrom(pool, used, stats, resists, tags, level, mul, quality='normal') {
     let p = available(pool, used);
     if (!p.length) return false;
-    return addFlat(stats, resists, tags, used, pickRandom(p), level, mul);
+    return addFlat(stats, resists, tags, used, pickRandom(p), level, mul, null, quality);
   }
 
-  function rollFixedAffixes(keys, itemPower, mul=1, high=false) {
-    let stats = {}, resists = {}, tags = {}, used = new Set(), lucky = false;
+  function rollFixedAffixes(keys, itemPower, mul=1, high=false, quality=null) {
+    let stats = {}, resists = {}, tags = {}, used = new Set(), lucky = false, q = quality || rollQuality(itemPower);
     for (const key of keys || []) {
       let a = AFFIX_BY_STAT[key];
       if (!a) continue;
-      let rf = high ? .85 + Math.random() * .15 : null;
-      lucky = addFlat(stats, resists, tags, used, a, itemPower, mul, rf) || lucky;
+      let rf = high && q !== 'primal' ? .85 + Math.random() * .15 : null;
+      lucky = addFlat(stats, resists, tags, used, a, itemPower, mul, rf, q) || lucky;
     }
-    return { stats, resists, tags, isLucky:lucky };
+    return { stats, resists, tags, isLucky:lucky, quality:q, qualityName:qualityName(q) };
   }
 
-  function rollGoldAffixes(level, mul, slot, cls) {
-    let stats = {}, resists = {}, tags = {}, used = new Set(), lucky = false, hasExtra = false, surv = slotPool(slot, survivalPool(slot));
+  function rollGoldAffixes(level, mul, slot, cls, quality=null) {
+    let stats = {}, resists = {}, tags = {}, used = new Set(), lucky = false, hasExtra = false, surv = slotPool(slot, survivalPool(slot)), q = quality || rollQuality(level);
     let add = slotPool(slot, ADDITIVE_AFFIXES), multi = slotPool(slot, MULTIPLICATIVE_AFFIXES), res = slotPool(slot, RESIST_AFFIXES);
     let offensePool = slot==='weapon'||slot==='amulet'||slot==='ring' ? add : add.concat(surv);
-    lucky = rollFrom(surv, used, stats, resists, tags, level, mul) || lucky;
-    lucky = rollFrom(offensePool, used, stats, resists, tags, level, mul) || lucky;
-    lucky = rollFrom(add.concat(surv), used, stats, resists, tags, level, mul) || lucky;
+    lucky = rollFrom(surv, used, stats, resists, tags, level, mul, q) || lucky;
+    lucky = rollFrom(offensePool, used, stats, resists, tags, level, mul, q) || lucky;
+    lucky = rollFrom(add.concat(surv), used, stats, resists, tags, level, mul, q) || lucky;
     let fourthPool = Math.random() < .2 ? multi : add.concat(surv);
-    lucky = rollFrom(fourthPool, used, stats, resists, tags, level, mul) || lucky;
-    if (Math.random() < .2) {
+    lucky = rollFrom(fourthPool, used, stats, resists, tags, level, mul, q) || lucky;
+    if (Math.random() < .2 || q === 'primal') {
       hasExtra = true;
       let fifthPool = Math.random() < .25 ? multi : add.concat(surv, multi);
-      lucky = rollFrom(fifthPool, used, stats, resists, tags, level, mul) || lucky;
+      lucky = rollFrom(fifthPool, used, stats, resists, tags, level, mul, q) || lucky;
     }
-    if (slot !== 'weapon' && Math.random() < .45) rollFrom(res, used, stats, resists, tags, level, mul);
-    return { stats, resists, tags, isLucky:lucky, hasExtra };
+    if (slot !== 'weapon' && Math.random() < .45) rollFrom(res, used, stats, resists, tags, level, mul, q);
+    return { stats, resists, tags, isLucky:lucky, hasExtra, quality:q, qualityName:qualityName(q) };
   }
 
   const UNIQUE_ASPECTS = {
@@ -156,6 +166,6 @@ window.GameModules.affix = (() => {
   return {
     SURVIVAL_AFFIXES, ADDITIVE_AFFIXES, MULTIPLICATIVE_AFFIXES, RESIST_AFFIXES,
     UNIQUE_ASPECTS, RES, RES_CN, TEMPLATE_AFFIXES,
-    rollGoldAffixes, rollFixedAffixes, tagLabel, uniqueAspectDesc, scaleValue, powerScale, powerTier, pickRandom
+    rollGoldAffixes, rollFixedAffixes, tagLabel, uniqueAspectDesc, scaleValue, powerScale, powerTier, rollQuality, qualityName, pickRandom
   };
 })();
