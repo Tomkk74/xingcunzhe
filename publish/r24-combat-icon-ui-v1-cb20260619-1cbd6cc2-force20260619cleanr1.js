@@ -120,7 +120,8 @@ function updateResourceBar(){
   bar.classList.toggle('hidden',!info);
   if(!info)return;
   const [name,cur,max]=info,now=Math.max(0,Math.floor(cur)),cap=Math.max(1,Math.floor(max));
-  label.textContent=name;
+  const short={淫荡值:'淫荡',猎杀动能:'动能',奥术回响:'奥术'};
+  label.textContent=collapsed?(short[name]||name):name;
   txt.textContent=`${now}/${cap}`;
   fill.style.width=`${Math.max(0,Math.min(100,now/cap*100))}%`;
 }
