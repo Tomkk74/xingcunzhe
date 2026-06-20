@@ -1,6 +1,7 @@
 window.GameModules = window.GameModules || {};
 window.GameModules.storageSync = (() => {
   const warned = {};
+  const wait = ms => new Promise(r => setTimeout(r, ms));
   function now() { return Date.now(); }
   function stamp(value) {
     if (!value || typeof value !== 'object' || Array.isArray(value)) return value;
@@ -25,22 +26,50 @@ window.GameModules.storageSync = (() => {
     }
     if (e) console.warn(text + ':', e.code, e.message);
   }
+  function err(code, message) { const e = new Error(message); e.code = code; return e; }
   function withTimeout(task, ms = 2800) {
-    if (!task || typeof task.then !== 'function') return Promise.resolve(task);
+    if (!task || typeof task.then !== 'function') return Promise.reject(err('CLOUD_UNAVAILABLE', '云端存档接口尚未就绪'));
     return Promise.race([
       task,
-      new Promise((_, reject) => setTimeout(() => {
-        const e = new Error('云端请求超时，已使用本地数据');
-        e.code = 'CLOUD_TIMEOUT';
-        reject(e);
-      }, ms))
+      new Promise((_, reject) => setTimeout(() => reject(err('CLOUD_TIMEOUT', '云端请求超时')), ms))
     ]);
+  }
+  async function cloudApi(ms = 3200) {
+    const end = now() + ms;
+    while (now() < end) {
+      const kv = window.dzmm?.kv;
+      if (kv?.get && kv?.put) return kv;
+      await wait(120);
+    }
+    throw err('CLOUD_UNAVAILABLE', '云端存档接口尚未就绪');
+  }
+  async function cloudGet(key, timeout) {
+    const kv = await cloudApi(timeout);
+    return (await withTimeout(kv.get(key), timeout))?.value ?? null;
   }
   async function get(key) {
     const local = localGet(key);
-    let cloud = null;
-    try { cloud = (await withTimeout(window.dzmm?.kv?.get?.(key)))?.value ?? null; }
-    catch (e) { if (!local) console.warn('云端读取失败:', e.code, e.message); }
+    let cloud = null, cloudOk = false, last = null;
+    const tries = local ? 1 : 3;
+    for (let i = 0; i < tries; i++) {
+      try {
+        cloud = await cloudGet(key, local ? 3000 : 6500);
+        cloudOk = true;
+        break;
+      } catch (e) {
+        last = e;
+        if (local || i === tries - 1) break;
+        await wait(450 * (i + 1));
+      }
+    }
+    if (!cloudOk) {
+      if (local) {
+        console.warn('云端读取失败，使用本机缓存:', last?.code, last?.message);
+        return local;
+      }
+      warn(key + ':read', '云端存档读取失败，请刷新后重试，避免新设备进度被重置', last);
+      throw err(last?.code || 'CLOUD_READ_FAILED', '云端存档读取失败，请刷新后重试');
+    }
     const best = newer(local, cloud);
     if (best && best !== local) localPut(key, best);
     return best;
@@ -48,7 +77,8 @@ window.GameModules.storageSync = (() => {
   async function put(key, value, label = '数据') {
     const data = stamp(value);
     try {
-      await withTimeout(window.dzmm?.kv?.put?.(key, data));
+      const kv = await cloudApi(1800);
+      await withTimeout(kv.put(key, data), 3200);
       localPut(key, data);
     } catch (e) {
       localPut(key, data);
@@ -58,8 +88,10 @@ window.GameModules.storageSync = (() => {
   }
   async function remove(key, label = '数据') {
     localRemove(key);
-    try { await withTimeout(window.dzmm?.kv?.delete?.(key)); }
-    catch (e) { warn(key + ':delete', `${label}云端删除失败`, e); }
+    try {
+      const kv = await cloudApi(1800);
+      await withTimeout(kv.delete?.(key), 3200);
+    } catch (e) { warn(key + ':delete', `${label}云端删除失败`, e); }
   }
   return { get, put, remove, localGet, localPut, newer, stamp };
 })();
