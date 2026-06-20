@@ -37,9 +37,9 @@ function riftBossAddCap(l){l=Math.min(99,Math.max(1,Math.floor(l||1)));return Ma
 function riftAddCount(){return S.enemies.filter(e=>!e.boss).length}
 function clearRiftAdds(){for(const e of S.enemies)if(!e.boss){e.dead=true;recycleRiftEnemy(e)}S.enemies=S.enemies.filter(e=>e.boss)}
 function riftSpawnBatch(l){return l<31?5:l<71?6:l<91?7:8}
-function riftEliteCap(l){l=Math.min(99,Math.max(1,Math.floor(l||1)));return l<31?2:l<71?3:4}
-function riftEliteWaveSize(l){l=Math.min(99,Math.max(1,Math.floor(l||1)));return l<31?1:l<71?2:3}
-function riftEliteGap(l){l=Math.min(99,Math.max(1,Math.floor(l||1)));return l<31?8:l<71?7:l<91?6:5.5}
+function riftEliteCap(l){l=Math.min(99,Math.max(1,Math.floor(l||1)));return l<31?2:l<71?2:3}
+function riftEliteWaveSize(l){l=Math.min(99,Math.max(1,Math.floor(l||1)));return l<31?1:l<71?1:2}
+function riftEliteGap(l){l=Math.min(99,Math.max(1,Math.floor(l||1)));return l<31?8:l<71?9:l<91?8:7}
 function riftEliteCount(){let n=0;if(!S?.enemies)return 0;for(const e of S.enemies)if(!e.boss&&!e.dead&&e.elite)n++;return n}
 function riftRollElite(l){ensureRiftRuntime();if(S.rift.guardianSpawned)return false;let cap=riftEliteCap(l);if(riftEliteCount()>=cap)return false;if((S.rift.eliteWaveLeft||0)>0){S.rift.eliteWaveLeft--;return true}if((S.time||0)<(S.rift.nextEliteAt||0))return false;let n=Math.min(cap-riftEliteCount(),riftEliteWaveSize(l));S.rift.nextEliteAt=(S.time||0)+riftEliteGap(l);S.rift.eliteWaveLeft=Math.max(0,n-1);return n>0}
 function pickWeighted(list){let sum=list.reduce((a,x)=>a+x[1],0),r=Math.random()*sum;for(const [id,w] of list){r-=w;if(r<=0)return id}return list[0][0]}
