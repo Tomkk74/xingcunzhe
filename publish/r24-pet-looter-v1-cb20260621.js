@@ -1,6 +1,6 @@
 (function(){
 'use strict';
-const KEY='arcane-pets-v1',PET_CORE=150,CFG={seek:720,collect:34,gemSweep:120,follow:4.2,run:260};
+const KEY='arcane-pets-v1',PET_CORE=150,CFG={seek:520,collect:34,gemSweep:120,screenPad:80,follow:4.2,run:260};
 const PETS=[
   {id:'sprigatito',name:'新叶喵',src:'./assets/pokemom/sprigatito.gif'},
   {id:'fuecoco',name:'呆火鳄',src:'./assets/pokemom/fuecoco.gif'},
@@ -28,7 +28,9 @@ async function buyPet(){let b=$('shopDetailBuy');if(hasPet()){openPanel();return
 function shopDetail(){return{title:'宠物',body:panelHtml(),buyText:hasPet()?'查看宠物':'购买宠物',buy:hasPet()?openPanel:buyPet}}
 function ensurePet(){if(!active())return null;let p=S.player,pet=S.petCollector;if(!pet||pet.mapId!==S.mapId){pet={x:p.x-52,y:p.y+36,mapId:S.mapId,target:null};S.petCollector=pet}return pet}
 function dist2(a,b){let x=a.x-b.x,y=a.y-b.y;return x*x+y*y}
-function findTarget(pet){let best=null,bd=CFG.seek*CFG.seek;for(const d of S.equipGround||[])if(d&&!d.dead&&d.item){let v=dist2(pet,d);if(v<bd){bd=v;best={type:'equip',obj:d}}}for(const g of S.gems||[])if(g&&!g.dead){let v=dist2(pet,g);if(v<bd){bd=v;best={type:'gem',obj:g}}}return best}
+function inScreen(o){let p=CFG.screenPad,cx=num('CAMX',0),cy=num('CAMY',0),w=num('W',innerWidth),h=num('H',innerHeight);return o.x>=cx-p&&o.x<=cx+w+p&&o.y>=cy-p&&o.y<=cy+h+p}
+function nearest(list,pet,type){let best=null,bd=CFG.seek*CFG.seek;for(const o of list||[])if(o&&!o.dead&&inScreen(o)&&(type!=='equip'||o.item)){let v=dist2(pet,o);if(v<bd){bd=v;best={type,obj:o}}}return best}
+function findTarget(pet){return nearest(S.equipGround,pet,'equip')||nearest(S.gems,pet,'gem')}
 function moveToward(pet,tx,ty,dt,speed=CFG.run){let dx=tx-pet.x,dy=ty-pet.y,d=Math.hypot(dx,dy)||1,step=Math.min(d,speed*dt);pet.x+=dx/d*step;pet.y+=dy/d*step;return d}
 function movePet(dt,pet){let t=findTarget(pet),p=S.player;if(t){pet.target=t;moveToward(pet,t.obj.x,t.obj.y,dt);return}let tx=p.x-54+Math.cos((S.time||0)*1.7)*18,ty=p.y+36+Math.sin((S.time||0)*2.1)*12;pet.target=null;pet.x+=(tx-pet.x)*Math.min(1,dt*CFG.follow);pet.y+=(ty-pet.y)*Math.min(1,dt*CFG.follow)}
 function addPickupFx(x,y,c,size){S.parts=S.parts||[];S.parts.push({x,y,vx:0,vy:-8,life:.32,max:.32,a:1,c,boom:size||34})}
