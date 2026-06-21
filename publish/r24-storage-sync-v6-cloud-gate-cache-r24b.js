@@ -56,6 +56,7 @@ window.GameModules.storageSync = (() => {
   }
   function markPending(key, e) { pendingCloud.add(key); cloudReadFailures.set(key, { code: e?.code || 'CLOUD_ERROR', message: e?.message || '云端读取失败', at: now() }); }
   function clearPending(key) { pendingCloud.delete(key); cloudReadFailures.delete(key); }
+  function isMissingKey(e) { return e?.code === 'KEY_NOT_FOUND' || e?.code === 'NOT_FOUND'; }
   function cloudFailure(key) { return cloudReadFailures.get(key) || null; }
   async function ready(ms = 7600) {
     if (localOnlyTestMode()) return true;
@@ -76,6 +77,10 @@ window.GameModules.storageSync = (() => {
         if (cloud != null) localPut(key, cloud);
         return cloud;
       } catch (e) {
+        if (isMissingKey(e)) {
+          clearPending(key);
+          return null;
+        }
         last = e;
         if (i < tries - 1) await wait(360 * (i + 1));
       }
