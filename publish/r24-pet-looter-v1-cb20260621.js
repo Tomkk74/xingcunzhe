@@ -1,6 +1,6 @@
 (function(){
 'use strict';
-const KEY='arcane-pets-v1',PET_CORE=150,CFG={seek:520,collect:34,gemSweep:120,screenPad:80,follow:4.2,run:260};
+const KEY='arcane-pets-v2',PET_CORE=150,CFG={seek:520,collect:34,gemSweep:120,screenPad:80,follow:4.2,run:260};
 const PETS=[
   {id:'sprigatito',name:'新叶喵',src:'./assets/pokemom/sprigatito.gif'},
   {id:'fuecoco',name:'呆火鳄',src:'./assets/pokemom/fuecoco.gif'},
@@ -10,7 +10,7 @@ let raf=0,state={owned:{},selected:null},ready=false,petImg=null,lastEquipSave=0
 const $=id=>document.getElementById(id),esc=v=>String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
 function notice(t){try{typeof showNotice==='function'&&showNotice(t)}catch(_){} }
 function petDef(id=state.selected){return PETS.find(p=>p.id===id)||PETS[0]}
-function normalize(v){let owned={...(v?.ownedPets||{})};if(v?.owned===true&&!Object.keys(owned).length)for(const p of PETS)owned[p.id]=true;let selected=owned[v?.selected]?v.selected:null;return{owned,selected}}
+function normalize(v){let owned={...(v?.ownedPets||{})};let selected=owned[v?.selected]?v.selected:null;return{owned,selected}}
 async function init(){if(ready)return state;try{state=normalize(await StorageSync.get(KEY));ready=true}catch(e){ready=true;console.error('宠物数据读取失败:',e.message,e.stack)}return state}
 async function save(){try{await StorageSync.put(KEY,{ownedPets:state.owned,selected:state.selected},'宠物')}catch(e){console.error('宠物数据保存失败:',e.message,e.stack)}}
 function owns(id){return !!state.owned?.[id]}
