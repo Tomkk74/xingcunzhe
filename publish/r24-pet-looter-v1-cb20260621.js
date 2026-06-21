@@ -1,6 +1,6 @@
 (function(){
 'use strict';
-const KEY='arcane-pets-v1',PET_CORE=150,CFG={seek:720,collect:34,follow:4.6,run:430};
+const KEY='arcane-pets-v1',PET_CORE=150,CFG={seek:720,collect:34,follow:4.2,run:260};
 const PETS=[
   {id:'sprigatito',name:'新叶喵',src:'./assets/pokemom/sprigatito.gif'},
   {id:'fuecoco',name:'呆火鳄',src:'./assets/pokemom/fuecoco.gif'},
@@ -38,7 +38,7 @@ function updatePet(dt){let pet=ensurePet();if(!pet)return;movePet(dt,pet);collec
 function patchUpdate(){if(typeof window.updateObjs!=='function'||window.updateObjs._petLooter)return false;let base=window.updateObjs;window.updateObjs=function(dt){let r=base.apply(this,arguments);try{updatePet(dt||0)}catch(e){console.error('宠物拾取更新失败:',e.message,e.stack)}return r};window.updateObjs._petLooter=true;return true}
 function patchEquipment(){if(typeof window.renderEquipment!=='function'||window.renderEquipment._petLooter)return false;let base=window.renderEquipment;window.renderEquipment=function(){let r=base.apply(this,arguments);addEquipButton();return r};window.renderEquipment._petLooter=true;addEquipButton();return true}
 function addEquipButton(){let sub=$('equipSub');if(!sub||sub.querySelector('[data-pet-open]'))return;let ref=sub.querySelector('[data-eq-class-switch]')||sub.firstChild,btn=document.createElement('button');btn.className='petEquipBtn';btn.type='button';btn.dataset.petOpen='1';btn.textContent='宠';btn.title='宠物';ref?.after?ref.after(btn):sub.prepend(btn)}
-function drawPet(){ensureUi();if(!petImg)return;let pet=active()?S.petCollector:null;if(!pet){petImg.style.display='none';return}let p=petDef();if(!petImg.src.includes(p.src.replace('./','')))petImg.src=p.src;let camX=num('CAMX',0),camY=num('CAMY',0),vw=num('W',innerWidth),vh=num('H',innerHeight),host=$('c'),cw=host?.clientWidth||innerWidth,ch=host?.clientHeight||innerHeight,x=(pet.x-camX)/vw*cw,y=(pet.y-camY)/vh*ch;petImg.style.display='block';petImg.style.left=x+'px';petImg.style.top=y+'px';petImg.style.transform=`translate(-50%,-70%) scaleX(${pet.target&&pet.target.obj.x<pet.x?-1:1})`}
+function drawPet(){ensureUi();if(!petImg)return;let pet=active()?S.petCollector:null;if(!pet){petImg.style.display='none';return}let p=petDef();if(!petImg.src.includes(p.src.replace('./','')))petImg.src=p.src;let camX=num('CAMX',0),camY=num('CAMY',0),vw=num('W',innerWidth),vh=num('H',innerHeight),host=$('c'),cw=host?.clientWidth||innerWidth,ch=host?.clientHeight||innerHeight,moving=!!pet.target,bob=moving?Math.abs(Math.sin((S.time||0)*15))*5:Math.sin((S.time||0)*4)*1.5,squash=moving?(.92+Math.abs(Math.sin((S.time||0)*15))*.12):1,x=(pet.x-camX)/vw*cw,y=(pet.y-camY)/vh*ch-bob;petImg.style.display='block';petImg.style.left=x+'px';petImg.style.top=y+'px';petImg.style.transform=`translate(-50%,-70%) scaleX(${pet.target&&pet.target.obj.x<pet.x?-1:1}) scaleY(${squash})`}
 async function pickPet(id){await init();if(!hasPet())return;state.selected=petDef(id).id;await save();openPanel();notice('宠物出战：'+petDef().name)}
 function bind(){document.addEventListener('click',e=>{let b=e.target.closest('[data-pet-open]');if(b){e.preventDefault();e.stopPropagation();openPanel();return}let p=e.target.closest('[data-pet-pick]');if(p){e.preventDefault();e.stopPropagation();pickPet(p.dataset.petPick)}},true)}
 function loop(){drawPet();raf=requestAnimationFrame(loop)}
