@@ -7,6 +7,7 @@ window.GameModules.affix = (() => {
 
   const SURVIVAL_AFFIXES = [
     {id:'hp',stat:'hp',name:'最大生命提高',range:[.12,.18],tag:'ADDITIVE_POOL'},
+    {id:'hpFlat',stat:'hpFlat',name:'最大生命',range:[520,980],tag:'ADDITIVE_POOL'},
     {id:'armor',stat:'armor',name:'总护甲提高',range:[.08,.12],tag:'ADDITIVE_POOL'},
     {id:'allRes',stat:'allRes',name:'所有属性抗性',range:[.06,.09],tag:'ADDITIVE_POOL'},
     {id:'regen',stat:'regen',name:'生命回复提高',range:[.08,.12],tag:'ADDITIVE_POOL'},
@@ -56,7 +57,7 @@ window.GameModules.affix = (() => {
   function pickRandom(pool) { return pool[Math.floor(Math.random()*pool.length)]; }
   function affixKey(a) { return a.id || a.stat; }
   const WEAPON_ALLOWED = new Set(['damage','atkSpeed','range','crit','critDmg','dotDmg','rangeDmg','healthyDmg','extraProjectile','splitChance','bossDmg','eliteDmg','riftBossDmg','riftEliteDmg','shieldBreak','executeDmg','dotTickRate','progressBonus']);
-  const DEFENSE_ALLOWED = new Set(['hp','armor','allRes','regen','move','pickup','gold','cooldown','dodge','eliteDmgReduce','bossDmgReduce','slowResist','healBonus']);
+  const DEFENSE_ALLOWED = new Set(['hp','hpFlat','armor','allRes','regen','move','pickup','gold','cooldown','dodge','eliteDmgReduce','bossDmgReduce','slowResist','healBonus']);
   const JEWELRY_BLOCKED = new Set(['armor','dodge','eliteDmgReduce','bossDmgReduce','healBonus']);
   function defensiveSlot(slot) { return slot === 'helm' || slot === 'chest' || slot === 'boots'; }
   function jewelrySlot(slot) { return slot === 'amulet' || slot === 'ring'; }
@@ -80,7 +81,7 @@ window.GameModules.affix = (() => {
     if (r >= 85 && r < 99) return 'ancient';
     return 'normal';
   }
-  function isSurvivalStat(stat) { return stat === 'hp' || stat === 'armor'; }
+  function isSurvivalStat(stat) { return stat === 'hp' || stat === 'hpFlat' || stat === 'armor'; }
   function qualityName(q) { return q === 'primal' ? '太古' : q === 'ancient' ? '远古' : '普通'; }
   function scaleValue(range, level, mul=1, itemPower=level, quality='normal', stat='') {
     let l = powerScale(itemPower), min = range[0] * l, max = range[1] * l;
