@@ -1,7 +1,7 @@
 window.GameModules = window.GameModules || {};
 window.GameModules.progression = (() => {
   const KEY = 'arcane-meta-v3';
-  const CLASSES = { paladin: '圣骑士', mage: '大魔法师', ranger: '游侠', lewdSaintess: '淫靡圣女', scytheMaiden: '琦琦' };
+  const CLASSES = { paladin: '圣骑士', mage: '大魔法师', ranger: '游侠', lewdSaintess: '淫靡圣女', scytheMaiden: '琦琦', gunslinger: '枪手' };
   const BASE = [
     ['hp', '秘境体魄', '最大生命 +5%，提高高层秘境容错', 10, 30, 50, 16],
     ['damage', '深渊战意', '全技能伤害 +4%，与套装核心技能增伤叠加', 10, 50, 28, 38],
@@ -45,6 +45,13 @@ window.GameModules.progression = (() => {
       ['soul', '血镰誓约', '血镰回旋每级范围 +5、回复提升并强化精英内爆，契合血镰誓约套', 5, 95, 78, 82, 'utility', ['bloodReap'], 24],
       ['dance', '幽魂步伐', '每级移动速度 +3%，移动时积累冥契更快，并强化冥月圆舞机动收益', 4, 120, 50, 108, 'utility', [], 26, 'reaper'],
       ['execute', '终末收割', '镰刀系技能对 Boss、精英与护盾敌人更强，残血敌人受到额外处决伤害', 4, 145, 50, 126, 'damage', ['scytheArc', 'bloodReap', 'wraithBlade', 'reaperChain'], 30, 'arc'],
+    ],
+    gunslinger: [
+      ['quick', '银弹速射', '速射每级冷却 -4%、伤害 +5%，Lv.2/Lv.4 各 +1 发，枪手开荒核心', 5, 85, 22, 82, 'damage', ['quickShot'], 24],
+      ['ricochet', '跳弹赌徒', '跳弹每级 +1 跳、范围 +8、冷却 -4%，强化密集怪潮清场', 5, 90, 50, 86, 'damage', ['ricochetBullet'], 24],
+      ['roll', '翻滚霰弹', '霰弹翻滚每级弹丸 +1、翻滚减伤提高并略微提升移速', 5, 90, 78, 82, 'utility', ['shotgunRoll'], 24],
+      ['bomb', '焦土爆破', '燃烧弹每级范围 +6、伤害 +5%、冷却 -4%，火场压制更强', 4, 115, 50, 108, 'damage', ['fireBomb'], 26, 'ricochet'],
+      ['gunmaster', '枪斗宗师', '枪械技能对 Boss、精英与护盾敌人更强，速射和跳弹暴击收益更高', 4, 140, 50, 126, 'damage', ['quickShot', 'ricochetBullet', 'shotgunRoll', 'fireBomb'], 30, 'quick'],
     ],
   };
   const COST_GROWTH = 1.72;
@@ -136,6 +143,7 @@ window.GameModules.progression = (() => {
     const axe = u.axe || 0, wind = u.wind || 0, dagger = u.dagger || 0, moon = u.moon || 0, mark = u.mark || 0;
     const splash = u.splash || 0, kiss = u.kiss || 0, prayer = u.prayer || 0, desire = u.desire || 0, overflow = u.overflow || 0;
     const arc = u.arc || 0, reaper = u.reaper || 0, soul = u.soul || 0, dance = u.dance || 0, execute = u.execute || 0;
+    const quick = u.quick || 0, ricochet = u.ricochet || 0, roll = u.roll || 0, bomb = u.bomb || 0, gunmaster = u.gunmaster || 0;
     if (aura) { dmg('garlic', aura * 0.05); add('garlic', { radius: aura * 5 }); if (aura >= 4) skillLv.garlic = 1; }
     if (lance) add('holyLance', { cd: lance * 0.05, width: lance * 3, count: Math.floor(lance / 2) });
     if (nova) { dmg('bloodNova', nova * 0.05); add('bloodNova', { radius: nova * 7, cd: nova * 0.06 }); if (nova >= 4) skillLv.bloodNova = 1; }
@@ -158,6 +166,11 @@ window.GameModules.progression = (() => {
     if (reaper) add('wraithBlade', { cd: reaper * 0.045, radius: reaper * 4, execute: reaper * 0.045 });
     if (soul) { add('bloodReap', { radius: soul * 5 }); add('reaperChain', { radius: soul * 3, cd: soul * 0.025 }); }
     if (execute) for (const s of ['scytheArc', 'bloodReap', 'wraithBlade', 'reaperChain', 'graveRift']) add(s, { bossDmg: execute * 0.05, shieldBreak: execute * 0.08, execute: execute * 0.05 });
+    if (quick) { dmg('quickShot', quick * 0.05); add('quickShot', { cd: quick * 0.04, count: Math.floor(quick / 2) }); }
+    if (ricochet) add('ricochetBullet', { jumps: ricochet, radius: ricochet * 8, cd: ricochet * 0.04 });
+    if (roll) { add('shotgunRoll', { pellets: roll, guard: roll * 0.04, cd: roll * 0.04 }); spdMul *= 1 + roll * 0.015; }
+    if (bomb) { dmg('fireBomb', bomb * 0.05); add('fireBomb', { radius: bomb * 6, cd: bomb * 0.04 }); }
+    if (gunmaster) for (const s of ['quickShot', 'ricochetBullet', 'shotgunRoll', 'fireBomb']) add(s, { bossDmg: gunmaster * 0.055, shieldBreak: gunmaster * 0.08, critDmg: gunmaster * 0.04 });
     hpMul *= 1 + guard * 0.03 + desire * 0.04;
     spdMul *= 1 + dance * 0.03;
     return { hp: Math.round(baseClass.hp * hpMul), spd: baseClass.spd * spdMul, dmg: baseClass.dmg * dmgMul, startXp: (u.startXp || 0) * 4, magnetBonus: (u.magnet || 0) * 0.06, goldBonus: (u.gold || 0) * 0.05, shieldStart: Math.round(baseClass.hp * guard * 0.05), regenBonus: guard * 0.3, lustMaxBonus: desire * 14, lustGainBonus: desire * 0.08 + prayer * 0.04, rerollBonus: Math.floor((u.startXp || 0) / 2), banishBonus: Math.floor((u.startXp || 0) / 3), skillDmg, skillLv, skillMods };

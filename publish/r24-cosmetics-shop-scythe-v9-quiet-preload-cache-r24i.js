@@ -1,7 +1,7 @@
 (function(){
 'use strict';
 const KEY='arcane-cosmetics-v1',SHOP_GOLD=2000,COSTUME_CORE=200,SACRIFICE_CORE=150,TICKET_ICON='./assets/generated/shop/rift-ticket-cb20260618a.webp?v=20260619-webp-icons-r1',LAOYANG_ICON='./assets/generated/laoyang-5090.e37e4947.webp',HARD_DRIVE_ICON='./assets/generated/hard-drive-sacrifice.77268ef6.webp';
-const CLASS_CN={paladin:'圣骑士',mage:'大魔法师',ranger:'游侠',lewdSaintess:'淫靡圣女',scytheMaiden:'琦琦'};
+const CLASS_CN={paladin:'圣骑士',mage:'大魔法师',ranger:'游侠',lewdSaintess:'淫靡圣女',scytheMaiden:'琦琦',gunslinger:'枪手'};
 function frames(d,p,ext='png'){return Array.from({length:24},(_,i)=>`./assets/shizhuang/${d}/${p}_${i+1}-cb20260618a.${ext}?v=20260619-webp-costume-r1`)}
 const SHOP_COSTUMES=[
 {cls:'ranger',id:'vengeanceDemon',name:'复仇炎魔',frames:frames('youxia','c76e30af-a36f-494d-aad8-b51dbf4fd6b4','webp')},

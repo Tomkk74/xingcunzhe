@@ -5,7 +5,7 @@ window.GameModules.equipment = (() => {
   const ASSET_Q = '?v=20260619-renamed-assets-r1';
   const GOLD_ICON_PREFIX = './assets/generated/huangjin/t_d98add39-dbc9-4803-ad99-c075894fe454_';
   const UNIQUE_ICON_SHEET = './assets/generated/unique-equipment-icons-sheet.1abf4dd3.webp?v=20260619-renamed-assets-r1';
-  const SET_ICON_PREFIX = { setPaladin:'./assets/generated/paladin/t_cccb496c-393b-4a20-9ed8-245883afa2b3_', setMage:'./assets/generated/mage/t_7cfaf443-aece-4533-b56a-d6e8c72a9734_', setRanger:'./assets/generated/ranger/t_695e9072-a6b9-41c7-b65a-423267d0669a_', setSaintess:'./assets/generated/saintess/t_f9571423-469d-490d-868a-2a33dcaa326c_', setScythe:'./assets/generated/scythe-maiden/t_afb7751d-ed19-476d-ab4e-c4a492c79c92_' };
+  const SET_ICON_PREFIX = { setPaladin:'./assets/generated/paladin/t_cccb496c-393b-4a20-9ed8-245883afa2b3_', setMage:'./assets/generated/mage/t_7cfaf443-aece-4533-b56a-d6e8c72a9734_', setRanger:'./assets/generated/ranger/t_695e9072-a6b9-41c7-b65a-423267d0669a_', setSaintess:'./assets/generated/saintess/t_f9571423-469d-490d-868a-2a33dcaa326c_', setScythe:'./assets/generated/scythe-maiden/t_afb7751d-ed19-476d-ab4e-c4a492c79c92_', setGunslinger:'./assets/generated/ranger/t_695e9072-a6b9-41c7-b65a-423267d0669a_' };
   const SLOTS = ['weapon','helm','chest','amulet','ring','boots'];
   const ARMOR_SLOT_WEIGHT = { helm:.72, chest:1.18, boots:.5 };
   const ARMOR_SLOTS = new Set(Object.keys(ARMOR_SLOT_WEIGHT));
@@ -14,7 +14,7 @@ window.GameModules.equipment = (() => {
   const DEFENSE_ALLOWED_STATS = new Set(['hp','hpFlat','armor','regen','move','pickup','gold','cooldown','dodge','eliteDmgReduce','bossDmgReduce','slowResist','healBonus','allRes','attrCapBonus','thorns','fearMax','lustMaxBonus','lustGainBonus','setReqReduce']);
   const JEWELRY_BLOCKED_STATS = new Set(['armor','dodge','eliteDmgReduce','bossDmgReduce','healBonus']);
   const SLOT_CN = { weapon:'武器', helm:'头盔', chest:'胸甲', amulet:'项链', ring:'戒指', boots:'靴子', sacrifice:'祭品', sacrifice1:'祭品', sacrifice2:'祭品' };
-  const CLS_CN = { paladin:'圣骑士', mage:'大魔法师', ranger:'游侠', lewdSaintess:'淫靡圣女', scytheMaiden:'琦琦' };
+  const CLS_CN = { paladin:'圣骑士', mage:'大魔法师', ranger:'游侠', lewdSaintess:'淫靡圣女', scytheMaiden:'琦琦', gunslinger:'枪手' };
   const RES = ['physical','fire','frost','arcane','holy','shadow','poison','lust'];
   const RES_CN = { physical:'物理', fire:'火焰', frost:'霜寒', arcane:'奥术', holy:'神圣', shadow:'暗影', poison:'毒素', lust:'欲望', all:'全属性' };
   const GOLD = [
@@ -40,7 +40,7 @@ window.GameModules.equipment = (() => {
   const all = [...gold,...uniques,...sets,...sacrifices];
   const DEF_KEYS = ['hp','armor','move','pickup','gold','regen'];
   const OFF_KEYS = ['damage','cooldown','atkSpeed','range','crit','skillLv'];
-  const SKILL_BY_CLASS = {paladin:['garlic','bloodNova','holyLance'],mage:['missile','meteorShard','thunderChain'],ranger:['axe','moonSlash','poisonCloud','shadowBlade'],lewdSaintess:['lustSplash','lustPrayer','lustKiss'],scytheMaiden:['scytheArc','bloodReap','wraithBlade']};
+  const SKILL_BY_CLASS = {paladin:['garlic','bloodNova','holyLance'],mage:['missile','meteorShard','thunderChain'],ranger:['axe','moonSlash','poisonCloud','shadowBlade'],lewdSaintess:['lustSplash','lustPrayer','lustKiss'],scytheMaiden:['scytheArc','bloodReap','wraithBlade'],gunslinger:['quickShot','ricochetBullet','shotgunRoll','fireBomb']};
   const REROLL_STATS = new Set(['hp','hpFlat','armor','regen','move','damage','cooldown','atkSpeed','skillFreq','range','crit','projectileSpeed','extraProjectile','splitChance','bossDmg','eliteDmg','riftBossDmg','riftEliteDmg','shieldBreak','executeDmg','dotTickRate','progressBonus','critDmg','dotDmg','rangeDmg','healthyDmg','dodge','eliteDmgReduce','bossDmgReduce','slowResist','healBonus']);
   const NORM_VERSION = 8;
   let meta = { items:[], equipped:{}, dust:0 }, ready = false, activeKey = '', migrated = false;
