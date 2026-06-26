@@ -1,7 +1,7 @@
 {
   "version": 1,
   "createdAt": "2026-06-13T14:08:29Z",
-  "updatedAt": "2026-06-26T07:34:57Z",
+  "updatedAt": "2026-06-26T07:47:21Z",
   "assets": [
     {
       "name": "player-paladin",
@@ -2555,6 +2555,32 @@
       },
       "traceId": "trace_mqum7cyx_70rbdgz9",
       "createdAt": "2026-06-26T07:34:57Z"
+    },
+    {
+      "name": "gunslinger-action-sheet",
+      "status": "success",
+      "path": "publish/assets/generated/gunslinger/gunslinger-action-sheet.b0277d18.webp",
+      "contentHash": "b0277d18",
+      "revisedPrompt": "Create a 6 columns by 4 rows sprite sheet with EXACTLY 24 separate frames arranged in a clean uniform grid, 6 frames per row and 4 rows. The subject is the same cute chibi fantasy gunslinger hero in every frame, for an arcade survivor game, top-down 3/4 readable game sprite. Character design: dark red scarf, wide brim hat, short brown cloak, leather armor, twin enchanted revolvers, silver and warm gold accents, clean dark outline, soft magic glow. Keep the character centered in each cell, consistent scale across all frames, no frame borders. Style: polished game sprite, readable silhouettes, charming chibi proportions. Row 1: idle animation, standing breathing poses with guns lowered. Row 2: running animation, dashing forward with cloak and scarf moving. Row 3: combat shooting animation, aiming and firing twin revolvers with small muzzle flashes and recoil. Row 4: hurt and evasive animation, flinching, damaged, quick dodge, recovery poses. No extra characters. No labels, numbers, text, logo, watermark. Background must be a SOLID UNIFORM flat chroma key color #00B140 filling 100% of all non-character pixels; absolutely no gradient, shadow, texture, scenery, ground, decoration, or environmental elements. Pure flat green screen background, no variation.",
+      "model": "gpt-image-2",
+      "size": "1536x1024",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#00B140",
+        "alphaZeroPct": 68.3,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossy_q85_alpha",
+      "originalBytes": 2242435,
+      "finalBytes": 263716,
+      "usage": {
+        "inputTokens": 284,
+        "outputImageTokens": 1372
+      },
+      "traceId": "trace_mqumn5yy_5ufkh6i0",
+      "createdAt": "2026-06-26T07:47:21Z"
     }
   ]
 }
