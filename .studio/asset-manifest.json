@@ -1,7 +1,7 @@
 {
   "version": 1,
   "createdAt": "2026-06-13T14:08:29Z",
-  "updatedAt": "2026-06-26T07:47:21Z",
+  "updatedAt": "2026-06-26T09:25:38Z",
   "assets": [
     {
       "name": "player-paladin",
@@ -2581,6 +2581,32 @@
       },
       "traceId": "trace_mqumn5yy_5ufkh6i0",
       "createdAt": "2026-06-26T07:47:21Z"
+    },
+    {
+      "name": "gunslinger-skill-fx-sheet",
+      "status": "success",
+      "path": "publish/assets/generated/gunslinger/gunslinger-skill-fx-sheet.8f59c0e9.webp",
+      "contentHash": "8f59c0e9",
+      "revisedPrompt": "A 4x4 sprite sheet of magical gunslinger combat VFX for a top-down 3/4 arcade survivor game. Bright arcade fantasy chibi style, clean dark outline, soft glow and high contrast, palette accents #38bdf8 cyan, #facc15 gold, #fb923c orange, #f43f5e red, #7c3aed purple. Sixteen separate readable effect sprites arranged in an even grid with consistent padding, centered in each cell, designed for canvas drawImage sprite sheet animation: silver bullet muzzle flashes, fast bullet streaks, ricochet sparks, golden impact starbursts, shotgun cone blasts, rolling smoke puffs, fire bomb explosion, burning ground circle, bullet storm spiral, eagle-eye target reticle, reload glint, critical hit spark, small smoke ring, ember burst, tracer line, magic powder flash. No characters, no weapons, no UI text. Each cell isolated with padding, centered, designed for canvas drawImage sprite sheet animation. Strictly placed on a SOLID UNIFORM #00B140 chroma key flat color background. The background is a single uniform shade of #00B140 chroma key green that fills 100% of pixels not occupied by the effects. No gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements. Pure flat color background, exactly like a green screen used for VFX compositing. No text, no logo, no watermark.",
+      "model": "gpt-image-2",
+      "size": "1254x1254",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#00B140",
+        "alphaZeroPct": 80.3,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossy_q85_alpha",
+      "originalBytes": 1629536,
+      "finalBytes": 200246,
+      "usage": {
+        "inputTokens": 308,
+        "outputImageTokens": 2058
+      },
+      "traceId": "trace_mquq2pnf_3yohflmr",
+      "createdAt": "2026-06-26T09:25:38Z"
     }
   ]
 }
