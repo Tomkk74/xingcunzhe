@@ -185,7 +185,7 @@ function dealDamage(e,d,steal=false,id=''){let breakMul=(id?skillMod(id,'shieldB
 if(id)d*=attrDmgMul(id,e);
 // === [x] Sub-Bucket: Target State (Boss/精英/易伤) ===
 let eq=S.equipStats||{},bossMul=id&&e.boss?skillMod(id,'bossDmg'):0;if(bossMul)d*=1+bossMul;
-if(e.elite&&!e.boss){if(eq.eliteDmg)d*=1+eq.eliteDmg;if(S.endless&&eq.riftEliteDmg)d*=1+eq.riftEliteDmg}if(e.boss){if(eq.bossDmg)d*=1+eq.bossDmg;if(S.endless&&eq.riftBossDmg)d*=1+eq.riftBossDmg}if(id&&eq.rangeDmg)d*=1+rangeDmgBonus(id);if(eq.healthyDmg)d*=1+healthyDmgBonus(e);if(eq.executeDmg&&e.hp/e.max<.35)d*=1+eq.executeDmg;if(id&&eq.dotDmg&&['poisonCloud','meteorShard','scytheArc'].includes(id))d*=1+eq.dotDmg;
+if(e.elite&&!e.boss){if(eq.eliteDmg)d*=1+eq.eliteDmg;if(S.endless&&eq.riftEliteDmg)d*=1+eq.riftEliteDmg}if(e.boss){if(eq.bossDmg)d*=1+eq.bossDmg;if(S.endless&&eq.riftBossDmg)d*=1+eq.riftBossDmg}if(id&&eq.rangeDmg)d*=1+rangeDmgBonus(id);if(eq.healthyDmg)d*=1+healthyDmgBonus(e);if(eq.executeDmg&&e.hp/e.max<.35)d*=1+eq.executeDmg;if(id&&eq.dotDmg&&['poisonCloud','meteorShard','scytheArc','fireBomb'].includes(id))d*=1+eq.dotDmg;
 if(huntLv){let mark=S.relicMark&&S.enemies.includes(S.relicMark)?S.relicMark:nearest(S.enemies,S.player);if(e===mark||e.elite||e.boss)d*=1+huntLv*.07}
 if(S.artifacts.includes('void')&&e.slow>0)d*=1.1;
 if(id==='holyLance'&&hasSet('dawn-judgment',6)&&e.boss){e.judgment=Math.min(6,(e.judgment||0)+1);d*=1+e.judgment*.06}
