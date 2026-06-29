@@ -1,7 +1,7 @@
 {
   "version": 1,
   "createdAt": "2026-06-13T14:08:29Z",
-  "updatedAt": "2026-06-29T07:24:38Z",
+  "updatedAt": "2026-06-29T07:59:39Z",
   "assets": [
     {
       "name": "player-paladin",
@@ -2705,6 +2705,58 @@
       },
       "traceId": "trace_mqyw6gqq_gontfmsi",
       "createdAt": "2026-06-29T07:24:38Z"
+    },
+    {
+      "name": "decor-wilds-crack",
+      "status": "success",
+      "path": "publish/assets/generated/decor-wilds-crack.11fdb7e2.webp",
+      "contentHash": "11fdb7e2",
+      "revisedPrompt": "Top-down 3/4 arcade fantasy ground decoration icon: a small flat decal of a glowing violet arcane crack in dark wilderness earth, readable at game-map scale, clean dark outline, no perspective tilt, no text, no logo, no watermark. The decal is isolated and placed strictly on a SOLID UNIFORM #00B140 chroma key flat color background. The background must be a single uniform shade of #00B140 chroma key green filling 100% of pixels not occupied by the decal. No gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements. Pure flat color background, exactly like a green screen used for VFX compositing.",
+      "model": "gpt-image-2",
+      "size": "1254x1254",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#00B140",
+        "alphaZeroPct": 71.8,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossy_q85_alpha",
+      "originalBytes": 1459380,
+      "finalBytes": 77210,
+      "usage": {
+        "inputTokens": 149,
+        "outputImageTokens": 229
+      },
+      "traceId": "trace_mqyxe2ch_0d81fnck",
+      "createdAt": "2026-06-29T07:58:30Z"
+    },
+    {
+      "name": "decor-wilds-stone",
+      "status": "success",
+      "path": "publish/assets/generated/decor-wilds-stone.663332b4.webp",
+      "contentHash": "663332b4",
+      "revisedPrompt": "Top-down 3/4 arcade fantasy wilderness decoration icon: upright dark purple standing stone monolith with a tiny golden rune, centered full object, no perspective tilt, vertical orientation, clean dark outline, readable at small game-map scale. No text, no logo, no watermark. Strictly placed on a SOLID UNIFORM #00B140 chroma key flat color background. The background is a single uniform shade of #00B140 chroma key green that fills 100% of pixels not occupied by the object. No gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements. Pure flat color background, exactly like a green screen used for VFX compositing.",
+      "model": "gpt-image-2",
+      "size": "1024x1536",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#00B140",
+        "alphaZeroPct": 76,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossy_q85_alpha",
+      "originalBytes": 1503355,
+      "finalBytes": 58110,
+      "usage": {
+        "inputTokens": 150,
+        "outputImageTokens": 343
+      },
+      "traceId": "trace_mqyxfg8h_3b8shvup",
+      "createdAt": "2026-06-29T07:59:39Z"
     }
   ]
 }
