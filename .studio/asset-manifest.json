@@ -1,7 +1,7 @@
 {
   "version": 1,
   "createdAt": "2026-06-13T14:08:29Z",
-  "updatedAt": "2026-06-26T09:25:38Z",
+  "updatedAt": "2026-06-29T06:45:56Z",
   "assets": [
     {
       "name": "player-paladin",
@@ -2607,6 +2607,52 @@
       },
       "traceId": "trace_mquq2pnf_3yohflmr",
       "createdAt": "2026-06-26T09:25:38Z"
+    },
+    {
+      "name": "ground-wilds",
+      "status": "success",
+      "path": "publish/assets/generated/ground-wilds.0c68d6d9.webp",
+      "contentHash": "0c68d6d9",
+      "revisedPrompt": "Seamless tileable top-down dark twilight wilderness ground texture for an arcade fantasy survivor game. Mossy cracked earth, subtle purple magic dust, dry grass tufts, scattered small stones. Readable but not busy. High contrast dark dungeon palette with soft glow. Wide composition. No characters, no UI, no text, no logo, no watermark.",
+      "model": "gpt-image-2",
+      "size": "1536x1024",
+      "wantsTransparent": false,
+      "outputFormat": "webp",
+      "compressionProfile": "lossy_q80_opaque",
+      "originalBytes": 3458419,
+      "finalBytes": 324642,
+      "usage": {
+        "inputTokens": 77,
+        "outputImageTokens": 1372
+      },
+      "traceId": "trace_mqyuphaz_8mk8k76t",
+      "createdAt": "2026-06-29T06:44:09Z"
+    },
+    {
+      "name": "icon-wilds-chest",
+      "status": "success",
+      "path": "publish/assets/generated/icon-wilds-chest.240329bc.webp",
+      "contentHash": "240329bc",
+      "revisedPrompt": "Cute chibi fantasy treasure chest icon for a top-down arcade survivor game. Ancient wooden chest with gold trim, slightly open, purple arcane glow, coins and blue crystal light spilling out. Centered single object, clean dark outline, highly readable at small size, no text, no logo, no watermark. Strictly on a SOLID UNIFORM #00B140 chroma key flat color background filling 100% of pixels not occupied by the icon. Background must be a single flat shade of #00B140, no gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements.",
+      "model": "gpt-image-2",
+      "size": "1254x1254",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#00B140",
+        "alphaZeroPct": 65.7,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossy_q85_alpha",
+      "originalBytes": 1548396,
+      "finalBytes": 111348,
+      "usage": {
+        "inputTokens": 133,
+        "outputImageTokens": 2058
+      },
+      "traceId": "trace_mqyursq2_7nxxmygy",
+      "createdAt": "2026-06-29T06:45:56Z"
     }
   ]
 }
