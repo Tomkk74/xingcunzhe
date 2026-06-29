@@ -1,7 +1,7 @@
 {
   "version": 1,
   "createdAt": "2026-06-13T14:08:29Z",
-  "updatedAt": "2026-06-29T06:45:56Z",
+  "updatedAt": "2026-06-29T07:24:38Z",
   "assets": [
     {
       "name": "player-paladin",
@@ -2653,6 +2653,58 @@
       },
       "traceId": "trace_mqyursq2_7nxxmygy",
       "createdAt": "2026-06-29T06:45:56Z"
+    },
+    {
+      "name": "icon-wilds-camp",
+      "status": "success",
+      "path": "publish/assets/generated/icon-wilds-camp.ba3fecec.webp",
+      "contentHash": "ba3fecec",
+      "revisedPrompt": "Cute chibi fantasy wilderness monster camp icon for a top-down 3/4 arcade survivor game. Centered small red-brown tent with wooden stakes, a tiny banner, and a warm fire glow. Clean dark outline, readable silhouette at small UI/game-map size, upright vertical orientation, no perspective tilt. No text, no logo, no watermark. Place the icon strictly on a SOLID UNIFORM #00B140 chroma key flat color background that fills 100% of pixels not occupied by the icon. The background must be a single uniform shade of #00B140 chroma key green with no gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements. Pure flat color background, exactly like a green screen for VFX compositing.",
+      "model": "gpt-image-2",
+      "size": "1024x1536",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#00B140",
+        "alphaZeroPct": 77.8,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossy_q85_alpha",
+      "originalBytes": 1450297,
+      "finalBytes": 78720,
+      "usage": {
+        "inputTokens": 166,
+        "outputImageTokens": 158
+      },
+      "traceId": "trace_mqyw4sa3_mflmlicu",
+      "createdAt": "2026-06-29T07:23:28Z"
+    },
+    {
+      "name": "icon-wilds-altar",
+      "status": "success",
+      "path": "publish/assets/generated/icon-wilds-altar.d5237bd1.webp",
+      "contentHash": "d5237bd1",
+      "revisedPrompt": "Cute chibi fantasy healing altar icon for a top-down 3/4 arcade survivor game. Centered small stone shrine with a cyan-green magical crystal and a soft holy glow. Clean dark outline, highly readable silhouette at small game-map size. Upright vertical orientation, no perspective tilt. No text, no logo, no watermark. The icon should be isolated on a perfectly solid uniform chroma key background: exact flat #FF00FF magenta filling 100% of pixels not occupied by the icon. Absolutely no gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements. Pure flat color background only, like a VFX green screen.",
+      "model": "gpt-image-2",
+      "size": "1024x1536",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#FF00FF",
+        "alphaZeroPct": 73.1,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossy_q85_alpha",
+      "originalBytes": 1493957,
+      "finalBytes": 85370,
+      "usage": {
+        "inputTokens": 144,
+        "outputImageTokens": 343
+      },
+      "traceId": "trace_mqyw6gqq_gontfmsi",
+      "createdAt": "2026-06-29T07:24:38Z"
     }
   ]
 }
