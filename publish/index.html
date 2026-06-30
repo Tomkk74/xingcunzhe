@@ -52,47 +52,26 @@ window.addEventListener('unhandledrejection',e=>{try{let r=e.reason||{};console.
 console.info('Arcane Survivors build:', window.__ARCANE_BUILD);
 window.__inlineMenuAudio=(()=>{let ctx=null,master=null,fx=null,music=null,on=false,timer=null,step=0,last=0;function vol(){let v=Number(document.getElementById('bgmVolume')?.value??42);return Math.max(0,Math.min(1,v/100))}function init(){if(ctx)return;let C=window.AudioContext||window.webkitAudioContext;if(!C)return;ctx=new C();master=ctx.createGain();fx=ctx.createGain();music=ctx.createGain();master.gain.value=.62;fx.gain.value=.48;music.gain.value=.48;fx.connect(master);music.connect(master);master.connect(ctx.destination)}function tone(f,d,type='sine',v=.1,dest=fx,delay=0){if(!ctx)return;let o=ctx.createOscillator(),g=ctx.createGain(),t=ctx.currentTime+delay;o.type=type;o.frequency.setValueAtTime(f,t);g.gain.setValueAtTime(.001,t);g.gain.linearRampToValueAtTime(v,t+.02);g.gain.exponentialRampToValueAtTime(.001,t+d);o.connect(g);g.connect(dest);o.start(t);o.stop(t+d+.04)}function click(){init();ctx?.resume?.();let n=ctx?.currentTime||0;if(n-last<.06)return;last=n;tone(420,.07,'triangle',.08,fx);tone(980,.09,'sine',.05,fx,.025)}function menuScene(){return ['seasonIntro','start','classSelect','mapSelect'].some(id=>{let e=document.getElementById(id);return e&&!e.classList.contains('hidden')})}function beat(){if(!on)return;let b=[55,65.4,73.4,49][step%4],l=[220,261.6,293.7,392,329.6,293.7,261.6,220][step%8],v=vol();tone(b,1.25,'sine',.08*v,music);tone(b*2,1.05,'triangle',.06*v,music,.03);tone(l,.24,'triangle',.07*v,music,.08);if(step%2===0)tone(l*2,.22,'sine',.05*v,music,.22);step++}function start(){init();ctx?.resume?.();if(on)return;on=true;step=0;beat();timer=setInterval(beat,620)}function stop(){on=false;if(timer){clearInterval(timer);timer=null}}function sync(){if(!ctx)return;if(window.S&&S.run&&!S.paused){stop();return}if(menuScene())start();else stop()}document.addEventListener('pointerdown',e=>{init();ctx?.resume?.();if(e.target.closest('button'))click();setTimeout(sync,50)});setInterval(sync,800);return{sync,start,stop,click}})();
 </script>
-<script src="./r25-storage-sync-v7-mode-select-cache-r29r1.js?v=prod-nightly-r25-cb20260629-cache-refresh-r1"></script>
-<script src="./r25-affix-scythe-v4-hpflat-cache-r29r1.js?v=prod-nightly-r25-cb20260629-cache-refresh-r1"></script>
-<script src="./r25-equip-data-v5-gunslinger-cache-r29r1.js?v=prod-nightly-r25-cb20260629-cache-refresh-r1"></script>
-<script src="./r25-season-scythe-v8-safe-start-cb20260620.js?v=prod-nightly-r25-cb20260629-cache-refresh-r1"></script>
-<script src="./r25-progression-scythe-v8-gunslinger-cache-r29r1.js?v=prod-nightly-r25-cb20260629-cache-refresh-r1"></script>
-<script src="./r25-redeem-scythe-v11-delete-compensation-r16.js?v=prod-nightly-r25-cb20260629-cache-refresh-r1"></script>
-<script src="./r25-save-transfer-scythe-v5-cb20260618p-prod20260618r2-a4653898-force20260619cleanr1.js?v=prod-nightly-r25-cb20260629-cache-refresh-r1"></script>
-<script src="./r25-equipment-scythe-v18-gunslinger-cache-r29r1.js?v=prod-nightly-r25-cb20260629-cache-refresh-r1"></script>
-<script src="./r25-unique-fx-core-v4-cb20260618r-prod20260618r2-db6771c6-force20260619cleanr1.js?v=prod-nightly-r25-cb20260629-cache-refresh-r1"></script>
-<script src="./r25-unique-fx-update-v4-cb20260618r-prod20260618r2-8d76287b-force20260619cleanr1.js?v=prod-nightly-r25-cb20260629-cache-refresh-r1"></script>
-<script src="./r25-unique-fx-v4-cb20260618r-prod20260618r2-c35146ca-force20260619cleanr1.js?v=prod-nightly-r25-cb20260629-cache-refresh-r1"></script>
-<script src="./r25-game-core-scythe-v31-gunslinger-cache-r29r1.js?v=prod-nightly-r25-cb20260629-cache-refresh-r1"></script>
-<script src="./r25-settings-sync-r29r1.js?v=prod-nightly-r25-cb20260629-cache-refresh-r1"></script>
-<script src="./r25-game-combat-scythe-v9-gunslinger-cache-r29r1.js?v=prod-nightly-r25-cb20260629-cache-refresh-r1"></script>
-<script src="./r25-evolution-tuning-v2-cb20260618p-prod20260618r2-21e53b3d-force20260619cleanr1.js?v=prod-nightly-r25-cb20260629-cache-refresh-r1"></script>
-<script src="./r25-game-render-scythe-v27-isolated-cache-r29r1.js?v=prod-nightly-r25-cb20260629-cache-refresh-r1"></script>
-<script src="./r25-rift-scythe-v26-gunslinger-cache-r29r1.js?v=prod-nightly-r25-cb20260629-cache-refresh-r1"></script>
-<script src="./r25-cosmetics-shop-scythe-v10-gunslinger-cache-r29r1.js?v=prod-nightly-r25-cb20260629-cache-refresh-r1"></script>
-<script src="./r25-pet-looter-v5-quiet-preload-cache-r29r1.js?v=prod-nightly-r25-cb20260629-cache-refresh-r1"></script>
-<script src="./r25-game-ui-scythe-v20-gunslinger-cache-r29r1.js?v=prod-nightly-r25-cb20260629-cache-refresh-r1"></script>
-<script src="./r25-rift-paladin-skills-v4-cb20260618p-prod20260618r2-32d1cb0c-force20260619cleanr1.js?v=prod-nightly-r25-cb20260629-cache-refresh-r1"></script>
-<script src="./r25-rift-webgl-assets-v1.js?v=prod-nightly-r25-cb20260629-cache-refresh-r1"></script>
-<script src="./r25-rift-webgl-beam-asset-v1.js?v=prod-nightly-r25-cb20260629-cache-refresh-r1"></script>
-<script src="./r25-rift-webgl-projectile-assets-v1.js?v=prod-nightly-r25-cb20260629-cache-refresh-r1"></script>
-<script src="./r25-rift-webgl-skill-assets-v1.js?v=prod-nightly-r25-cb20260629-cache-refresh-r1"></script>
-<script src="./r25-rift-webgl-player-gunslinger-assets-v1.js?v=prod-nightly-r25-cb20260629-cache-refresh-r1"></script>
-<script src="./r25-rift-webgl-renderer-v13-cleanfallback-cache-r29r1.js?v=prod-nightly-r25-cb20260629-cache-refresh-r1"></script>
-<script src="./r25-webgl-effect-sequence-assets-v1.js?v=prod-nightly-r25-cb20260629-cache-refresh-r1"></script>
-<script src="./r25-webgl-effect-sequences-v1.js?v=prod-nightly-r25-cb20260629-cache-refresh-r1"></script>
-<script src="./r25-perf-spawn-scythe-v6-webglpass-r29r1.js?v=prod-nightly-r25-cb20260629-cache-refresh-r1"></script>
-<script src="./r25-boss-pacing-scythe-v1-cb20260619-691e34e8-force20260619cleanr1.js?v=prod-nightly-r25-cb20260629-cache-refresh-r1"></script>
-<script src="./r25-rift-leaderboard-scythe-v4-scroll-cb20260620.js?v=prod-nightly-r25-cb20260629-cache-refresh-r1"></script>
-<script src="./r25-ranger-blade-fx-scythe-v1-cb20260619-17c40349-force20260619cleanr1.js?v=prod-nightly-r25-cb20260629-cache-refresh-r1"></script>
-<script src="./r25-sequence-impact-tags-v1.js?v=prod-nightly-r25-cb20260629-cache-refresh-r1"></script>
-<script src="./r25-combat-icon-ui-v1-cb20260619-1cbd6cc2-force20260619cleanr1.js?v=prod-nightly-r25-cb20260629-cache-refresh-r1"></script>
-<script src="./r25-manual-save-slots-v2-manage-cb20260620.js?v=prod-nightly-r25-cb20260629-cache-refresh-r1"></script>
-<script src="./r25-endless-balance-v2-cache-r29r1-cb20260629.js?v=prod-nightly-r25-cb20260629-cache-refresh-r1"></script>
-<script src="./r25-endless-perf-v5-fxperf-r29r1.js?v=prod-nightly-r25-cb20260629-cache-refresh-r1"></script>
-<script src="./r25-endless-checkpoint-v2-cache-r29r1-cb20260629.js?v=prod-nightly-r25-cb20260629-cache-refresh-r1"></script>
-<script src="./r25-start-tip-typewriter-v2-only-cb20260620.js?v=prod-nightly-r25-cb20260629-cache-refresh-r1"></script>
-<script src="./r25-open-world-chunks-v1.js?v=prod-nightly-r25-cb20260629-cache-refresh-r1"></script>
-<script src="./r25-open-world-ai-bots-v1.js?v=prod-nightly-r25-cb20260629-cache-refresh-r1"></script>
+<script>
+(async()=>{
+const v='prod-nightly-r25-cb20260629-cache-refresh-r1';
+const scripts=[
+'r25-storage-sync-v7-mode-select-cache-r29r1.js','r25-affix-scythe-v4-hpflat-cache-r29r1.js','r25-equip-data-v5-gunslinger-cache-r29r1.js','r25-season-scythe-v8-safe-start-cb20260620.js','r25-progression-scythe-v8-gunslinger-cache-r29r1.js','r25-redeem-scythe-v11-delete-compensation-r16.js','r25-save-transfer-scythe-v5-cb20260618p-prod20260618r2-a4653898-force20260619cleanr1.js','r25-equipment-scythe-v18-gunslinger-cache-r29r1.js','r25-unique-fx-core-v4-cb20260618r-prod20260618r2-db6771c6-force20260619cleanr1.js','r25-unique-fx-update-v4-cb20260618r-prod20260618r2-8d76287b-force20260619cleanr1.js','r25-unique-fx-v4-cb20260618r-prod20260618r2-c35146ca-force20260619cleanr1.js','r25-game-core-scythe-v31-gunslinger-cache-r29r1.js','r25-settings-sync-r29r1.js','r25-game-combat-scythe-v9-gunslinger-cache-r29r1.js','r25-evolution-tuning-v2-cb20260618p-prod20260618r2-21e53b3d-force20260619cleanr1.js','r25-game-render-scythe-v27-isolated-cache-r29r1.js','r25-rift-scythe-v26-gunslinger-cache-r29r1.js','r25-cosmetics-shop-scythe-v10-gunslinger-cache-r29r1.js','r25-pet-looter-v5-quiet-preload-cache-r29r1.js','r25-game-ui-scythe-v20-gunslinger-cache-r29r1.js','r25-rift-paladin-skills-v4-cb20260618p-prod20260618r2-32d1cb0c-force20260619cleanr1.js','r25-rift-webgl-assets-v1.js','r25-rift-webgl-beam-asset-v1.js','r25-rift-webgl-projectile-assets-v1.js','r25-rift-webgl-skill-assets-v1.js','r25-rift-webgl-player-gunslinger-assets-v1.js','r25-rift-webgl-renderer-v13-cleanfallback-cache-r29r1.js','r25-webgl-effect-sequence-assets-v1.js','r25-webgl-effect-sequences-v1.js','r25-perf-spawn-scythe-v6-webglpass-r29r1.js','r25-boss-pacing-scythe-v1-cb20260619-691e34e8-force20260619cleanr1.js','r25-rift-leaderboard-scythe-v4-scroll-cb20260620.js','r25-ranger-blade-fx-scythe-v1-cb20260619-17c40349-force20260619cleanr1.js','r25-sequence-impact-tags-v1.js','r25-combat-icon-ui-v1-cb20260619-1cbd6cc2-force20260619cleanr1.js','r25-manual-save-slots-v2-manage-cb20260620.js','r25-endless-balance-v2-cache-r29r1-cb20260629.js','r25-endless-perf-v5-fxperf-r29r1.js','r25-endless-checkpoint-v2-cache-r29r1-cb20260629.js','r25-start-tip-typewriter-v2-only-cb20260620.js','r25-open-world-chunks-v1.js','r25-open-world-ai-bots-v1.js'];
+async function loadScript(name){
+  const url=`./${name}?v=${v}`;
+  try{
+    const res=await fetch(url,{cache:'no-store'});
+    if(!res.ok)throw new Error(`HTTP ${res.status}`);
+    const code=await res.text();
+    (0,eval)(`${code}\n//# sourceURL=${new URL(url,location.href).href}`);
+  }catch(err){
+    console.error('[ArcaneBootLoadError]',name,err.message,err.stack||'');
+    throw err;
+  }
+}
+try{for(const s of scripts)await loadScript(s);console.info('[ArcaneBoot] scripts loaded',scripts.length)}
+catch(err){document.getElementById('loadingText').textContent='资源加载失败，请刷新重试';}
+})();
+</script>
 </body>
 </html>
