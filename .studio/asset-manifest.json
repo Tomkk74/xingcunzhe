@@ -1,7 +1,7 @@
 {
   "version": 1,
   "createdAt": "2026-06-13T14:08:29Z",
-  "updatedAt": "2026-06-29T07:59:39Z",
+  "updatedAt": "2026-07-01T01:11:05Z",
   "assets": [
     {
       "name": "player-paladin",
@@ -2757,6 +2757,78 @@
       },
       "traceId": "trace_mqyxfg8h_3b8shvup",
       "createdAt": "2026-06-29T07:59:39Z"
+    },
+    {
+      "name": "town-map",
+      "status": "success",
+      "path": "publish/assets/generated/town-map.54115ff5.webp",
+      "contentHash": "54115ff5",
+      "revisedPrompt": "Arcane survivor chibi fantasy town hub background, top-down 3/4 arcade game map tile artwork, cozy medieval training town at night. Wide composition. Circular stone plaza with a glowing campfire in the exact center, empty clear walkable spaces around the campfire for characters. Wooden paths, grass edges, magic banners, small market props, barrels, crates, lanterns. Readable game background, clean dark outline, soft glow, high contrast. Palette dark navy, purple, gold, cyan. No text, no logo, no watermark.",
+      "model": "gpt-image-2",
+      "size": "1536x1024",
+      "wantsTransparent": false,
+      "outputFormat": "webp",
+      "compressionProfile": "lossy_q80_opaque",
+      "originalBytes": 2805817,
+      "finalBytes": 225468,
+      "usage": {
+        "inputTokens": 117,
+        "outputImageTokens": 1372
+      },
+      "traceId": "trace_mr1dl14e_gylnmlh9",
+      "createdAt": "2026-07-01T01:07:53Z"
+    },
+    {
+      "name": "town-portal",
+      "status": "success",
+      "path": "publish/assets/generated/town-portal.4b76cc1b.webp",
+      "contentHash": "4b76cc1b",
+      "revisedPrompt": "Arcane survivor chibi fantasy interactive rift portal sprite, top-down 3/4 arcade game prop, centered single object. Stone arch gateway with a purple-blue swirling magical vortex, glowing gold runes carved around the arch, readable silhouette, clean dark outline, soft magical glow. No ground, no shadow, no text, no logo, no watermark. Strictly isolated on a SOLID UNIFORM #00B140 chroma key flat color background filling 100% of all non-portal pixels. No gradient, no texture, no scenery, no environmental elements. Pure flat color green screen background, exactly uniform #00B140.",
+      "model": "gpt-image-2",
+      "size": "1254x1254",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#00B140",
+        "alphaZeroPct": 61.6,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossy_q85_alpha",
+      "originalBytes": 1785193,
+      "finalBytes": 130536,
+      "usage": {
+        "inputTokens": 135,
+        "outputImageTokens": 2058
+      },
+      "traceId": "trace_mr1dn1ng_7zm4vwit",
+      "createdAt": "2026-07-01T01:09:27Z"
+    },
+    {
+      "name": "town-equipment-chest",
+      "status": "success",
+      "path": "publish/assets/generated/town-equipment-chest.7fb8a9b5.webp",
+      "contentHash": "7fb8a9b5",
+      "revisedPrompt": "Arcane survivor chibi fantasy interactive equipment chest sprite, top-down 3/4 arcade game prop. Ornate wooden treasure chest with gold trim, glowing blue seasonal gear crystals, slightly open lid, readable silhouette, clean dark outline, centered object, no ground, no shadow, no text, no logo, no watermark. Strictly placed on a SOLID UNIFORM #00B140 chroma key flat color background. The background is a single uniform shade of #00B140 chroma key green that fills 100% of pixels not occupied by the chest. No gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements. Pure flat color background, exactly like a green screen used for VFX compositing. No text, no logo, no watermark.",
+      "model": "gpt-image-2",
+      "size": "1254x1254",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#00B140",
+        "alphaZeroPct": 69.8,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossy_q85_alpha",
+      "originalBytes": 1601419,
+      "finalBytes": 117384,
+      "usage": {
+        "inputTokens": 168,
+        "outputImageTokens": 2058
+      },
+      "traceId": "trace_mr1dp2ch_7g3oe4bi",
+      "createdAt": "2026-07-01T01:11:05Z"
     }
   ]
 }
