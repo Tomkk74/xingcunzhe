@@ -52,11 +52,16 @@ window.GameModules.storageSync = (() => {
   }
   async function cloudGet(key, timeout) {
     const kv = await cloudApi(timeout);
-    return (await withTimeout(kv.get(key), timeout))?.value ?? null;
+    try {
+      return (await withTimeout(kv.get(key), timeout))?.value ?? null;
+    } catch (e) {
+      if (isMissingKey(e)) return null;
+      throw e;
+    }
   }
   function markPending(key, e) { pendingCloud.add(key); cloudReadFailures.set(key, { code: e?.code || 'CLOUD_ERROR', message: e?.message || '云端读取失败', at: now() }); }
   function clearPending(key) { pendingCloud.delete(key); cloudReadFailures.delete(key); }
-  function isMissingKey(e) { return e?.code === 'KEY_NOT_FOUND' || e?.code === 'NOT_FOUND'; }
+  function isMissingKey(e) { const c = String(e?.code || e?.rawCode || '').toUpperCase(); return c === 'KEY_NOT_FOUND' || c === 'NOT_FOUND' || c === 'KEY_NOT_EXIST' || c === 'NOT_EXISTS'; }
   function cloudFailure(key) { return cloudReadFailures.get(key) || null; }
   async function ready(ms = 7600) {
     if (localOnlyTestMode()) return true;
