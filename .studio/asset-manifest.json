@@ -1,7 +1,7 @@
 {
   "version": 1,
   "createdAt": "2026-06-13T14:08:29Z",
-  "updatedAt": "2026-07-01T03:31:05Z",
+  "updatedAt": "2026-07-01T04:26:13Z",
   "assets": [
     {
       "name": "player-paladin",
@@ -3011,6 +3011,26 @@
       },
       "traceId": "trace_mr1ip067_mjgk84xw",
       "createdAt": "2026-07-01T03:31:05Z"
+    },
+    {
+      "name": "town-ground-stone-tile",
+      "status": "success",
+      "path": "publish/assets/generated/town-ground-stone-tile.51d177ac.webp",
+      "contentHash": "51d177ac",
+      "revisedPrompt": "Seamless tileable top-down ground texture for a bright fantasy town hub. Pure ground tile only: light warm stone paving slabs, clean cobblestone / stone brick pattern, subtle bevels and cracks, readable top-down 3/4 arcade fantasy style, evenly distributed texture, suitable for repeating as a large map floor. No buildings, no campfire, no portal, no props, no characters, no grass patches, no full scene composition, no perspective horizon. Texture-only, perfectly seamless tileable pattern, bright stone plaza floor. Wide composition, no text, no logo, no watermark.",
+      "model": "gpt-image-2",
+      "size": "1536x1024",
+      "wantsTransparent": false,
+      "outputFormat": "webp",
+      "compressionProfile": "lossy_q80_opaque",
+      "originalBytes": 2820216,
+      "finalBytes": 174626,
+      "usage": {
+        "inputTokens": 127,
+        "outputImageTokens": 1372
+      },
+      "traceId": "trace_mr1ko4lm_3l2szt2e",
+      "createdAt": "2026-07-01T04:26:13Z"
     }
   ]
 }
