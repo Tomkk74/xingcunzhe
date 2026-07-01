@@ -1,7 +1,7 @@
 {
   "version": 1,
   "createdAt": "2026-06-13T14:08:29Z",
-  "updatedAt": "2026-07-01T01:11:05Z",
+  "updatedAt": "2026-07-01T01:36:23Z",
   "assets": [
     {
       "name": "player-paladin",
@@ -2829,6 +2829,84 @@
       },
       "traceId": "trace_mr1dp2ch_7g3oe4bi",
       "createdAt": "2026-07-01T01:11:05Z"
+    },
+    {
+      "name": "town-prop-portal",
+      "status": "success",
+      "path": "publish/assets/generated/town-prop-portal.18903df5.webp",
+      "contentHash": "18903df5",
+      "revisedPrompt": "Arcane survivor chibi fantasy town portal prop, transparent standalone 3D top-down 3/4 arcade sprite, glowing stone arch with purple blue magic vortex, readable from above, clean dark outline, soft glow, high contrast, isolated object only, no ground, no scenery, no text, no logo, no watermark. Strictly placed on a SOLID UNIFORM #00B140 chroma key flat color background. The background is a single uniform shade of #00B140 chroma key green that fills 100% of pixels not occupied by the prop. No gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements. Pure flat color background, exactly like a green screen used for VFX compositing.",
+      "model": "gpt-image-2",
+      "size": "1402x1122",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#00B140",
+        "alphaZeroPct": 72.4,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossy_q85_alpha",
+      "originalBytes": 1613524,
+      "finalBytes": 99918,
+      "usage": {
+        "inputTokens": 160,
+        "outputImageTokens": 1630
+      },
+      "traceId": "trace_mr1ei9ge_zjxgcl6r",
+      "createdAt": "2026-07-01T01:33:33Z"
+    },
+    {
+      "name": "town-prop-chest",
+      "status": "success",
+      "path": "publish/assets/generated/town-prop-chest.7e592e6e.webp",
+      "contentHash": "7e592e6e",
+      "revisedPrompt": "Arcane survivor chibi fantasy season equipment chest prop, transparent standalone 3D top-down 3/4 arcade sprite, ornate wooden and gold treasure chest with blue runes and glowing latch, readable from above, clean dark outline, soft glow and high contrast, no ground, no scenery, no text, no logo, no watermark. Strictly placed on a SOLID UNIFORM #00B140 chroma key flat color background. The background is a single uniform shade of #00B140 chroma key green that fills 100% of pixels not occupied by the prop. No gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements. Pure flat color background, exactly like a green screen used for VFX compositing. No text, no logo, no watermark.",
+      "model": "gpt-image-2",
+      "size": "1536x1024",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#00B140",
+        "alphaZeroPct": 69.1,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossy_q85_alpha",
+      "originalBytes": 1759969,
+      "finalBytes": 128394,
+      "usage": {
+        "inputTokens": 171,
+        "outputImageTokens": 1372
+      },
+      "traceId": "trace_mr1ek17g_d6qxi4ta",
+      "createdAt": "2026-07-01T01:34:50Z"
+    },
+    {
+      "name": "town-prop-decor-sheet",
+      "status": "success",
+      "path": "publish/assets/generated/town-prop-decor-sheet.b2d7be4b.webp",
+      "contentHash": "b2d7be4b",
+      "revisedPrompt": "Arcane survivor chibi fantasy town obstacle prop set, transparent standalone 3D top-down 3/4 arcade sprite sheet arranged in a 2x2 grid on a SOLID UNIFORM #00B140 chroma key flat color background. Four separate objects, each centered in its own quadrant with clear separation: top-left a glowing campfire with stones; top-right a wooden barrel crate pile; bottom-left a rune stone pillar; bottom-right a small market signpost lantern. Readable from above, clean dark outline, soft glow, high contrast. No ground, no scenery, no text, no logo, no watermark. Background must be pure flat #00B140 green screen fill with no gradient, no shadow, no texture, no decoration, no environmental elements.",
+      "model": "gpt-image-2",
+      "size": "1254x1254",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#00B140",
+        "alphaZeroPct": 72.2,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossy_q85_alpha",
+      "originalBytes": 1617790,
+      "finalBytes": 124738,
+      "usage": {
+        "inputTokens": 162,
+        "outputImageTokens": 2058
+      },
+      "traceId": "trace_mr1eloez_a8t9nhan",
+      "createdAt": "2026-07-01T01:36:23Z"
     }
   ]
 }
