@@ -62,7 +62,12 @@ window.GameModules.storageSync = (() => {
   }
   function markPending(key, e) { pendingCloud.add(key); cloudReadFailures.set(key, { code: e?.code || 'CLOUD_ERROR', message: e?.message || '云端读取失败', at: now() }); }
   function clearPending(key) { pendingCloud.delete(key); cloudReadFailures.delete(key); }
-  function isMissingKey(e) { const c = String(e?.code || e?.rawCode || '').toUpperCase(); return c === 'KEY_NOT_FOUND' || c === 'NOT_FOUND' || c === 'KEY_NOT_EXIST' || c === 'NOT_EXISTS'; }
+  function isMissingKey(e) {
+    const c = String(e?.code || e?.rawCode || e?.name || '').toUpperCase();
+    const status = Number(e?.status || e?.statusCode || e?.response?.status || 0);
+    const msg = String(e?.message || '').toLowerCase();
+    return status === 404 || c === 'KEY_NOT_FOUND' || c === 'NOT_FOUND' || c === 'KEY_NOT_EXIST' || c === 'NOT_EXISTS' || msg.includes('key not found') || msg.includes('not found') || msg.includes('不存在') || msg.includes('未找到');
+  }
   function cloudFailure(key) { return cloudReadFailures.get(key) || null; }
   async function ready(ms = 18000) {
     if (localOnlyTestMode()) return true;
