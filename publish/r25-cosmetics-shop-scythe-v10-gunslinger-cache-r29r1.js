@@ -57,7 +57,7 @@ function patchCards(){if(!window.renderClassCards||window.renderClassCards._cost
 function unlockRift40(cls){if(cls!=='lewdSaintess'||owned(cls,'rift40'))return;state.owned.lewdSaintess.rift40=true;save();notice('通关秘境40层：圣女时装已解锁')}
 function patchRift(){if(!window.Rift?.finishRun){if(!patchRift._retry){patchRift._retry=true;setTimeout(patchRift,600)}return}if(window.Rift.finishRun._costume)return;let base=window.Rift.finishRun;window.Rift.finishRun=async function(r){let out=await base.apply(this,arguments);await init();if(r?.win&&Math.floor(r.layer||0)>=40)unlockRift40(r.classId);return out};window.Rift.finishRun._costume=true}
 function bind(){document.addEventListener('click',e=>{let ci=e.target.closest('[data-costume-class]');if(ci){e.preventDefault();e.stopPropagation();openCostume(ci.dataset.costumeClass);return}let si=e.target.closest('[data-shop-item]');if(si){openShopDetail(si.dataset.shopItem);return}let sc=e.target.closest('[data-shop-costume]');if(sc){let [c,id]=sc.dataset.shopCostume.split(':');openShopDetail('costume',c,id);return}let cp=e.target.closest('[data-costume-pick]');if(cp){let [c,id]=cp.dataset.costumePick.split(':');pickCostume(c,id)}} ,true)}
-function boot(){ensureUi();init().then(()=>{patchCards();patchRift()});bind()}
+function boot(){ensureUi();patchCards();patchRift();bind()}
 window.Cosmetics={init,preloadOutgame,allCostumes,drawSelected,openCostume,registerCostume(c){SHOP_COSTUMES.push(c);return c}};
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
 })();

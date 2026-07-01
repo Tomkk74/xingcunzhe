@@ -54,7 +54,7 @@ function drawPet(){ensureUi();if(!petImg)return;let s=window.S,pet=active()?s.pe
 async function pickPet(btn){let id=btn.dataset.petPick;if(btn.dataset.petMode==='shop'){shopPick=id;refreshShopDetail();return}await buyPet(id,'panel')}
 function bind(){document.addEventListener('click',e=>{let b=e.target.closest('[data-pet-open]');if(b){e.preventDefault();e.stopPropagation();openPanel();return}let p=e.target.closest('[data-pet-pick]');if(p){e.preventDefault();e.stopPropagation();pickPet(p)}},true)}
 function loop(){drawPet();raf=requestAnimationFrame(loop)}
-function boot(){ensureUi();init();bind();if(!patchUpdate())setTimeout(boot,200);if(!patchEquipment())setTimeout(patchEquipment,300);if(!raf)loop()}
+function boot(){ensureUi();bind();if(!patchUpdate())setTimeout(boot,200);if(!patchEquipment())setTimeout(patchEquipment,300);if(!raf)loop()}
 window.PetLooter={init,preloadOutgame,hasPet,shopDetail,openPanel,buyPet};
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
 })();

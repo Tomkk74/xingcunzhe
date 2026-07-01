@@ -1,6 +1,7 @@
 window.GameModules = window.GameModules || {};
 window.GameModules.storageSync = (() => {
   const warned = {}, pendingCloud = new Set(), cloudReadFailures = new Map();
+  let readQueue = Promise.resolve();
   function localOnlyTestMode() { return window.__LOCAL_SAVE_TEST_MODE === true; }
   let localFallbackAllowed = false;
   const bootAt = Date.now(), BOOT_GRACE_MS = 9000;
@@ -69,10 +70,7 @@ window.GameModules.storageSync = (() => {
     return true;
   }
   async function getLocalFallback(key) { return localGet(key); }
-  async function get(key) {
-    const local = localGet(key);
-    if (localOnlyTestMode()) return local;
-    if (localFallbackAllowed && local != null) return local;
+  async function readCloudWithRetry(key, local) {
     let cloud = null, last = null;
     const tries = local ? 2 : 3;
     for (let i = 0; i < tries; i++) {
@@ -94,6 +92,15 @@ window.GameModules.storageSync = (() => {
     quietWarn('云端读取失败，已阻止关键数据写入，请重试或显式使用本机备份', last);
     if (!localFallbackAllowed) throw err('CLOUD_READ_BLOCKED', '云端存档读取失败，请重试；不要在空进度下继续写入覆盖云端');
     return local;
+  }
+  async function get(key) {
+    const local = localGet(key);
+    if (localOnlyTestMode()) return local;
+    if (localFallbackAllowed && local != null) return local;
+    const run = () => readCloudWithRetry(key, local);
+    const next = readQueue.then(run, run);
+    readQueue = next.catch(() => {});
+    return await next;
   }
   async function put(key, value, label = '数据') {
     const data = stamp(value);
