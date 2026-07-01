@@ -64,10 +64,20 @@ window.GameModules.storageSync = (() => {
   function clearPending(key) { pendingCloud.delete(key); cloudReadFailures.delete(key); }
   function isMissingKey(e) { const c = String(e?.code || e?.rawCode || '').toUpperCase(); return c === 'KEY_NOT_FOUND' || c === 'NOT_FOUND' || c === 'KEY_NOT_EXIST' || c === 'NOT_EXISTS'; }
   function cloudFailure(key) { return cloudReadFailures.get(key) || null; }
-  async function ready(ms = 7600) {
+  async function ready(ms = 18000) {
     if (localOnlyTestMode()) return true;
-    await cloudApi(ms);
-    return true;
+    const deadline = now() + Math.max(ms, 18000);
+    let last = null;
+    while (now() < deadline) {
+      try {
+        await cloudGet('__arcane_kv_probe__', Math.min(6800, Math.max(1200, deadline - now())));
+        return true;
+      } catch (e) {
+        last = e;
+        await wait(420);
+      }
+    }
+    throw err('CLOUD_COLD_START_TIMEOUT', last?.message || '云端存档连接超时，请刷新重试');
   }
   async function getLocalFallback(key) { return localGet(key); }
   async function readCloudWithRetry(key, local) {
