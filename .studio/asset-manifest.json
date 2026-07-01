@@ -1,7 +1,7 @@
 {
   "version": 1,
   "createdAt": "2026-06-13T14:08:29Z",
-  "updatedAt": "2026-07-01T01:36:23Z",
+  "updatedAt": "2026-07-01T03:31:05Z",
   "assets": [
     {
       "name": "player-paladin",
@@ -2907,6 +2907,110 @@
       },
       "traceId": "trace_mr1eloez_a8t9nhan",
       "createdAt": "2026-07-01T01:36:23Z"
+    },
+    {
+      "name": "town-campfire",
+      "status": "success",
+      "path": "publish/assets/generated/town-campfire.2fc8b9cf.webp",
+      "contentHash": "2fc8b9cf",
+      "revisedPrompt": "Single game asset illustration: a centered top-down 3/4 campfire prop for a dark fantasy town hub in an arcade survivor style. Compact readable silhouette, full object visible, correct grounded perspective. Stone ring on the ground with burning logs inside, soft orange glow, clean dark outline, chibi fantasy proportions, hand-painted but crisp game asset look. No extra props, no scenery, no environment, no ground plane, no decoration. Place the object on a perfectly flat solid uniform chroma key background color #00B140 filling all remaining pixels, with no gradient, no shadow, no texture. No text, no logo, no watermark.",
+      "model": "gpt-image-2",
+      "size": "1254x1254",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#00B140",
+        "alphaZeroPct": 75,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossy_q85_alpha",
+      "originalBytes": 1455961,
+      "finalBytes": 82540,
+      "usage": {
+        "inputTokens": 136,
+        "outputImageTokens": 2058
+      },
+      "traceId": "trace_mr1ihrfn_bp6l74lx",
+      "createdAt": "2026-07-01T03:25:19Z"
+    },
+    {
+      "name": "town-chest-grounded",
+      "status": "success",
+      "path": "publish/assets/generated/town-chest-grounded.98c9a079.webp",
+      "contentHash": "98c9a079",
+      "revisedPrompt": "Arcane survivor chibi fantasy game asset: a single grounded treasure equipment chest prop for a top-down 3/4 dark fantasy town hub. Squat wooden chest with metal bands, correct perspective sitting on the ground, compact readable silhouette, not floating, no pedestal, no extra background. Clean dark outline, soft golden rim light, arcade fantasy survivor style. Object centered, full object visible. Strictly isolated on a SOLID UNIFORM #00B140 chroma key flat color background. The background is a single uniform shade of #00B140 chroma key green that fills 100% of pixels not occupied by the object. No gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements. Pure flat color background, exactly like a green screen used for VFX compositing. No text, no logo, no watermark.",
+      "model": "gpt-image-2",
+      "size": "1254x1254",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#00B140",
+        "alphaZeroPct": 68.4,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossy_q85_alpha",
+      "originalBytes": 1500860,
+      "finalBytes": 88544,
+      "usage": {
+        "inputTokens": 355,
+        "outputImageTokens": 2573
+      },
+      "traceId": "trace_mr1ijzgl_x2aet46z",
+      "createdAt": "2026-07-01T03:27:45Z"
+    },
+    {
+      "name": "town-portal-grounded",
+      "status": "success",
+      "path": "publish/assets/generated/town-portal-grounded.c108a81e.webp",
+      "contentHash": "c108a81e",
+      "revisedPrompt": "Arcane survivor chibi fantasy game asset: a single grounded rift portal entrance prop for a top-down 3/4 dark fantasy town hub. Design as a compact readable silhouette, stone arch or obelisk gate with a purple-blue magical center, stable base touching the ground, not floating, clean dark outline, soft magic glow, arcade fantasy survivor style. Object centered, full object visible, isolated with no extra scenery. Strictly on a SOLID UNIFORM #00B140 chroma key flat color background filling all non-object pixels. No gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements. Pure flat color background exactly like a green screen for VFX compositing. No text, no logo, no watermark.",
+      "model": "gpt-image-2",
+      "size": "1254x1254",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#00B140",
+        "alphaZeroPct": 69.8,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossy_q85_alpha",
+      "originalBytes": 1588992,
+      "finalBytes": 100036,
+      "usage": {
+        "inputTokens": 162,
+        "outputImageTokens": 2058
+      },
+      "traceId": "trace_mr1imwji_n89tq87s",
+      "createdAt": "2026-07-01T03:29:24Z"
+    },
+    {
+      "name": "town-crates-grounded",
+      "status": "success",
+      "path": "publish/assets/generated/town-crates-grounded.97b1917e.webp",
+      "contentHash": "97b1917e",
+      "revisedPrompt": "Create a single centered game asset for an arcane survivor chibi fantasy game: a small grounded town decoration prop consisting of a compact cluster of wooden crates and one barrel. Top-down 3/4 dark fantasy town hub perspective, correct grounded placement, fully visible object, readable at small size, clean dark outline, warm fantasy colors, no floating elements. Isolated on a pure flat chroma key background with exact solid uniform color #00B140 filling the entire background, no gradient, no shadow, no texture, no ground, no scenery, no extra elements. No text, no logo, no watermark.",
+      "model": "gpt-image-2",
+      "size": "1254x1254",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#00B140",
+        "alphaZeroPct": 78.5,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossy_q85_alpha",
+      "originalBytes": 1437782,
+      "finalBytes": 76942,
+      "usage": {
+        "inputTokens": 129,
+        "outputImageTokens": 2058
+      },
+      "traceId": "trace_mr1ip067_mjgk84xw",
+      "createdAt": "2026-07-01T03:31:05Z"
     }
   ]
 }
