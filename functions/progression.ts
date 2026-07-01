@@ -37,7 +37,7 @@ function normalize(v: any) {
   p.shop.owned = obj(p.shop.owned); p.shop.sacrifices = obj(p.shop.sacrifices);
   return p;
 }
-function publicState(p: any) { return { ok: true, meta: { soulGold: p.soulGold, soulCore: p.soulCore, grants: p.grants, classes: p.classes }, rift: { keys: p.rift.keys, maxLayer: p.rift.maxLayer, best: p.rift.best, dust: p.rift.dust, grants: p.rift.grants, activeRun: p.rift.activeRun ? { token: p.rift.activeRun.token, layer: p.rift.activeRun.layer } : null }, season: { currentSeason: 1, started: { 1: true }, seasons: { 1: { level: p.season.level, xp: p.season.xp, totalXp: p.season.totalXp } } }, shop: p.shop, lastRiftResult: p.rift.lastResult || null }; }
+function publicState(p: any) { return { ok: true, meta: { soulGold: p.soulGold, soulCore: p.soulCore, grants: p.grants, classes: p.classes }, rift: { keys: p.rift.keys, maxLayer: p.rift.maxLayer, best: p.rift.best, dust: p.rift.dust, grants: p.rift.grants, activeRun: p.rift.activeRun ? { token: p.rift.activeRun.token, layer: p.rift.activeRun.layer } : null }, season: { currentSeason: 1, started: { 1: true }, seasons: { 1: { level: p.season.level, xp: p.season.xp, totalXp: p.season.totalXp, lastGain: p.season.lastGain || 0, lastUps: p.season.lastUps || 0 } } }, shop: p.shop, lastRiftResult: p.rift.lastResult || null }; }
 function obj(v: any) { return v && typeof v === 'object' && !Array.isArray(v) ? v : {}; }
 function num(v: any, min: number, max: number) { v = Math.floor(Number(v) || 0); return Math.max(min, Math.min(max, v)); }
 function nodes(c: string) { return BASE.concat(SPEC[c] || []).map((x: any) => ({ id: x[0], max: x[1], base: x[2], core: x[3] || 0, pre: x[4] || null })); }
