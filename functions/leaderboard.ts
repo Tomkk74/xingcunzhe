@@ -16,7 +16,7 @@ async function listScores(ctx: any) {
 
 async function submitScore(ctx: any, args: any) {
   const progress = normalizeProgress((await ctx.kv.get(PROGRESS_KEY))?.value);
-  const verified = progress.rift?.lastResult;
+  const verified = progress.rift?.pendingBoard;
   const row = buildRow(ctx, args, verified);
   if (!row) return await listScores(ctx);
   validateRow(row);
@@ -28,35 +28,36 @@ async function submitScore(ctx: any, args: any) {
   sortBoard(filtered);
   const top = filtered.slice(0, 20);
   await ctx.kv.global.put(KEY, top);
+  progress.rift.lastSubmittedBoard = { id: verified.id, at: row.at, riftLayer: row.riftLayer, riftTime: row.riftTime };
+  await ctx.kv.put(PROGRESS_KEY, progress);
   return { board: publicRows(top), rank: top.findIndex((r) => r.at === next.at && r.name === next.name) + 1 };
 }
 
 function buildRow(ctx: any, args: any, verified: any) {
-  if (!verified || verified.win !== true) return null;
+  if (!verified || verified.win !== true || verified.consumed === true) return null;
   const riftLayer = Math.max(0, Math.floor(Number(verified.layer) || 0));
   if (riftLayer < 1) return null;
   const riftTime = Math.max(0, Math.floor(Number(verified.time) || 0));
   const level = Math.max(1, Math.floor(Number(verified.level) || 1));
   const kills = Math.max(0, Math.floor(Number(verified.kills) || 0));
-  const clientName = pickName(args.playerName, args.userName, args.displayName, args.nickname, args.username, args.name);
   const serverName = pickName(ctx.user?.name, ctx.user?.displayName, ctx.user?.nickname, ctx.user?.username);
   const userKey = ctx.user?.id ? String(ctx.user.id) : '';
   const idFallback = userKey ? `勇士${userKey.slice(-4)}` : '';
   return {
     userKey,
-    name: pickName(serverName, clientName, idFallback, '匿名勇士'),
-    job: cleanText(args.job, 12),
-    classId: cleanText(verified.classId || args.classId, 24),
+    name: pickName(serverName, idFallback, '匿名勇士'),
+    job: className(verified.classId),
+    classId: cleanText(verified.classId, 24),
     mapId: 'rift',
     riftLayer,
     riftTime,
     level,
     kills,
-    buildName: cleanText(args.buildName, 24),
-    skills: cleanList(args.skills, 12, 28),
-    evolutions: cleanList(args.evolutions, 8, 28),
-    combos: cleanList(args.combos, 8, 48),
-    equipment: cleanEquipment(args.equipment),
+    buildName: '已验证秘境结算',
+    skills: [],
+    evolutions: [],
+    combos: [],
+    equipment: [],
     win: true,
     at: new Date().toISOString(),
   };
@@ -99,6 +100,12 @@ function pickName(...values: any[]) {
 
 function cleanText(v: any, len: number) {
   return String(v ?? '').trim().slice(0, len);
+}
+
+function className(id: any) {
+  const key = cleanText(id, 24);
+  const names: any = { paladin: '圣骑士', mage: '大魔法师', ranger: '游侠', lewdSaintess: '淫靡圣女', scytheMaiden: '琦琦', gunslinger: '枪手' };
+  return names[key] || key;
 }
 
 function cleanList(v: any, max: number, len: number) {
