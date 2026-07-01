@@ -56,7 +56,7 @@ window.GameModules.progression = (() => {
   };
   const COST_GROWTH = 1.72;
   const DEFAULT = { soulGold: 0, soulCore: 0, grants: {}, classes: Object.fromEntries(Object.keys(CLASSES).map(k => [k, { upgrades: {}, unlocks: {} }])) };
-  const ADMIN_GRANTS = { '03b30ae3-a2da-440b-9333-58dd490507ea': { id: 'admin-core-20260615', soulCore: 200 } };
+  const ADMIN_GRANTS = {};
   let meta = clone(DEFAULT), ready = false;
 
   function clone(v) { return JSON.parse(JSON.stringify(v)); }
@@ -68,6 +68,8 @@ window.GameModules.progression = (() => {
   }
   async function kvGet(key) { return await StorageSync.get(key); }
   async function kvPut(key, value) { await StorageSync.put(key, value, '永久强化'); }
+  async function callServer(method, args = {}) { return await dzmm.fn.invoke('progression', { method, args }); }
+  async function applyServerState(r) { if (r?.meta) { meta = normalize(r.meta); await kvPut(KEY, meta); } if (r?.rift) await StorageSync.put('arcane-rift-v1', r.rift, '秘境数据'); if (r?.season) await StorageSync.put('arcane-season-state-v2', r.season, '赛季'); return r; }
   function normalize(data) {
     const base = clone(DEFAULT); if (!data || typeof data !== 'object') return base;
     base.soulGold = Math.max(0, Math.floor(Number(data.soulGold) || 0));
@@ -82,22 +84,12 @@ window.GameModules.progression = (() => {
     if (data.upgrades) for (const c of Object.keys(CLASSES)) for (const n of BASE) base.classes[c].upgrades[n[0]] = Math.max(0, Math.floor(Number(data.upgrades[n[0]]) || 0));
     return base;
   }
-  async function applyAdminGrant() {
-    try {
-      const uid = (await window.dzmm.user.info())?.id;
-      const grant = ADMIN_GRANTS[uid];
-      if (!grant || meta.grants?.[grant.id]) return;
-      meta.soulCore += grant.soulCore || 0;
-      meta.grants = meta.grants || {};
-      meta.grants[grant.id] = true;
-      await save();
-    } catch (_) {}
-  }
-  async function init() { if (ready) return meta; meta = normalize(await kvGet(KEY) || await kvGet('arcane-meta-v1')); ready = true; await applyAdminGrant(); return meta; }
+  async function applyAdminGrant() { return; }
+  async function init() { if (ready) return meta; const local = await kvGet(KEY) || await kvGet('arcane-meta-v1'); meta = normalize(local); try { await applyServerState(await callServer('init')); } catch (e) { console.warn('服务端成长状态读取失败，暂用本机缓存:', e.code, e.message); } ready = true; await applyAdminGrant(); return meta; }
   async function reload() { ready = false; meta = clone(DEFAULT); return await init(); }
   async function save() { await kvPut(KEY, meta); }
   function dlcOwned(c) { return c !== 'lewdSaintess' || !!clsData(c).unlocks.dlc; }
-  async function buyDlc(c) { if (c !== 'lewdSaintess' || dlcOwned(c)) return dlcOwned(c); if (meta.soulCore < 200) return false; meta.soulCore -= 200; clsData(c).unlocks.dlc = true; await save(); return true; }
+  async function buyDlc(c) { if (c !== 'lewdSaintess' || dlcOwned(c)) return dlcOwned(c); try { await applyServerState(await callServer('buyDlc', { classId: c })); return dlcOwned(c); } catch (e) { console.error('DLC购买失败:', e.code, e.message, e.stack); return false; } }
   function level(c, id) { return clsData(c).upgrades[id] || 0; }
   function node(c, id) { return nodes(c).find(n => n.id === id); }
   function preOk(c, n) { return !n.pre || level(c, n.pre) > 0; }
@@ -106,10 +98,9 @@ window.GameModules.progression = (() => {
   function esc(v) { return String(v).replace(/[&<>"']/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m])); }
   function tone(n) { const d = n.desc || ''; if (/生命|护盾|回复|淫荡值/.test(d)) return 'life'; if (/金币|拾取|经验/.test(d)) return 'wealth'; if (/冷却|移动速度|飞行速度|速度/.test(d)) return 'speed'; if (/Boss|护盾敌人|破盾|处决/.test(d)) return 'boss'; return n.kind === 'utility' ? 'utility' : 'damage'; }
   async function buy(c, id) {
-    const n = node(c, id), data = clsData(c); if (!n || !preOk(c, n)) return false;
-    if (!coreUnlocked(c, n)) { if (meta.soulCore < n.core) return false; meta.soulCore -= n.core; data.unlocks[n.id] = true; await save(); return true; }
-    const lv = level(c, id), price = cost(c, id); if (lv >= n.max || meta.soulGold < price) return false;
-    meta.soulGold -= price; data.upgrades[id] = lv + 1; data.unlocks[id] = true; await save(); return true;
+    const n = node(c, id); if (!n || !preOk(c, n)) return false;
+    try { await applyServerState(await callServer('buyNode', { classId: c, id })); return true; }
+    catch (e) { console.error('永久强化购买失败:', e.code, e.message, e.stack); return false; }
   }
   function render(container) {
     if (!container) return;
@@ -180,19 +171,14 @@ window.GameModules.progression = (() => {
     return base + time + boss + goals * 40 + level + Math.round((base + time + boss + goals * 40 + level) * ((clsData(c).upgrades.gold || 0) * 0.05));
   }
   function estimateCoreReward(run) { return Math.max(0, Math.floor(Number(run.bossKills) || 0)) + (run.win ? 2 : 0); }
-  async function addRunReward(run) { await init(); const gold = estimateRunReward(run), core = estimateCoreReward(run); meta.soulGold += gold; meta.soulCore += core; await save(); return { gold, core }; }
-  async function addCurrency(gold, core) { await init(); meta.soulGold += Math.max(0, Math.floor(Number(gold) || 0)); meta.soulCore += Math.max(0, Math.floor(Number(core) || 0)); await save(); return { gold: meta.soulGold, core: meta.soulCore }; }
-  async function spendGold(amount) { await init(); amount = Math.max(0, Math.floor(Number(amount) || 0)); if (meta.soulGold < amount) return false; meta.soulGold -= amount; await save(); return true; }
-  async function spendCore(amount) { await init(); amount = Math.max(0, Math.floor(Number(amount) || 0)); if (meta.soulCore < amount) return false; meta.soulCore -= amount; await save(); return true; }
+  async function addRunReward(run) { await init(); const before = { gold: meta.soulGold, core: meta.soulCore }; await applyServerState(await callServer('runReward', run)); return { gold: meta.soulGold - before.gold, core: meta.soulCore - before.core }; }
+  async function addCurrency(gold, core) { await init(); console.warn('客户端直接发放货币已禁用'); return { gold: meta.soulGold, core: meta.soulCore }; }
+  async function spendGold(amount) { await init(); try { await applyServerState(await callServer('spend', { gold: amount })); return true; } catch (e) { console.warn('金币扣除失败:', e.code, e.message); return false; } }
+  async function spendCore(amount) { await init(); try { await applyServerState(await callServer('spend', { core: amount })); return true; } catch (e) { console.warn('魔核扣除失败:', e.code, e.message); return false; } }
   async function addGrantCurrency(id, gold, core) {
     await init();
-    meta.grants = meta.grants || {};
-    if (meta.grants[id]) return { gold: meta.soulGold, core: meta.soulCore, applied: false };
-    meta.grants[id] = true;
-    meta.soulGold += Math.max(0, Math.floor(Number(gold) || 0));
-    meta.soulCore += Math.max(0, Math.floor(Number(core) || 0));
-    await save();
-    return { gold: meta.soulGold, core: meta.soulCore, applied: true };
+    console.warn('客户端直接发放奖励已禁用，请使用服务端兑换或结算流程');
+    return { gold: meta.soulGold, core: meta.soulCore, applied: false };
   }
   function data() { return meta; }
   return { init, reload, render, renderTree, applyClass, estimateRunReward, estimateCoreReward, addRunReward, addCurrency, spendGold, spendCore, addGrantCurrency, data, dlcOwned, buyDlc };

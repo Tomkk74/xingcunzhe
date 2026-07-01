@@ -2,21 +2,20 @@ window.GameModules = window.GameModules || {};
 window.GameModules.manualSaveSlots = (() => {
   const SLOT_KEY = 'arcane-manual-save-slots-v1';
   const SLOT_COUNT = 4;
-  const BASE_KEYS = ['arcane-meta-v3','arcane-season-state-v2','arcane-rift-v1','arcane-cosmetics-v1','arcane-redeem-v2','arcane-layout-v2'];
+  const BASE_KEYS = ['arcane-cosmetics-v1','arcane-layout-v2'];
   let preRunSnapshot = null, busy = false, mode = 'manage';
 
   function seasonKey(base){return window.Season?.key ? Season.key(base) : base}
   function runSaveKey(){return seasonKey('arcane-save-v2')}
-  function dataKeys(){return [...BASE_KEYS, seasonKey('arcane-equipment-v2')]}
+  function dataKeys(){return BASE_KEYS.slice()}
   async function kvGet(k){try{return await StorageSync.get(k)}catch(e){console.warn('读取槽位数据失败:',e.code,e.message);return StorageSync.localGet(k)}}
   async function kvPut(k,v,label='存档槽'){await StorageSync.put(k,v,label)}
   function fmtTime(t){if(!t)return '空槽位';let d=new Date(t);return `${d.getMonth()+1}/${d.getDate()} ${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`}
   function esc(v){return String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
   function packSummary(data){
-    const season=data['arcane-season-state-v2']?.seasons?.[window.Season?.CURRENT||1]||{};
-    const rift=data['arcane-rift-v1']||{};
-    const meta=data['arcane-meta-v3']||{};
-    return `赛季Lv.${Math.max(1,Math.floor(season.level||1))} · 秘境${Math.max(1,Math.floor(rift.maxLayer||1))}层 · 灵魂${Math.floor(meta.soulGold||0)}`;
+    const cosmetics=data['arcane-cosmetics-v1']||{};
+    const owned=Object.values(cosmetics.owned||{}).reduce((a,v)=>a+Object.keys(v||{}).length,0);
+    return `外观 ${owned} 项 · 布局与非竞争设置`;
   }
   function emptySlots(){return {version:1,slots:Array.from({length:SLOT_COUNT},()=>null)}}
   function normalize(v){let s=v&&typeof v==='object'?v:emptySlots();if(!Array.isArray(s.slots))s.slots=[];while(s.slots.length<SLOT_COUNT)s.slots.push(null);s.slots=s.slots.slice(0,SLOT_COUNT);return s}

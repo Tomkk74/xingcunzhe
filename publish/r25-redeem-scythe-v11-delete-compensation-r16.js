@@ -1,14 +1,14 @@
 window.GameModules = window.GameModules || {};
 window.GameModules.redeem = (() => {
   let redeeming = false;
-  const LOCAL_CODES = {
-    '版本奖励': { id: 'version-reward-20260618', core: 100, message: '兑换成功：魔核 +100' },
-    '更新补偿': { id: 'update-compensation-20260620', core: 150, message: '兑换成功：魔核 +150' },
-    '误删补偿': { id: 'delete-compensation-5090-20260620', sacrifice5090: true, message: '兑换成功：老杨的5090 已进入装备栏' },
-    'Tomkk': { id: 'tomkk-local-20260618', core: 300, seasonLevel: 20, message: '兑换成功：赛季等级升至 20，魔核 +300' },
-    'Tomkk666': { id: 'tomkk-rift-tickets-20260616', riftKeys: 50, message: '兑换成功：大秘境门票 +50' },
-    'Tomkk白衣胜雪': { id: 'tomkk-baiyi-20260615', gold: 6666, core: 100, message: '兑换成功：灵魂金币 +6666，魔核 +100' }
-  };
+  async function applyServerState(r) {
+    if (r?.state?.meta) await StorageSync.put('arcane-meta-v3', r.state.meta, '兑换奖励');
+    if (r?.state?.rift) await StorageSync.put('arcane-rift-v1', r.state.rift, '兑换奖励');
+    if (r?.state?.season) await StorageSync.put('arcane-season-state-v2', r.state.season, '兑换奖励');
+    await window.Progression?.reload?.();
+    await window.Rift?.reload?.();
+    await window.Season?.reload?.();
+  }
 
   function message(text, ok = false) {
     const el = document.getElementById('redeemMsg');
@@ -24,11 +24,7 @@ window.GameModules.redeem = (() => {
     return { ...base, uid: `gift${Date.now().toString(36)}${slot}${Math.random().toString(36).slice(2,6)}`, baseId: base.baseId, level: 38, requiredLevel: 20, season: Season?.CURRENT || 1, source: '限定激活码', rollTier: '套装特效 200%', rollMul: 1, stats, resists, corrupted: false };
   }
   async function grantScytheGift(id) {
-    if (!window.Progression?.addGrantCurrency || !window.Rift?.addGrantKeys || !window.Equipment?.addItem || !window.Season?.grantLevel) throw new Error('奖励系统未就绪');
-    const cur = await Progression.addGrantCurrency(id + '-currency', 20000, 400);
-    if (!cur.applied) return { applied: false };
-    await Rift.addGrantKeys(id + '-keys', 40);
-    await Season.grantLevel(20);
+    if (!window.Equipment?.addItem) throw new Error('奖励系统未就绪');
     await Equipment.init();
     const slots = ['weapon','helm','chest','amulet','ring','boots'].sort(() => Math.random() - .5).slice(0,4);
     for (const slot of slots) {
@@ -38,9 +34,7 @@ window.GameModules.redeem = (() => {
     return { applied: true, slots };
   }
   async function grantSacrifice5090(id) {
-    if (!window.Progression?.addGrantCurrency || !window.Equipment?.addItem) throw new Error('奖励系统未就绪');
-    const grant = await Progression.addGrantCurrency(id, 0, 0);
-    if (!grant.applied) return { applied: false };
+    if (!window.Equipment?.addItem) throw new Error('奖励系统未就绪');
     await Equipment.init();
     const base = Equipment.all.find(x => x.baseId === 'sacrifice-laoyang-5090');
     if (!base) throw new Error('5090 数据缺失');
@@ -54,23 +48,11 @@ window.GameModules.redeem = (() => {
     if (typeof renderEquipment === 'function') renderEquipment('sacrifice');
     if (uid && typeof showStoreEquipDetail === 'function') showStoreEquipDetail(uid);
   }
-  async function applyReward(reward) {
-    if (!reward?.id) throw new Error('奖励数据异常');
-    if (reward.seasonLevel) {
-      if (!window.Progression?.addGrantCurrency || !window.Season?.grantLevel) throw new Error('奖励系统未就绪，请稍后再试');
-      const cur = await Progression.addGrantCurrency(reward.id + '-currency', reward.gold || 0, reward.core || 0);
-      if (!cur.applied) return { applied: false };
-      await Season.grantLevel(reward.seasonLevel);
-      return { applied: true };
-    }
-    if (reward.scytheGift) return await grantScytheGift(reward.id);
-    if (reward.sacrifice5090) return await grantSacrifice5090(reward.id);
-    if (reward.riftKeys) {
-      if (!window.Rift?.addGrantKeys) throw new Error('秘境系统未就绪，请稍后再试');
-      return await window.Rift.addGrantKeys(reward.id, reward.riftKeys);
-    }
-    if (!window.Progression?.addGrantCurrency) throw new Error('成长系统未就绪，请稍后再试');
-    return await window.Progression.addGrantCurrency(reward.id, reward.gold || 0, reward.core || 0);
+  async function applyReward(grant) {
+    if (!grant?.id) return { applied: true };
+    if (grant.scytheGift) return await grantScytheGift(grant.id);
+    if (grant.sacrifice5090) return await grantSacrifice5090(grant.id);
+    return { applied: true };
   }
   async function submit(onSuccess) {
     if (redeeming) return;
@@ -82,11 +64,10 @@ window.GameModules.redeem = (() => {
     if (submitBtn) submitBtn.disabled = true;
     try {
       message('兑换中，请稍候…');
-      let r, localKey = Object.keys(LOCAL_CODES).find(k => k.toLowerCase() === code.toLowerCase());
-      if (localKey) r = { applied: true, reward: LOCAL_CODES[localKey], message: LOCAL_CODES[localKey].message };
-      else r = await dzmm.fn.invoke('redeem', { code });
+      let r = await dzmm.fn.invoke('redeem', { code });
       if (!r.applied) { message(r.message || '该兑换码已使用过'); return; }
-      const result = await applyReward(r.reward);
+      await applyServerState(r);
+      const result = await applyReward(r.clientGrant);
       if (!result.applied) { message('该兑换码奖励已领取过'); return; }
       message(r.message || '兑换成功', true);
       input.value = '';

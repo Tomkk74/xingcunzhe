@@ -86,8 +86,9 @@ window.GameModules.storageSync = (() => {
       }
     }
     markPending(key, last);
-    quietWarn('云端读取失败，等待玩家确认本机备份', last);
-    return localFallbackAllowed ? local : null;
+    quietWarn('云端读取失败，已阻止关键数据写入，请重试或显式使用本机备份', last);
+    if (!localFallbackAllowed) throw err('CLOUD_READ_BLOCKED', '云端存档读取失败，请重试；不要在空进度下继续写入覆盖云端');
+    return local;
   }
   async function put(key, value, label = '数据') {
     const data = stamp(value);

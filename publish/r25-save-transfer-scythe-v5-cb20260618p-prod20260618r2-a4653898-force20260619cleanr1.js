@@ -1,11 +1,11 @@
 window.GameModules = window.GameModules || {};
 window.GameModules.saveTransfer = (() => {
   const VERSION = 1;
-  const BASE_KEYS = ['arcane-meta-v3','arcane-season-state-v2','arcane-rift-v1','arcane-cosmetics-v1','arcane-redeem-v2','arcane-layout-v2'];
+  const BASE_KEYS = ['arcane-cosmetics-v1','arcane-layout-v2'];
 
   function seasonKey(base){return window.Season?.key ? Season.key(base) : base}
   function runSaveKey(){return seasonKey('arcane-save-v2')}
-  function keys(){return [...BASE_KEYS, seasonKey('arcane-equipment-v2')]}
+  function keys(){return BASE_KEYS.slice()}
   async function kvGet(k){return await StorageSync.get(k)}
   async function kvPut(k,v){await StorageSync.put(k,v,'导入存档')}
   function enc(obj){return btoa(unescape(encodeURIComponent(JSON.stringify(obj))))}
@@ -14,10 +14,8 @@ window.GameModules.saveTransfer = (() => {
   function plainObject(v){return !!v && typeof v === 'object' && !Array.isArray(v)}
   function validImportValue(k,v){
     if (!plainObject(v)) return false;
-    if (k.includes('arcane-save-v2')) return v.ended === true || (plainObject(v.player) && typeof v.player.cls === 'string');
-    if (k.includes('arcane-equipment-v2')) return plainObject(v.items) || Array.isArray(v.items) || plainObject(v.equipped);
     if (k === 'arcane-cosmetics-v1') return plainObject(v.owned) || plainObject(v.selected);
-    if (k === 'arcane-redeem-v2' || k === 'arcane-layout-v2') return true;
+    if (k === 'arcane-layout-v2') return true;
     return true;
   }
   async function clearRunSave(){await kvPut(runSaveKey(),{ended:true,at:Date.now()})}
@@ -57,7 +55,7 @@ window.GameModules.saveTransfer = (() => {
   }
   async function doImport(){
     const box=document.getElementById('saveTransferText'),text=box?.value||'';
-    try{await importText(text);msg('导入成功，局内战斗进度已清空，可从封面重新开始。',true)}
+    try{await importText(text);msg('导入成功：仅恢复外观与布局，货币、装备、秘境、赛季等竞争数据不会从导入包恢复。',true)}
     catch(e){console.error('导入存档失败:',e.code,e.message,e.stack);msg(e.message||'导入失败，存档文本无效')}
   }
   function open(){document.getElementById('saveTransferModal')?.classList.remove('hidden');msg('')}

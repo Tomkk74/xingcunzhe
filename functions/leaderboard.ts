@@ -1,4 +1,5 @@
 const KEY = 'leaderboard_rift_v1';
+const PROGRESS_KEY = 'secure_progress_v1';
 
 export default async function (request: any, ctx: any) {
   const body = request.body ?? {};
@@ -14,7 +15,9 @@ async function listScores(ctx: any) {
 }
 
 async function submitScore(ctx: any, args: any) {
-  const row = buildRow(ctx, args);
+  const progress = normalizeProgress((await ctx.kv.get(PROGRESS_KEY))?.value);
+  const verified = progress.rift?.lastResult;
+  const row = buildRow(ctx, args, verified);
   if (!row) return await listScores(ctx);
   validateRow(row);
   const board = readBoard((await ctx.kv.global.get(KEY))?.value);
@@ -28,13 +31,13 @@ async function submitScore(ctx: any, args: any) {
   return { board: publicRows(top), rank: top.findIndex((r) => r.at === next.at && r.name === next.name) + 1 };
 }
 
-function buildRow(ctx: any, args: any) {
-  const win = args.win === true;
-  const riftLayer = Math.max(0, Math.floor(Number(args.riftLayer) || 0));
-  if (!win || riftLayer < 1) return null;
-  const riftTime = Math.max(0, Math.floor(Number(args.riftTime) || Number(args.time) || 0));
-  const level = Math.max(1, Math.floor(Number(args.level) || 1));
-  const kills = Math.max(0, Math.floor(Number(args.kills) || 0));
+function buildRow(ctx: any, args: any, verified: any) {
+  if (!verified || verified.win !== true) return null;
+  const riftLayer = Math.max(0, Math.floor(Number(verified.layer) || 0));
+  if (riftLayer < 1) return null;
+  const riftTime = Math.max(0, Math.floor(Number(verified.time) || 0));
+  const level = Math.max(1, Math.floor(Number(verified.level) || 1));
+  const kills = Math.max(0, Math.floor(Number(verified.kills) || 0));
   const clientName = pickName(args.playerName, args.userName, args.displayName, args.nickname, args.username, args.name);
   const serverName = pickName(ctx.user?.name, ctx.user?.displayName, ctx.user?.nickname, ctx.user?.username);
   const userKey = ctx.user?.id ? String(ctx.user.id) : '';
@@ -43,7 +46,7 @@ function buildRow(ctx: any, args: any) {
     userKey,
     name: pickName(serverName, clientName, idFallback, '匿名勇士'),
     job: cleanText(args.job, 12),
-    classId: cleanText(args.classId, 24),
+    classId: cleanText(verified.classId || args.classId, 24),
     mapId: 'rift',
     riftLayer,
     riftTime,
@@ -64,6 +67,13 @@ function validateRow(r: any) {
   if (!Number.isFinite(r.riftTime) || r.riftTime < 20 || r.riftTime > 86400) throw new Error('invalid rift time');
   if (r.level < 1 || r.level > 300) throw new Error('invalid level');
   if (r.kills < 0 || r.kills > 500000) throw new Error('invalid kill count');
+}
+
+function normalizeProgress(raw: any) {
+  if (typeof raw === 'string') {
+    try { raw = JSON.parse(raw); } catch (_) { raw = {}; }
+  }
+  return raw && typeof raw === 'object' && !Array.isArray(raw) ? raw : {};
 }
 
 function readBoard(raw: any) {
