@@ -2,11 +2,11 @@
 window.RiftWebGLAssets=window.RiftWebGLAssets||{};
 Object.assign(window.RiftWebGLAssets,{
   paladin:'./assets/generated/paladin/player-paladin-action-sheet.bda1d4e1.webp',
-  mage:'./assets/generated/mage/player-mage-action-sheet.53f49a62-cb20260618a.webp',
-  ranger:'./assets/generated/ranger/player-ranger-action-sheet.59401345-cb20260618a.webp',
-  gunslinger:'./assets/generated/gunslinger/gunslinger-action-sheet.b0277d18.webp',
-  lewdSaintess:'./assets/generated/saintess/player-lewd-saintess-action-sheet.746390ed-cb20260618a.webp',
-  scytheMaiden:'./assets/generated/scythe-maiden/scythe-maiden-action-sheet.64de7bfa-cb20260618a.webp',
+  mage:'./assets/generated/mage/player-mage-action-sheet.2a503579.webp',
+  ranger:'./assets/generated/ranger/player-ranger-action-sheet.5354d621.webp',
+  gunslinger:'./assets/generated/gunslinger/gunslinger-action-sheet.7d0ab9c4.webp',
+  lewdSaintess:'./assets/generated/saintess/player-lewd-saintess-action-sheet.183937fe.webp',
+  scytheMaiden:'./assets/generated/scythe-maiden/scythe-maiden-action-sheet.86c10145.webp',
   classRelics:'./assets/generated/class-relics-sheet.1b352179-cb20260618a.webp',
   lewdRelic:'./assets/generated/saintess/relic-lewd-demon-idol.d38d5f6c-cb20260618a.webp',
   scytheRelic:'./assets/generated/scythe-maiden/relic-scythe-maiden-moon-scythe.f437d134-cb20260618a.webp',

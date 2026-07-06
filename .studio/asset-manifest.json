@@ -1,7 +1,7 @@
 {
   "version": 1,
   "createdAt": "2026-06-13T14:08:29Z",
-  "updatedAt": "2026-07-06T08:51:48Z",
+  "updatedAt": "2026-07-06T08:55:53Z",
   "assets": [
     {
       "name": "player-paladin",
@@ -933,8 +933,8 @@
     {
       "name": "player-mage-action-sheet",
       "status": "success",
-      "path": "publish/assets/generated/mage/player-mage-action-sheet.53f49a62.webp",
-      "contentHash": "53f49a62",
+      "path": "publish/assets/generated/mage/player-mage-action-sheet.2a503579.webp",
+      "contentHash": "2a503579",
       "revisedPrompt": "24-frame pixel art action sprite sheet for a cute chibi fantasy archmage hero in Arcane Idle Survivors, bright arcade fantasy survivor game art, top-down 3/4 arcade sprite, clean dark outline, soft glow and high contrast, dark dungeon compatible palette. Arrange exactly as a 6 columns x 4 rows grid, twenty-four equal cells, one animation frame per cell. Same character in every cell, consistent scale, centered in each cell. Character design: blue and purple wizard robe, large pointed hat, crystal staff and small glowing spell book, bright arcane magic aura. Row 1: idle breathing stance frames. Row 2: walking / robe swaying frames with believable footstep cycle. Row 3: casting frames, raising staff, channeling blue-purple magic orb, spell release. Row 4: hurt / impact / defensive magic barrier frames. Pixel art, readable at small size, no labels, no frame numbers, no text, no logo, no watermark. Strictly placed on a SOLID UNIFORM #00B140 chroma key flat color background. The background is a single uniform shade of #00B140 chroma key green that fills 100% of pixels not occupied by the character. No gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements. Pure flat color background, exactly like a green screen used for VFX compositing. No text, no logo, no watermark.",
       "model": "gpt-image-2",
       "size": "1536x1024",
@@ -955,14 +955,14 @@
       },
       "traceId": "trace_mqd5k75b_t8r2uf3j",
       "createdAt": "2026-06-14T02:19:51Z",
-      "correctedAt": "2026-06-14T02:31:54Z",
-      "note": "blue-purple mage action sheet"
+      "correctedAt": "2026-07-06T08:55:53Z",
+      "note": "repacked into fixed 6x4 grid, 256x256 cells, 32px+ safe margins, no cross-frame bleed"
     },
     {
       "name": "player-ranger-action-sheet",
       "status": "success",
-      "path": "publish/assets/generated/ranger/player-ranger-action-sheet.59401345.webp",
-      "contentHash": "59401345",
+      "path": "publish/assets/generated/ranger/player-ranger-action-sheet.5354d621.webp",
+      "contentHash": "5354d621",
       "revisedPrompt": "24-frame pixel art action sprite sheet for a cute chibi fantasy ranger hero in Arcane Idle Survivors, bright arcade fantasy survivor game art, top-down 3/4 arcade sprite, clean dark outline, soft glow and high contrast, dark dungeon compatible palette. Arrange exactly as a 6 columns x 4 rows grid, twenty-four equal cells, one animation frame per cell. Same character in every cell, consistent scale, centered in each cell. Character design: agile ranger with emerald green hooded cloak, leather armor, twin hand axes, quick confident expression, readable silhouette. Row 1: idle breathing stance frames with cloak movement. Row 2: fast walking / running frames with believable footstep cycle. Row 3: attack / skill casting frames, throwing or swinging twin axes with wind trails. Row 4: hurt / dodge / evasive special frames. Pixel art, readable at small size, no labels, no frame numbers, no text, no logo, no watermark. Strictly placed on a SOLID UNIFORM #FF00FF chroma key flat color background. The background is a single uniform shade of #FF00FF chroma key magenta that fills 100% of pixels not occupied by the character. No gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements. Pure flat color background, exactly like a green screen used for VFX compositing. No text, no logo, no watermark.",
       "model": "gpt-image-2",
       "size": "1536x1024",
@@ -983,8 +983,8 @@
       },
       "traceId": "trace_mqd5wsmf_atd11ot5",
       "createdAt": "2026-06-14T02:26:31Z",
-      "correctedAt": "2026-06-14T02:31:54Z",
-      "note": "green hooded ranger action sheet"
+      "correctedAt": "2026-07-06T08:55:53Z",
+      "note": "repacked into fixed 6x4 grid, 256x256 cells, 32px+ safe margins, no cross-frame bleed"
     },
     {
       "name": "bg-ancient-ruins-field",
@@ -1265,8 +1265,8 @@
     {
       "name": "player-lewd-saintess-action-sheet",
       "status": "success",
-      "path": "publish/assets/generated/saintess/player-lewd-saintess-action-sheet.746390ed.webp",
-      "contentHash": "746390ed",
+      "path": "publish/assets/generated/saintess/player-lewd-saintess-action-sheet.183937fe.webp",
+      "contentHash": "183937fe",
       "model": "gpt-image-2",
       "size": "1536x1024",
       "wantsTransparent": true,
@@ -1276,7 +1276,9 @@
       "outputFormat": "webp",
       "compressionProfile": "lossless_alpha",
       "finalBytes": 1320116,
-      "createdAt": "2026-06-15T03:24:57Z"
+      "createdAt": "2026-06-15T03:24:57Z",
+      "note": "repacked into fixed 6x4 grid, 256x256 cells, 32px+ safe margins, no cross-frame bleed",
+      "correctedAt": "2026-07-06T08:55:53Z"
     },
     {
       "name": "fx-lewd-heart-shot-sheet",
@@ -1483,8 +1485,8 @@
     {
       "name": "scythe-maiden-action-sheet",
       "status": "success",
-      "path": "publish/assets/generated/scythe-maiden/scythe-maiden-action-sheet.64de7bfa.webp",
-      "contentHash": "64de7bfa",
+      "path": "publish/assets/generated/scythe-maiden/scythe-maiden-action-sheet.86c10145.webp",
+      "contentHash": "86c10145",
       "revisedPrompt": "Create a 2D action animation sprite sheet for a cute chibi fantasy scythe maiden hero in a top-down 3/4 arcade survivor game. EXACT layout: 6 columns by 4 rows grid, 24 equal square cells, one frame per cell. Same character in every cell: silver-white long hair, black-purple short cloak, huge crescent scythe, moon-blue glow, clean dark outline, readable silhouette, consistent scale, centered in each cell. Full body fully inside each cell with transparent-safe margins. Row 1: idle breathing poses. Row 2: running / moving poses. Row 3: forward scythe attack casting poses with crescent slash motion. Row 4: hit / damage recoil poses. Keep all frames coherent and consistent. No labels, no frame numbers, no text, no logo, no watermark. Strictly on a SOLID UNIFORM #00B140 chroma key flat color background filling all empty pixels; pure flat green screen, no gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements. Ensure the green background is exactly #00B140 and uniform across the entire canvas outside the character art.",
       "model": "gpt-image-2",
       "size": "1536x1024",
@@ -1496,7 +1498,7 @@
         "verdict": "PASS"
       },
       "outputFormat": "webp",
-      "compressionProfile": "lossy_q85_alpha",
+      "compressionProfile": "lossless_alpha",
       "originalBytes": 2332025,
       "finalBytes": 304766,
       "usage": {
@@ -1504,7 +1506,9 @@
         "outputImageTokens": 1372
       },
       "traceId": "trace_mqg78gfo_s7r26kyo",
-      "createdAt": "2026-06-16T05:26:58Z"
+      "createdAt": "2026-06-16T05:26:58Z",
+      "note": "repacked into fixed 6x4 grid, 256x256 cells, 32px+ safe margins, no cross-frame bleed",
+      "correctedAt": "2026-07-06T08:55:53Z"
     },
     {
       "name": "death-waltz-sheet",
@@ -2559,8 +2563,8 @@
     {
       "name": "gunslinger-action-sheet",
       "status": "success",
-      "path": "publish/assets/generated/gunslinger/gunslinger-action-sheet.b0277d18.webp",
-      "contentHash": "b0277d18",
+      "path": "publish/assets/generated/gunslinger/gunslinger-action-sheet.7d0ab9c4.webp",
+      "contentHash": "7d0ab9c4",
       "revisedPrompt": "Create a 6 columns by 4 rows sprite sheet with EXACTLY 24 separate frames arranged in a clean uniform grid, 6 frames per row and 4 rows. The subject is the same cute chibi fantasy gunslinger hero in every frame, for an arcade survivor game, top-down 3/4 readable game sprite. Character design: dark red scarf, wide brim hat, short brown cloak, leather armor, twin enchanted revolvers, silver and warm gold accents, clean dark outline, soft magic glow. Keep the character centered in each cell, consistent scale across all frames, no frame borders. Style: polished game sprite, readable silhouettes, charming chibi proportions. Row 1: idle animation, standing breathing poses with guns lowered. Row 2: running animation, dashing forward with cloak and scarf moving. Row 3: combat shooting animation, aiming and firing twin revolvers with small muzzle flashes and recoil. Row 4: hurt and evasive animation, flinching, damaged, quick dodge, recovery poses. No extra characters. No labels, numbers, text, logo, watermark. Background must be a SOLID UNIFORM flat chroma key color #00B140 filling 100% of all non-character pixels; absolutely no gradient, shadow, texture, scenery, ground, decoration, or environmental elements. Pure flat green screen background, no variation.",
       "model": "gpt-image-2",
       "size": "1536x1024",
@@ -2572,7 +2576,7 @@
         "verdict": "PASS"
       },
       "outputFormat": "webp",
-      "compressionProfile": "lossy_q85_alpha",
+      "compressionProfile": "lossless_alpha",
       "originalBytes": 2242435,
       "finalBytes": 263716,
       "usage": {
@@ -2580,7 +2584,9 @@
         "outputImageTokens": 1372
       },
       "traceId": "trace_mqumn5yy_5ufkh6i0",
-      "createdAt": "2026-06-26T07:47:21Z"
+      "createdAt": "2026-06-26T07:47:21Z",
+      "note": "repacked into fixed 6x4 grid, 256x256 cells, 32px+ safe margins, no cross-frame bleed",
+      "correctedAt": "2026-07-06T08:55:53Z"
     },
     {
       "name": "gunslinger-skill-fx-sheet",
