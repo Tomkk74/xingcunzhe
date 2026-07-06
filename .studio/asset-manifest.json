@@ -1,7 +1,7 @@
 {
   "version": 1,
   "createdAt": "2026-06-13T14:08:29Z",
-  "updatedAt": "2026-07-06T08:04:31Z",
+  "updatedAt": "2026-07-06T08:15:10Z",
   "assets": [
     {
       "name": "player-paladin",
@@ -905,8 +905,8 @@
     {
       "name": "player-paladin-action-sheet",
       "status": "success",
-      "path": "publish/assets/generated/paladin/player-paladin-action-sheet.b3c7150f.webp",
-      "contentHash": "b3c7150f",
+      "path": "publish/assets/generated/paladin/player-paladin-action-sheet.7c7793c0.webp",
+      "contentHash": "7c7793c0",
       "revisedPrompt": "Create a 24-frame pixel art action sprite sheet for a cute chibi fantasy paladin hero in a bright arcade fantasy survivor game style. Top-down 3/4 arcade sprite, clean dark outline, soft glow, high contrast, dark dungeon compatible palette, readable at small size. Arrange exactly as a 6 columns x 4 rows grid with twenty-four equal cells, one animation frame per cell. Same character in every cell, consistent scale, centered in each cell.\n\nCharacter design: silver and gold heavy armor, heroic helmet, one hand holding a sturdy blue-gold shield, other hand holding a spiked flail / morning star on a short chain, clearly visible flail head. \n\nAnimation layout by row:\nRow 1: idle breathing stance frames.\nRow 2: walking / running frames with believable footstep cycle.\nRow 3: casting / holy attack frames, raising shield and swinging flail with golden light.\nRow 4: hurt / impact / special guard frames.\n\nMake it look like game-ready pixel art sprite sheet, no labels, no frame numbers, no text, no logo, no watermark. Strictly place on a SOLID UNIFORM #00B140 chroma key flat color background. The entire background outside the character is a single uniform shade of #00B140 with no gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements. Pure flat green screen background for VFX compositing.",
       "model": "gpt-image-2",
       "size": "1536x1024",
@@ -927,8 +927,8 @@
       },
       "traceId": "trace_mqd5jl24_k7h72vro",
       "createdAt": "2026-06-14T02:15:22Z",
-      "note": "rebuilt from a newly generated full-body default frame; fixed 6x4 grid, 256x256 cells, 32px+ safe margins, no cross-frame bleed",
-      "correctedAt": "2026-07-06T08:04:31Z"
+      "note": "rebuilt with distinct rows: idle, running, battle casting, hurt; fixed 6x4 grid, 256x256 cells, 32px+ safe margins, no cross-frame bleed",
+      "correctedAt": "2026-07-06T08:15:10Z"
     },
     {
       "name": "player-mage-action-sheet",
@@ -2935,6 +2935,87 @@
       "traceId": "trace_mr8xivtx_0aqb7aln",
       "createdAt": "2026-07-06T08:00:47Z",
       "note": "single full-body paladin frame used to build aligned default action sheet"
+    },
+    {
+      "name": "player-paladin-run-frame",
+      "status": "success",
+      "path": "publish/assets/generated/paladin/player-paladin-run-frame.8ab5950b.webp",
+      "contentHash": "8ab5950b",
+      "revisedPrompt": "Create one complete running frame for the SAME cute chibi fantasy paladin hero used in this game: silver and gold heavy armor, heroic helmet with plume, blue-gold shield, short spiked flail / morning star on a chain, holy paladin silhouette. Bright arcade fantasy survivor game style, top-down 3/4 arcade sprite, pixel art look, clean dark outline, soft holy glow, high contrast, readable at small size, dark dungeon compatible palette. Dynamic running pose with one foot forward and one foot back, shield tucked while moving, flail held low and contained, no motion trail crossing the body bounds. Single character only. Full body must be visible: helmet, torso, arms, legs, boots, shield, flail, chain, and any glow all completely inside the canvas. Leave a very large empty safe margin around the entire character; no part of the body, weapon, shield, chain, glow, effect, or outline may touch the image edge. Centered on a consistent bottom-center foot anchor. No labels, no frame numbers, no text, no logo, no watermark. Strictly placed on a SOLID UNIFORM #00B140 chroma key flat color background. The background is a single uniform shade of #00B140 chroma key green that fills 100% of pixels not occupied by the character. No gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements. Pure flat color background, exactly like a green screen used for VFX compositing.",
+      "model": "gpt-image-2",
+      "size": "1254x1254",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#00B140",
+        "alphaZeroPct": 85.6,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossless_alpha",
+      "originalBytes": 1255823,
+      "finalBytes": 342168,
+      "usage": {
+        "inputTokens": 318,
+        "outputImageTokens": 2058
+      },
+      "traceId": "trace_mr8xvgxs_3r7pgz4h",
+      "createdAt": "2026-07-06T08:10:42Z",
+      "note": "single paladin running frame, generated for aligned action sheet"
+    },
+    {
+      "name": "player-paladin-cast-frame",
+      "status": "success",
+      "path": "publish/assets/generated/paladin/player-paladin-cast-frame.da102b1f.webp",
+      "contentHash": "da102b1f",
+      "revisedPrompt": "Create one complete battle casting frame for the SAME cute chibi fantasy paladin hero used in this game: silver and gold heavy armor, heroic helmet with plume, blue-gold shield, short spiked flail / morning star on a chain, holy paladin silhouette. Bright arcade fantasy survivor game style, top-down 3/4 arcade sprite, pixel art look, clean dark outline, soft holy glow, high contrast, readable at small size, dark dungeon compatible palette. Combat casting pose: raising shield and flail while releasing a compact golden holy burst contained close to the character, heroic braced stance. Single character only. Full body must be visible: helmet, torso, arms, legs, boots, shield, flail, chain, and any glow all completely inside the canvas. Leave a very large empty safe margin around the entire character; no part of the body, weapon, shield, chain, glow, effect, or outline may touch the image edge. Centered on a consistent bottom-center foot anchor. No labels, no frame numbers, no text, no logo, no watermark. Strictly placed on a SOLID UNIFORM #00B140 chroma key flat color background. The background is a single uniform shade of #00B140 chroma key green that fills 100% of pixels not occupied by the character. No gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements. Pure flat color background, exactly like a green screen used for VFX compositing.",
+      "model": "gpt-image-2",
+      "size": "1254x1254",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#00B140",
+        "alphaZeroPct": 86.6,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossless_alpha",
+      "originalBytes": 1255698,
+      "finalBytes": 345660,
+      "usage": {
+        "inputTokens": 314,
+        "outputImageTokens": 2058
+      },
+      "traceId": "trace_mr8xx9oa_14rhm6m4",
+      "createdAt": "2026-07-06T08:11:55Z",
+      "note": "single paladin battle casting frame, generated for aligned action sheet"
+    },
+    {
+      "name": "player-paladin-hit-frame",
+      "status": "success",
+      "path": "publish/assets/generated/paladin/player-paladin-hit-frame.9fd54c7e.webp",
+      "contentHash": "9fd54c7e",
+      "revisedPrompt": "Single complete hurt impact frame for the SAME cute chibi fantasy paladin hero in a bright arcade fantasy survivor game style, top-down 3/4 arcade sprite, pixel art look, clean dark outline, soft holy glow, high contrast, readable at small size, dark dungeon compatible palette. Character only, full body visible and fully contained: silver and gold heavy armor, heroic helmet with plume, blue-gold shield, short spiked flail / morning star on a chain, holy paladin silhouette. Hurt impact pose: slightly recoiling behind shield, small contained spark impact, clear damage reaction, no large explosion. Centered on a consistent bottom-center foot anchor. Leave a very large empty safe margin around the entire character; no part of the body, weapon, shield, chain, glow, effect, or outline may touch the image edge. No labels, no frame numbers, no text, no logo, no watermark. Strictly placed on a solid uniform #00B140 chroma key flat color background filling 100% of pixels not occupied by the character. No gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements. Pure flat color background, exactly like a green screen used for VFX compositing.",
+      "model": "gpt-image-2",
+      "size": "1254x1254",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#00B140",
+        "alphaZeroPct": 93.3,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossless_alpha",
+      "originalBytes": 1112147,
+      "finalBytes": 190196,
+      "usage": {
+        "inputTokens": 260,
+        "outputImageTokens": 2058
+      },
+      "traceId": "trace_mr8xyu0j_z53gw7ad",
+      "createdAt": "2026-07-06T08:13:10Z",
+      "note": "single paladin hurt impact frame, generated for aligned action sheet"
     }
   ]
 }
