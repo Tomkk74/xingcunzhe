@@ -1,7 +1,7 @@
 {
   "version": 1,
   "createdAt": "2026-06-13T14:08:29Z",
-  "updatedAt": "2026-07-06T09:21:31Z",
+  "updatedAt": "2026-07-06T11:24:57Z",
   "assets": [
     {
       "name": "player-paladin",
@@ -2887,6 +2887,78 @@
       },
       "traceId": "trace_mr1ko4lm_3l2szt2e",
       "createdAt": "2026-07-01T04:26:13Z"
+    },
+    {
+      "name": "ui-save-mode-bg",
+      "status": "success",
+      "path": "publish/assets/generated/ui/ui-save-mode-bg.d46e84a7.webp",
+      "contentHash": "d46e84a7",
+      "revisedPrompt": "Medieval fantasy full-screen game UI background for choosing save mode in an arcane survivor game. Scene: ancient castle archive interior with a carved stone arch as the main architectural feature, aged parchment centerpiece area, elegant brass filigree frame accents, candlelight glow, subtle magical blue and gold illumination, dark dungeon ambience, atmospheric dust, rich textures. Composition must be clean and balanced with a large empty central space reserved for two buttons and a title. No characters, no readable writing, no rendered text, no UI labels, no logo, no watermark. Wide screen composition, cinematic game menu background, high detail, polished fantasy art.",
+      "model": "gpt-image-2",
+      "size": "1536x1024",
+      "wantsTransparent": false,
+      "outputFormat": "webp",
+      "compressionProfile": "lossy_q80_opaque",
+      "originalBytes": 3058785,
+      "finalBytes": 244752,
+      "usage": {
+        "inputTokens": 133,
+        "outputImageTokens": 1372
+      },
+      "traceId": "trace_mr94qqiq_n18odl9q",
+      "createdAt": "2026-07-06T11:22:38Z"
+    },
+    {
+      "name": "ui-medieval-button-default",
+      "status": "success",
+      "path": "publish/assets/generated/ui/ui-medieval-button-default.8ac4f087.webp",
+      "contentHash": "8ac4f087",
+      "revisedPrompt": "An ornate medieval fantasy game UI button plaque, icon only with no rendered text inside the image. Long horizontal rounded rectangle shape centered in the frame. Dark carved wood and aged brass border, subtle gold runes as abstract decoration only, deep brown leather inset. Clean readable silhouette, default idle state, suitable for stretching as a CSS button background. Strictly placed on a SOLID UNIFORM #00B140 chroma key flat color background. The background is a single uniform shade of #00B140 chroma key green that fills 100% of pixels not occupied by the button. No gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements. Pure flat color background, exactly like a green screen used for VFX compositing. No text, no logo, no watermark.",
+      "model": "gpt-image-2",
+      "size": "1983x793",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#00B140",
+        "alphaZeroPct": 53.7,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossless_alpha",
+      "originalBytes": 2061601,
+      "finalBytes": 1124128,
+      "usage": {
+        "inputTokens": 171,
+        "outputImageTokens": 815
+      },
+      "traceId": "trace_mr94sval_u46xdawd",
+      "createdAt": "2026-07-06T11:23:50Z"
+    },
+    {
+      "name": "ui-medieval-button-hover",
+      "status": "success",
+      "path": "publish/assets/generated/ui/ui-medieval-button-hover.6c4e6b0e.webp",
+      "contentHash": "6c4e6b0e",
+      "revisedPrompt": "An ornate medieval fantasy game UI button plaque, visual icon only with no rendered text inside the image, long horizontal rounded rectangle shape centered in the frame, bright active hover state, raised carved wood and polished brass border, warm golden magical glow along the edges, subtle illuminated rune ornaments as abstract decoration only, clean readable silhouette, suitable for stretching as a CSS hover button background. Strictly placed on a SOLID UNIFORM #00B140 chroma key flat color background. The background is a single uniform shade of #00B140 chroma key green that fills 100% of pixels not occupied by the button. No gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements. Pure flat color background, exactly like a green screen used for VFX compositing. No text, no logo, no watermark.",
+      "model": "gpt-image-2",
+      "size": "1798x875",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#00B140",
+        "alphaZeroPct": 62.3,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossless_alpha",
+      "originalBytes": 1679866,
+      "finalBytes": 849538,
+      "usage": {
+        "inputTokens": 177,
+        "outputImageTokens": 458
+      },
+      "traceId": "trace_mr94uff6_43zj6hw4",
+      "createdAt": "2026-07-06T11:24:57Z"
     }
   ]
 }
