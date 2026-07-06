@@ -1,7 +1,7 @@
 {
   "version": 1,
   "createdAt": "2026-06-13T14:08:29Z",
-  "updatedAt": "2026-07-06T08:55:53Z",
+  "updatedAt": "2026-07-06T09:21:31Z",
   "assets": [
     {
       "name": "player-paladin",
@@ -933,8 +933,8 @@
     {
       "name": "player-mage-action-sheet",
       "status": "success",
-      "path": "publish/assets/generated/mage/player-mage-action-sheet.2a503579.webp",
-      "contentHash": "2a503579",
+      "path": "publish/assets/generated/mage/player-mage-action-sheet.f2dab896.webp",
+      "contentHash": "f2dab896",
       "revisedPrompt": "24-frame pixel art action sprite sheet for a cute chibi fantasy archmage hero in Arcane Idle Survivors, bright arcade fantasy survivor game art, top-down 3/4 arcade sprite, clean dark outline, soft glow and high contrast, dark dungeon compatible palette. Arrange exactly as a 6 columns x 4 rows grid, twenty-four equal cells, one animation frame per cell. Same character in every cell, consistent scale, centered in each cell. Character design: blue and purple wizard robe, large pointed hat, crystal staff and small glowing spell book, bright arcane magic aura. Row 1: idle breathing stance frames. Row 2: walking / robe swaying frames with believable footstep cycle. Row 3: casting frames, raising staff, channeling blue-purple magic orb, spell release. Row 4: hurt / impact / defensive magic barrier frames. Pixel art, readable at small size, no labels, no frame numbers, no text, no logo, no watermark. Strictly placed on a SOLID UNIFORM #00B140 chroma key flat color background. The background is a single uniform shade of #00B140 chroma key green that fills 100% of pixels not occupied by the character. No gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements. Pure flat color background, exactly like a green screen used for VFX compositing. No text, no logo, no watermark.",
       "model": "gpt-image-2",
       "size": "1536x1024",
@@ -955,8 +955,8 @@
       },
       "traceId": "trace_mqd5k75b_t8r2uf3j",
       "createdAt": "2026-06-14T02:19:51Z",
-      "correctedAt": "2026-07-06T08:55:53Z",
-      "note": "repacked into fixed 6x4 grid, 256x256 cells, 32px+ safe margins, no cross-frame bleed"
+      "correctedAt": "2026-07-06T09:21:31Z",
+      "note": "fully redrawn mage action sheet; rows: idle, 6-frame run cycle, battle casting, hurt; fixed 6x4 grid, 256x256 cells, 32px+ safe margins"
     },
     {
       "name": "player-ranger-action-sheet",
