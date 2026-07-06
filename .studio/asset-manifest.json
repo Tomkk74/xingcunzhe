@@ -1,7 +1,7 @@
 {
   "version": 1,
   "createdAt": "2026-06-13T14:08:29Z",
-  "updatedAt": "2026-07-01T04:26:13Z",
+  "updatedAt": "2026-07-06T08:04:31Z",
   "assets": [
     {
       "name": "player-paladin",
@@ -905,8 +905,8 @@
     {
       "name": "player-paladin-action-sheet",
       "status": "success",
-      "path": "publish/assets/generated/paladin/player-paladin-action-sheet.cdc48ec9.webp",
-      "contentHash": "cdc48ec9",
+      "path": "publish/assets/generated/paladin/player-paladin-action-sheet.b3c7150f.webp",
+      "contentHash": "b3c7150f",
       "revisedPrompt": "Create a 24-frame pixel art action sprite sheet for a cute chibi fantasy paladin hero in a bright arcade fantasy survivor game style. Top-down 3/4 arcade sprite, clean dark outline, soft glow, high contrast, dark dungeon compatible palette, readable at small size. Arrange exactly as a 6 columns x 4 rows grid with twenty-four equal cells, one animation frame per cell. Same character in every cell, consistent scale, centered in each cell.\n\nCharacter design: silver and gold heavy armor, heroic helmet, one hand holding a sturdy blue-gold shield, other hand holding a spiked flail / morning star on a short chain, clearly visible flail head. \n\nAnimation layout by row:\nRow 1: idle breathing stance frames.\nRow 2: walking / running frames with believable footstep cycle.\nRow 3: casting / holy attack frames, raising shield and swinging flail with golden light.\nRow 4: hurt / impact / special guard frames.\n\nMake it look like game-ready pixel art sprite sheet, no labels, no frame numbers, no text, no logo, no watermark. Strictly place on a SOLID UNIFORM #00B140 chroma key flat color background. The entire background outside the character is a single uniform shade of #00B140 with no gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements. Pure flat green screen background for VFX compositing.",
       "model": "gpt-image-2",
       "size": "1536x1024",
@@ -927,8 +927,8 @@
       },
       "traceId": "trace_mqd5jl24_k7h72vro",
       "createdAt": "2026-06-14T02:15:22Z",
-      "note": "flail-and-shield paladin action sheet",
-      "correctedAt": "2026-06-14T02:31:54Z"
+      "note": "rebuilt from a newly generated full-body default frame; fixed 6x4 grid, 256x256 cells, 32px+ safe margins, no cross-frame bleed",
+      "correctedAt": "2026-07-06T08:04:31Z"
     },
     {
       "name": "player-mage-action-sheet",
@@ -2881,6 +2881,60 @@
       },
       "traceId": "trace_mr1ko4lm_3l2szt2e",
       "createdAt": "2026-07-01T04:26:13Z"
+    },
+    {
+      "name": "player-paladin-action-sheet-aligned",
+      "status": "success",
+      "path": "publish/assets/generated/paladin/player-paladin-action-sheet-aligned.dd30011f.webp",
+      "contentHash": "dd30011f",
+      "revisedPrompt": "Create a 24-frame pixel art action sprite sheet for a cute chibi fantasy paladin hero in a bright arcade fantasy survivor game style. Top-down 3/4 arcade sprite, clean dark outline, soft holy glow, high contrast, readable at small size, dark dungeon compatible palette. Canvas exactly 1536x1024, arranged as a 6 columns x 4 rows grid, each cell exactly 256x256 pixels. One complete animation frame per cell. Same character in every cell, consistent scale and anchor, centered on the same bottom-center foot anchor.\n\nCRITICAL ALIGNMENT RULES: every character frame must be fully inside its own 256x256 cell; leave at least 36 pixels of empty chroma-key background margin inside every cell on all four sides; no weapon, shield, glow, chain, particle, or outline may touch or cross a cell border; no frame may overlap another frame; no cropped body parts; no partial fragments from neighboring frames; no shared effects between cells. Character must be fully contained and clearly separated from cell edges.\n\nCharacter design: silver and gold heavy armor, heroic helmet, blue-gold shield, short spiked flail / morning star on a chain, holy paladin silhouette. Cute chibi proportions, sturdy heroic stance. \n\nAnimation layout:\nRow 1: idle breathing stance frames.\nRow 2: walking / running frames.\nRow 3: casting / holy attack frames, raising shield and controlled flail swing, effects contained within the cell.\nRow 4: hurt / impact / special guard frames, effects contained within the cell.\n\nGame-ready pixel art sprite sheet, no labels, no frame numbers, no text, no logo, no watermark. Strictly placed on a SOLID UNIFORM #00B140 chroma key flat color background. The background is a single uniform shade of #00B140 chroma key green that fills 100% of pixels not occupied by the character. No gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements. Pure flat color background, exactly like a green screen used for VFX compositing.\n\nEnsure all 24 frames are visually consistent and aligned, with readable small-scale silhouette and no border contact.",
+      "model": "gpt-image-2",
+      "size": "1536x1024",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#00B140",
+        "alphaZeroPct": 70.6,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossless_alpha",
+      "originalBytes": 2061282,
+      "finalBytes": 951768,
+      "usage": {
+        "inputTokens": 461,
+        "outputImageTokens": 1372
+      },
+      "traceId": "trace_mr8xehwg_0hasv10f",
+      "createdAt": "2026-07-06T07:57:29Z",
+      "note": "aligned paladin action sheet source, generated with safe per-cell margins"
+    },
+    {
+      "name": "player-paladin-default-frame-aligned",
+      "status": "success",
+      "path": "publish/assets/generated/paladin/player-paladin-default-frame-aligned.3a09b79a.webp",
+      "contentHash": "3a09b79a",
+      "revisedPrompt": "Create a single complete default frame character sprite: a cute chibi fantasy paladin hero in bright arcade fantasy survivor game style. Single character only. Top-down 3/4 arcade sprite, pixel art look, clean dark outline, soft holy glow, high contrast, readable at small size, dark dungeon compatible palette. Full body fully visible and entirely inside the canvas: helmet, torso, arms, legs, boots, shield, and flail all completely within frame. Leave a very large empty safe margin around the entire character; no part of the body, weapon, shield, chain, glow, or outline may touch the image edge. Character centered on a consistent bottom-center foot anchor. Design: silver and gold heavy armor, heroic helmet, blue-gold shield, short spiked flail / morning star on a chain, holy paladin silhouette. No labels, no frame numbers, no text, no logo, no watermark. Strictly on a SOLID UNIFORM #00B140 chroma key flat color background. The background must be a single uniform shade of #00B140 chroma key green filling 100% of pixels not occupied by the character. No gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements. Pure flat color background, exactly like a green screen used for VFX compositing.",
+      "model": "gpt-image-2",
+      "size": "1254x1254",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#00B140",
+        "alphaZeroPct": 88,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossless_alpha",
+      "originalBytes": 1211760,
+      "finalBytes": 292740,
+      "usage": {
+        "inputTokens": 279,
+        "outputImageTokens": 2058
+      },
+      "traceId": "trace_mr8xivtx_0aqb7aln",
+      "createdAt": "2026-07-06T08:00:47Z",
+      "note": "single full-body paladin frame used to build aligned default action sheet"
     }
   ]
 }
