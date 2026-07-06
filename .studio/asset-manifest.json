@@ -1,7 +1,7 @@
 {
   "version": 1,
   "createdAt": "2026-06-13T14:08:29Z",
-  "updatedAt": "2026-07-06T11:24:57Z",
+  "updatedAt": "2026-07-06T12:02:49Z",
   "assets": [
     {
       "name": "player-paladin",
@@ -2959,6 +2959,26 @@
       },
       "traceId": "trace_mr94uff6_43zj6hw4",
       "createdAt": "2026-07-06T11:24:57Z"
+    },
+    {
+      "name": "ui-start-menu-bg",
+      "status": "success",
+      "path": "publish/assets/generated/ui/ui-start-menu-bg.af1cebd9.webp",
+      "contentHash": "af1cebd9",
+      "revisedPrompt": "Wide cinematic medieval dark fantasy game main menu background for an arcane survivor game. Scene: ruined castle courtyard at night with a massive gothic gate, moonlit stone bridge leading into the distance, a faint blue arcane portal glow in the far background, brass torch sconces mounted on weathered stone walls, tattered banners hanging in the wind, deep atmospheric depth with mist and layered ruins. Composition must intentionally leave clear dark negative space on the right for a vertical menu and on the left for a small notice panel. No foreground UI, no characters, no readable writing, no rendered text, no logo, no watermark. High contrast, moody, cinematic, game background art, wide composition.",
+      "model": "gpt-image-2",
+      "size": "1672x941",
+      "wantsTransparent": false,
+      "outputFormat": "webp",
+      "compressionProfile": "lossy_q80_opaque",
+      "originalBytes": 1980645,
+      "finalBytes": 86496,
+      "usage": {
+        "inputTokens": 145,
+        "outputImageTokens": 1158
+      },
+      "traceId": "trace_mr966m8d_3oa2qf2z",
+      "createdAt": "2026-07-06T12:02:49Z"
     }
   ]
 }
