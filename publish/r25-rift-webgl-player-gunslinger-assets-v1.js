@@ -1,7 +1,7 @@
 (()=>{
 window.RiftWebGLAssets=window.RiftWebGLAssets||{};
 Object.assign(window.RiftWebGLAssets,{
-  paladin:'./assets/generated/paladin/player-paladin-action-sheet.7c7793c0.webp',
+  paladin:'./assets/generated/paladin/player-paladin-action-sheet.bda1d4e1.webp',
   mage:'./assets/generated/mage/player-mage-action-sheet.53f49a62-cb20260618a.webp',
   ranger:'./assets/generated/ranger/player-ranger-action-sheet.59401345-cb20260618a.webp',
   gunslinger:'./assets/generated/gunslinger/gunslinger-action-sheet.b0277d18.webp',

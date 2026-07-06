@@ -1,7 +1,7 @@
 {
   "version": 1,
   "createdAt": "2026-06-13T14:08:29Z",
-  "updatedAt": "2026-07-06T08:15:10Z",
+  "updatedAt": "2026-07-06T08:30:20Z",
   "assets": [
     {
       "name": "player-paladin",
@@ -905,8 +905,8 @@
     {
       "name": "player-paladin-action-sheet",
       "status": "success",
-      "path": "publish/assets/generated/paladin/player-paladin-action-sheet.7c7793c0.webp",
-      "contentHash": "7c7793c0",
+      "path": "publish/assets/generated/paladin/player-paladin-action-sheet.bda1d4e1.webp",
+      "contentHash": "bda1d4e1",
       "revisedPrompt": "Create a 24-frame pixel art action sprite sheet for a cute chibi fantasy paladin hero in a bright arcade fantasy survivor game style. Top-down 3/4 arcade sprite, clean dark outline, soft glow, high contrast, dark dungeon compatible palette, readable at small size. Arrange exactly as a 6 columns x 4 rows grid with twenty-four equal cells, one animation frame per cell. Same character in every cell, consistent scale, centered in each cell.\n\nCharacter design: silver and gold heavy armor, heroic helmet, one hand holding a sturdy blue-gold shield, other hand holding a spiked flail / morning star on a short chain, clearly visible flail head. \n\nAnimation layout by row:\nRow 1: idle breathing stance frames.\nRow 2: walking / running frames with believable footstep cycle.\nRow 3: casting / holy attack frames, raising shield and swinging flail with golden light.\nRow 4: hurt / impact / special guard frames.\n\nMake it look like game-ready pixel art sprite sheet, no labels, no frame numbers, no text, no logo, no watermark. Strictly place on a SOLID UNIFORM #00B140 chroma key flat color background. The entire background outside the character is a single uniform shade of #00B140 with no gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements. Pure flat green screen background for VFX compositing.",
       "model": "gpt-image-2",
       "size": "1536x1024",
@@ -927,8 +927,8 @@
       },
       "traceId": "trace_mqd5jl24_k7h72vro",
       "createdAt": "2026-06-14T02:15:22Z",
-      "note": "rebuilt with distinct rows: idle, running, battle casting, hurt; fixed 6x4 grid, 256x256 cells, 32px+ safe margins, no cross-frame bleed",
-      "correctedAt": "2026-07-06T08:15:10Z"
+      "note": "rebuilt with a real 6-frame running cycle in row 2; rows: idle, run cycle, battle casting, hurt; fixed 6x4 grid, 256x256 cells, 32px+ safe margins, no cross-frame bleed",
+      "correctedAt": "2026-07-06T08:30:20Z"
     },
     {
       "name": "player-mage-action-sheet",
@@ -3016,6 +3016,168 @@
       "traceId": "trace_mr8xyu0j_z53gw7ad",
       "createdAt": "2026-07-06T08:13:10Z",
       "note": "single paladin hurt impact frame, generated for aligned action sheet"
+    },
+    {
+      "name": "player-paladin-run-cycle-01",
+      "status": "success",
+      "path": "publish/assets/generated/paladin/player-paladin-run-cycle-01.a52db7e7.webp",
+      "contentHash": "a52db7e7",
+      "revisedPrompt": "Create a single complete animation frame, frame 01 of 6, for the SAME cute chibi fantasy paladin hero in a bright arcade fantasy survivor game style. Top-down 3/4 arcade sprite, pixel art look, clean dark outline, soft holy glow, high contrast, readable at small size, dark dungeon compatible palette. Single character only, full body visible, centered on a consistent bottom-center foot anchor. Character design: silver and gold heavy armor, heroic helmet with white plume, blue-gold shield, short spiked flail / morning star on a chain, holy paladin silhouette. Pose for first contact phase of running: left boot planted forward, right leg stretched back, body leaning forward; legs and boots must visibly show a clear running pose different from standing and different from other run cycle phases. Shield and flail remain compact and fully inside the canvas; chain compact. Ensure helmet, torso, arms, legs, boots, shield, flail, chain, and any glow are completely inside the canvas with a very large empty safe margin around the character; no part touches the edge. No labels, no frame numbers, no text, no logo, no watermark. Background must be a single uniform solid chroma key green #00B140 filling 100% of all pixels not occupied by the character, with absolutely no gradient, shadow, texture, scenery, ground, or decoration. Pure flat green screen background, exactly #00B140.",
+      "model": "gpt-image-2",
+      "size": "1254x1254",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#00B140",
+        "alphaZeroPct": 88,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossless_alpha",
+      "originalBytes": 1220017,
+      "finalBytes": 301678,
+      "usage": {
+        "inputTokens": 300,
+        "outputImageTokens": 2058
+      },
+      "traceId": "trace_mr8y8rao_4f5sk5hl",
+      "createdAt": "2026-07-06T08:20:45Z",
+      "note": "paladin 6-frame run cycle source; pose=left boot planted forward, right leg stretched back, body leaning forward in first contact phase"
+    },
+    {
+      "name": "player-paladin-run-cycle-02",
+      "status": "success",
+      "path": "publish/assets/generated/paladin/player-paladin-run-cycle-02.b1c0c468.webp",
+      "contentHash": "b1c0c468",
+      "revisedPrompt": "Create a single complete pixel-art game sprite frame of the SAME cute chibi fantasy paladin hero, frame 02 of 6 in a running animation. Bright arcade fantasy survivor game style, top-down 3/4 view, clean dark outline, soft holy glow, high contrast, readable at small size, dark dungeon compatible palette. Character design: silver and gold heavy armor, heroic helmet with white plume, blue-gold shield, short spiked flail / morning star on a chain, holy paladin silhouette. Pose requirement: left knee bent under the body carrying weight, right leg beginning to swing forward, lower stance down phase; legs and boots must visibly change pose and be clearly different from a standing pose. Shield and flail stay compact and fully inside the canvas. Single character only. Full body visible: helmet, torso, arms, legs, boots, shield, flail, chain, and any glow all completely inside the canvas. Leave a very large empty safe margin around the entire character; no part of the body, weapon, shield, chain, glow, effect, or outline may touch the image edge. Centered on a consistent bottom-center foot anchor. No text, no frame number, no logo, no watermark. Background must be a solid uniform chroma key green #00B140 filling every pixel not occupied by the character, with absolutely no gradient, shadow, texture, scenery, ground, decoration, or environmental elements.",
+      "model": "gpt-image-2",
+      "size": "1254x1254",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#00B140",
+        "alphaZeroPct": 89.2,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossless_alpha",
+      "originalBytes": 1184487,
+      "finalBytes": 274548,
+      "usage": {
+        "inputTokens": 297,
+        "outputImageTokens": 2058
+      },
+      "traceId": "trace_mr8ya7fb_ppf0uko7",
+      "createdAt": "2026-07-06T08:22:02Z",
+      "note": "paladin 6-frame run cycle source; pose=left knee bent under the body carrying weight, right leg beginning to swing forward, lower stance down phase"
+    },
+    {
+      "name": "player-paladin-run-cycle-03",
+      "status": "success",
+      "path": "publish/assets/generated/paladin/player-paladin-run-cycle-03.279bd76d.webp",
+      "contentHash": "279bd76d",
+      "revisedPrompt": "Single-character full-body pixel art game sprite, frame 03 of 6 in a running animation. The SAME cute chibi fantasy paladin hero: silver and gold heavy armor, heroic helmet with white plume, blue-gold shield, short spiked flail / morning star on a chain, holy paladin silhouette. Bright arcade fantasy survivor game style, top-down 3/4 perspective, readable at small size, clean dark outline, soft holy glow, high contrast, dark dungeon compatible palette. Pose: right knee passing forward under the body, left leg trailing behind, compact mid-stride transition; legs and boots clearly different from standing pose and from other run phases. Shield and flail compact and fully inside the canvas, chain visible but contained. Full body visible including helmet, torso, arms, legs, boots, shield, flail, chain, and any glow, all completely inside the canvas with a very large empty safe margin around the character; nothing touches the image edge. Centered on a consistent bottom-center foot anchor. No text, no labels, no watermark, no logo. Background must be a solid uniform chroma key green #00B140 filling 100% of non-character pixels, pure flat color, no gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements.",
+      "model": "gpt-image-2",
+      "size": "1254x1254",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#00B140",
+        "alphaZeroPct": 90.6,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossless_alpha",
+      "originalBytes": 1157990,
+      "finalBytes": 255958,
+      "usage": {
+        "inputTokens": 275,
+        "outputImageTokens": 2058
+      },
+      "traceId": "trace_mr8ybud9_q4dbap0f",
+      "createdAt": "2026-07-06T08:23:15Z",
+      "note": "paladin 6-frame run cycle source; pose=right knee passing forward under the body, left leg trailing behind, compact mid-stride transition"
+    },
+    {
+      "name": "player-paladin-run-cycle-04",
+      "status": "success",
+      "path": "publish/assets/generated/paladin/player-paladin-run-cycle-04.1d68ccf0.webp",
+      "contentHash": "1d68ccf0",
+      "revisedPrompt": "Create a single complete animation frame (frame 04 of 6) for the SAME cute chibi fantasy paladin hero in a bright arcade fantasy survivor game style. Top-down 3/4 arcade sprite, pixel art look, clean dark outline, soft holy glow, high contrast, readable at small size, dark dungeon compatible palette. The character is a chibi holy paladin with silver and gold heavy armor, heroic helmet with a white plume, blue-gold shield, and a short spiked flail / morning star on a chain. Single character only.\n\nPose requirement: running animation frame 04, opposite contact phase from frame 01. Right boot planted forward, left leg stretched back. Legs and boots must visibly change pose and be clearly different from other run-cycle phases; not a standing pose. Keep shield and flail compact and fully inside the canvas. Full body visible: helmet, torso, arms, legs, boots, shield, flail, chain, and any glow all completely inside the canvas. Center the character on a consistent bottom-center foot anchor. Leave a very large empty safe margin around the entire character; no part of the body, weapon, shield, chain, glow, effect, or outline may touch the image edge.\n\nBackground: strictly a SOLID UNIFORM #00B140 chroma key flat color background filling 100% of pixels not occupied by the character. No gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements. Pure flat color background exactly like a green screen used for VFX compositing. No labels, no frame numbers, no text, no logo, no watermark.",
+      "model": "gpt-image-2",
+      "size": "1254x1254",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#00B140",
+        "alphaZeroPct": 82.8,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossless_alpha",
+      "originalBytes": 1282299,
+      "finalBytes": 394566,
+      "usage": {
+        "inputTokens": 341,
+        "outputImageTokens": 2058
+      },
+      "traceId": "trace_mr8ydfcn_aylitz1c",
+      "createdAt": "2026-07-06T08:24:27Z",
+      "note": "paladin 6-frame run cycle source; pose=right boot planted forward, left leg stretched back, opposite contact phase from frame 01"
+    },
+    {
+      "name": "player-paladin-run-cycle-05",
+      "status": "success",
+      "path": "publish/assets/generated/paladin/player-paladin-run-cycle-05.5fb6ef1c.webp",
+      "contentHash": "5fb6ef1c",
+      "revisedPrompt": "Create a single complete animation frame, frame 05 of 6, of the SAME cute chibi fantasy paladin hero in a bright arcade fantasy survivor game style. Top-down 3/4 arcade sprite, pixel art look, clean dark outline, soft holy glow, high contrast, readable at small size, dark dungeon compatible palette. Character design: silver and gold heavy armor, heroic helmet with white plume, blue-gold shield, short spiked flail / morning star on a chain, holy paladin silhouette. Pose requirement: right knee bent carrying weight, left leg beginning to swing forward, lower stance down phase opposite frame 02; legs and boots must clearly change pose and not read as standing. Shield and flail stay compact and fully inside the canvas. Single character only. Full body visible: helmet, torso, arms, legs, boots, shield, flail, chain, and any glow all completely inside the canvas. Leave a very large empty safe margin around the entire character; no part of the body, weapon, shield, chain, glow, effect, or outline may touch the image edge. Centered on a consistent bottom-center foot anchor. No labels, no frame numbers, no text, no logo, no watermark. Strictly placed on a SOLID UNIFORM #00B140 chroma key flat color background. The background is a single uniform shade of #00B140 chroma key green that fills 100% of pixels not occupied by the character. No gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements. Pure flat color background, exactly like a green screen used for VFX compositing.",
+      "model": "gpt-image-2",
+      "size": "1254x1254",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#00B140",
+        "alphaZeroPct": 86.4,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossless_alpha",
+      "originalBytes": 1251661,
+      "finalBytes": 332418,
+      "usage": {
+        "inputTokens": 344,
+        "outputImageTokens": 2058
+      },
+      "traceId": "trace_mr8yeyk6_dzg6v6ex",
+      "createdAt": "2026-07-06T08:26:09Z",
+      "note": "paladin 6-frame run cycle source; pose=right knee bent carrying weight, left leg beginning to swing forward, lower stance down phase opposite frame 02"
+    },
+    {
+      "name": "player-paladin-run-cycle-06",
+      "status": "success",
+      "path": "publish/assets/generated/paladin/player-paladin-run-cycle-06.2b17bdaa.webp",
+      "contentHash": "2b17bdaa",
+      "revisedPrompt": "Single-character sprite frame, complete running animation frame 06 of 6 for a cute chibi fantasy paladin hero. Bright arcade fantasy survivor game style, top-down 3/4 arcade sprite, pixel art look, clean dark outline, soft holy glow, high contrast, readable at small size, dark dungeon compatible palette. Character design: silver and gold heavy armor, heroic helmet with white plume, blue-gold shield, short spiked flail/morning star on a chain, holy paladin silhouette. Pose: recovery phase for a run cycle, left knee passing forward under the body, right leg trailing behind, compact motion that clearly differs from other run frames; legs and boots visibly bent and dynamic, not a standing pose. Shield and flail stay compact and fully inside the canvas. Full body visible: helmet, torso, arms, legs, boots, shield, flail, chain, and glow all completely inside the canvas. Very large empty safe margin around the entire character; nothing touches the image edge. Centered on a consistent bottom-center foot anchor. Single character only. No text, no labels, no numbers, no logo, no watermark. Strictly on a solid uniform chroma key background color #00B140 filling 100% of the non-character pixels, flat single-color green screen, no gradient, no shadow, no texture, no scenery, no ground, no decoration, no environmental elements.",
+      "model": "gpt-image-2",
+      "size": "1254x1254",
+      "wantsTransparent": true,
+      "chromaKey": {
+        "color": "#00B140",
+        "alphaZeroPct": 88,
+        "edgeGreenBiasPct": 0,
+        "verdict": "PASS"
+      },
+      "outputFormat": "webp",
+      "compressionProfile": "lossless_alpha",
+      "originalBytes": 1185810,
+      "finalBytes": 294470,
+      "usage": {
+        "inputTokens": 292,
+        "outputImageTokens": 2058
+      },
+      "traceId": "trace_mr8yh50w_py9cx86s",
+      "createdAt": "2026-07-06T08:27:23Z",
+      "note": "paladin 6-frame run cycle source; pose=left knee passing forward under the body, right leg trailing behind, compact recovery phase that loops back to frame 01"
     }
   ]
 }
