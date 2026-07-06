@@ -2,9 +2,9 @@ window.GameModules = window.GameModules || {};
 window.GameModules.equipment = (() => {
   const D = window.GameModules.equipData;
   const KEY = 'arcane-equipment-v2';
-  const ASSET_Q = '?v=20260629-cache-refresh-r1';
+  const ASSET_Q = '?v=20260706-mage-redraw-r1';
   const GOLD_ICON_PREFIX = './assets/generated/huangjin/t_d98add39-dbc9-4803-ad99-c075894fe454_';
-  const UNIQUE_ICON_SHEET = './assets/generated/unique-equipment-icons-sheet.1abf4dd3.webp?v=20260629-cache-refresh-r1';
+  const UNIQUE_ICON_SHEET = './assets/generated/unique-equipment-icons-sheet.1abf4dd3.webp?v=20260706-mage-redraw-r1';
   const SET_ICON_PREFIX = { setPaladin:'./assets/generated/paladin/t_cccb496c-393b-4a20-9ed8-245883afa2b3_', setMage:'./assets/generated/mage/t_7cfaf443-aece-4533-b56a-d6e8c72a9734_', setRanger:'./assets/generated/ranger/t_695e9072-a6b9-41c7-b65a-423267d0669a_', setSaintess:'./assets/generated/saintess/t_f9571423-469d-490d-868a-2a33dcaa326c_', setScythe:'./assets/generated/scythe-maiden/t_afb7751d-ed19-476d-ab4e-c4a492c79c92_', setGunslinger:'./assets/generated/ranger/t_695e9072-a6b9-41c7-b65a-423267d0669a_' };
   const SLOTS = ['weapon','helm','chest','amulet','ring','boots'];
   const ARMOR_SLOT_WEIGHT = { helm:.72, chest:1.18, boots:.5 };

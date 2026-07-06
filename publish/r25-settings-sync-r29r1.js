@@ -1,6 +1,6 @@
 (()=>{
 'use strict';
-const VERSION='20260629-cache-refresh-r1',FX=new Set(['off','low','medium','high']),DMG=new Set(['none','all','crit','normal','topAll','topNormal','topCrit']);
+const VERSION='20260706-mage-redraw-r1',FX=new Set(['off','low','medium','high']),DMG=new Set(['none','all','crit','normal','topAll','topNormal','topCrit']);
 function get(k){try{return localStorage.getItem(k)}catch(_){return null}}
 function set(k,v){try{localStorage.setItem(k,String(v))}catch(_){}}
 function num(k,def,min,max){let v=Number(get(k));if(!Number.isFinite(v))v=def;v=Math.max(min,Math.min(max,Math.round(v)));set(k,v);return v}
