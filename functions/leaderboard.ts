@@ -17,6 +17,8 @@ async function listScores(ctx: any) {
 async function submitScore(ctx: any, args: any) {
   const progress = normalizeProgress((await ctx.kv.get(PROGRESS_KEY))?.value);
   const verified = progress.rift?.pendingBoard;
+  const runId = cleanText(args?.runId ?? verified?.id, 80);
+  if (runId && progress.rift?.lastSubmittedBoard?.runId === runId) return await listScores(ctx);
   const row = buildRow(ctx, args, verified);
   if (!row) return await listScores(ctx);
   validateRow(row);
@@ -28,7 +30,7 @@ async function submitScore(ctx: any, args: any) {
   sortBoard(filtered);
   const top = filtered.slice(0, 20);
   await ctx.kv.global.put(KEY, top);
-  progress.rift.lastSubmittedBoard = { id: verified.id, at: row.at, riftLayer: row.riftLayer, riftTime: row.riftTime };
+  progress.rift.lastSubmittedBoard = { id: verified.id, runId, at: row.at, riftLayer: row.riftLayer, riftTime: row.riftTime };
   await ctx.kv.put(PROGRESS_KEY, progress);
   return { board: publicRows(top), rank: top.findIndex((r) => r.at === next.at && r.name === next.name) + 1 };
 }
