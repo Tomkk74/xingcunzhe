@@ -281,6 +281,79 @@
   }
 }
 
+/* R3: collapsed HUD must not be covered by the fold/job chip. */
+.hud.hudCollapsed{
+  width:224px!important;
+  min-width:224px!important;
+  max-width:224px!important;
+  padding:0!important;
+  overflow:visible!important;
+}
+.hud.hudCollapsed #hudHp,
+.hud.hudCollapsed #hudResource,
+.hud.hudCollapsed #hudBoss{
+  width:224px!important;
+  min-width:224px!important;
+  max-width:224px!important;
+  padding:4px 6px!important;
+  overflow:visible!important;
+}
+.hud.hudCollapsed #hudJob,
+.hud.hudCollapsed #hudLv,
+.hud.hudCollapsed #hudTime,
+.hud.hudCollapsed #hudGold,
+.hud.hudCollapsed #hudXp{
+  display:none!important;
+}
+.hud.hudCollapsed .bar label{
+  display:grid!important;
+  grid-template-columns:auto max-content!important;
+  gap:6px!important;
+}
+.hud.hudCollapsed .bar label span:last-child,
+.hud.hudCollapsed #hpTxt,
+.hud.hudCollapsed #resTxt,
+.hud.hudCollapsed #bossTxt{
+  min-width:52px!important;
+  max-width:none!important;
+  overflow:visible!important;
+  white-space:nowrap!important;
+  text-align:right!important;
+}
+.hud.hudCollapsed .track{
+  width:100%!important;
+  overflow:hidden!important;
+}
+#hudFoldBtn.hudFoldBtn{
+  left:2px!important;
+  top:calc(20px + 52px)!important;
+  width:20px!important;
+  height:20px!important;
+  line-height:20px!important;
+  z-index:30!important;
+  transform:none!important;
+}
+.hud.hudCollapsed + #hudFoldBtn,
+.hud.hudCollapsed ~ #hudFoldBtn{
+  left:2px!important;
+  top:calc(20px + 52px)!important;
+}
+
+@media (orientation:portrait){
+  .hud.hudCollapsed{
+    width:214px!important;
+    min-width:214px!important;
+    max-width:214px!important;
+  }
+  .hud.hudCollapsed #hudHp,
+  .hud.hudCollapsed #hudResource,
+  .hud.hudCollapsed #hudBoss{
+    width:214px!important;
+    min-width:214px!important;
+    max-width:214px!important;
+  }
+}
+
 /* R2: let inventory info blocks occupy the modal grid directly. */
 #inventory .panel{
   grid-template-columns:92px minmax(190px,260px) 78px minmax(0,1fr)!important;
