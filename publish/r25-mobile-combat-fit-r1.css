@@ -55,3 +55,55 @@
   #artifactChoices{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:5px!important;overflow:visible!important}
   #artifactChoice .choice{padding:5px!important}
 }
+
+/* Restore touch scrolling for every in-run scrollable panel/list. */
+@media (max-width:820px),(max-height:540px){
+  #levelup .choices,
+  #levelup .fuseList,
+  #inventory .panel,
+  #inventory .evoGuide,
+  #artifactDetail,
+  #bagGrid,
+  #artifactChoice .panel,
+  #evoGuideList,
+  #skillPanelBody,
+  #equipmentPanel #equipGrid,
+  #equipmentPanel #equipSlots,
+  #equipDetailBody,
+  .equipDetailBody,
+  .statModalBody,
+  #boardList,
+  #leaderboard #boardList,
+  .progressTreeWrap,
+  .altarList,
+  .seasonRules,
+  #classSelect .panel,
+  #settings .panel{
+    min-height:0!important;
+    overflow-y:auto!important;
+    -webkit-overflow-scrolling:touch!important;
+    touch-action:pan-y!important;
+    overscroll-behavior:contain!important;
+  }
+  #levelup .choice,
+  #levelup .fuseCard,
+  #artifactChoice .choice,
+  #inventory .bagCell,
+  #equipmentPanel .eqCard,
+  #evoGuideList .evoItem,
+  .statModalBody .statRow{
+    touch-action:pan-y!important;
+  }
+  .mapTrack{
+    overflow-x:auto!important;
+    -webkit-overflow-scrolling:touch!important;
+    touch-action:pan-x!important;
+    overscroll-behavior-x:contain!important;
+  }
+}
+
+@media (max-width:820px) and (orientation:portrait){
+  #levelup .fuseList{
+    max-height:30dvh!important;
+  }
+}
