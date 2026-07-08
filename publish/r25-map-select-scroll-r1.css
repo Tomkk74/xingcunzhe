@@ -1,0 +1,79 @@
+/* Map select must scroll vertically inside the modal. */
+#mapSelect.overlay{
+  align-items:center!important;
+  padding:max(6px,env(safe-area-inset-top)) max(8px,env(safe-area-inset-right)) max(6px,env(safe-area-inset-bottom)) max(8px,env(safe-area-inset-left))!important;
+}
+#mapSelect .panel{
+  display:flex!important;
+  flex-direction:column!important;
+  width:min(96vw,980px)!important;
+  max-height:calc(94dvh - env(safe-area-inset-bottom))!important;
+  overflow:hidden!important;
+  padding:10px 12px calc(10px + env(safe-area-inset-bottom))!important;
+}
+#mapSelect .title,
+#mapSelect #mapSub,
+#mapSelect .mapTip,
+#mapSelect .mapActions{
+  flex:0 0 auto!important;
+}
+#mapSelect .title{
+  margin-bottom:4px!important;
+}
+#mapSelect #mapSub{
+  margin-bottom:6px!important;
+}
+#mapSelect .mapTrack{
+  flex:1 1 auto!important;
+  min-height:0!important;
+  max-height:none!important;
+  display:grid!important;
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  align-content:start!important;
+  gap:8px!important;
+  overflow-y:auto!important;
+  overflow-x:hidden!important;
+  touch-action:pan-y!important;
+  overscroll-behavior:contain!important;
+  -webkit-overflow-scrolling:touch!important;
+  padding:8px!important;
+}
+#mapSelect .mapCard{
+  min-width:0!important;
+  touch-action:manipulation!important;
+}
+#mapSelect .mapActions{
+  margin-top:7px!important;
+}
+
+@media (orientation:portrait){
+  #mapSelect .panel{
+    width:min(96vw,440px)!important;
+    max-height:calc(94dvh - env(safe-area-inset-bottom))!important;
+    padding:8px 9px calc(8px + env(safe-area-inset-bottom))!important;
+  }
+  #mapSelect .mapTrack{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:7px!important;
+    padding:7px!important;
+  }
+}
+
+@media (orientation:landscape) and (max-height:540px){
+  #mapSelect .panel{
+    max-height:94dvh!important;
+    padding:7px 10px calc(7px + env(safe-area-inset-bottom))!important;
+  }
+  #mapSelect .title{
+    font-size:18px!important;
+    margin-bottom:2px!important;
+  }
+  #mapSelect #mapSub{
+    display:none!important;
+  }
+  #mapSelect .mapTrack{
+    grid-template-columns:repeat(4,minmax(0,1fr))!important;
+    gap:6px!important;
+    padding:6px!important;
+  }
+}
