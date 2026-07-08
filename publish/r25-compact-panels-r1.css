@@ -453,9 +453,9 @@
 }
 #statModalBody .statRow b{
   position:absolute!important;
-  right:66px!important;
+  left:68%!important;
   top:50%!important;
-  transform:translateY(-50%)!important;
+  transform:translate(-50%,-50%)!important;
   display:block!important;
   width:72px!important;
   max-width:72px!important;
@@ -476,7 +476,7 @@
     padding:6px 126px 6px 8px!important;
   }
   #statModalBody .statRow b{
-    right:54px!important;
+    left:68%!important;
     width:64px!important;
     max-width:64px!important;
     padding:2px 5px!important;
