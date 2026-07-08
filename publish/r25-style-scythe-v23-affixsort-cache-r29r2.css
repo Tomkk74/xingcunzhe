@@ -126,3 +126,30 @@ button,.ghostBtn,.startBtn,.modeBtn,.equipTabs button,.choiceActions button,.lev
   #equipmentPanel #equipGrid .eqCard{height:62px!important;padding:4px!important}
   #equipmentPanel #equipGrid .eqIcon{width:40px!important;height:40px!important}
 }
+
+#shopModal .shopPanel,#costumeModal .shopPanel{width:min(92vw,760px)!important;max-height:min(88dvh,640px)!important;padding:18px 20px 16px!important}
+#shopModal .title,#costumeModal .title{font-size:24px!important;line-height:1.05!important;margin:0 0 4px!important;padding-top:6px!important}
+#shopModal .sub,#costumeModal .sub{margin:0 0 8px!important;font-size:12px!important;line-height:1.15!important}
+#shopModal .panel>p.sub:last-child,#costumeModal .panel>p.sub:last-child{margin:8px 0 0!important}
+#shopBody.shopGrid{grid-template-columns:repeat(auto-fill,minmax(68px,1fr))!important;grid-auto-rows:68px!important;gap:5px!important;padding:8px!important;border-width:3px!important;align-content:start!important}
+#shopBody .shopCard,#shopBody .shopSlot{height:68px!important;min-height:0!important;aspect-ratio:auto!important;padding:4px!important;border-width:2px!important;border-radius:4px!important;gap:2px!important}
+#shopBody .shopCard:before,#shopBody .shopSlot:before{inset:3px!important}
+#shopBody .shopCard img{width:48px!important;height:48px!important}
+#shopBody .shopIconText{width:48px!important;height:48px!important;font-size:22px!important}
+#shopBody .shopSlot.empty span{font-size:10px!important;line-height:1!important}
+#costumeBody.costumeGrid{grid-template-columns:repeat(auto-fill,minmax(96px,1fr))!important;grid-auto-rows:112px!important;gap:6px!important;padding:2px 2px 8px!important;align-content:start!important}
+#costumeBody .costumeCard{min-height:0!important;height:112px!important;padding:5px!important;gap:3px!important}
+#costumeBody .costumeCard img{width:54px!important;height:54px!important}
+#costumeBody .costumeCard h2{font-size:11px!important;line-height:1.05!important}
+#costumeBody .costumeCard small,#costumeBody .costumeCard p{font-size:9px!important;line-height:1.05!important}
+@media (orientation:portrait){
+  #shopModal .shopPanel,#costumeModal .shopPanel{width:min(96vw,430px)!important;max-height:88dvh!important;padding:14px 12px 12px!important}
+  #shopModal .title,#costumeModal .title{font-size:20px!important}
+  #shopBody.shopGrid{grid-template-columns:repeat(auto-fill,minmax(52px,1fr))!important;grid-auto-rows:54px!important;gap:4px!important;padding:6px!important}
+  #shopBody .shopCard,#shopBody .shopSlot{height:54px!important;padding:3px!important;border-width:2px!important}
+  #shopBody .shopCard img{width:38px!important;height:38px!important}
+  #shopBody .shopIconText{width:38px!important;height:38px!important;font-size:18px!important}
+  #costumeBody.costumeGrid{grid-template-columns:repeat(auto-fill,minmax(76px,1fr))!important;grid-auto-rows:96px!important;gap:5px!important}
+  #costumeBody .costumeCard{height:96px!important;padding:4px!important}
+  #costumeBody .costumeCard img{width:44px!important;height:44px!important}
+}
