@@ -278,25 +278,50 @@
   }
   #inventory .panel{
     width:min(98vw,760px)!important;
-    grid-template-rows:auto minmax(0,1fr) auto!important;
+    grid-template-rows:auto auto minmax(0,1fr) auto!important;
   }
   #inventory .title,
   #inventory .panel>.sub:first-of-type{
     display:none!important;
   }
   #statusBox{
-    display:none!important;
+    display:grid!important;
+    grid-column:1!important;
+    grid-row:1!important;
+    grid-template-columns:68px 54px minmax(0,1fr)!important;
+    gap:4px!important;
+    max-height:72px!important;
+    overflow:hidden!important;
+    margin:0!important;
+  }
+  #inventory .statusPortrait{
+    height:66px!important;
+    min-height:66px!important;
+  }
+  #inventory .equipSlot{
+    min-height:30px!important;
+    padding:2px!important;
+  }
+  #inventory .statList{
+    padding:3px 5px!important;
+    gap:1px!important;
+    font-size:9px!important;
+    line-height:1.05!important;
+    overflow:hidden!important;
+  }
+  #inventory .statList div{
+    min-height:0!important;
   }
   #artifactDetail{
-    grid-row:1!important;
-    max-height:28dvh!important;
+    grid-row:2!important;
+    max-height:20dvh!important;
   }
   #bagGrid{
-    grid-row:2!important;
+    grid-row:3!important;
     grid-template-columns:repeat(8,minmax(0,1fr))!important;
   }
   #inventory .panel>p.sub:last-child{
-    grid-row:3!important;
+    grid-row:4!important;
   }
   #artifactChoice .title{
     font-size:16px!important;
