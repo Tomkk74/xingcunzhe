@@ -280,3 +280,120 @@
     grid-template-columns:1fr!important;
   }
 }
+
+/* R2: let inventory info blocks occupy the modal grid directly. */
+#inventory .panel{
+  grid-template-columns:92px minmax(190px,260px) 78px minmax(0,1fr)!important;
+  grid-template-rows:auto 104px minmax(0,1fr) auto auto!important;
+  column-gap:7px!important;
+  row-gap:5px!important;
+}
+#statusBox{
+  display:contents!important;
+}
+#inventory .statusPortrait{
+  grid-column:1!important;
+  grid-row:2!important;
+  width:92px!important;
+  height:104px!important;
+  min-height:0!important;
+}
+#inventory .statList{
+  grid-column:2!important;
+  grid-row:2 / 4!important;
+  align-self:stretch!important;
+  justify-self:stretch!important;
+  width:100%!important;
+  min-width:0!important;
+}
+#inventory .equipSlots{
+  grid-column:3!important;
+  grid-row:2 / 4!important;
+  align-self:stretch!important;
+  width:78px!important;
+}
+#inventory .evoGuide{
+  grid-column:1!important;
+  grid-row:3!important;
+  align-self:stretch!important;
+  width:92px!important;
+}
+#bagGrid{
+  grid-column:4!important;
+  grid-row:2 / 5!important;
+}
+#artifactDetail{
+  grid-column:1 / 4!important;
+  grid-row:4!important;
+}
+#inventory .panel>p.sub:last-child{
+  grid-column:1 / 4!important;
+  grid-row:5!important;
+}
+
+#levelup .panel{
+  width:min(84vw,760px)!important;
+  max-width:760px!important;
+  max-height:calc(76dvh - env(safe-area-inset-bottom))!important;
+}
+
+@media (orientation:landscape) and (max-height:430px){
+  #inventory .panel{
+    grid-template-columns:82px minmax(180px,240px) 70px minmax(0,1fr)!important;
+    grid-template-rows:auto 92px minmax(0,1fr) auto auto!important;
+    height:min(94dvh,520px)!important;
+  }
+  #inventory .statusPortrait{
+    width:82px!important;
+    height:92px!important;
+  }
+  #inventory .equipSlots{
+    width:70px!important;
+  }
+  #inventory .evoGuide{
+    width:82px!important;
+  }
+  #bagGrid{
+    grid-auto-rows:54px!important;
+  }
+  #inventory .bagCell{
+    height:54px!important;
+  }
+}
+
+@media (orientation:portrait){
+  #inventory .panel{
+    grid-template-columns:72px minmax(0,1fr) 62px!important;
+    grid-template-rows:auto 90px minmax(0,1fr) auto auto!important;
+  }
+  #inventory .statusPortrait{
+    grid-column:1!important;
+    grid-row:2!important;
+    width:72px!important;
+    height:90px!important;
+  }
+  #inventory .statList{
+    grid-column:2!important;
+    grid-row:2!important;
+  }
+  #inventory .equipSlots{
+    grid-column:3!important;
+    grid-row:2!important;
+    width:62px!important;
+  }
+  #inventory .evoGuide{
+    display:none!important;
+  }
+  #bagGrid{
+    grid-column:1 / -1!important;
+    grid-row:3!important;
+  }
+  #artifactDetail{
+    grid-column:1 / -1!important;
+    grid-row:4!important;
+  }
+  #inventory .panel>p.sub:last-child{
+    grid-column:1 / -1!important;
+    grid-row:5!important;
+  }
+}
