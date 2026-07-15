@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  const PALADIN_SHEET = './assets/generated/paladin/paladin-walk-8x5.1ee5e369.png?v=20260715-paladin-walk-r1';
+  const PALADIN_SHEET = './assets/generated/paladin/paladin-walk-8x5.3c0a2c1b.png?v=20260715-paladin-walk-r1';
 
   function directionVector(actor) {
     let vx = Number(actor?.vx) || 0;
