@@ -1,7 +1,7 @@
 {
   "version": 1,
   "createdAt": "2026-06-13T14:08:29Z",
-  "updatedAt": "2026-07-06T12:02:49Z",
+  "updatedAt": "2026-07-15T10:22:55Z",
   "assets": [
     {
       "name": "player-paladin",
@@ -2979,6 +2979,27 @@
       },
       "traceId": "trace_mr966m8d_3oa2qf2z",
       "createdAt": "2026-07-06T12:02:49Z"
+    },
+    {
+      "name": "paladin-walk-8x5",
+      "status": "success",
+      "path": "publish/assets/generated/paladin/paladin-walk-8x5.1ee5e369.png",
+      "sourcePath": ".studio/generated-sources/paladin-walk-8x5-white.124822e4.png",
+      "contentHash": "1ee5e369",
+      "revisedPrompt": "Using the uploaded reference sprite sheet as the immutable layout template, produce ONE sprite sheet with EXACTLY 40 characters arranged as EXACTLY 8 columns and EXACTLY 5 rows. Count carefully: 8 frames per row, 5 rows total, no sixth row. Preserve each of the uploaded reference's 40 poses one-for-one in reading order, with identical joint positions, walking phase, facing angle, character height, baseline, and spacing. Do not add any pose and do not omit any pose.\n\nReplace only the mannequin appearance with one consistent holy paladin: young chibi male, tousled brown hair, blue eyes, silver-white plate armor with gold trim, dark blue scarf, white tabard with gold cross/star, armored boots and gauntlets, short silver sword with gold hilt and blue gem in right hand, white-silver kite shield with gold border and gold cross in left hand. Weapons must follow the body orientation naturally but must not change the reference pose.\n\nROW DEFINITIONS, exactly these five rows only:\nRow 1: 8 front-facing walking frames copied from reference row 1.\nRow 2: 8 front three-quarter walking frames copied from reference row 2.\nRow 3: 8 side-profile walking frames copied from reference row 3.\nRow 4: 8 rear three-quarter walking frames copied from reference row 4.\nRow 5: 8 back-facing walking frames copied from reference row 5.\nSTOP after row 5.\n\nFull body in every cell, equal cell dimensions, equal margins, no overlap, no cropping. Professional crisp 2D RPG sprite art, clean dark outline, soft cel shading, consistent proportions and identity. Pure solid #FFFFFF white background, no transparency, no shadow, no ground, no environment, no grid lines, no text, no labels.\n\nNegative: 6 rows, extra row, extra frames, fewer than 40 frames, more than 40 frames, wrong pose, redesigned action, inconsistent body proportions, inconsistent character, merged characters, overlap, cropped body, wrong perspective, duplicated limbs, missing sword, missing shield, inconsistent equipment, layout disorder, background, shadow, blur, low quality.",
+      "model": "imagegen",
+      "size": "1024x765",
+      "grid": {
+        "cols": 8,
+        "rows": 5,
+        "frames": 40
+      },
+      "wantsTransparent": true,
+      "outputFormat": "png",
+      "compressionProfile": "rgba_png_resized",
+      "originalBytes": 1755607,
+      "finalBytes": 736574,
+      "createdAt": "2026-07-15T10:22:31Z"
     }
   ]
 }
