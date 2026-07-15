@@ -28,6 +28,7 @@
       row: legacy.row || 0,
       frame: legacy.frame || 0,
       flip: legacy.flip || 1,
+      scale: 1,
     };
     if (actor?.cls !== 'paladin') return base;
 
@@ -45,6 +46,7 @@
       row,
       frame: actor.moving ? Math.floor((actor.anim || 0) * 1.15) % 8 : 0,
       flip: vx > 0 ? -1 : 1,
+      scale: 0.78,
     };
   }
 
@@ -61,8 +63,8 @@
     const layout = pose(actorAt(x, y), { row, frame, flip: scaleX });
     const frameWidth = img.width / layout.cols;
     const frameHeight = img.height / layout.rows;
-    const width = size;
-    const height = size * frameHeight / frameWidth;
+    const width = size * layout.scale;
+    const height = size * frameHeight / frameWidth * layout.scale;
     ctx.save();
     ctx.globalAlpha = alpha;
     ctx.translate(x, y);
