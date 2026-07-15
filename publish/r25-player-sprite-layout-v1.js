@@ -1,8 +1,7 @@
 (function () {
   'use strict';
 
-  const PALADIN_WALK = './assets/generated/paladin/paladin-walk-8x5.png?v=20260715-paladin-sheets-r2';
-  const PALADIN_IDLE = './assets/generated/paladin/paladin-idle-1x5.png?v=20260715-paladin-sheets-r2';
+  const PALADIN_SHEET = './assets/generated/paladin/paladin-walk-8x5.3c0a2c1b.png?v=20260715-paladin-walk-r1';
 
   function directionVector(actor) {
     let vx = Number(actor?.vx) || 0;
@@ -40,14 +39,12 @@
     else if (ax > ay * 1.8) row = 2;
     else row = vy < 0 ? 3 : 1;
 
-    const moving = Boolean(actor.moving);
     return {
-      cols: moving ? 8 : 1,
+      cols: 8,
       rows: 5,
       row,
-      frame: moving ? Math.floor((actor.anim || 0) * 1.15) % 8 : 0,
+      frame: actor.moving ? Math.floor((actor.anim || 0) * 1.15) % 8 : 0,
       flip: vx > 0 ? -1 : 1,
-      assetKey: moving ? 'paladin' : 'paladinIdle',
     };
   }
 
@@ -56,29 +53,14 @@
     return actors.find((actor) => Math.abs(actor.x - x) < 4 && Math.abs(actor.y - y) < 6) || null;
   }
 
-  function assetKey(actor) {
-    return actor?.cls === 'paladin' && !actor.moving ? 'paladinIdle' : actor?.cls;
-  }
-
-  window.PlayerSprites = { paladinWalk: PALADIN_WALK, paladinIdle: PALADIN_IDLE, assetKey, pose };
-  if (window.AS) {
-    window.AS.paladin = PALADIN_WALK;
-    window.AS.paladinIdle = PALADIN_IDLE;
-  }
+  window.PlayerSprites = { paladinSheet: PALADIN_SHEET, pose };
+  if (window.AS) window.AS.paladin = PALADIN_SHEET;
 
   window.drawAction = function (img, x, y, size, row, frame, alpha = 1, scaleX = 1) {
-    const actor = actorAt(x, y);
-    let layout = pose(actor, { row, frame, flip: scaleX });
-    let selected = layout.assetKey === 'paladinIdle' ? window.imgs?.paladinIdle : img;
-    if ((!selected?.complete || !selected.naturalWidth) && actor?.cls === 'paladin' && img?.complete) {
-      selected = img;
-      layout = { ...layout, cols: 8, frame: 0, assetKey: 'paladin' };
-    }
-    if (!selected?.complete || !selected.naturalWidth) {
-      return window.drawSheet?.(img, x, y, size, 0, 0, scaleX, 1, alpha);
-    }
-    const frameWidth = selected.width / layout.cols;
-    const frameHeight = selected.height / layout.rows;
+    if (!img?.complete) return window.drawSheet?.(img, x, y, size, 0, 0, scaleX, 1, alpha);
+    const layout = pose(actorAt(x, y), { row, frame, flip: scaleX });
+    const frameWidth = img.width / layout.cols;
+    const frameHeight = img.height / layout.rows;
     const width = size;
     const height = size * frameHeight / frameWidth;
     ctx.save();
@@ -86,7 +68,7 @@
     ctx.translate(x, y);
     ctx.scale(layout.flip, 1);
     ctx.drawImage(
-      selected,
+      img,
       (layout.frame % layout.cols) * frameWidth,
       layout.row * frameHeight,
       frameWidth,
